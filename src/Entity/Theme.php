@@ -16,8 +16,6 @@ class Theme
 {
 
     public function __construct(
-        #[Id, GeneratedValue, Column(type: "integer")]
-        protected ?int $id = null,
         #[Column(type: "string", length: 255)]
         protected string $name,
         #[Column(type: "string", length: 255)]
@@ -31,7 +29,9 @@ class Theme
         #[Column(type: "datetime")]
         protected \DateTime $updatedAt,
         #[Column(type: "boolean")]
-        protected false $isActive
+        protected false $isActive,
+        #[Id, GeneratedValue, Column(type: "integer")]
+        protected ?int $id = null,
     ) {
     }
 }
