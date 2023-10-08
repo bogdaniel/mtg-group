@@ -4,9 +4,27 @@
 
 {% block body %}
 <h1>Available Themes</h1>
-<ul>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+    </tr>
     {% for theme in themes %}
-        <li>{{ theme.getName() }}</li>
+        <tr>
+            <td>{{ theme.getName() }}</td>
+            <td>{{ theme.getDescription() }}</td>
+            <td>{{ theme.getAuthor() }}</td>
+            <td>{{ theme.getCreatedAt()|date('Y-m-d H:i') }}</td>
+            <td>{{ theme.getUpdatedAt()|date('Y-m-d H:i') }}</td>
+            <td>
+                <a href="{{ path('theme_switch', {themeId: theme.getId()}) }}">Make Active</a>
+                <a href="{{ path('theme_install', {themeId: theme.getId()}) }}">Install Assets</a>
+            </td>
+        </tr>
     {% endfor %}
-</ul>
+</table>
 {% endblock %}

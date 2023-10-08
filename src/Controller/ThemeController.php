@@ -10,9 +10,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThemeController extends AbstractController
 {
     #[Route("/theme/switch/{themeId}", name: "theme_switch")]
-    public function switchTheme($themeId): Response
+    public function switchTheme($themeId, ThemeRepository $themeRepository): Response
     {
-        // logic to switch theme...
+        $theme = $themeRepository->find($themeId);
+        if ($theme) {
+            $theme->setActive(true);
+            $this->getDoctrine()->getManager()->flush();
+        }
+
+        return $this->redirectToRoute('dashboard');
+    }
+
+    #[Route("/theme/install/{themeId}", name: "theme_install")]
+    public function installAssets($themeId, ThemeRepository $themeRepository): Response
+    {
+        $theme = $themeRepository->find($themeId);
+        if ($theme) {
+            // logic to install theme assets...
+        }
 
         return $this->redirectToRoute('dashboard');
     }
