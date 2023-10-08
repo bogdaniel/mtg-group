@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Themes{% endblock %}
+
+{% block body %}
+<h1>Available Themes</h1>
+<ul>
+    {% for theme in themes %}
+        <li>{{ theme.getName() }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

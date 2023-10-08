@@ -23,4 +23,12 @@ class ThemeController extends AbstractController
 
         return $this->render('dashboard.html.twig');
     }
+
+    #[Route("/themes", name: "themes")]
+    public function listThemes(ThemeRepository $themeRepository): Response
+    {
+        $themes = $themeRepository->findAll();
+
+        return $this->render('themes.html.twig', ['themes' => $themes]);
+    }
 }
