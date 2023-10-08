@@ -2,33 +2,24 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Column;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\ThemeRepository")
- */
+#[Entity(repositoryClass: "App\Repository\ThemeRepository")]
 class Theme
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[Id, GeneratedValue, Column(type: "integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[Column(type: "string", length: 255)]
     private $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[Column(type: "string", length: 255)]
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[Column(type: "string", length: 255)]
     private $author;
 
     // getters and setters...
