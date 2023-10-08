@@ -5,7 +5,7 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Filesystem\Filesystem;
 
 class GenerateThemeCommand extends Command
@@ -15,18 +15,30 @@ class GenerateThemeCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Generates a new theme folder.')
-            ->addArgument('name', InputArgument::REQUIRED, 'The name of the theme.')
-            ->addArgument('description', InputArgument::REQUIRED, 'The description of the theme.')
-            ->addArgument('license', InputArgument::REQUIRED, 'The license of the theme.')
-            ->addArgument('author', InputArgument::REQUIRED, 'The author of the theme.');
+            ->setDescription('Generates a new theme folder.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $helper = $this->getHelper('question');
+
+        $question = new Question('Please enter the name of the theme: ');
+        $themeName = ucwords($helper->ask($input, $output, $question));
+
+        $question = new Question('Please enter the description of the theme: ');
+        $description = $helper->ask($input, $output, $question);
+
+        $question = new Question('Please enter the license of the theme: ');
+        $license = $helper->ask($input, $output, $question);
+
+        $question = new Question('Please enter the author of the theme: ');
+        $author = $helper->ask($input, $output, $question);
+
+        $question = new Question('Please enter the email of the author: ');
+        $email = $helper->ask($input, $output, $question);
+
         $filesystem = new Filesystem();
 
-        $themeName = ucwords($input->getArgument('name'));
         $themeDir = 'themes/' . $themeName;
 
         $filesystem->mkdir([
@@ -39,12 +51,12 @@ class GenerateThemeCommand extends Command
 
         $composerJson = [
             "name" => $themeName,
-            "description" => $input->getArgument('description'),
-            "license" => $input->getArgument('license'),
+            "description" => $description,
+            "license" => $license,
             "authors" => [
                 [
-                    "name" => $input->getArgument('author'),
-                    "email" => ""
+                    "name" => $author,
+                    "email" => $email
                 ]
             ]
         ];
