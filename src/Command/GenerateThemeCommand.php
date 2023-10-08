@@ -34,7 +34,19 @@ class GenerateThemeCommand extends Command
             "$themeDir/translations",
         ]);
 
-        $filesystem->dumpFile("$themeDir/composer.json", '{}');
+        $defaultComposerJson = [
+            "name" => "",
+            "description" => "",
+            "license" => "MIT",
+            "authors" => [
+                [
+                    "name" => "",
+                    "email" => ""
+                ]
+            ]
+        ];
+
+        $filesystem->dumpFile("$themeDir/composer.json", json_encode($defaultComposerJson, JSON_PRETTY_PRINT));
 
         $output->writeln("Theme $themeName generated successfully.");
 
