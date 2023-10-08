@@ -12,11 +12,7 @@ class ThemeController extends AbstractController
     #[Route("/theme/switch/{themeId}", name: "theme_switch")]
     public function switchTheme($themeId, ThemeRepository $themeRepository): Response
     {
-        $theme = $themeRepository->find($themeId);
-        if ($theme) {
-            $theme->setActive(true);
-            $this->getDoctrine()->getManager()->flush();
-        }
+        $themeRepository->setActive($themeId);
 
         return $this->redirectToRoute('dashboard');
     }

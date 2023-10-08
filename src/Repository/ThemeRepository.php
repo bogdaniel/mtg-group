@@ -19,5 +19,12 @@ class ThemeRepository extends ServiceEntityRepository
         parent::__construct($registry, Theme::class);
     }
 
-    // other methods...
+    public function setActive(int $themeId): void
+    {
+        $theme = $this->find($themeId);
+        if ($theme) {
+            $theme->setActive(true);
+            $this->_em->flush();
+        }
+    }
 }
