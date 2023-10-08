@@ -16,7 +16,10 @@ class GenerateThemeCommand extends Command
     {
         $this
             ->setDescription('Generates a new theme folder.')
-            ->addArgument('name', InputArgument::REQUIRED, 'The name of the theme.');
+            ->addArgument('name', InputArgument::REQUIRED, 'The name of the theme.')
+            ->addArgument('description', InputArgument::REQUIRED, 'The description of the theme.')
+            ->addArgument('license', InputArgument::REQUIRED, 'The license of the theme.')
+            ->addArgument('author', InputArgument::REQUIRED, 'The author of the theme.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -34,19 +37,19 @@ class GenerateThemeCommand extends Command
             "$themeDir/translations",
         ]);
 
-        $defaultComposerJson = [
-            "name" => "",
-            "description" => "",
-            "license" => "MIT",
+        $composerJson = [
+            "name" => $themeName,
+            "description" => $input->getArgument('description'),
+            "license" => $input->getArgument('license'),
             "authors" => [
                 [
-                    "name" => "",
+                    "name" => $input->getArgument('author'),
                     "email" => ""
                 ]
             ]
         ];
 
-        $filesystem->dumpFile("$themeDir/composer.json", json_encode($defaultComposerJson, JSON_PRETTY_PRINT));
+        $filesystem->dumpFile("$themeDir/composer.json", json_encode($composerJson, JSON_PRETTY_PRINT));
 
         $output->writeln("Theme $themeName generated successfully.");
 
