@@ -17,35 +17,22 @@ class Theme
     #[Id, GeneratedValue, Column(type: "integer")]
     private $id;
 
-    #[Column(type: "string", length: 255)]
-    private $name;
+    public function __construct(
+        #[Column(type: "string", length: 255)]
+        public readonly string $name,
+        #[Column(type: "string", length: 255)]
+        public readonly string $title,
+        #[Column(type: "string", length: 255)]
+        public readonly string $description,
+        #[Column(type: "string", length: 255)]
+        public readonly string $author,
+        #[Column(type: "datetime")]
+        public readonly \DateTime $createdAt,
+        #[Column(type: "datetime")]
+        public readonly \DateTime $updatedAt,
+        #[Column(type: "boolean")]
+        public readonly false $isActive
 
-    #[Column(type: "string", length: 255)]
-    private $title;
-
-    #[Column(type: "string", length: 255)]
-    private $description;
-
-    #[Column(type: "string", length: 255)]
-    private $author;
-
-    #[Column(type: "datetime")]
-    private $createdAt;
-
-    #[Column(type: "datetime")]
-    private $updatedAt;
-
-    #[Column(type: "boolean")]
-    private $isActive;
-
-    public function __construct(string $name, string $title, string $description, string $author)
-    {
-        $this->name = $name;
-        $this->title = $title;
-        $this->description = $description;
-        $this->author = $author;
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
-        $this->isActive = false;
+    ) {
     }
 }
