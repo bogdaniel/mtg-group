@@ -17,9 +17,9 @@ class ThemeManager
         $this->entityManager = $entityManager;
     }
 
-    public function createTheme(string $name, string $title, string $description, string $author): Theme
+    public function createTheme(string $name, string $title, string $description, string $author, bool $isActive): Theme
     {
-        $theme = new Theme($name, $title, $description, $author);
+        $theme = new Theme($name, $title, $description, $author, $isActive);
         $this->entityManager->persist($theme);
         $this->entityManager->flush();
 

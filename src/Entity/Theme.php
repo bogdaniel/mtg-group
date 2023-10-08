@@ -38,7 +38,7 @@ class Theme
     #[Column(type: "boolean")]
     private $isActive;
 
-    public function __construct(string $name, string $title, string $description, string $author)
+    public function __construct(string $name, string $title, string $description, string $author, bool $isActive)
     {
         $this->name = $name;
         $this->title = $title;
@@ -46,7 +46,7 @@ class Theme
         $this->author = $author;
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
-        $this->isActive = false;
+        $this->isActive = $isActive;
     }
 
     public function getCreatedAt(): \DateTime
@@ -64,11 +64,7 @@ class Theme
         return $this->isActive;
     }
 
-    public function setActive(bool $active): void
-    {
-        $this->isActive = $active;
-        $this->updatedAt = new \DateTime();
-    }
+    // Removed setActive method
 
     public function getId(): ?int
     {
@@ -90,10 +86,7 @@ class Theme
         return $this->title;
     }
 
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
+    // Removed setTitle method
 
     public function getAuthor(): string
     {
