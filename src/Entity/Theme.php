@@ -14,10 +14,10 @@ use App\Repository\ThemeRepository;
 #[Table(name: "theme", uniqueConstraints: [new UniqueConstraint(name: "theme_name_unique", columns: ["name"])])]
 class Theme
 {
-    #[Id, GeneratedValue, Column(type: "integer")]
-    protected readonly int $id;
 
     public function __construct(
+        #[Id, GeneratedValue, Column(type: "integer")]
+        protected ?int $id = null,
         #[Column(type: "string", length: 255)]
         protected string $name,
         #[Column(type: "string", length: 255)]

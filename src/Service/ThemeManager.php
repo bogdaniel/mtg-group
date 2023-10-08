@@ -26,14 +26,11 @@ class ThemeManager
         return $theme;
     }
 
-    public function updateTheme(Theme $theme, string $title, string $description, string $author): Theme
+    public function updateTheme(int $id, string $name, string $title, string $description, string $author, bool $isActive): Theme
     {
-        $theme->setTitle($title);
-        $theme->setDescription($description);
-        $theme->setAuthor($author);
-        $this->entityManager->flush();
+        $this->deleteTheme($id);
 
-        return $theme;
+        return $this->createTheme($name, $title, $description, $author, $isActive);
     }
 
     public function deleteTheme(Theme $theme): void
