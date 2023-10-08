@@ -28,9 +28,14 @@ class ThemeManager
 
     public function updateTheme(int $id, string $name, string $title, string $description, string $author, bool $isActive): Theme
     {
-        $this->deleteTheme($id);
+        $theme = $this->findTheme($id);
+        if ($theme) {
+            $updatedTheme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive, $id);
+            $this->entityManager->persist($updatedTheme);
+            $this->entityManager->flush();
+        }
 
-        return $this->createTheme($name, $title, $description, $author, $isActive);
+        return $updatedTheme;
     }
 
     public function deleteTheme(Theme $theme): void
