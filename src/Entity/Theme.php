@@ -48,48 +48,4 @@ class Theme
         $this->updatedAt = new \DateTime();
         $this->isActive = false;
     }
-
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    public function isActive(): bool
-    {
-        return $this->isActive;
-    }
-
-    // Removed setActive method
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    // Removed setTitle method
-
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
 }
