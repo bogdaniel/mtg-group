@@ -38,10 +38,9 @@ class ThemeDiscoveryService
                 if (!$theme) {
                     $theme = new Theme($themeName, $composerJson['description'] ?? '', $composerJson['authors'][0]['name'] ?? '');
                     $this->entityManager->persist($theme);
-                } else {
-                    $theme->setDescription($composerJson['description'] ?? '');
-                    $theme->setAuthor($composerJson['authors'][0]['name'] ?? '');
                 }
+                $theme->setDescription($composerJson['description'] ?? '');
+                $theme->setAuthor($composerJson['authors'][0]['name'] ?? '');
             }
         }
 
