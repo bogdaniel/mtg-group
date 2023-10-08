@@ -15,4 +15,12 @@ class ThemeController extends AbstractController
 
         return $this->redirectToRoute('dashboard');
     }
+
+    #[Route("/dashboard", name: "dashboard")]
+    public function dashboard(): Response
+    {
+        // logic to display dashboard...
+
+        return $this->render('dashboard.html.twig');
+    }
 }
