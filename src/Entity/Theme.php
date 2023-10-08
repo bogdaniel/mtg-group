@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Column;
+use App\Repository\ThemeRepository;
 
-#[Entity(repositoryClass: "App\Repository\ThemeRepository")]
+#[Entity(repositoryClass: ThemeRepository::class)]
 class Theme
 {
     #[Id, GeneratedValue, Column(type: "integer")]
