@@ -9,19 +9,15 @@ use Doctrine\ORM\EntityManagerInterface;
 class ThemeManager
 {
     private $themeRepository;
-    private $entityManager;
-
-    public function __construct(ThemeRepository $themeRepository, EntityManagerInterface $entityManager)
+    public function __construct(ThemeRepository $themeRepository)
     {
         $this->themeRepository = $themeRepository;
-        $this->entityManager = $entityManager;
     }
 
     public function createTheme(string $name, string $title, string $description, string $author, bool $isActive): Theme
     {
         $theme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive);
-        $this->entityManager->persist($theme);
-        $this->entityManager->flush();
+        $this->themeRepository->save($theme);
 
         return $theme;
     }
@@ -31,8 +27,7 @@ class ThemeManager
         $theme = $this->findTheme($id);
         if ($theme) {
             $updatedTheme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive, $id);
-            $this->entityManager->persist($updatedTheme);
-            $this->entityManager->flush();
+            $this->themeRepository->save($updatedTheme);
             return $updatedTheme;
 
         }
@@ -42,8 +37,7 @@ class ThemeManager
 
     public function deleteTheme(Theme $theme): void
     {
-        $this->entityManager->remove($theme);
-        $this->entityManager->flush();
+        $this->themeRepository->delete($theme);
     }
 
     public function findTheme(int $id): ?Theme
@@ -58,10 +52,6 @@ class ThemeManager
 
     public function setActiveTheme(int $id): void
     {
-        $theme = $this->findTheme($id);
-        if ($theme) {
-            $theme->setActive(true);
-            $this->entityManager->flush();
-        }
+        $this->themeRepository->setActive($id);
     }
 }
