@@ -17,9 +17,9 @@ class ThemeManager
         $this->entityManager = $entityManager;
     }
 
-    public function createTheme(string $name, string $title, string $description, string $author, bool $isActive, ?int $id = null): Theme
+    public function createTheme(string $name, string $title, string $description, string $author, bool $isActive): Theme
     {
-        $theme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive, $id);
+        $theme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive);
         $this->entityManager->persist($theme);
         $this->entityManager->flush();
 
@@ -33,9 +33,11 @@ class ThemeManager
             $updatedTheme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive, $id);
             $this->entityManager->persist($updatedTheme);
             $this->entityManager->flush();
+            return $updatedTheme;
+
         }
 
-        return $updatedTheme;
+        throw new \RuntimeException('Theme not found');
     }
 
     public function deleteTheme(Theme $theme): void
