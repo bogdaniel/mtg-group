@@ -15,7 +15,7 @@
     </tr>
     {% for theme in themes %}
         <tr>
-            <td>{{ theme.getName() }}</td>
+            <td>{{ theme.getTitle() }}</td>
             <td>{{ theme.getDescription() }}</td>
             <td>{{ theme.getAuthor() }}</td>
             <td>{{ theme.getCreatedAt()|date('Y-m-d H:i') }}</td>

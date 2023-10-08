@@ -22,8 +22,11 @@ class GenerateThemeCommand extends Command
     {
         $helper = $this->getHelper('question');
 
+        $question = new Question('Please enter the title of the theme: ');
+        $themeTitle = ucwords($helper->ask($input, $output, $question));
+
         $question = new Question('Please enter the name of the theme: ');
-        $themeName = ucwords($helper->ask($input, $output, $question));
+        $themeName = strtolower(str_replace(' ', '-', $themeTitle));
 
         $question = new Question('Please enter the description of the theme: ');
         $description = $helper->ask($input, $output, $question);
@@ -51,6 +54,7 @@ class GenerateThemeCommand extends Command
 
         $composerJson = [
             "name" => $themeName,
+            "title" => $themeTitle,
             "description" => $description,
             "license" => $license,
             "authors" => [

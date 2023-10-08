@@ -6,9 +6,12 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Doctrine\ORM\Mapping\Table;
 use App\Repository\ThemeRepository;
 
 #[Entity(repositoryClass: ThemeRepository::class)]
+#[Table(name: "theme", uniqueConstraints: [new UniqueConstraint(name: "theme_name_unique", columns: ["name"])])]
 class Theme
 {
     #[Id, GeneratedValue, Column(type: "integer")]
@@ -16,6 +19,9 @@ class Theme
 
     #[Column(type: "string", length: 255)]
     private $name;
+
+    #[Column(type: "string", length: 255)]
+    private $title;
 
     #[Column(type: "string", length: 255)]
     private $description;
@@ -32,9 +38,10 @@ class Theme
     #[Column(type: "boolean")]
     private $isActive;
 
-    public function __construct(string $name, string $description, string $author)
+    public function __construct(string $name, string $title, string $description, string $author)
     {
         $this->name = $name;
+        $this->title = $title;
         $this->description = $description;
         $this->author = $author;
         $this->createdAt = new \DateTime();
@@ -76,6 +83,16 @@ class Theme
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
     }
 
     public function getAuthor(): string

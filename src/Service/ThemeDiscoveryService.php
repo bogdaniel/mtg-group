@@ -35,7 +35,14 @@ class ThemeDiscoveryService
             if ($this->filesystem->exists($composerJsonPath)) {
                 $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
 
-                $theme = new Theme($themeName, $composerJson['description'] ?? '', $composerJson['authors'][0]['name'] ?? '');
+                $themeTitle = $composerJson['title'] ?? '';
+                $theme = $this->themeRepository->findOneBy(['name' => $themeName]);
+                if (!$theme) {
+                    $theme = new Theme($themeName, $themeTitle, $composerJson['description'] ?? '', $composerJson['authors'][0]['name'] ?? '');
+                    $this->entityManager->persist($theme);
+                } else {
+                    $theme->setTitle($themeTitle);
+                }
                 $this->entityManager->persist($theme);
             }
         }
