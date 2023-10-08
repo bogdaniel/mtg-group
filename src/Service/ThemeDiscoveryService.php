@@ -14,10 +14,11 @@ class ThemeDiscoveryService
     private $entityManager;
     private $filesystem;
 
-    public function __construct(ThemeRepository $themeRepository, EntityManagerInterface $entityManager, Filesystem $filesystem)
+    private $themeManager;
+
+    public function __construct(ThemeManager $themeManager, Filesystem $filesystem)
     {
-        $this->themeRepository = $themeRepository;
-        $this->entityManager = $entityManager;
+        $this->themeManager = $themeManager;
         $this->filesystem = $filesystem;
     }
 
@@ -28,7 +29,7 @@ class ThemeDiscoveryService
 
         foreach ($finder as $dir) {
             $themeName = $dir->getBasename();
-            $theme = $this->themeRepository->findOneBy(['name' => $themeName]);
+            $theme = $this->themeManager->findThemeByName($themeName);
 
             $composerJsonPath = $dir->getRealPath() . '/composer.json';
 
@@ -36,17 +37,15 @@ class ThemeDiscoveryService
                 $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
 
                 $themeTitle = $composerJson['title'] ?? '';
-                $theme = $this->themeRepository->findOneBy(['name' => $themeName]);
+                $description = $composerJson['description'] ?? '';
+                $author = $composerJson['authors'][0]['name'] ?? '';
+
                 if (!$theme) {
-                    $theme = new Theme($themeName, $themeTitle, $composerJson['description'] ?? '', $composerJson['authors'][0]['name'] ?? '');
-                    $this->entityManager->persist($theme);
+                    $this->themeManager->createTheme($themeName, $themeTitle, $description, $author);
                 } else {
-                    $theme->setTitle($themeTitle);
+                    $this->themeManager->updateTheme($theme, $themeTitle, $description, $author);
                 }
-                $this->entityManager->persist($theme);
             }
         }
-
-        $this->entityManager->flush();
     }
 }
