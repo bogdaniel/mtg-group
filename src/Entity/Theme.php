@@ -15,24 +15,23 @@ use App\Repository\ThemeRepository;
 class Theme
 {
     #[Id, GeneratedValue, Column(type: "integer")]
-    private $id;
+    protected readonly int $id;
 
     public function __construct(
         #[Column(type: "string", length: 255)]
-        public readonly string $name,
+        protected string $name,
         #[Column(type: "string", length: 255)]
-        public readonly string $title,
+        protected string $title,
         #[Column(type: "string", length: 255)]
-        public readonly string $description,
+        protected string $description,
         #[Column(type: "string", length: 255)]
-        public readonly string $author,
+        protected string $author,
         #[Column(type: "datetime")]
-        public readonly \DateTime $createdAt,
+        protected \DateTime $createdAt,
         #[Column(type: "datetime")]
-        public readonly \DateTime $updatedAt,
+        protected \DateTime $updatedAt,
         #[Column(type: "boolean")]
-        public readonly false $isActive
-
+        protected false $isActive
     ) {
     }
 }
