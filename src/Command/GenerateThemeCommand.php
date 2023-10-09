@@ -14,8 +14,7 @@ class GenerateThemeCommand extends Command
 
     protected function configure()
     {
-        $this
-            ->setDescription('Generates a new theme folder.');
+        $this->setDescription('Generates a new theme folder.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
