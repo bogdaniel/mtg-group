@@ -41,3 +41,7 @@ class ThemeRepository extends ServiceEntityRepository
         $this->save($theme);
     }
 }
+    public function find(int $id): ?Theme
+    {
+        return $this->findOneBy(['id' => $id]);
+    }

@@ -58,3 +58,7 @@ class ThemeManager
         }
     }
 }
+    public function findThemeById(int $id): ?Theme
+    {
+        return $this->themeRepository->find($id);
+    }
