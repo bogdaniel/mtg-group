@@ -31,6 +31,11 @@ class ThemeRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
+    public function findThemeByName(string $name): ?Theme
+    {
+        return $this->findOneBy(['name' => $name]);
+    }
+
     public function setActive(Theme $theme): void
     {
         $this->save($theme);
