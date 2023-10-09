@@ -25,7 +25,7 @@ class GenerateThemeCommand extends Command
         $themeTitle = ucwords($helper->ask($input, $output, $question));
 
         $question = new Question('Please enter the name of the theme: ');
-        $themeName = strtolower(str_replace(' ', '-', $themeTitle));
+        $themeName = ucwords($helper->ask($input, $output, $question));
 
         $question = new Question('Please enter the description of the theme: ');
         $description = $helper->ask($input, $output, $question);
@@ -41,7 +41,9 @@ class GenerateThemeCommand extends Command
 
         $filesystem = new Filesystem();
 
-        $themeDir = 'themes/' . $themeName;
+
+        $themeNameCompiled = strtolower(str_replace(' ', '-', $themeTitle));
+        $themeDir = 'themes/' . $themeNameCompiled;
 
         $filesystem->mkdir([
             $themeDir,

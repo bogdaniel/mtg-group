@@ -34,13 +34,13 @@ class ThemeDiscoveryService
                 $themeTitle = $composerJson['title'] ?? '';
                 $description = $composerJson['description'] ?? '';
                 $author = $composerJson['authors'][0]['name'] ?? '';
-                $isActive = false;
 
                 if (!$theme) {
-                    $this->themeManager->createTheme($themeName, $themeTitle, $description, $author, $isActive);
-                } else {
-                    $this->themeManager->updateTheme($theme->id, $themeName, $themeTitle, $description, $author, $isActive);
+                    $this->themeManager->createTheme($themeName, $themeTitle, $description, $author, false);
+                    continue;
                 }
+
+                $this->themeManager->updateTheme($theme->id, $themeName, $themeTitle, $description, $author, false);
             }
         }
     }
