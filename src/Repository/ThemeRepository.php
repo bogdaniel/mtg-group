@@ -19,12 +19,6 @@ class ThemeRepository extends ServiceEntityRepository
         parent::__construct($registry, Theme::class);
     }
 
-    public function save(Theme $theme): void
-    {
-        $this->_em->persist($theme);
-        $this->_em->flush();
-    }
-
     public function delete(Theme $theme): void
     {
         $this->_em->remove($theme);
@@ -40,8 +34,10 @@ class ThemeRepository extends ServiceEntityRepository
     {
         $this->save($theme);
     }
-}
-    public function find(int $id): ?Theme
+
+    public function save(Theme $theme): void
     {
-        return $this->findOneBy(['id' => $id]);
+        $this->_em->persist($theme);
+        $this->_em->flush();
     }
+}
