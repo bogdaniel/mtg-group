@@ -16,21 +16,21 @@ class Theme
 {
     public function __construct(
         #[Column(type: "string", length: 255)]
-        protected string $name,
+        public readonly string $name,
         #[Column(type: "string", length: 255)]
-        protected string $title,
+        public readonly string $title,
         #[Column(type: "string", length: 255)]
-        protected string $description,
+        public readonly string $description,
         #[Column(type: "string", length: 255)]
-        protected string $author,
+        public readonly string $author,
         #[Column(type: "datetime")]
-        protected \DateTime $createdAt,
+        public readonly \DateTime $createdAt,
         #[Column(type: "datetime")]
-        protected \DateTime $updatedAt,
+        public readonly \DateTime $updatedAt,
         #[Column(type: "boolean")]
-        protected false $isActive,
+        public readonly false $isActive,
         #[Id, GeneratedValue, Column(type: "integer")]
-        protected ?int $id = null,
+        public readonly ?int $id = null,
     ) {
     }
 }

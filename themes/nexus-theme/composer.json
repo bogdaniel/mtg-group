@@ -1,0 +1,12 @@
+{
+    "name": "nexus-theme",
+    "title": "Nexus Theme",
+    "description": "description here",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bogdan Olteanu",
+            "email": "bogdan@zenchron.com"
+        }
+    ]
+}

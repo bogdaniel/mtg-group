@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Entity\Theme;
 use App\Repository\ThemeRepository;
-use Doctrine\ORM\EntityManagerInterface;
 
 class ThemeManager
 {
@@ -24,7 +23,7 @@ class ThemeManager
 
     public function updateTheme(int $id, string $name, string $title, string $description, string $author, bool $isActive): Theme
     {
-        $theme = $this->findTheme($id);
+        $theme = $this->findThemeById($id);
         if ($theme) {
             $updatedTheme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive, $id);
             $this->themeRepository->save($updatedTheme);
@@ -52,9 +51,10 @@ class ThemeManager
 
     public function setActiveTheme(int $id): void
     {
-        $theme = $this->findTheme($id);
+        $theme = $this->findThemeById($id);
         if ($theme) {
-            $this->themeRepository->setActive($id);
+            $updatedTheme = new Theme($theme->name, $theme->title, $theme->description, $theme->author, $theme->createdAt, new \DateTime(), 1, $id);
+            $this->themeRepository->save($updatedTheme);
         }
     }
 
