@@ -34,9 +34,10 @@ class ThemeDiscoveryService
                 $themeTitle = $composerJson['title'] ?? '';
                 $description = $composerJson['description'] ?? '';
                 $author = $composerJson['authors'][0]['name'] ?? '';
+                $isActive = false;
 
                 if (!$theme) {
-                    $this->themeManager->createTheme($themeName, $themeTitle, $description, $author);
+                    $this->themeManager->createTheme($themeName, $themeTitle, $description, $author, $isActive);
                 } else {
                     $this->themeManager->updateTheme($theme, $themeTitle, $description, $author);
                 }
