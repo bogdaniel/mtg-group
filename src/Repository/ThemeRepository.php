@@ -19,6 +19,18 @@ class ThemeRepository extends ServiceEntityRepository
         parent::__construct($registry, Theme::class);
     }
 
+    public function save(Theme $theme): void
+    {
+        $this->_em->persist($theme);
+        $this->_em->flush();
+    }
+
+    public function delete(Theme $theme): void
+    {
+        $this->_em->remove($theme);
+        $this->_em->flush();
+    }
+
     public function setActive(int $themeId): void
     {
         $theme = $this->find($themeId);
