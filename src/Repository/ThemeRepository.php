@@ -31,12 +31,8 @@ class ThemeRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
-    public function setActive(int $themeId): void
+    public function setActive(Theme $theme): void
     {
-        $theme = $this->find($themeId);
-        if ($theme) {
-            $theme->setActive(true);
-            $this->_em->flush();
-        }
+        $this->save($theme);
     }
 }
