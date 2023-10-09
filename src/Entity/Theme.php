@@ -14,7 +14,6 @@ use App\Repository\ThemeRepository;
 #[Table(name: "theme", uniqueConstraints: [new UniqueConstraint(name: "theme_name_unique", columns: ["name"])])]
 class Theme
 {
-
     public function __construct(
         #[Column(type: "string", length: 255)]
         protected string $name,
