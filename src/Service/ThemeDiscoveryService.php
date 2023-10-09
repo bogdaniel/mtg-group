@@ -39,7 +39,7 @@ class ThemeDiscoveryService
                 if (!$theme) {
                     $this->themeManager->createTheme($themeName, $themeTitle, $description, $author, $isActive);
                 } else {
-                    $this->themeManager->updateTheme($theme, $themeTitle, $description, $author);
+                    $this->themeManager->updateTheme($theme->id, $themeName, $themeTitle, $description, $author, $isActive);
                 }
             }
         }
