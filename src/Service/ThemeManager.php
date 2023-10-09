@@ -28,8 +28,8 @@ class ThemeManager
         if ($theme) {
             $updatedTheme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive, $id);
             $this->themeRepository->save($updatedTheme);
-            return $updatedTheme;
 
+            return $updatedTheme;
         }
 
         throw new \RuntimeException('Theme not found');
@@ -52,6 +52,9 @@ class ThemeManager
 
     public function setActiveTheme(int $id): void
     {
-        $this->themeRepository->setActive($id);
+        $theme = $this->findTheme($id);
+        if ($theme) {
+            $this->themeRepository->setActive($id);
+        }
     }
 }
