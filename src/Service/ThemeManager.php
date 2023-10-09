@@ -40,9 +40,9 @@ class ThemeManager
         $this->themeRepository->delete($theme);
     }
 
-    public function findTheme(int $id): ?Theme
+    public function findThemeByName(string $name): ?Theme
     {
-        return $this->themeRepository->find($id);
+        return $this->themeRepository->findThemeByName($name);
     }
 
     public function findAllThemes(): array
