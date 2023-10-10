@@ -30,7 +30,7 @@ class Theme
         #[Column(type: "boolean")]
         public readonly false $isActive,
         #[Id, GeneratedValue, Column(type: "integer")]
-        public readonly ?int $id = null,
+        public ?int $id = null,
     ) {
     }
 }
