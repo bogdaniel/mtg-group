@@ -15,11 +15,11 @@
     </tr>
     {% for theme in themes %}
         <tr>
-            <td>{{ theme.getTitle() }}</td>
-            <td>{{ theme.getDescription() }}</td>
-            <td>{{ theme.getAuthor() }}</td>
-            <td>{{ theme.getCreatedAt()|date('Y-m-d H:i') }}</td>
-            <td>{{ theme.getUpdatedAt()|date('Y-m-d H:i') }}</td>
+            <td>{{ theme.title }}</td>
+            <td>{{ theme.description }}</td>
+            <td>{{ theme.author }}</td>
+            <td>{{ theme.createdAt|date('Y-m-d H:i') }}</td>
+            <td>{{ theme.updatedAt|date('Y-m-d H:i') }}</td>
             <td>
                 <a href="{{ path('theme_switch', {themeId: theme.getId()}) }}">Make Active</a>
                 <a href="{{ path('theme_install', {themeId: theme.getId()}) }}">Install Assets</a>
