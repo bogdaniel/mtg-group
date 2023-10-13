@@ -52,11 +52,15 @@ class GenerateThemeCommand extends Command
             "$themeDir/translations",
         ]);
 
+        $question = new Question('Please enter the version of the theme: ');
+        $version = $helper->ask($input, $output, $question);
+
         $composerJson = [
             "name" => $packageName,
             "title" => $themeTitle,
             "description" => $description,
             "license" => $license,
+            "version" => $version,
             "authors" => [
                 [
                     "name" => $author,
