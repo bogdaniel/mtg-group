@@ -2,25 +2,32 @@
 
 namespace App\Controller;
 
-use App\Repository\ThemeRepository;
+use App\Service\ThemeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ThemeController extends AbstractController
 {
-    #[Route("/theme/switch/{themeId}", name: "theme_switch")]
-    public function switchTheme($themeId, ThemeRepository $themeRepository): Response
+    private ThemeManager $themeManager;
+
+    public function __construct(ThemeManager $themeManager)
     {
-        $themeRepository->setActive($themeId);
+        $this->themeManager = $themeManager;
+    }
+
+    #[Route("/theme/switch/{themeId}", name: "theme_switch")]
+    public function switchTheme($themeId): Response
+    {
+        $this->themeManager->setActiveTheme($themeId);
 
         return $this->redirectToRoute('dashboard');
     }
 
     #[Route("/theme/install/{themeId}", name: "theme_install")]
-    public function installAssets($themeId, ThemeRepository $themeRepository): Response
+    public function installAssets($themeId): Response
     {
-        $theme = $themeRepository->find($themeId);
+        $theme = $this->themeManager->findThemeById($themeId);
         if ($theme) {
             // logic to install theme assets...
         }
@@ -37,9 +44,9 @@ class ThemeController extends AbstractController
     }
 
     #[Route("/themes", name: "themes")]
-    public function listThemes(ThemeRepository $themeRepository): Response
+    public function listThemes(): Response
     {
-        $themes = $themeRepository->findAll();
+        $themes = $this->themeManager->findAllThemes();
 
         return $this->render('themes.html.twig', ['themes' => $themes]);
     }
