@@ -74,7 +74,7 @@ class ThemeManager
     {
         return $this->themeRepository->findAll();
     }
-    
+
     public function setActiveTheme(int $id): void
     {
         $theme = $this->findThemeById($id);
