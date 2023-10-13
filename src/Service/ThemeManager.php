@@ -3,13 +3,12 @@
 namespace App\Service;
 
 use App\Domain\Contract\ThemeDataContract;
-use App\Domain\Entity\ThemeData;
 use App\Entity\Theme;
 use App\Repository\ThemeRepository;
 
 class ThemeManager
 {
-    private $themeRepository;
+    private ThemeRepository $themeRepository;
 
     public function __construct(ThemeRepository $themeRepository)
     {
