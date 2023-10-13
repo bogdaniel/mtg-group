@@ -85,9 +85,10 @@ class ThemeManager
                 $theme->description,
                 $theme->authors,
                 $theme->version,
+                $theme->homepage,
                 $theme->createdAt,
                 new \DateTime(),
-                1,
+                true,
                 $id
             );
             $this->themeRepository->save($updatedTheme);
