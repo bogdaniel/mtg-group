@@ -39,6 +39,9 @@ class GenerateThemeCommand extends Command
         $question = new Question('Please enter the email of the author: ');
         $email = $helper->ask($input, $output, $question);
 
+        $question = new Question('Please enter the version of the theme: ');
+        $version = $helper->ask($input, $output, $question);
+
         $filesystem = new Filesystem();
 
         $packageNameCompiled = strtolower(str_replace(' ', '-', $themeTitle));
@@ -52,8 +55,6 @@ class GenerateThemeCommand extends Command
             "$themeDir/translations",
         ]);
 
-        $question = new Question('Please enter the version of the theme: ');
-        $version = $helper->ask($input, $output, $question);
 
         $composerJson = [
             "name" => $packageName,
