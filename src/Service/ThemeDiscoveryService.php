@@ -33,12 +33,15 @@ class ThemeDiscoveryService
                     $authors[] = $author['name'];
                 }
 
+                $homepage = $composerJson['homepage'] ?? '';
+
                 $themeData = new ThemeData(
                     $composerJson['name'],
                     $composerJson['title'] ?? '',
                     $composerJson['description'] ?? '',
                     $authors,
                     $composerJson['version'] ?? '',
+                    $homepage,
                     false
                 );
 

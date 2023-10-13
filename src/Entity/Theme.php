@@ -25,6 +25,8 @@ class Theme
         public readonly array $authors,
         #[Column(type: "string", length: 255)]
         public readonly string $version,
+        #[Column(type: "string", length: 255)]
+        public readonly string $homepage,
         #[Column(type: "datetime")]
         public readonly \DateTime $createdAt,
         #[Column(type: "datetime")]
