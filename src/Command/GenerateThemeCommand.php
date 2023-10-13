@@ -26,7 +26,7 @@ class GenerateThemeCommand extends Command
 
         $question = new Question('Please enter the package name of the theme: ');
         $question->setValidator(function ($answer) {
-            if (!preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $answer)) {
+            if (!preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*$/', $answer)) {
                 throw new \RuntimeException('The package name should be a valid composer package name.');
             }
 
