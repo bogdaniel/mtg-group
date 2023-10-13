@@ -32,7 +32,7 @@ class Theme
         #[Column(type: "datetime")]
         public readonly \DateTime $updatedAt,
         #[Column(type: "boolean")]
-        public readonly false $isActive,
+        public readonly bool $isActive,
         #[Id, GeneratedValue, Column(type: "integer")]
         public ?int $id = null,
     ) {
