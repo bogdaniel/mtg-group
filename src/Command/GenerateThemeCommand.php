@@ -22,10 +22,20 @@ class GenerateThemeCommand extends Command
         $helper = $this->getHelper('question');
 
         $question = new Question('Please enter the title of the theme: ');
+        $question->setValidator(function ($answer) {
+            if (empty($answer)) {
+                throw new \RuntimeException('The title of the theme is required.');
+            }
+
+            return $answer;
+        });
         $themeTitle = ucwords($helper->ask($input, $output, $question));
 
         $question = new Question('Please enter the package name of the theme: ');
         $question->setValidator(function ($answer) {
+            if (empty($answer)) {
+                throw new \RuntimeException('The package name of the theme is required.');
+            }
             if (!preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*$/', $answer)) {
                 throw new \RuntimeException('The package name should be a valid composer package name.');
             }
@@ -35,12 +45,33 @@ class GenerateThemeCommand extends Command
         $packageName = $helper->ask($input, $output, $question);
 
         $question = new Question('Please enter the description of the theme: ');
+        $question->setValidator(function ($answer) {
+            if (empty($answer)) {
+                throw new \RuntimeException('The description of the theme is required.');
+            }
+
+            return $answer;
+        });
         $description = $helper->ask($input, $output, $question);
 
         $question = new Question('Please enter the license of the theme: ');
+        $question->setValidator(function ($answer) {
+            if (empty($answer)) {
+                throw new \RuntimeException('The license of the theme is required.');
+            }
+
+            return $answer;
+        });
         $license = $helper->ask($input, $output, $question);
 
         $question = new Question('Please enter the homepage of the theme: ');
+        $question->setValidator(function ($answer) {
+            if (empty($answer)) {
+                throw new \RuntimeException('The homepage of the theme is required.');
+            }
+
+            return $answer;
+        });
         $homepage = $helper->ask($input, $output, $question);
 
         $authors = [];
@@ -53,6 +84,9 @@ class GenerateThemeCommand extends Command
 
             $question = new Question('Please enter the email of the author: ');
             $question->setValidator(function ($answer) {
+                if (empty($answer)) {
+                    throw new \RuntimeException('The email of the author is required.');
+                }
                 if (!filter_var($answer, FILTER_VALIDATE_EMAIL)) {
                     throw new \RuntimeException('The email should be a valid email address.');
                 }
@@ -66,6 +100,9 @@ class GenerateThemeCommand extends Command
 
         $question = new Question('Please enter the version of the theme: ');
         $question->setValidator(function ($answer) {
+            if (empty($answer)) {
+                throw new \RuntimeException('The version of the theme is required.');
+            }
             if (!preg_match('/^(\d+\.)?(\d+\.)?(\*|\d+)$/', $answer)) {
                 throw new \RuntimeException('The version should follow semantic versioning.');
             }
