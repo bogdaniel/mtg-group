@@ -21,7 +21,7 @@ class Theme
         public readonly string $title,
         #[Column(type: "string", length: 255)]
         public readonly string $description,
-        #[Column(type: "json_array")]
+        #[Column(type: "json")]
         public readonly array $authors,
         #[Column(type: "string", length: 255)]
         public readonly string $version,
