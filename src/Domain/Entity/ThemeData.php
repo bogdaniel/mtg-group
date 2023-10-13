@@ -3,9 +3,16 @@
 namespace App\Domain\Entity;
 
 use App\Domain\Contract\ThemeDataContract;
+use App\Domain\Traits\StaticCreateSelf;
+use App\Domain\Traits\ToArray;
+use App\Domain\Traits\ToEntity;
 
 class ThemeData implements ThemeDataContract
 {
+    use StaticCreateSelf;
+    use ToArray;
+    use ToEntity;
+
     public string $name;
     public string $title;
     public string $description;
