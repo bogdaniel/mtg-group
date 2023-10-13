@@ -14,7 +14,7 @@ class ThemeManager
         $this->themeRepository = $themeRepository;
     }
 
-    public function createTheme(ThemeData $themeData): Theme
+    public function createTheme(ThemeDataContract $themeData): Theme
     {
         $theme = new Theme(
             $themeData->name,
@@ -31,7 +31,7 @@ class ThemeManager
         return $theme;
     }
 
-    public function updateTheme(int $id, ThemeData $themeData): Theme
+    public function updateTheme(int $id, ThemeDataContract $themeData): Theme
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
