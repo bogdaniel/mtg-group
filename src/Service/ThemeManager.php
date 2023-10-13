@@ -16,6 +16,7 @@ class ThemeManager
     public function createTheme(string $name, string $title, string $description, string $author, bool $isActive): Theme
     {
         $theme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive);
+        dd($theme);
         $this->themeRepository->save($theme);
 
         return $theme;

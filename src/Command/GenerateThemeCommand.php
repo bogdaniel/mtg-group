@@ -24,8 +24,8 @@ class GenerateThemeCommand extends Command
         $question = new Question('Please enter the title of the theme: ');
         $themeTitle = ucwords($helper->ask($input, $output, $question));
 
-        $question = new Question('Please enter the name of the theme: ');
-        $themeName = ucwords($helper->ask($input, $output, $question));
+        $question = new Question('Please enter the package name of the theme: ');
+        $packageName = strtolower($helper->ask($input, $output, $question));
 
         $question = new Question('Please enter the description of the theme: ');
         $description = $helper->ask($input, $output, $question);
@@ -34,16 +34,15 @@ class GenerateThemeCommand extends Command
         $license = $helper->ask($input, $output, $question);
 
         $question = new Question('Please enter the author of the theme: ');
-        $author = $helper->ask($input, $output, $question);
+        $author = ucwords($helper->ask($input, $output, $question));
 
         $question = new Question('Please enter the email of the author: ');
         $email = $helper->ask($input, $output, $question);
 
         $filesystem = new Filesystem();
 
-
-        $themeNameCompiled = strtolower(str_replace(' ', '-', $themeTitle));
-        $themeDir = 'themes/' . $themeNameCompiled;
+        $packageNameCompiled = strtolower(str_replace(' ', '-', $themeTitle));
+        $themeDir = 'themes/' . $packageNameCompiled;
 
         $filesystem->mkdir([
             $themeDir,
@@ -54,7 +53,7 @@ class GenerateThemeCommand extends Command
         ]);
 
         $composerJson = [
-            "name" => $themeName,
+            "name" => $packageName,
             "title" => $themeTitle,
             "description" => $description,
             "license" => $license,
@@ -66,9 +65,11 @@ class GenerateThemeCommand extends Command
             ]
         ];
 
-        $filesystem->dumpFile("$themeDir/composer.json", json_encode($composerJson, JSON_PRETTY_PRINT));
+        $filesystem->dumpFile("$themeDir/composer.json",
+            json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+        );
 
-        $output->writeln("Theme $themeName generated successfully.");
+        $output->writeln("Theme $packageName generated successfully.");
 
         return Command::SUCCESS;
     }

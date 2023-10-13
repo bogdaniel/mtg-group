@@ -17,7 +17,7 @@ class Theme
     public function __construct(
         #[Column(type: "string", length: 255)]
         public readonly string $name,
-        #[Column(type: "string", length: 255)]
+        #[Column(type: "string", length: 500)]
         public readonly string $title,
         #[Column(type: "string", length: 255)]
         public readonly string $description,
