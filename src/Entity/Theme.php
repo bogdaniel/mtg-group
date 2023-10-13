@@ -23,6 +23,8 @@ class Theme
         public readonly string $description,
         #[Column(type: "string", length: 255)]
         public readonly string $author,
+        #[Column(type: "string", length: 255)]
+        public readonly string $version,
         #[Column(type: "datetime")]
         public readonly \DateTime $createdAt,
         #[Column(type: "datetime")]
