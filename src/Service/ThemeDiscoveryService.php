@@ -34,6 +34,7 @@ class ThemeDiscoveryService
                     $composerJson['title'] ?? '',
                     $composerJson['description'] ?? '',
                     $composerJson['authors'][0]['name'] ?? '',
+                    $composerJson['version'] ?? '',
                     false
                 );
 
