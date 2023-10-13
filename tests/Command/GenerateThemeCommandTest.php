@@ -2,7 +2,6 @@
 
 namespace App\Tests\Command;
 
-use App\Command\GenerateThemeCommand;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -20,16 +19,18 @@ class GenerateThemeCommandTest extends KernelTestCase
         $this->commandTester = new CommandTester($command);
     }
 
-    public function testExecute()
+    public function testExecute(): void
     {
         $this->commandTester->setInputs([
-            'My Theme', // Theme title
-            'my-theme', // Package name
+            'Nexus Theme', // Theme title
+            'zenchron/nexus-theme', // Package name
             'A theme for testing', // Description
             'MIT', // License
             'https://example.com', // Homepage
-            'Author 1', // Author name
-            'author1@example.com', // Author email
+            'Bogdan Olteanu', // Author name
+            'bogdan@zenchron.com', // Author email
+            'Luminita Smoleanu', // Author name
+            'luminita@zenchron.com', // Author email
             '', // Empty author name to stop adding authors
             '1.0.0', // Version
         ]);
@@ -37,6 +38,6 @@ class GenerateThemeCommandTest extends KernelTestCase
         $this->commandTester->execute([]);
 
         $output = $this->commandTester->getDisplay();
-        $this->assertStringContainsString('Theme my-theme generated successfully.', $output);
+        $this->assertStringContainsString('Theme zenchron/nexus-theme generated successfully.', $output);
     }
 }

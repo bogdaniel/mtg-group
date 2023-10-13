@@ -9,21 +9,21 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class CommandSubscriber implements EventSubscriberInterface
 {
-    private $themeDiscoveryService;
+    private ThemeDiscoveryService $themeDiscoveryService;
 
     public function __construct(ThemeDiscoveryService $themeDiscoveryService)
     {
         $this->themeDiscoveryService = $themeDiscoveryService;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ConsoleEvents::TERMINATE => 'onCommandTerminate',
         ];
     }
 
-    public function onCommandTerminate(ConsoleTerminateEvent $event)
+    public function onCommandTerminate(ConsoleTerminateEvent $event): void
     {
         $commandName = $event->getCommand()->getName();
 
