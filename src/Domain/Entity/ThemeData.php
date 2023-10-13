@@ -9,7 +9,7 @@ class ThemeData implements ThemeDataContract
     public string $name;
     public string $title;
     public string $description;
-    public string $author;
+    public array $authors;
     public string $version;
     public bool $isActive;
 
@@ -17,15 +17,14 @@ class ThemeData implements ThemeDataContract
         string $name,
         string $title,
         string $description,
-        string $author,
+        array $authors,
         string $version,
         bool $isActive
     ) {
         $this->name = $name;
         $this->title = $title;
         $this->description = $description;
-        $this->author = $author;
+        $this->authors = $authors;
         $this->version = $version;
         $this->isActive = $isActive;
-    }
-}
+    }}
