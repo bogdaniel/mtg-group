@@ -8,7 +8,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class GenerateThemeCommandTest extends KernelTestCase
 {
-    private $commandTester;
+    private CommandTester $commandTester;
 
     protected function setUp(): void
     {
