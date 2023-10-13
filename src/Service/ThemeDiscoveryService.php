@@ -28,16 +28,17 @@ class ThemeDiscoveryService
             if ($this->filesystem->exists($composerJsonPath)) {
                 $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
 
-                $themeData = new ThemeData(
-                    $composerJson['name'],
-                    $composerJson['title'] ?? '',
-                    $composerJson['description'] ?? '',
-                    $composerJson['authors'],
-                    $composerJson['version'] ?? '',
-                    $composerJson['homepage'] ?? '',
-                    false
-                );
+//                $themeData = new ThemeData(
+//                    $composerJson['name'],
+//                    $composerJson['title'] ?? '',
+//                    $composerJson['description'] ?? '',
+//                    $composerJson['authors'],
+//                    $composerJson['version'] ?? '',
+//                    $composerJson['homepage'] ?? '',
+//                    false
+//                );
 
+                $themeData = ThemeData::create($composerJson);
                 $theme = $this->themeManager->findThemeByName($themeData->name);
                 if (!$theme) {
                     $this->themeManager->createTheme($themeData);

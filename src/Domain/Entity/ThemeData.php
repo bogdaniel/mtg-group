@@ -13,26 +13,29 @@ class ThemeData implements ThemeDataContract
     use ToArray;
     use ToEntity;
 
-    public string $name;
-    public string $title;
-    public string $description;
-    public array $authors;
-    public string $version;
-    public string $homepage;
-    public bool $isActive;
+    public ?string $name = null;
+    public ?string $title = null;
+    public ?string $description = null;
+    public array $authors = [];
+    public ?string $version = null;
+    public ?string $license = null;
+    public ?string $homepage = null;
+    public bool $isActive = false;
 
     public function __construct(
         string $name,
         string $title,
         string $description,
+        string $license,
         array $authors,
         string $version,
         string $homepage,
-        bool $isActive
+        bool $isActive = false
     ) {
         $this->name = $name;
         $this->title = $title;
         $this->description = $description;
+        $this->license = $license;
         $this->authors = $authors;
         $this->version = $version;
         $this->homepage = $homepage;

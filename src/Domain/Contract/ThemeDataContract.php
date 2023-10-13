@@ -8,6 +8,7 @@ interface ThemeDataContract
         string $name,
         string $title,
         string $description,
+        string $license,
         array $authors,
         string $version,
         string $homepage,

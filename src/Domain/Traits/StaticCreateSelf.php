@@ -6,14 +6,16 @@ trait StaticCreateSelf
 {
     public static function create(array $values): self
     {
-        $dto = new self();
+        $class = new \ReflectionClass(self::class);
+        $instance = $class->newInstanceWithoutConstructor();
 
         foreach ($values as $key => $value) {
-            if (property_exists($dto, $key)) {
-                $dto->$key = $value;
+            if ($class->hasProperty($key)) {
+                $property = $class->getProperty($key);
+                $property->setValue($instance, $value);
             }
         }
 
-        return $dto;
+        return $instance;
     }
 }
