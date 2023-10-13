@@ -35,12 +35,12 @@ class ThemeManager
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
-            $theme->name = $themeData->name;
-            $theme->title = $themeData->title;
-            $theme->description = $themeData->description;
-            $theme->author = $themeData->author;
-            $theme->updatedAt = new \DateTime();
-            $theme->isActive = $themeData->isActive;
+            $theme->setName($themeData->getName());
+            $theme->setTitle($themeData->getTitle());
+            $theme->setDescription($themeData->getDescription());
+            $theme->setAuthor($themeData->getAuthor());
+            $theme->setUpdatedAt(new \DateTime());
+            $theme->setIsActive($themeData->getIsActive());
 
             $this->themeRepository->save($theme);
 
