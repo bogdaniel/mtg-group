@@ -6,6 +6,7 @@ use App\Service\ThemeManager;
 use App\Domain\Entity\ThemeData;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
+
 class ThemeDiscoveryService
 {
     private $filesystem;
@@ -35,8 +36,8 @@ class ThemeDiscoveryService
 
                 $theme = $this->themeManager->findThemeByName($themeName);
                 if (!$theme) {
-                    $this->themeManager->createTheme($themeName, $themeTitle, $description, $author, false);
-                }
+                    $themeData = new ThemeData($themeName, $themeTitle, $description, $author, false);
+                    $this->themeManager->createTheme($themeData);                }
             }
         }
     }
