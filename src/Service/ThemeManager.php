@@ -21,6 +21,7 @@ class ThemeManager
             $themeData->title,
             $themeData->description,
             $themeData->author,
+            $themeData->version,
             new \DateTime(),
             new \DateTime(),
             $themeData->isActive
@@ -40,6 +41,7 @@ class ThemeManager
                 $themeData->title,
                 $themeData->description,
                 $themeData->author,
+                $themeData->version,
                 $theme->createdAt,
                 new \DateTime(),
                 $themeData->isActive,
