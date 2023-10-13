@@ -10,7 +10,6 @@ use Symfony\Component\Finder\Finder;
 class ThemeDiscoveryService
 {
     private $filesystem;
-
     private $themeManager;
 
     public function __construct(ThemeManager $themeManager, Filesystem $filesystem)
@@ -29,11 +28,16 @@ class ThemeDiscoveryService
             if ($this->filesystem->exists($composerJsonPath)) {
                 $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
 
+                $authors = [];
+                foreach ($composerJson['authors'] as $author) {
+                    $authors[] = $author['name'];
+                }
+
                 $themeData = new ThemeData(
                     $composerJson['name'],
                     $composerJson['title'] ?? '',
                     $composerJson['description'] ?? '',
-                    $composerJson['authors'][0]['name'] ?? '',
+                    $authors,
                     $composerJson['version'] ?? '',
                     false
                 );

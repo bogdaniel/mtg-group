@@ -10,6 +10,7 @@ use App\Repository\ThemeRepository;
 class ThemeManager
 {
     private $themeRepository;
+
     public function __construct(ThemeRepository $themeRepository)
     {
         $this->themeRepository = $themeRepository;
@@ -21,7 +22,7 @@ class ThemeManager
             $themeData->name,
             $themeData->title,
             $themeData->description,
-            $themeData->author,
+            $themeData->authors,
             $themeData->version,
             new \DateTime(),
             new \DateTime(),
@@ -41,7 +42,7 @@ class ThemeManager
                 $themeData->name,
                 $themeData->title,
                 $themeData->description,
-                $themeData->author,
+                $themeData->authors,
                 $themeData->version,
                 $theme->createdAt,
                 new \DateTime(),
@@ -76,7 +77,17 @@ class ThemeManager
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
-            $updatedTheme = new Theme($theme->name, $theme->title, $theme->description, $theme->author, $theme->version, $theme->createdAt, new \DateTime(), 1, $id);
+            $updatedTheme = new Theme(
+                $theme->name,
+                $theme->title,
+                $theme->description,
+                $theme->authors,
+                $theme->version,
+                $theme->createdAt,
+                new \DateTime(),
+                1,
+                $id
+            );
             $this->themeRepository->save($updatedTheme);
         }
     }
