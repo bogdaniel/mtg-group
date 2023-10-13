@@ -44,37 +44,41 @@ class GenerateThemeCommand extends Command
 
         $filesystem = new Filesystem();
 
-        $packageNameCompiled = strtolower(str_replace(' ', '-', $themeTitle));
+        $packageNameCompiled = strtolower(str_replace(' ', '-', $packageName));
+
         $themeDir = 'themes/' . $packageNameCompiled;
 
-        $filesystem->mkdir([
-            $themeDir,
-            "$themeDir/public",
-            "$themeDir/templates",
-            "$themeDir/templates/bundles",
-            "$themeDir/translations",
-        ]);
+        if (!$filesystem->exists($themeDir)) {
+            $filesystem->mkdir([
+                $themeDir,
+                "$themeDir/public",
+                "$themeDir/templates",
+                "$themeDir/templates/bundles",
+                "$themeDir/translations",
+            ]);
 
-
-        $composerJson = [
-            "name" => $packageName,
-            "title" => $themeTitle,
-            "description" => $description,
-            "license" => $license,
-            "version" => $version,
-            "authors" => [
-                [
-                    "name" => $author,
-                    "email" => $email
+            $composerJson = [
+                "name" => $packageName,
+                "title" => $themeTitle,
+                "description" => $description,
+                "license" => $license,
+                "version" => $version,
+                "authors" => [
+                    [
+                        "name" => $author,
+                        "email" => $email
+                    ]
                 ]
-            ]
-        ];
+            ];
 
-        $filesystem->dumpFile("$themeDir/composer.json",
-            json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
-        );
+            $filesystem->dumpFile("$themeDir/composer.json",
+                json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+            );
 
-        $output->writeln("Theme $packageName generated successfully.");
+            $output->writeln("Theme $packageName generated successfully.");
+        } else {
+            $output->writeln("Theme $packageName already exists.");
+        }
 
         return Command::SUCCESS;
     }
