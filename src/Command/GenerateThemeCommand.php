@@ -76,8 +76,9 @@ class GenerateThemeCommand extends Command
 
         $filesystem = new Filesystem();
 
-        $packageNameCompiled = strtolower(str_replace(' ', '-', $packageName));
 
+        $array = explode('/', $packageName);
+        $packageNameCompiled = strtolower(str_replace(' ', '-', array_pop($array)));
         $themeDir = 'themes/' . $packageNameCompiled;
 
         if (!$filesystem->exists($themeDir)) {
