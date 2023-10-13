@@ -17,12 +17,13 @@ class ThemeRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Theme::class);
+
     }
 
     public function delete(Theme $theme): void
     {
-        $this->_em->remove($theme);
-        $this->_em->flush();
+        $this->getEntityManager()->remove($theme);
+        $this->getEntityManager()->flush();
     }
 
     public function findThemeByName(string $name): ?Theme
@@ -37,7 +38,7 @@ class ThemeRepository extends ServiceEntityRepository
 
     public function save(Theme $theme): void
     {
-        $this->_em->persist($theme);
-        $this->_em->flush();
+        $this->getEntityManager()->persist($theme);
+        $this->getEntityManager()->flush();
     }
 }
