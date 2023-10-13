@@ -2,7 +2,9 @@
 
 namespace App\Domain\Entity;
 
-class ThemeData
+use App\Domain\Contract\ThemeDataContract;
+
+class ThemeData implements ThemeDataContract
 {
     public string $name;
     public string $title;
