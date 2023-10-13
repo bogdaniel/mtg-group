@@ -35,19 +35,16 @@ class ThemeManager
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
-            $updatedTheme = new Theme(
-                $themeData->name,
-                $themeData->title,
-                $themeData->description,
-                $themeData->author,
-                new \DateTime(),
-                new \DateTime(),
-                $themeData->isActive,
-                $id
-            );
-            $this->themeRepository->save($updatedTheme);
+            $theme->name = $themeData->name;
+            $theme->title = $themeData->title;
+            $theme->description = $themeData->description;
+            $theme->author = $themeData->author;
+            $theme->updatedAt = new \DateTime();
+            $theme->isActive = $themeData->isActive;
 
-            return $updatedTheme;
+            $this->themeRepository->save($theme);
+
+            return $theme;
         }
 
         throw new \RuntimeException('Theme not found');
