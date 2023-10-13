@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\DTO\ThemeData;
+use App\Domain\Entity\ThemeData;
 use App\Entity\Theme;
 use App\Repository\ThemeRepository;
 
