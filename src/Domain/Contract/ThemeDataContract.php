@@ -10,6 +10,7 @@ interface ThemeDataContract
         string $description,
         array $authors,
         string $version,
+        string $homepage,
         bool $isActive
     );
 }

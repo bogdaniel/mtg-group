@@ -11,6 +11,7 @@ class ThemeData implements ThemeDataContract
     public string $description;
     public array $authors;
     public string $version;
+    public string $homepage;
     public bool $isActive;
 
     public function __construct(
@@ -19,6 +20,7 @@ class ThemeData implements ThemeDataContract
         string $description,
         array $authors,
         string $version,
+        string $homepage,
         bool $isActive
     ) {
         $this->name = $name;
@@ -26,5 +28,7 @@ class ThemeData implements ThemeDataContract
         $this->description = $description;
         $this->authors = $authors;
         $this->version = $version;
+        $this->homepage = $homepage;
         $this->isActive = $isActive;
-    }}
+    }
+}
