@@ -40,18 +40,26 @@ class GenerateThemeCommand extends Command
         $question = new Question('Please enter the license of the theme: ');
         $license = $helper->ask($input, $output, $question);
 
-        $question = new Question('Please enter the author of the theme: ');
-        $author = ucwords($helper->ask($input, $output, $question));
-
-        $question = new Question('Please enter the email of the author: ');
-        $question->setValidator(function ($answer) {
-            if (!filter_var($answer, FILTER_VALIDATE_EMAIL)) {
-                throw new \RuntimeException('The email should be a valid email address.');
+        $authors = [];
+        while (true) {
+            $question = new Question('Please enter the author of the theme (leave empty to stop): ');
+            $authorName = ucwords($helper->ask($input, $output, $question));
+            if (empty($authorName)) {
+                break;
             }
 
-            return $answer;
-        });
-        $email = $helper->ask($input, $output, $question);
+            $question = new Question('Please enter the email of the author: ');
+            $question->setValidator(function ($answer) {
+                if (!filter_var($answer, FILTER_VALIDATE_EMAIL)) {
+                    throw new \RuntimeException('The email should be a valid email address.');
+                }
+
+                return $answer;
+            });
+            $email = $helper->ask($input, $output, $question);
+
+            $authors[] = ['name' => $authorName, 'email' => $email];
+        }
 
         $question = new Question('Please enter the version of the theme: ');
         $question->setValidator(function ($answer) {
@@ -84,12 +92,7 @@ class GenerateThemeCommand extends Command
                 "description" => $description,
                 "license" => $license,
                 "version" => $version,
-                "authors" => [
-                    [
-                        "name" => $author,
-                        "email" => $email
-                    ]
-                ]
+                "authors" => $authors
             ];
 
             $filesystem->dumpFile("$themeDir/composer.json",

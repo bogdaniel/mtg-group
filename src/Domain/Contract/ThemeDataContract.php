@@ -8,7 +8,7 @@ interface ThemeDataContract
         string $name,
         string $title,
         string $description,
-        string $author,
+        array $authors,
         string $version,
         bool $isActive
     );
