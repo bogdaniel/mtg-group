@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\DTO\ThemeData;
 use App\Entity\Theme;
 use App\Repository\ThemeRepository;
 
@@ -24,7 +25,7 @@ class ThemeManager
             new \DateTime(),
             $themeData->isActive
         );
-        dd($theme);
+
         $this->themeRepository->save($theme);
 
         return $theme;
