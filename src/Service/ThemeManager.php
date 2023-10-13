@@ -76,7 +76,7 @@ class ThemeManager
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
-            $updatedTheme = new Theme($theme->name, $theme->title, $theme->description, $theme->author, $theme->createdAt, new \DateTime(), 1, $id);
+            $updatedTheme = new Theme($theme->name, $theme->title, $theme->description, $theme->author, $theme->version, $theme->createdAt, new \DateTime(), 1, $id);
             $this->themeRepository->save($updatedTheme);
         }
     }
