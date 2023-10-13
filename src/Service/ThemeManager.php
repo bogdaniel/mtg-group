@@ -13,20 +13,37 @@ class ThemeManager
         $this->themeRepository = $themeRepository;
     }
 
-    public function createTheme(string $name, string $title, string $description, string $author, bool $isActive): Theme
+    public function createTheme(ThemeData $themeData): Theme
     {
-        $theme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive);
+        $theme = new Theme(
+            $themeData->name,
+            $themeData->title,
+            $themeData->description,
+            $themeData->author,
+            new \DateTime(),
+            new \DateTime(),
+            $themeData->isActive
+        );
         dd($theme);
         $this->themeRepository->save($theme);
 
         return $theme;
     }
 
-    public function updateTheme(int $id, string $name, string $title, string $description, string $author, bool $isActive): Theme
+    public function updateTheme(int $id, ThemeData $themeData): Theme
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
-            $updatedTheme = new Theme($name, $title, $description, $author, new \DateTime(), new \DateTime(), $isActive, $id);
+            $updatedTheme = new Theme(
+                $themeData->name,
+                $themeData->title,
+                $themeData->description,
+                $themeData->author,
+                new \DateTime(),
+                new \DateTime(),
+                $themeData->isActive,
+                $id
+            );
             $this->themeRepository->save($updatedTheme);
 
             return $updatedTheme;
