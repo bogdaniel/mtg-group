@@ -24,7 +24,8 @@ class GenerateThemeCommand extends Command
         $question = new Question('Please enter the title of the theme: ');
         $themeTitle = ucwords($helper->ask($input, $output, $question));
 
-        $question = new Question('Please enter the package name of the theme: ', function ($answer) {
+        $question = new Question('Please enter the package name of the theme: ');
+        $question->setValidator(function ($answer) {
             if (!preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $answer)) {
                 throw new \RuntimeException('The package name should be a valid composer package name.');
             }
@@ -42,7 +43,8 @@ class GenerateThemeCommand extends Command
         $question = new Question('Please enter the author of the theme: ');
         $author = ucwords($helper->ask($input, $output, $question));
 
-        $question = new Question('Please enter the email of the author: ', function ($answer) {
+        $question = new Question('Please enter the email of the author: ');
+        $question->setValidator(function ($answer) {
             if (!filter_var($answer, FILTER_VALIDATE_EMAIL)) {
                 throw new \RuntimeException('The email should be a valid email address.');
             }
@@ -51,7 +53,8 @@ class GenerateThemeCommand extends Command
         });
         $email = $helper->ask($input, $output, $question);
 
-        $question = new Question('Please enter the version of the theme: ', function ($answer) {
+        $question = new Question('Please enter the version of the theme: ');
+        $question->setValidator(function ($answer) {
             if (!preg_match('/^(\d+\.)?(\d+\.)?(\*|\d+)$/', $answer)) {
                 throw new \RuntimeException('The version should follow semantic versioning.');
             }
