@@ -2,9 +2,10 @@
 
 namespace App\Service;
 
+use App\Service\ThemeManager;
+use App\Domain\Entity\ThemeData;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
-
 class ThemeDiscoveryService
 {
     private $filesystem;
