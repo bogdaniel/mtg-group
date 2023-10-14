@@ -15,7 +15,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class GenerateThemeCommandTest extends KernelTestCase
 {
-    private CommandTester $commandTester;
+    private ApplicationTester $applicationTester;
     private EventDispatcherInterface $eventDispatcher;
     private ThemeDiscoveryService $themeDiscoveryService;
     private Application $application;
@@ -23,7 +23,7 @@ class GenerateThemeCommandTest extends KernelTestCase
 
     public function testExecute(): void
     {
-        $this->commandTester->setInputs([
+        $this->applicationTester->setInputs([
             'Nexus Theme', // Theme title
             'zenchron/nexus-theme', // Package name
             'A theme for testing', // Description
@@ -37,12 +37,12 @@ class GenerateThemeCommandTest extends KernelTestCase
             '1.0.0', // Version
         ]);
 
-        $this->commandTester->execute([]);
+        $this->applicationTester->run([]);
 
-        $output = $this->commandTester->getDisplay();
-        $exitCode = $this->commandTester->getStatusCode();
+        $output = $this->applicationTester->getDisplay();
+        $exitCode = $this->applicationTester->getStatusCode();
 
-        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->command, $this->commandTester->getInput(), $this->commandTester->getOutput(), $exitCode));
+        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->command, $this->applicationTester->getInput(), $this->applicationTester->getOutput(), $exitCode));
 
         $this->assertStringContainsString('Theme zenchron/nexus-theme generated successfully.', $output);
     }
@@ -56,7 +56,7 @@ class GenerateThemeCommandTest extends KernelTestCase
         $tester = new ApplicationTester($this->application);
 
         $this->command = $this->application->find('app:generate-theme');
-        $this->commandTester = new CommandTester($this->command);
+        $this->applicationTester = new ApplicationTester($this->application);
 
         $this->eventDispatcher = new EventDispatcher();
         $this->themeDiscoveryService = $kernel->getContainer()->get(ThemeDiscoveryService::class);
