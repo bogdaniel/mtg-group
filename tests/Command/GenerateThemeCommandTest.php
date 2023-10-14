@@ -33,14 +33,12 @@ class GenerateThemeCommandTest extends KernelTestCase
             '1.0.0', // Version
         ]);
 
-        $command = $this->commandTester->getCommand();
-        $this->eventDispatcher->dispatch(new ConsoleCommandEvent($command, $this->commandTester->getInput()));
-
         $this->commandTester->execute([]);
 
-        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($command, $this->commandTester->getInput(), 0));
-
         $output = $this->commandTester->getDisplay();
+        $exitCode = $this->commandTester->getStatusCode();
+
+        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->commandTester->getInput(), $exitCode));
 
         $this->assertStringContainsString('Theme zenchron/nexus-theme generated successfully.', $output);
     }
