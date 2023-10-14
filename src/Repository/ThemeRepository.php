@@ -38,7 +38,10 @@ class ThemeRepository extends ServiceEntityRepository
 
     public function save(Theme $theme): void
     {
+
+        dump($theme);
         $this->getEntityManager()->persist($theme);
         $this->getEntityManager()->flush();
+        $this->getEntityManager()->refresh($theme);
     }
 }

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 use Doctrine\ORM\Mapping\Table;
 use App\Repository\ThemeRepository;
 
-#[Entity(repositoryClass: ThemeRepository::class)]
+#[Entity(repositoryClass: ThemeRepository::class, readOnly: true)]
 #[Table(name: "theme", uniqueConstraints: [new UniqueConstraint(name: "theme_name_unique", columns: ["name"])])]
 class Theme
 {
@@ -32,7 +32,7 @@ class Theme
         #[Column(type: "datetime")]
         public readonly \DateTime $updatedAt,
         #[Column(type: "boolean")]
-        public readonly bool $isActive,
+        public readonly bool $isActive = false,
         #[Id, GeneratedValue, Column(type: "integer")]
         public ?int $id = null,
     ) {
