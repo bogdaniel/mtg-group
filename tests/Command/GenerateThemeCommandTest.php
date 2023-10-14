@@ -53,8 +53,6 @@ class GenerateThemeCommandTest extends KernelTestCase
         $this->application = new Application($kernel);
         $this->application->setAutoExit(false);
 
-        $tester = new ApplicationTester($this->application);
-
         $this->command = $this->application->find('app:generate-theme');
         $this->applicationTester = new ApplicationTester($this->application);
 
@@ -62,6 +60,5 @@ class GenerateThemeCommandTest extends KernelTestCase
         $this->themeDiscoveryService = $kernel->getContainer()->get(ThemeDiscoveryService::class);
 
         $this->eventDispatcher->addSubscriber($kernel->getContainer()->get(\App\EventSubscriber\CommandSubscriber::class));
-        $tester->run();
     }
 }
