@@ -33,11 +33,11 @@ class GenerateThemeCommandTest extends KernelTestCase
             '1.0.0', // Version
         ]);
 
-        $this->eventDispatcher->dispatch(new ConsoleCommandEvent($this->commandTester->getCommand(), null));
+        $this->eventDispatcher->dispatch(new ConsoleCommandEvent($this->commandTester->getCommand(), $this->commandTester->getInput()));
 
         $this->commandTester->execute([]);
 
-        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->commandTester->getCommand(), null, 0));
+        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->commandTester->getCommand(), $this->commandTester->getInput(), 0));
 
         $output = $this->commandTester->getDisplay();
 
