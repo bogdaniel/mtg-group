@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
+use Symfony\Component\Console\Tester\ApplicationTester;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -41,7 +42,7 @@ class GenerateThemeCommandTest extends KernelTestCase
         $output = $this->commandTester->getDisplay();
         $exitCode = $this->commandTester->getStatusCode();
 
-        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->command, $this->commandTester->getInput(), $this->commandTester->getOutput()));
+        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->command, $this->commandTester->getInput(), $this->commandTester->getOutput(), $exitCode));
 
         $this->assertStringContainsString('Theme zenchron/nexus-theme generated successfully.', $output);
     }
@@ -50,6 +51,9 @@ class GenerateThemeCommandTest extends KernelTestCase
     {
         $kernel = self::bootKernel();
         $this->application = new Application($kernel);
+        $this->application->setAutoExit(false);
+
+        $tester = new ApplicationTester($this->application);
 
         $this->command = $this->application->find('app:generate-theme');
         $this->commandTester = new CommandTester($this->command);
@@ -58,5 +62,6 @@ class GenerateThemeCommandTest extends KernelTestCase
         $this->themeDiscoveryService = $kernel->getContainer()->get(ThemeDiscoveryService::class);
 
         $this->eventDispatcher->addSubscriber($kernel->getContainer()->get(\App\EventSubscriber\CommandSubscriber::class));
+        $tester->run();
     }
 }
