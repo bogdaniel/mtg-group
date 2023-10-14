@@ -37,7 +37,7 @@ class GenerateThemeCommandTest extends KernelTestCase
             '1.0.0', // Version
         ]);
 
-        $this->applicationTester->run([]);
+        $this->applicationTester->run(['command' => $this->command->getName()]);
 
         $output = $this->applicationTester->getDisplay();
         $exitCode = $this->applicationTester->getStatusCode();
