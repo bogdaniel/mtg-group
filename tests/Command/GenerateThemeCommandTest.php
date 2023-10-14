@@ -16,6 +16,8 @@ class GenerateThemeCommandTest extends KernelTestCase
     private CommandTester $commandTester;
     private EventDispatcherInterface $eventDispatcher;
     private ThemeDiscoveryService $themeDiscoveryService;
+    private Application $application;
+    private Command $command;
 
     public function testExecute(): void
     {
@@ -33,13 +35,12 @@ class GenerateThemeCommandTest extends KernelTestCase
             '1.0.0', // Version
         ]);
 
-        $command = $this->commandTester->getCommand();
         $this->commandTester->execute([]);
 
         $output = $this->commandTester->getDisplay();
         $exitCode = $this->commandTester->getStatusCode();
 
-        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($command, $this->commandTester->getInput(), $exitCode));
+        $this->eventDispatcher->dispatch(new ConsoleTerminateEvent($this->command, $this->commandTester->getInput(), $exitCode));
 
         $this->assertStringContainsString('Theme zenchron/nexus-theme generated successfully.', $output);
     }
@@ -47,10 +48,10 @@ class GenerateThemeCommandTest extends KernelTestCase
     protected function setUp(): void
     {
         $kernel = self::bootKernel();
-        $application = new Application($kernel);
+        $this->application = new Application($kernel);
 
-        $command = $application->find('app:generate-theme');
-        $this->commandTester = new CommandTester($command);
+        $this->command = $this->application->find('app:generate-theme');
+        $this->commandTester = new CommandTester($this->command);
 
         $this->eventDispatcher = new EventDispatcher();
         $this->themeDiscoveryService = $kernel->getContainer()->get(ThemeDiscoveryService::class);
