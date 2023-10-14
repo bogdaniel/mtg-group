@@ -32,16 +32,9 @@ class GenerateThemeCommandTest extends KernelTestCase
             '1.0.0', // Version
         ]);
 
-        $this->eventDispatcher->addListener(ConsoleTerminateEvent::class, function (ConsoleTerminateEvent $event) {
-            $commandName = $event->getCommand()->getName();
-
-            if ($commandName === 'cache:clear' || $commandName === 'app:generate-theme') {
-                $this->themeDiscoveryService->discoverThemes();
-            }
-        });
-
         $this->commandTester->execute([]);
         $output = $this->commandTester->getDisplay();
+
         $this->assertStringContainsString('Theme zenchron/nexus-theme generated successfully.', $output);
     }
 
