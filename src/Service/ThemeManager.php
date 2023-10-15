@@ -26,7 +26,8 @@ class ThemeManager
             $themeData->homepage,
             new \DateTime(),
             new \DateTime(),
-            $themeData->isActive
+            $themeData->isActive,
+            $themeData->parentThemeId
         );
 
         $this->themeRepository->save($theme);
@@ -47,7 +48,7 @@ class ThemeManager
             $theme->createdAt = $theme->createdAt;
             new \DateTime();
             $theme->isActive = $themeData->isActive;
-            $theme->id;
+            $theme->parentThemeId = $themeData->parentThemeId;
 
             $this->themeRepository->save($theme);
 
