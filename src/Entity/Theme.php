@@ -16,23 +16,23 @@ class Theme
 {
     public function __construct(
         #[Column(type: "string", length: 255)]
-        public readonly string $name,
+        public string $name,
         #[Column(type: "string", length: 500)]
-        public readonly string $title,
+        public string $title,
         #[Column(type: "string", length: 255)]
-        public readonly string $description,
+        public string $description,
         #[Column(type: "json")]
-        public readonly array $authors,
+        public array $authors,
         #[Column(type: "string", length: 255)]
-        public readonly string $version,
+        public string $version,
         #[Column(type: "string", length: 255)]
-        public readonly string $homepage,
+        public string $homepage,
         #[Column(type: "datetime")]
-        public readonly \DateTime $createdAt,
+        public \DateTime $createdAt,
         #[Column(type: "datetime")]
-        public readonly \DateTime $updatedAt,
+        public \DateTime $updatedAt,
         #[Column(type: "boolean")]
-        public readonly bool $isActive = false,
+        public bool $isActive = false,
         #[Id, GeneratedValue, Column(type: "integer")]
         public ?int $id = null,
     ) {
