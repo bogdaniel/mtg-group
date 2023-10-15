@@ -9,8 +9,8 @@ use Symfony\Component\Finder\Finder;
 
 class ThemeDiscoveryService
 {
-    private $filesystem;
-    private $themeManager;
+    private Filesystem $filesystem;
+    private \App\Service\ThemeManager $themeManager;
 
     public function __construct(ThemeManager $themeManager, Filesystem $filesystem)
     {
