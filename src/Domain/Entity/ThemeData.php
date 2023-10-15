@@ -23,7 +23,7 @@ class ThemeData implements ThemeDataContract
     public bool $isActive = false;
     public ?int $parentThemeId = null;
 
-    public ?ThemeData $parentTheme = null;
+    public ?ThemeDataContract $parentTheme = null;
 
     public function __construct(
         string $name,
