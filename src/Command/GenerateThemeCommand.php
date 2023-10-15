@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Event\ThemeGeneratedEvent;
+use App\Service\GenerateThemeCommandQuestionsProvider;
 use Symfony\Component\Console\Attribute\AsCommand;
 use App\Validator\GenerateThemeCommandValidator;
 use Symfony\Component\Console\Command\Command;
@@ -35,7 +36,7 @@ class GenerateThemeCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $questionProvider = new QuestionProvider();
+        $questionProvider = new GenerateThemeCommandQuestionsProvider();
         $questions = $questionProvider->getQuestions();
 
         $answers = [];

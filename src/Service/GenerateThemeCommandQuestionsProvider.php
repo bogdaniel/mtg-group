@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-class QuestionProvider
+class GenerateThemeCommandQuestionsProvider
 {
     public function getQuestions(): array
     {
