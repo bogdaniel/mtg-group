@@ -14,6 +14,8 @@ use App\Repository\ThemeRepository;
 #[Table(name: "theme", uniqueConstraints: [new UniqueConstraint(name: "theme_name_unique", columns: ["name"])])]
 class Theme
 {
+    private ?Theme $parentTheme = null;
+
     public function __construct(
         #[Column(type: "string", length: 255)]
         public string $name,
@@ -35,10 +37,20 @@ class Theme
         public bool $isActive = false,
         #[Id, GeneratedValue, Column(type: "integer")]
         public ?int $id = null,
-        #[Column(type: "integer", nullable: true)]
-        public ?int $parentThemeId = null,
+        public ?Theme $parentTheme = null,
         #[Column(type: "json")]
         public array $childThemes = [],
-    ) {
+    ) {}
+
+    public function getParentTheme(): ?Theme
+    {
+        return $this->parentTheme;
+    }
+
+    public function setParentTheme(?Theme $parentTheme): self
+    {
+        $this->parentTheme = $parentTheme;
+
+        return $this;
     }
 }

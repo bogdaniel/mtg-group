@@ -17,6 +17,11 @@ class ThemeManager
 
     public function createTheme(ThemeDataContract $themeData): Theme
     {
+        $parentTheme = null;
+        if ($themeData->getParentTheme()) {
+            $parentTheme = $this->findThemeByName($themeData->getParentTheme()->getName());
+        }
+
         $theme = new Theme(
             $themeData->name,
             $themeData->title,
@@ -27,7 +32,7 @@ class ThemeManager
             new \DateTime(),
             new \DateTime(),
             $themeData->isActive,
-            $themeData->parentThemeId
+            $parentTheme
         );
 
         $this->themeRepository->save($theme);

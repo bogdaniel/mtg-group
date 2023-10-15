@@ -35,7 +35,12 @@ class RegisterThemesCommand extends Command
 
         foreach ($themes as $theme) {
             if (!$this->themeManager->findThemeByName($theme->getName())) {
-                $this->themeManager->createTheme($theme);
+                $parentTheme = null;
+                if ($theme->getParentTheme()) {
+                    $parentTheme = $this->themeManager->findThemeByName($theme->getParentTheme()->getName());
+                }
+
+                $this->themeManager->createTheme($theme, $parentTheme);
                 $registeredThemesCount++;
             }
         }

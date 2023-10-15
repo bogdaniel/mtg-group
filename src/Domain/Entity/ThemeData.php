@@ -23,6 +23,8 @@ class ThemeData implements ThemeDataContract
     public bool $isActive = false;
     public ?int $parentThemeId = null;
 
+    private ?ThemeData $parentTheme = null;
+
     public function __construct(
         string $name,
         string $title,
@@ -32,6 +34,18 @@ class ThemeData implements ThemeDataContract
         string $version,
         string $homepage,
         bool $isActive = false,
-        ?int $parentThemeId = null
+        ?ThemeData $parentTheme = null
     ) {}
+
+    public function getParentTheme(): ?ThemeData
+    {
+        return $this->parentTheme;
+    }
+
+    public function setParentTheme(?ThemeData $parentTheme): self
+    {
+        $this->parentTheme = $parentTheme;
+
+        return $this;
+    }
 }
