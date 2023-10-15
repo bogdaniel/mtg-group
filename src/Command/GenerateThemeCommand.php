@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Validator\ThemeValidator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -12,6 +13,15 @@ use Symfony\Component\Filesystem\Filesystem;
 #[AsCommand(name: 'app:generate-theme')]
 class GenerateThemeCommand extends Command
 {
+    private ThemeValidator $validator;
+
+    public function __construct(ThemeValidator $validator)
+    {
+        $this->validator = $validator;
+
+        parent::__construct();
+    }
+
     protected function configure(): void
     {
         $this->setDescription('Generates a new theme folder.');
@@ -22,56 +32,23 @@ class GenerateThemeCommand extends Command
         $helper = $this->getHelper('question');
 
         $question = new Question('Please enter the title of the theme: ');
-        $question->setValidator(function ($answer) {
-            if (empty($answer)) {
-                throw new \RuntimeException('The title of the theme is required.');
-            }
-
-            return $answer;
-        });
+        $question->setValidator([$this->validator, 'validateTitle']);
         $themeTitle = ucwords($helper->ask($input, $output, $question));
 
         $question = new Question('Please enter the package name of the theme: ');
-        $question->setValidator(function ($answer) {
-            if (empty($answer)) {
-                throw new \RuntimeException('The package name of the theme is required.');
-            }
-            if (!preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*$/', $answer)) {
-                throw new \RuntimeException('The package name should be a valid composer package name.');
-            }
-
-            return strtolower($answer);
-        });
+        $question->setValidator([$this->validator, 'validatePackageName']);
         $packageName = $helper->ask($input, $output, $question);
 
         $question = new Question('Please enter the description of the theme: ');
-        $question->setValidator(function ($answer) {
-            if (empty($answer)) {
-                throw new \RuntimeException('The description of the theme is required.');
-            }
-
-            return $answer;
-        });
+        $question->setValidator([$this->validator, 'validateDescription']);
         $description = $helper->ask($input, $output, $question);
 
         $question = new Question('Please enter the license of the theme: ');
-        $question->setValidator(function ($answer) {
-            if (empty($answer)) {
-                throw new \RuntimeException('The license of the theme is required.');
-            }
-
-            return $answer;
-        });
+        $question->setValidator([$this->validator, 'validateLicense']);
         $license = $helper->ask($input, $output, $question);
 
         $question = new Question('Please enter the homepage of the theme: ');
-        $question->setValidator(function ($answer) {
-            if (empty($answer)) {
-                throw new \RuntimeException('The homepage of the theme is required.');
-            }
-
-            return $answer;
-        });
+        $question->setValidator([$this->validator, 'validateHomepage']);
         $homepage = $helper->ask($input, $output, $question);
 
         $authors = [];
@@ -83,32 +60,14 @@ class GenerateThemeCommand extends Command
             }
 
             $question = new Question('Please enter the email of the author: ');
-            $question->setValidator(function ($answer) {
-                if (empty($answer)) {
-                    throw new \RuntimeException('The email of the author is required.');
-                }
-                if (!filter_var($answer, FILTER_VALIDATE_EMAIL)) {
-                    throw new \RuntimeException('The email should be a valid email address.');
-                }
-
-                return $answer;
-            });
+            $question->setValidator([$this->validator, 'validateAuthorEmail']);
             $email = $helper->ask($input, $output, $question);
 
             $authors[] = ['name' => $authorName, 'email' => $email];
         }
 
         $question = new Question('Please enter the version of the theme: ');
-        $question->setValidator(function ($answer) {
-            if (empty($answer)) {
-                throw new \RuntimeException('The version of the theme is required.');
-            }
-            if (!preg_match('/^(\d+\.)?(\d+\.)?(\*|\d+)$/', $answer)) {
-                throw new \RuntimeException('The version should follow semantic versioning.');
-            }
-
-            return $answer;
-        });
+        $question->setValidator([$this->validator, 'validateVersion']);
         $version = $helper->ask($input, $output, $question);
 
         $filesystem = new Filesystem();
