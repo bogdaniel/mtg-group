@@ -13,6 +13,16 @@ class ThemeData implements ThemeDataContract
     use ToArray;
     use ToEntity;
 
+    public ?string $name = null;
+    public ?string $title = null;
+    public ?string $description = null;
+    public array $authors = [];
+    public ?string $version = null;
+    public ?string $license = null;
+    public ?string $homepage = null;
+    public bool $isActive = false;
+    public ?int $parentThemeId = null;
+
     public function __construct(
         string $name,
         string $title,
