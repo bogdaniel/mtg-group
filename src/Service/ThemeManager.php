@@ -88,7 +88,7 @@ class ThemeManager
         $theme = $this->findThemeById($id);
         if ($theme) {
             $theme->isActive = true;
-            $this->themeRepository->setActive($theme);
+            $this->themeRepository->save($theme);
         }
     }
 }

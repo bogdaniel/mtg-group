@@ -31,10 +31,6 @@ class ThemeRepository extends ServiceEntityRepository
         return $this->findOneBy(['name' => $name]);
     }
 
-    public function setActive(Theme $theme): void
-    {
-        $this->save($theme);
-    }
 
     public function save(Theme $theme): void
     {
