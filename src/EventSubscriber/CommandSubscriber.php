@@ -17,20 +17,19 @@ class CommandSubscriber implements EventSubscriberInterface
         $this->themeDiscoveryService = $themeDiscoveryService;
     }
 
+    use App\Event\ThemeGeneratedEvent;
+
     public static function getSubscribedEvents(): array
     {
         return [
-            ConsoleEvents::TERMINATE => 'onCommandTerminate',
+            ThemeGeneratedEvent::NAME => 'onThemeGenerated',
             ConsoleCommandEvent::class => 'onConsoleCommandTerminate'
         ];
     }
 
-    public function onCommandTerminate(ConsoleTerminateEvent $event): void
+    public function onThemeGenerated(ThemeGeneratedEvent $event): void
     {
-        $commandName = $event->getCommand()->getName();
-        if ($commandName === 'app:generate-theme') {
-            $this->themeDiscoveryService->discoverThemes();
-        }
+        $this->themeDiscoveryService->discoverThemes();
     }
 
     public function onConsoleCommandTerminate(ConsoleCommandEvent $event)
