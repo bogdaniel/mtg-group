@@ -12,13 +12,17 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Filesystem\Filesystem;
 
 #[AsCommand(name: 'app:generate-theme')]
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+
 class GenerateThemeCommand extends Command
 {
     private GenerateThemeCommandValidator $validator;
+    private EventDispatcherInterface $dispatcher;
 
-    public function __construct(GenerateThemeCommandValidator $validator)
+    public function __construct(GenerateThemeCommandValidator $validator, EventDispatcherInterface $dispatcher)
     {
         $this->validator = $validator;
+        $this->dispatcher = $dispatcher;
 
         parent::__construct();
     }
