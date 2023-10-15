@@ -31,25 +31,39 @@ class GenerateThemeCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $question = new Question('Please enter the title of the theme: ');
-        $question->setValidator([$this->validator, 'validateTitle']);
-        $themeTitle = ucwords($helper->ask($input, $output, $question));
+        $questions = [
+            'title' => [
+                'question' => 'Please enter the title of the theme: ',
+                'validator' => 'validateTitle',
+            ],
+            'packageName' => [
+                'question' => 'Please enter the package name of the theme: ',
+                'validator' => 'validatePackageName',
+            ],
+            'description' => [
+                'question' => 'Please enter the description of the theme: ',
+                'validator' => 'validateDescription',
+            ],
+            'license' => [
+                'question' => 'Please enter the license of the theme: ',
+                'validator' => 'validateLicense',
+            ],
+            'homepage' => [
+                'question' => 'Please enter the homepage of the theme: ',
+                'validator' => 'validateHomepage',
+            ],
+            'version' => [
+                'question' => 'Please enter the version of the theme: ',
+                'validator' => 'validateVersion',
+            ],
+        ];
 
-        $question = new Question('Please enter the package name of the theme: ');
-        $question->setValidator([$this->validator, 'validatePackageName']);
-        $packageName = $helper->ask($input, $output, $question);
-
-        $question = new Question('Please enter the description of the theme: ');
-        $question->setValidator([$this->validator, 'validateDescription']);
-        $description = $helper->ask($input, $output, $question);
-
-        $question = new Question('Please enter the license of the theme: ');
-        $question->setValidator([$this->validator, 'validateLicense']);
-        $license = $helper->ask($input, $output, $question);
-
-        $question = new Question('Please enter the homepage of the theme: ');
-        $question->setValidator([$this->validator, 'validateHomepage']);
-        $homepage = $helper->ask($input, $output, $question);
+        $answers = [];
+        foreach ($questions as $key => $data) {
+            $question = new Question($data['question']);
+            $question->setValidator([$this->validator, $data['validator']]);
+            $answers[$key] = $helper->ask($input, $output, $question);
+        }
 
         $authors = [];
         while (true) {
@@ -66,9 +80,7 @@ class GenerateThemeCommand extends Command
             $authors[] = ['name' => $authorName, 'email' => $email];
         }
 
-        $question = new Question('Please enter the version of the theme: ');
-        $question->setValidator([$this->validator, 'validateVersion']);
-        $version = $helper->ask($input, $output, $question);
+        $answers['authors'] = $authors;
 
         $filesystem = new Filesystem();
 
