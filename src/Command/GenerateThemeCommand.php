@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-use App\Validator\ThemeValidator;
+use App\Validator\GenerateThemeCommandValidator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,9 +13,9 @@ use Symfony\Component\Filesystem\Filesystem;
 #[AsCommand(name: 'app:generate-theme')]
 class GenerateThemeCommand extends Command
 {
-    private ThemeValidator $validator;
+    private GenerateThemeCommandValidator $validator;
 
-    public function __construct(ThemeValidator $validator)
+    public function __construct(GenerateThemeCommandValidator $validator)
     {
         $this->validator = $validator;
 

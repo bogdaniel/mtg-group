@@ -2,7 +2,7 @@
 
 namespace App\Validator;
 
-class ThemeValidator
+class GenerateThemeCommandValidator
 {
     public function validateTitle($answer): string
     {
