@@ -67,7 +67,7 @@ class GenerateThemeCommand extends Command
             }
         }
 
-        $filesystem = new Filesystem();
+        $filesystemService = new FilesystemService();
 
 
         $array = explode('/', $answers['packageName']);
