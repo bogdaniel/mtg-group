@@ -39,6 +39,8 @@ class Theme
         public ?int $parentTheme = null,
         #[Column(type: "json")]
         public array $childThemes = [],
+        #[Column(type: "integer", nullable: true)]
+        public ?int $parentThemeId = null,
     ) {
     }
 }
