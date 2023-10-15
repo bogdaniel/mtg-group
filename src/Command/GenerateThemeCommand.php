@@ -18,11 +18,13 @@ class GenerateThemeCommand extends Command
 {
     private GenerateThemeCommandValidator $validator;
     private EventDispatcherInterface $dispatcher;
+    private ThemeFilesystemService $themeFilesystemService;
 
-    public function __construct(GenerateThemeCommandValidator $validator, EventDispatcherInterface $dispatcher)
+    public function __construct(GenerateThemeCommandValidator $validator, EventDispatcherInterface $dispatcher, ThemeFilesystemService $themeFilesystemService)
     {
         $this->validator = $validator;
         $this->dispatcher = $dispatcher;
+        $this->themeFilesystemService = $themeFilesystemService;
 
         parent::__construct();
     }
@@ -67,45 +69,28 @@ class GenerateThemeCommand extends Command
             }
         }
 
-        $filesystemService = new FilesystemService();
-
-
         $array = explode('/', $answers['packageName']);
         $packageNameCompiled = strtolower(str_replace(' ', '-', array_pop($array)));
         $themeDir = 'themes/' . $packageNameCompiled;
 
-        if (!$filesystem->exists($themeDir)) {
-            if (!$filesystem->exists($themeDir)) {
-                $filesystem->mkdir([
-                    $themeDir,
-                    "$themeDir/public",
-                    "$themeDir/templates",
-                    "$themeDir/templates/bundles",
-                    "$themeDir/translations",
-                ]);
+        $this->themeFilesystemService->createThemeDirectories($themeDir);
 
-                $composerJson = [
-                    "name" => $answers['packageName'],
-                    "title" => $answers['title'],
-                    "description" => $answers['description'],
-                    "license" => $answers['license'],
-                    "version" => $answers['version'],
-                    "homepage" => $answers['homepage'],
-                    "authors" => $answers['authors']
-                ];
+        $composerJson = [
+            "name" => $answers['packageName'],
+            "title" => $answers['title'],
+            "description" => $answers['description'],
+            "license" => $answers['license'],
+            "version" => $answers['version'],
+            "homepage" => $answers['homepage'],
+            "authors" => $answers['authors']
+        ];
 
-                $filesystem->dumpFile("$themeDir/composer.json",
-                    json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
-                );
+        $this->themeFilesystemService->createComposerJsonFile($themeDir, $composerJson);
 
-                $output->writeln("Theme " . $answers['packageName'] . " generated successfully.");
+        $output->writeln("Theme " . $answers['packageName'] . " generated successfully.");
 
-                $event = new ThemeGeneratedEvent($answers['packageName']);
-                $this->dispatcher->dispatch($event);
-            }
-        } else {
-            $output->writeln("Theme " . $answers['packageName'] . " already exists.");
-        }
+        $event = new ThemeGeneratedEvent($answers['packageName']);
+        $this->dispatcher->dispatch($event);
 
         return Command::SUCCESS;
     }
