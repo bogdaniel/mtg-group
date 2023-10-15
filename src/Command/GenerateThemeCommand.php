@@ -112,9 +112,9 @@ class GenerateThemeCommand extends Command
                 json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
             );
 
-            $output->writeln("Theme $packageName generated successfully.");
+            $output->writeln("Theme " . $answers['packageName'] . " generated successfully.");
         } else {
-            $output->writeln("Theme $packageName already exists.");
+            $output->writeln("Theme " . $answers['packageName'] . " already exists.");
         }
 
         return Command::SUCCESS;
