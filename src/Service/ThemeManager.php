@@ -38,25 +38,28 @@ class ThemeManager
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
-            $updatedTheme = new Theme(
-                $themeData->name,
-                $themeData->title,
-                $themeData->description,
-                $themeData->authors,
-                $themeData->version,
-                $themeData->homepage,
-                $theme->createdAt,
-                new \DateTime(),
-                $themeData->isActive,
-                $theme->id
-            );
+            $theme->name = $themeData->name;
+            $theme->title = $themeData->title;
+            $theme->description = $themeData->description;
+            $theme->authors = $themeData->authors;
+            $theme->version = $themeData->version;
+            $theme->homepage = $themeData->homepage;
+            $theme->createdAt = $theme->createdAt;
+            new \DateTime();
+            $theme->isActive = $themeData->isActive;
+            $theme->id;
 
-            $this->themeRepository->save($updatedTheme);
+            $this->themeRepository->save($theme);
 
-            return $updatedTheme;
+            return $theme;
         }
 
         throw new \RuntimeException('Theme not found');
+    }
+
+    public function findThemeById(int $id): ?Theme
+    {
+        return $this->themeRepository->find($id);
     }
 
     public function deleteTheme(Theme $theme): void
@@ -78,24 +81,8 @@ class ThemeManager
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
-            $updatedTheme = new Theme(
-                $theme->name,
-                $theme->title,
-                $theme->description,
-                $theme->authors,
-                $theme->version,
-                $theme->homepage,
-                $theme->createdAt,
-                new \DateTime(),
-                true,
-                $id
-            );
-            $this->themeRepository->save($updatedTheme);
+            $theme->isActive = true;
+            $this->themeRepository->save($theme);
         }
-    }
-
-    public function findThemeById(int $id): ?Theme
-    {
-        return $this->themeRepository->find($id);
     }
 }
