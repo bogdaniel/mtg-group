@@ -99,7 +99,8 @@ class GenerateThemeCommand extends Command
             "license" => $answers['license'],
             "version" => $answers['version'],
             "homepage" => $answers['homepage'],
-            "authors" => $answers['authors']
+            "authors" => $answers['authors'],
+            "tags" => [],
         ];
 
         $this->themeFilesystemService->createComposerJsonFile($themeDir, $composerJson);
