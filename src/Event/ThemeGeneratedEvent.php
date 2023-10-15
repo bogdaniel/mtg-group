@@ -8,7 +8,7 @@ class ThemeGeneratedEvent extends Event
 {
     public const NAME = 'theme.generated';
 
-    protected $packageName;
+    protected string $packageName;
 
     public function __construct(string $packageName)
     {

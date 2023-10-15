@@ -60,27 +60,20 @@ class GenerateThemeCommand extends Command
                 'question' => 'Please enter the version of the theme: ',
                 'validator' => 'validateVersion',
             ],
+            'authors' => [
+                'question' => 'Please enter the author of the theme (leave empty to stop): ',
+                'validator' => null,
+                'multiple' => true,
+                'subQuestions' => [
+                    'email' => [
+                        'question' => 'Please enter the email of the author: ',
+                        'validator' => 'validateAuthorEmail',
+                    ],
+                ],
+            ]
         ];
 
         $answers = [];
-        foreach ($questions as $key => $data) {
-            $question = new Question($data['question']);
-            $question->setValidator([$this->validator, $data['validator']]);
-            $answers[$key] = $helper->ask($input, $output, $question);
-        }
-
-        $questions['authors'] = [
-            'question' => 'Please enter the author of the theme (leave empty to stop): ',
-            'validator' => null,
-            'multiple' => true,
-            'subQuestions' => [
-                'email' => [
-                    'question' => 'Please enter the email of the author: ',
-                    'validator' => 'validateAuthorEmail',
-                ],
-            ],
-        ];
-
         foreach ($questions as $key => $data) {
             if (isset($data['multiple']) && $data['multiple']) {
                 $answers[$key] = [];
