@@ -21,6 +21,7 @@ class ThemeData implements ThemeDataContract
     public ?string $license = null;
     public ?string $homepage = null;
     public bool $isActive = false;
+    public ?int $parentTheme = null;
 
     public function __construct(
         string $name,
@@ -30,7 +31,8 @@ class ThemeData implements ThemeDataContract
         array $authors,
         string $version,
         string $homepage,
-        bool $isActive = false
+        bool $isActive = false,
+        ?int $parentTheme = null
     ) {
         $this->name = $name;
         $this->title = $title;
@@ -40,5 +42,6 @@ class ThemeData implements ThemeDataContract
         $this->version = $version;
         $this->homepage = $homepage;
         $this->isActive = $isActive;
+        $this->parentTheme = $parentTheme;
     }
 }

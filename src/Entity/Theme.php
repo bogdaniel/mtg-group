@@ -35,6 +35,10 @@ class Theme
         public bool $isActive = false,
         #[Id, GeneratedValue, Column(type: "integer")]
         public ?int $id = null,
+        #[Column(type: "integer", nullable: true)]
+        public ?int $parentTheme = null,
+        #[Column(type: "json")]
+        public array $childThemes = [],
     ) {
     }
 }

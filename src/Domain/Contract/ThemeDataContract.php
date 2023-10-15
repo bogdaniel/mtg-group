@@ -12,6 +12,7 @@ interface ThemeDataContract
         array $authors,
         string $version,
         string $homepage,
-        bool $isActive
+        bool $isActive,
+        ?int $parentTheme
     );
 }
