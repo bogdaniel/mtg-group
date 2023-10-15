@@ -34,7 +34,7 @@ class ThemeData implements ThemeDataContract
         string $version,
         string $homepage,
         bool $isActive = false,
-        ?ThemeData $parentTheme = null
+        ?ThemeDataContract $parentTheme = null
     ) {}
 
     public function getParentTheme(): ?ThemeData
