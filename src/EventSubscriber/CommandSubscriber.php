@@ -4,7 +4,6 @@ namespace App\EventSubscriber;
 
 use App\Event\ThemeGeneratedEvent;
 use App\Service\ThemeDiscoveryService;
-use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class CommandSubscriber implements EventSubscriberInterface
@@ -25,7 +24,6 @@ class CommandSubscriber implements EventSubscriberInterface
 
     public function onThemeGenerated(ThemeGeneratedEvent $event): void
     {
-        dd($event);
         $this->themeDiscoveryService->discoverThemes();
     }
 }

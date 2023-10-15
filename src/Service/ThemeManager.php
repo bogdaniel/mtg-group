@@ -17,12 +17,10 @@ class ThemeManager
 
     public function createTheme(ThemeDataContract $themeData): Theme
     {
-        dd($themeData);
         $parentTheme = null;
         if ($themeData->getParentTheme()) {
             $parentTheme = $this->findThemeByName($themeData->getParentTheme()->name);
         }
-
         $theme = new Theme(
             $themeData->name,
             $themeData->title,
