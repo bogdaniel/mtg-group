@@ -27,12 +27,12 @@ class GenerateThemeCommandTest extends KernelTestCase
             'A theme for testing', // Description
             'MIT', // License
             'https://example.com', // Homepage
+            '1.0.0', // Version
             'Bogdan Olteanu', // Author name
             'bogdan@zenchron.com', // Author email
             'Luminita Smoleanu', // Author name
             'luminita@zenchron.com', // Author email
             '', // Empty author name to stop adding authors
-            '1.0.0', // Version
         ]);
 
         $this->applicationTester->run(['command' => $this->command->getName()]);

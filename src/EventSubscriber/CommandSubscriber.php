@@ -25,6 +25,7 @@ class CommandSubscriber implements EventSubscriberInterface
 
     public function onThemeGenerated(ThemeGeneratedEvent $event): void
     {
+        dd($event);
         $this->themeDiscoveryService->discoverThemes();
     }
 }
