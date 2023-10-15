@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 use Doctrine\ORM\Mapping\Table;
 use App\Repository\ThemeRepository;
 
-#[Entity(repositoryClass: ThemeRepository::class, readOnly: true)]
+#[Entity(repositoryClass: ThemeRepository::class)]
 #[Table(name: "theme", uniqueConstraints: [new UniqueConstraint(name: "theme_name_unique", columns: ["name"])])]
 class Theme
 {
