@@ -43,6 +43,14 @@ class GenerateThemeCommand extends Command
 
         $answers = [];
         foreach ($questions as $key => $data) {
+            if (!isset($data['multiple']) || !$data['multiple']) {
+                $question = new Question($data['question']);
+                $question->setValidator([$this->validator, $data['validator']]);
+                $answers[$key] = $helper->ask($input, $output, $question);
+            }
+        }
+
+        foreach ($questions as $key => $data) {
             if (isset($data['multiple']) && $data['multiple']) {
                 $answers[$key] = [];
                 while (true) {
@@ -62,10 +70,6 @@ class GenerateThemeCommand extends Command
                     }
                     $answers[$key][] = $subAnswers;
                 }
-            } else {
-                $question = new Question($data['question']);
-                $question->setValidator([$this->validator, $data['validator']]);
-                $answers[$key] = $helper->ask($input, $output, $question);
             }
         }
 
