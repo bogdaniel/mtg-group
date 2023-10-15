@@ -45,7 +45,6 @@ class ThemeManager
             $theme->authors = $themeData->authors;
             $theme->version = $themeData->version;
             $theme->homepage = $themeData->homepage;
-            $theme->createdAt = $theme->createdAt;
             new \DateTime();
             $theme->isActive = $themeData->isActive;
             $theme->parentThemeId = $themeData->parentThemeId;
