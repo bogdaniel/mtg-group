@@ -36,8 +36,16 @@ class GenerateThemeCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $helper = $this->getHelper('question');
+        $answers = $this->askQuestions($input, $output);
 
+        $this->createTheme($answers, $output);
+
+        return Command::SUCCESS;
+    }
+
+    private function askQuestions(InputInterface $input, OutputInterface $output): array
+    {
+        $helper = $this->getHelper('question');
         $questionProvider = new GenerateThemeCommandQuestionsProvider();
         $questions = $questionProvider->getQuestions();
 
@@ -73,6 +81,11 @@ class GenerateThemeCommand extends Command
             }
         }
 
+        return $answers;
+    }
+
+    private function createTheme(array $answers, OutputInterface $output): void
+    {
         $array = explode('/', $answers['packageName']);
         $packageNameCompiled = strtolower(str_replace(' ', '-', array_pop($array)));
         $themeDir = 'themes/' . $packageNameCompiled;
@@ -95,7 +108,5 @@ class GenerateThemeCommand extends Command
 
         $event = new ThemeGeneratedEvent($answers['packageName']);
         $this->dispatcher->dispatch($event);
-
-        return Command::SUCCESS;
     }
 }
