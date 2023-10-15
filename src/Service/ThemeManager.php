@@ -19,7 +19,7 @@ class ThemeManager
     {
         $parentTheme = null;
         if ($themeData->getParentTheme()) {
-            $parentTheme = $this->findThemeByName($themeData->getParentTheme()->getName());
+            $parentTheme = $this->findThemeByName($themeData->getParentTheme()->name);
         }
 
         $theme = new Theme(
@@ -52,7 +52,9 @@ class ThemeManager
             $theme->homepage = $themeData->homepage;
             new \DateTime();
             $theme->isActive = $themeData->isActive;
-            $theme->parentThemeId = $themeData->parentThemeId;
+            if ($themeData->parentTheme) {
+                $theme->parentTheme = $this->findThemeByName($themeData->parentTheme->name);
+            }
 
             $this->themeRepository->save($theme);
 
