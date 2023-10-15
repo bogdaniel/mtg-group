@@ -21,7 +21,7 @@ class ThemeController extends AbstractController
     {
         $this->themeManager->setActiveTheme($themeId);
 
-        return $this->redirectToRoute('dashboard');
+        return $this->redirectToRoute('themes');
     }
 
     #[Route("/theme/install/{themeId}", name: "theme_install")]
@@ -32,7 +32,7 @@ class ThemeController extends AbstractController
             // logic to install theme assets...
         }
 
-        return $this->redirectToRoute('dashboard');
+        return $this->redirectToRoute('themes');
     }
 
     #[Route("/themes", name: "themes")]

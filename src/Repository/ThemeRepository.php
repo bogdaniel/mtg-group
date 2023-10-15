@@ -41,5 +41,6 @@ class ThemeRepository extends ServiceEntityRepository
         $this->getEntityManager()->persist($theme);
         $this->getEntityManager()->flush();
         $this->getEntityManager()->refresh($theme);
+
     }
 }
