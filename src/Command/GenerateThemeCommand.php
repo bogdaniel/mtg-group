@@ -90,29 +90,34 @@ class GenerateThemeCommand extends Command
         $themeDir = 'themes/' . $packageNameCompiled;
 
         if (!$filesystem->exists($themeDir)) {
-            $filesystem->mkdir([
-                $themeDir,
-                "$themeDir/public",
-                "$themeDir/templates",
-                "$themeDir/templates/bundles",
-                "$themeDir/translations",
-            ]);
+            if (!$filesystem->exists($themeDir)) {
+                $filesystem->mkdir([
+                    $themeDir,
+                    "$themeDir/public",
+                    "$themeDir/templates",
+                    "$themeDir/templates/bundles",
+                    "$themeDir/translations",
+                ]);
 
-            $composerJson = [
-                "name" => $answers['packageName'],
-                "title" => $answers['title'],
-                "description" => $answers['description'],
-                "license" => $answers['license'],
-                "version" => $answers['version'],
-                "homepage" => $answers['homepage'],
-                "authors" => $answers['authors']
-            ];
+                $composerJson = [
+                    "name" => $answers['packageName'],
+                    "title" => $answers['title'],
+                    "description" => $answers['description'],
+                    "license" => $answers['license'],
+                    "version" => $answers['version'],
+                    "homepage" => $answers['homepage'],
+                    "authors" => $answers['authors']
+                ];
 
-            $filesystem->dumpFile("$themeDir/composer.json",
-                json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
-            );
+                $filesystem->dumpFile("$themeDir/composer.json",
+                    json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+                );
 
-            $output->writeln("Theme " . $answers['packageName'] . " generated successfully.");
+                $output->writeln("Theme " . $answers['packageName'] . " generated successfully.");
+
+                $event = new ThemeGeneratedEvent($answers['packageName']);
+                $this->dispatcher->dispatch($event);
+            }
         } else {
             $output->writeln("Theme " . $answers['packageName'] . " already exists.");
         }
