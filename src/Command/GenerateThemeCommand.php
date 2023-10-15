@@ -69,22 +69,44 @@ class GenerateThemeCommand extends Command
             $answers[$key] = $helper->ask($input, $output, $question);
         }
 
-        $authors = [];
-        while (true) {
-            $question = new Question('Please enter the author of the theme (leave empty to stop): ');
-            $authorName = ucwords($helper->ask($input, $output, $question));
-            if (empty($authorName)) {
-                break;
+        $questions['authors'] = [
+            'question' => 'Please enter the author of the theme (leave empty to stop): ',
+            'validator' => null,
+            'multiple' => true,
+            'subQuestions' => [
+                'email' => [
+                    'question' => 'Please enter the email of the author: ',
+                    'validator' => 'validateAuthorEmail',
+                ],
+            ],
+        ];
+
+        foreach ($questions as $key => $data) {
+            if (isset($data['multiple']) && $data['multiple']) {
+                $answers[$key] = [];
+                while (true) {
+                    $question = new Question($data['question']);
+                    if ($data['validator']) {
+                        $question->setValidator([$this->validator, $data['validator']]);
+                    }
+                    $answer = $helper->ask($input, $output, $question);
+                    if (empty($answer)) {
+                        break;
+                    }
+                    $subAnswers = ['name' => $answer];
+                    foreach ($data['subQuestions'] as $subKey => $subData) {
+                        $question = new Question($subData['question']);
+                        $question->setValidator([$this->validator, $subData['validator']]);
+                        $subAnswers[$subKey] = $helper->ask($input, $output, $question);
+                    }
+                    $answers[$key][] = $subAnswers;
+                }
+            } else {
+                $question = new Question($data['question']);
+                $question->setValidator([$this->validator, $data['validator']]);
+                $answers[$key] = $helper->ask($input, $output, $question);
             }
-
-            $question = new Question('Please enter the email of the author: ');
-            $question->setValidator([$this->validator, 'validateAuthorEmail']);
-            $email = $helper->ask($input, $output, $question);
-
-            $authors[] = ['name' => $authorName, 'email' => $email];
         }
-
-        $answers['authors'] = $authors;
 
         $filesystem = new Filesystem();
 
