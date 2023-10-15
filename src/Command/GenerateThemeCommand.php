@@ -85,7 +85,7 @@ class GenerateThemeCommand extends Command
         $filesystem = new Filesystem();
 
 
-        $array = explode('/', $packageName);
+        $array = explode('/', $answers['packageName']);
         $packageNameCompiled = strtolower(str_replace(' ', '-', array_pop($array)));
         $themeDir = 'themes/' . $packageNameCompiled;
 
@@ -99,13 +99,13 @@ class GenerateThemeCommand extends Command
             ]);
 
             $composerJson = [
-                "name" => $packageName,
-                "title" => $themeTitle,
-                "description" => $description,
-                "license" => $license,
-                "version" => $version,
-                "homepage" => $homepage,
-                "authors" => $authors
+                "name" => $answers['packageName'],
+                "title" => $answers['title'],
+                "description" => $answers['description'],
+                "license" => $answers['license'],
+                "version" => $answers['version'],
+                "homepage" => $answers['homepage'],
+                "authors" => $answers['authors']
             ];
 
             $filesystem->dumpFile("$themeDir/composer.json",
