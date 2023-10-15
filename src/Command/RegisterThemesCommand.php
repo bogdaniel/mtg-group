@@ -31,12 +31,16 @@ class RegisterThemesCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $themes = $this->themeDiscoveryService->discoverThemes();
+        $registeredThemesCount = 0;
 
         foreach ($themes as $theme) {
-            $this->themeManager->createTheme($theme);
+            if (!$this->themeManager->findThemeByName($theme->getName())) {
+                $this->themeManager->createTheme($theme);
+                $registeredThemesCount++;
+            }
         }
 
-        $output->writeln(count($themes) . " themes registered successfully.");
+        $output->writeln($registeredThemesCount . " themes registered successfully.");
 
         return Command::SUCCESS;
     }
