@@ -4,13 +4,13 @@ namespace App\Command;
 
 use App\Event\ThemeGeneratedEvent;
 use App\Service\GenerateThemeCommandQuestionsProvider;
+use App\Service\ThemeFilesystemService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use App\Validator\GenerateThemeCommandValidator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 #[AsCommand(name: 'app:generate-theme')]
