@@ -1,0 +1,19 @@
+{
+    "name": "zenchron/nexus-theme",
+    "title": "Nexus Theme",
+    "description": "A theme for testing",
+    "license": "MIT",
+    "version": "1.0.0",
+    "homepage": "https://example.com",
+    "authors": [
+        {
+            "name": "Bogdan Olteanu",
+            "email": "bogdan@zenchron.com"
+        },
+        {
+            "name": "Luminita Smoleanu",
+            "email": "luminita@zenchron.com"
+        }
+    ],
+    "tags": []
+}
