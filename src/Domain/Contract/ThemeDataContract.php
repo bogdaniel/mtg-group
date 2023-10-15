@@ -13,6 +13,6 @@ interface ThemeDataContract
         string $version,
         string $homepage,
         bool $isActive,
-        ?int $parentTheme
+        ?int $parentThemeId
     );
 }
