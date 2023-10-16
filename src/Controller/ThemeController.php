@@ -17,13 +17,14 @@ class ThemeController extends AbstractController
     {
         $this->themeManager = $themeManager;
         $this->themeRuntimeConfigurator = $themeRuntimeConfigurator;
+        $this->themeRuntimeConfigurator->configure();
+
     }
 
     #[Route("/theme/switch/{themeId}", name: "theme_switch")]
     public function switchTheme($themeId): Response
     {
         $this->themeManager->setActiveTheme($themeId);
-        $this->themeRuntimeConfigurator->configure();
 
         return $this->redirectToRoute('themes');
     }
