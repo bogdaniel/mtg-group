@@ -3,23 +3,28 @@
 namespace App\Service;
 
 use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class ThemeRuntimeConfigurator
 {
-    private Environment $twig;
+    private FilesystemLoader $twig;
     private ThemeManager $themeManager;
+    private string $projectDir;
 
-    public function __construct(Environment $twig, ThemeManager $themeManager)
+    public function __construct(FilesystemLoader $twig, ThemeManager $themeManager, string $projectDir)
     {
         $this->twig = $twig;
         $this->themeManager = $themeManager;
+        $this->projectDir = $projectDir;
     }
 
     public function configure(): void
     {
         $activeThemeName = $this->themeManager->getActiveThemeName();
         if ($activeThemeName !== null) {
-            $this->twig->getLoader()->addPath('%kernel.project_dir%/themes/' . $activeThemeName, 'theme');
+            $themeNamespace = str_replace('/', ':', $activeThemeName);
+            $this->twig->addPath($this->projectDir . '/themes/' . $activeThemeName, $themeNamespace);
+//            dd($this->twig->getNamespaces());
         }
     }
 }

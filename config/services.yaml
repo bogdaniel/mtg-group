@@ -29,3 +29,9 @@ services:
         public: true
         tags:
             - { name: kernel.event_subscriber }
+            
+    App\Service\ThemeRuntimeConfigurator:
+        arguments:
+            $twig: '@twig.loader.native_filesystem'
+            $themeManager: '@App\Service\ThemeManager'
+            $projectDir: '%kernel.project_dir%'
