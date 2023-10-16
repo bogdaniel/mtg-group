@@ -24,6 +24,14 @@ class ThemeController extends AbstractController
         return $this->redirectToRoute('themes');
     }
 
+    #[Route("/theme/deactivate/{themeId}", name: "theme_deactivate")]
+    public function deactivateTheme($themeId): Response
+    {
+        $this->themeManager->deactivateTheme($themeId);
+
+        return $this->redirectToRoute('themes');
+    }
+
     #[Route("/theme/install/{themeId}", name: "theme_install")]
     public function installAssets($themeId): Response
     {

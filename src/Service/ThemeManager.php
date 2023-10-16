@@ -91,4 +91,13 @@ class ThemeManager
             $this->themeRepository->save($theme);
         }
     }
+
+    public function deactivateTheme(int $id): void
+    {
+        $theme = $this->findThemeById($id);
+        if ($theme) {
+            $theme->isActive = false;
+            $this->themeRepository->save($theme);
+        }
+    }
 }
