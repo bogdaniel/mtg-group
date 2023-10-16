@@ -3,3 +3,7 @@
             $twig: '@twig'
             $themeManager: '@App\Service\ThemeManager'
             $projectDir: '%kernel.project_dir%'
+
+    App\EventSubscriber\ThemeConfiguratorSubscriber:
+        arguments:
+            $themeRuntimeConfigurator: '@App\Service\ThemeRuntimeConfigurator'
