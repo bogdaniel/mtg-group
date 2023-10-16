@@ -2,7 +2,10 @@
 
 namespace App\Service;
 
-use Twig\Environment;
+use App\Event\AfterAddPathEvent;
+use App\Event\AfterThemeNamespaceEvent;
+use App\Event\BeforeAddPathEvent;
+use App\Event\BeforeThemeNamespaceEvent;
 use Twig\Loader\FilesystemLoader;
 
 class ThemeRuntimeConfigurator
@@ -16,7 +19,6 @@ class ThemeRuntimeConfigurator
         $this->twig = $twig;
         $this->themeManager = $themeManager;
         $this->projectDir = $projectDir;
-        $this->configure();
     }
 
     public function configure(): void
