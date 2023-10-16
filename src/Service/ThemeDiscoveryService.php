@@ -21,10 +21,11 @@ class ThemeDiscoveryService
     public function discoverThemes(): void
     {
         $finder = new Finder();
-        $finder->directories()->in('themes')->depth(2);
+        $finder->directories()->in('themes')->depth(1);
 
         foreach ($finder as $dir) {
             $composerJsonPath = $dir->getRealPath() . '/composer.json';
+            dump($composerJsonPath);
             if ($this->filesystem->exists($composerJsonPath)) {
                 $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
 
