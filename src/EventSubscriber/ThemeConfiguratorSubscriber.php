@@ -18,7 +18,7 @@ class ThemeConfiguratorSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if ($event->isMasterRequest()) {
+        if ($event->isMainRequest()) {
             $this->themeRuntimeConfigurator->configure();
         }
     }
