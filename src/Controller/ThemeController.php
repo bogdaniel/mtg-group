@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\ThemeManager;
+use App\Service\ThemeRuntimeConfigurator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,14 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThemeController extends AbstractController
 {
     private ThemeManager $themeManager;
-
-    public function __construct(ThemeManager $themeManager)
-    {
-        $this->themeManager = $themeManager;
-    }
-
-    use App\Service\ThemeRuntimeConfigurator;
-
     private ThemeRuntimeConfigurator $themeRuntimeConfigurator;
 
     public function __construct(ThemeManager $themeManager, ThemeRuntimeConfigurator $themeRuntimeConfigurator)
@@ -62,7 +55,7 @@ class ThemeController extends AbstractController
         $activeThemeName = $this->themeManager->getActiveThemeName();
 
         return $this->render(
-            'themes/' . $activeThemeName . '/templates/admin/theme_manager/themes.html.twig',
+            $activeThemeName . '/templates/admin/theme_manager/themes.html.twig',
             ['themes' => $themes, 'activeTheme' => $activeTheme, 'activeThemeName' => $activeThemeName]
         );
     }
