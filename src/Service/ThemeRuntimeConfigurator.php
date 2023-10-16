@@ -23,9 +23,12 @@ class ThemeRuntimeConfigurator
     {
         $activeThemeName = $this->themeManager->getActiveThemeName();
         if ($activeThemeName !== null) {
+            $this->eventDispatcher->dispatch(new BeforeThemeNamespaceEvent($activeThemeName));
             $themeNamespace = str_replace('/', ':', $activeThemeName);
+            $this->eventDispatcher->dispatch(new AfterThemeNamespaceEvent($themeNamespace));
+            $this->eventDispatcher->dispatch(new BeforeAddPathEvent($this->projectDir . '/themes/' . $activeThemeName, $themeNamespace));
             $this->twig->addPath($this->projectDir . '/themes/' . $activeThemeName, $themeNamespace);
-//            dd($this->twig->getNamespaces());
+            $this->eventDispatcher->dispatch(new AfterAddPathEvent($this->projectDir . '/themes/' . $activeThemeName, $themeNamespace));
         }
     }
 }
