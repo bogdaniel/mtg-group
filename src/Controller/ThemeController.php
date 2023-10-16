@@ -47,7 +47,8 @@ class ThemeController extends AbstractController
     public function listThemes(): Response
     {
         $themes = $this->themeManager->findAllThemes();
+        $activeTheme = $this->themeManager->findThemeById($this->themeManager->getActiveThemeId());
 
-        return $this->render('themes.html.twig', ['themes' => $themes]);
+        return $this->render('themes.html.twig', ['themes' => $themes, 'activeTheme' => $activeTheme]);
     }
 }
