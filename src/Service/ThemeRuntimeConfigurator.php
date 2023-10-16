@@ -8,17 +8,21 @@ use App\Event\BeforeAddPathEvent;
 use App\Event\BeforeThemeNamespaceEvent;
 use Twig\Loader\FilesystemLoader;
 
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+
 class ThemeRuntimeConfigurator
 {
     private FilesystemLoader $twig;
     private ThemeManager $themeManager;
     private string $projectDir;
+    private EventDispatcherInterface $eventDispatcher;
 
-    public function __construct(FilesystemLoader $twig, ThemeManager $themeManager, string $projectDir)
+    public function __construct(FilesystemLoader $twig, ThemeManager $themeManager, string $projectDir, EventDispatcherInterface $eventDispatcher)
     {
         $this->twig = $twig;
         $this->themeManager = $themeManager;
         $this->projectDir = $projectDir;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     public function configure(): void
