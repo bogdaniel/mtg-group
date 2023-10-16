@@ -38,5 +38,16 @@ class ThemeDiscoveryService
                 }
             }
         }
+
+        // Check if there is an active theme
+        $activeTheme = $this->themeManager->getActiveThemeName();
+        if ($activeTheme === null) {
+            // Get all themes
+            $themes = $this->themeManager->findAllThemes();
+            if (count($themes) > 0) {
+                // Set the first theme as the active theme
+                $this->themeManager->setActiveTheme($themes[0]->id);
+            }
+        }
     }
 }
