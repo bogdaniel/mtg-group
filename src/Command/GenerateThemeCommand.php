@@ -99,6 +99,7 @@ class GenerateThemeCommand extends Command
             "version" => $answers['version'],
             "homepage" => $answers['homepage'],
             "authors" => $answers['authors'],
+            "type" => "ai-cms-theme",
             "tags" => [],
         ];
 
