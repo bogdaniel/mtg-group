@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Service\ThemeManager;
-use App\Service\ThemeRuntimeConfigurator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,14 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThemeController extends AbstractController
 {
     private ThemeManager $themeManager;
-    private ThemeRuntimeConfigurator $themeRuntimeConfigurator;
-
-    public function __construct(ThemeManager $themeManager, ThemeRuntimeConfigurator $themeRuntimeConfigurator)
+    public function __construct(ThemeManager $themeManager)
     {
         $this->themeManager = $themeManager;
-        $this->themeRuntimeConfigurator = $themeRuntimeConfigurator;
-        $this->themeRuntimeConfigurator->configure();
-
     }
 
     #[Route("/theme/switch/{themeId}", name: "theme_switch")]
