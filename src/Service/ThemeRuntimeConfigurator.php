@@ -16,6 +16,7 @@ class ThemeRuntimeConfigurator
         $this->twig = $twig;
         $this->themeManager = $themeManager;
         $this->projectDir = $projectDir;
+        $this->configure();
     }
 
     public function configure(): void
