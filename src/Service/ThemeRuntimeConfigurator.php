@@ -19,7 +19,7 @@ class ThemeRuntimeConfigurator
     {
         $activeThemeName = $this->themeManager->getActiveThemeName();
         if ($activeThemeName !== null) {
-            $this->twig->getLoader()->addPath('themes/' . $activeThemeName);
+            $this->twig->getLoader()->addPath('%kernel.project_dir%/themes/' . $activeThemeName, 'theme');
         }
     }
 }
