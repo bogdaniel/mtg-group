@@ -112,4 +112,16 @@ class ThemeManager
 
         return null;
     }
+
+    public function getActiveThemeName(): ?string
+    {
+        $themes = $this->findAllThemes();
+        foreach ($themes as $theme) {
+            if ($theme->isActive) {
+                return $theme->name;
+            }
+        }
+
+        return null;
+    }
 }
