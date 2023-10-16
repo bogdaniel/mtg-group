@@ -34,7 +34,11 @@
             <td>{{ theme.updatedAt|date('Y-m-d H:i') }}</td>
             <td>{{ theme.isActive ? 'Yes' : 'No' }}</td>
             <td>
-                <a href="{{ path('theme_switch', {themeId: theme.id}) }}">Make Active</a>
+                {% if theme.isActive %}
+                    <a href="{{ path('theme_deactivate', {themeId: theme.id}) }}">Deactivate</a>
+                {% else %}
+                    <a href="{{ path('theme_switch', {themeId: theme.id}) }}">Make Active</a>
+                {% endif %}
                 <a href="{{ path('theme_install', {themeId: theme.id}) }}">Install Assets</a>
             </td>
         </tr>
