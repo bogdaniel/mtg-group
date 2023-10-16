@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\Service\ThemeManager;
 use App\Domain\Entity\ThemeData;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
@@ -25,10 +24,8 @@ class ThemeDiscoveryService
 
         foreach ($finder as $dir) {
             $composerJsonPath = $dir->getRealPath() . '/composer.json';
-            dump($composerJsonPath);
             if ($this->filesystem->exists($composerJsonPath)) {
                 $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
-
                 $themeData = ThemeData::create($composerJson);
                 $theme = $this->themeManager->findThemeByName($themeData->name);
                 if (null === $theme) {
@@ -38,14 +35,10 @@ class ThemeDiscoveryService
                 }
             }
         }
-
-        // Check if there is an active theme
         $activeTheme = $this->themeManager->getActiveThemeName();
         if ($activeTheme === null) {
-            // Get all themes
             $themes = $this->themeManager->findAllThemes();
             if (count($themes) > 0) {
-                // Set the first theme as the active theme
                 $this->themeManager->setActiveTheme($themes[0]->id);
             }
         }
