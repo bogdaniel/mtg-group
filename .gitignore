@@ -28,3 +28,4 @@ yarn-error.log
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 .aider*
+themes/zenchron/nexus-theme/composer.json
