@@ -86,8 +86,7 @@ class GenerateThemeCommand extends Command
 
     private function createTheme(array $answers, OutputInterface $output): void
     {
-        $array = explode('/', $answers['packageName']);
-        $packageNameCompiled = strtolower(str_replace(' ', '-', array_pop($array)));
+        $packageNameCompiled = strtolower(str_replace(' ', '-', $answers['packageName']));
         $themeDir = 'themes/' . $packageNameCompiled;
 
         $this->themeFilesystemService->createThemeDirectories($themeDir);

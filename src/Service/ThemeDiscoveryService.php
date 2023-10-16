@@ -21,7 +21,7 @@ class ThemeDiscoveryService
     public function discoverThemes(): void
     {
         $finder = new Finder();
-        $finder->directories()->in('themes')->depth('== 0');
+        $finder->directories()->in('themes')->depth(2);
 
         foreach ($finder as $dir) {
             $composerJsonPath = $dir->getRealPath() . '/composer.json';
