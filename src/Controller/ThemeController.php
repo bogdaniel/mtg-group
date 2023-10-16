@@ -50,6 +50,6 @@ class ThemeController extends AbstractController
         $activeTheme = $this->themeManager->findThemeById($this->themeManager->getActiveThemeId());
         $activeThemeName = $this->themeManager->getActiveThemeName();
 
-        return $this->render('themes.html.twig', ['themes' => $themes, 'activeTheme' => $activeTheme, 'activeThemeName' => $activeThemeName]);
+        return $this->render($activeThemeName . '/themes.html.twig', ['themes' => $themes, 'activeTheme' => $activeTheme, 'activeThemeName' => $activeThemeName]);
     }
 }
