@@ -100,4 +100,16 @@ class ThemeManager
             $this->themeRepository->save($theme);
         }
     }
+
+    public function getActiveThemeId(): ?int
+    {
+        $themes = $this->findAllThemes();
+        foreach ($themes as $theme) {
+            if ($theme->isActive) {
+                return $theme->id;
+            }
+        }
+
+        return null;
+    }
 }
