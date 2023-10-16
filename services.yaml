@@ -1,0 +1,5 @@
+    App\Service\ThemeRuntimeConfigurator:
+        arguments:
+            $twig: '@twig'
+            $themeManager: '@App\Service\ThemeManager'
+            $projectDir: '%kernel.project_dir%'
