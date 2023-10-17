@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Domain\Contract\ThemeDataContract;
+use App\Domain\Entity\ThemeData;
 use App\Entity\Theme;
 use App\Repository\ThemeRepository;
 
@@ -133,6 +134,7 @@ class ThemeManager
     public function createChildTheme(int $parentId): void
     {
         $parentTheme = $this->findThemeById($parentId);
+        dd($parentTheme);
         if ($parentTheme) {
             $childThemeData = new ThemeData(
                 $parentTheme->name . '-child',

@@ -40,6 +40,7 @@
                         <a href="{{ path('theme_switch', {themeId: theme.id}) }}">Make Active</a>
                     {% endif %}
                     <a href="{{ path('theme_install', {themeId: theme.id}) }}">Install Assets</a>
+                    <a href="{{ path('theme_create_child', {themeId: theme.id}) }}">Create Child Theme</a>
                 </td>
             </tr>
         {% endfor %}
