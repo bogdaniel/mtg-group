@@ -85,6 +85,11 @@ class ThemeManager
 
     public function setActiveTheme(int $id): void
     {
+        $activeThemeId = $this->getActiveThemeId();
+        if ($activeThemeId !== null && $activeThemeId !== $id) {
+            $this->deactivateTheme($activeThemeId);
+        }
+
         $theme = $this->findThemeById($id);
         if ($theme) {
             $theme->isActive = true;
