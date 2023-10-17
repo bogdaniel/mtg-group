@@ -32,4 +32,22 @@ class ThemeFilesystemService
             json_encode($composerJson, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
     }
+
+    public function createChildThemeDirectoriesAndFiles(string $parentThemeName, ThemeData $childThemeData): void
+    {
+        $childThemeDir = 'themes/' . $childThemeData->name;
+        $this->filesystem->mirror('themes/' . $parentThemeName, $childThemeDir);
+        $composerJson = [
+            "name" => $childThemeData->name,
+            "title" => $childThemeData->title,
+            "description" => $childThemeData->description,
+            "license" => $childThemeData->license,
+            "version" => $childThemeData->version,
+            "homepage" => $childThemeData->homepage,
+            "authors" => $childThemeData->authors,
+            "type" => "ai-cms-theme",
+            "tags" => [],
+        ];
+        $this->createComposerJsonFile($childThemeDir, $composerJson);
+    }
 }

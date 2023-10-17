@@ -129,4 +129,24 @@ class ThemeManager
 
         return null;
     }
+
+    public function createChildTheme(int $parentId): void
+    {
+        $parentTheme = $this->findThemeById($parentId);
+        if ($parentTheme) {
+            $childThemeData = new ThemeData(
+                $parentTheme->name . '-child',
+                $parentTheme->title . ' Child',
+                $parentTheme->description,
+                $parentTheme->license,
+                $parentTheme->authors,
+                $parentTheme->version,
+                $parentTheme->homepage,
+                false,
+                $parentTheme
+            );
+            $this->themeFilesystemService->createChildThemeDirectoriesAndFiles($parentTheme->name, $childThemeData);
+            $this->createTheme($childThemeData);
+        }
+    }
 }
