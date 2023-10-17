@@ -49,7 +49,7 @@ class ThemeController extends AbstractController
         $activeTheme = $this->themeManager->findThemeById($this->themeManager->getActiveThemeId());
         $activeThemeName = $this->themeManager->getActiveThemeName();
 
-        return $this->render('@zenchron:nexus-theme/templates/admin/theme_manager/themes.html.twig',
+        return $this->render('@zenchron:default-theme/templates/admin/theme_manager/themes.html.twig',
             ['themes' => $themes, 'activeTheme' => $activeTheme, 'activeThemeName' => $activeThemeName]
         );
     }
