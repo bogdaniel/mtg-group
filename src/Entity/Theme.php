@@ -26,6 +26,8 @@ class Theme
         #[Column(type: "string", length: 255)]
         public string $version,
         #[Column(type: "string", length: 255)]
+        public string $license,
+        #[Column(type: "string", length: 255)]
         public string $homepage,
         #[Column(type: "datetime")]
         public \DateTime $createdAt,
