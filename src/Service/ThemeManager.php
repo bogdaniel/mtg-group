@@ -28,6 +28,7 @@ class ThemeManager
             $themeData->description,
             $themeData->authors,
             $themeData->version,
+            $themeData->license,
             $themeData->homepage,
             new \DateTime(),
             new \DateTime(),
@@ -49,6 +50,7 @@ class ThemeManager
             $theme->description = $themeData->description;
             $theme->authors = $themeData->authors;
             $theme->version = $themeData->version;
+            $theme->license = $themeData->license;
             $theme->homepage = $themeData->homepage;
             new \DateTime();
             $theme->isActive = $themeData->isActive;
