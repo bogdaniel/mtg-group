@@ -5,6 +5,7 @@
     "license": "MIT",
     "version": "1.0.0",
     "homepage": "https://example.com",
+    "type": "ai-cms-theme",
     "authors": [
         {
             "name": "Bogdan Olteanu",

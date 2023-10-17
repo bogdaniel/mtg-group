@@ -20,26 +20,6 @@ class ThemeDiscoveryService
         $this->kernel = $kernel;
     }
 
-    private function getThemesFromDirectory(string $directory): array
-    {
-        $themes = [];
-        $finder = new Finder();
-        $finder->directories()->in($this->kernel->getProjectDir() . '/' . $directory)->depth(1);
-
-        foreach ($finder as $dir) {
-            $composerJsonPath = $dir->getRealPath() . '/composer.json';
-            if ($this->filesystem->exists($composerJsonPath)) {
-                $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
-                if ($composerJson['type'] === 'ai-cms-theme') {
-                    $themeData = ThemeData::create($composerJson);
-                    $themes[] = $themeData;
-                }
-            }
-        }
-
-        return $themes;
-    }
-
     public function discoverThemes(): void
     {
         $themesDirectories = ['themes', 'vendor'];
@@ -62,5 +42,25 @@ class ThemeDiscoveryService
                 $this->themeManager->setActiveTheme($themes[0]->id);
             }
         }
+    }
+
+    private function getThemesFromDirectory(string $directory): array
+    {
+        $themes = [];
+        $finder = new Finder();
+        $finder->directories()->in($this->kernel->getProjectDir() . '/' . $directory)->depth(1);
+
+        foreach ($finder as $dir) {
+            $composerJsonPath = $dir->getRealPath() . '/composer.json';
+            if ($this->filesystem->exists($composerJsonPath)) {
+                $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
+                if (isset($composerJson['type']) && $composerJson['type'] === 'ai-cms-theme') {
+                    $themeData = ThemeData::create($composerJson);
+                    $themes[] = $themeData;
+                }
+            }
+        }
+
+        return $themes;
     }
 }
