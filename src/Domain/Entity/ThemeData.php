@@ -3,6 +3,7 @@
 namespace App\Domain\Entity;
 
 use App\Domain\Contract\ThemeDataContract;
+use App\Domain\Traits\StaticCreateFromEntity;
 use App\Domain\Traits\StaticCreateSelf;
 use App\Domain\Traits\ToArray;
 use App\Domain\Traits\ToEntity;

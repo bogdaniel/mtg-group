@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Domain\Contract\ThemeDataContract;
 use Symfony\Component\Filesystem\Filesystem;
 
 class ThemeFilesystemService
@@ -33,7 +34,7 @@ class ThemeFilesystemService
         );
     }
 
-    public function createChildThemeDirectoriesAndFiles(string $parentThemeName, ThemeData $childThemeData): void
+    public function createChildThemeDirectoriesAndFiles(string $parentThemeName, ThemeDataContract $childThemeData): void
     {
         $childThemeDir = 'themes/' . $childThemeData->name;
         $this->filesystem->mirror('themes/' . $parentThemeName, $childThemeDir);

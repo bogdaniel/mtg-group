@@ -2,9 +2,6 @@
 
 namespace App\Domain\Traits;
 
-use App\Domain\Entity\ThemeData;
-use App\Entity\Theme;
-
 trait StaticCreateFromEntity
 {
     public static function createFromEntity(object $entity): object

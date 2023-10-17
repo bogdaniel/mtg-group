@@ -135,19 +135,27 @@ class ThemeManager
         return null;
     }
 
-    public function createChildTheme(ThemeData $parentTheme): void
+    public function createChildTheme(int $id): void
     {
+        $parentThemeEntity = $this->findThemeById($id);
+        if(null === $parentThemeEntity) {
+            throw new \Exception('Parent theme not found as registered');
+        }
+
+        $parentTheme = ThemeData::createFromEntity($parentThemeEntity);
+
         $childThemeData = new ThemeData(
-            $parentTheme->name . '-child',
-            $parentTheme->title . ' Child',
-            $parentTheme->description,
-            $parentTheme->license,
-            $parentTheme->authors,
-            $parentTheme->version,
-            $parentTheme->homepage,
+            $parentThemeEntity->name . '-child',
+            $parentThemeEntity->title . ' Child',
+            $parentThemeEntity->description,
+            $parentThemeEntity->license,
+            $parentThemeEntity->authors,
+            $parentThemeEntity->version,
+            $parentThemeEntity->homepage,
             false,
             $parentTheme
         );
+        dd($childThemeData);
         $this->themeFilesystemService->createChildThemeDirectoriesAndFiles($parentTheme->name, $childThemeData);
         $this->createTheme($childThemeData);
     }
