@@ -12,6 +12,7 @@ class ThemeData implements ThemeDataContract
     use StaticCreateSelf;
     use ToArray;
     use ToEntity;
+    use StaticCreateFromEntity;
 
     public ?string $name = null;
     public ?string $title = null;
