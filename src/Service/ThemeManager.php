@@ -143,7 +143,7 @@ class ThemeManager
         }
 
         $parentTheme = ThemeData::createFromEntity($parentThemeEntity);
-
+dd($parentTheme);
         $childThemeData = new ThemeData(
             $parentThemeEntity->name . '-child',
             $parentThemeEntity->title . ' Child',

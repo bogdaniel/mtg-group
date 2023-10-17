@@ -6,7 +6,7 @@ trait StaticCreateFromEntity
 {
     public static function createFromEntity(object $entity): object
     {
-        $dataClass = get_called_class();
+        $dataClass = static::class;
         $dataObject = new $dataClass();
 
         $reflectionEntity = new \ReflectionClass($entity);
