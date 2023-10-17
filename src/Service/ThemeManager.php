@@ -10,10 +10,12 @@ use App\Repository\ThemeRepository;
 class ThemeManager
 {
     private ThemeRepository $themeRepository;
+    private ThemeFilesystemService $themeFilesystemService;
 
-    public function __construct(ThemeRepository $themeRepository)
+    public function __construct(ThemeRepository $themeRepository, ThemeFilesystemService $themeFilesystemService)
     {
         $this->themeRepository = $themeRepository;
+        $this->themeFilesystemService = $themeFilesystemService;
     }
 
     public function createTheme(ThemeDataContract $themeData): Theme
@@ -133,23 +135,20 @@ class ThemeManager
         return null;
     }
 
-    public function createChildTheme(int $parentId): void
+    public function createChildTheme(ThemeData $parentTheme): void
     {
-        $parentTheme = $this->findThemeById($parentId);
-        if ($parentTheme) {
-            $childThemeData = new ThemeData(
-                $parentTheme->name . '-child',
-                $parentTheme->title . ' Child',
-                $parentTheme->description,
-                $parentTheme->license,
-                $parentTheme->authors,
-                $parentTheme->version,
-                $parentTheme->homepage,
-                false,
-                $parentTheme
-            );
-            $this->themeFilesystemService->createChildThemeDirectoriesAndFiles($parentTheme->name, $childThemeData);
-            $this->createTheme($childThemeData);
-        }
+        $childThemeData = new ThemeData(
+            $parentTheme->name . '-child',
+            $parentTheme->title . ' Child',
+            $parentTheme->description,
+            $parentTheme->license,
+            $parentTheme->authors,
+            $parentTheme->version,
+            $parentTheme->homepage,
+            false,
+            $parentTheme
+        );
+        $this->themeFilesystemService->createChildThemeDirectoriesAndFiles($parentTheme->name, $childThemeData);
+        $this->createTheme($childThemeData);
     }
 }
