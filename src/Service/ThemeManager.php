@@ -136,7 +136,6 @@ class ThemeManager
     public function createChildTheme(int $parentId): void
     {
         $parentTheme = $this->findThemeById($parentId);
-        dd($parentTheme);
         if ($parentTheme) {
             $childThemeData = new ThemeData(
                 $parentTheme->name . '-child',

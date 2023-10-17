@@ -33,6 +33,13 @@ class RegisterThemesCommand extends Command
         $themes = $this->themeDiscoveryService->discoverThemes();
         $registeredThemesCount = 0;
 
+        if(null === $themes) {
+            $output->writeln('No new themes found to register.');
+
+            return Command::SUCCESS;
+
+        }
+
         foreach ($themes as $theme) {
             if (!$this->themeManager->findThemeByName($theme->getName())) {
                 $parentTheme = null;
