@@ -5,23 +5,26 @@ namespace App\Service;
 use App\Domain\Entity\ThemeData;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class ThemeDiscoveryService
 {
     private Filesystem $filesystem;
     private \App\Service\ThemeManager $themeManager;
+    private KernelInterface $kernel;
 
-    public function __construct(ThemeManager $themeManager, Filesystem $filesystem)
+    public function __construct(ThemeManager $themeManager, Filesystem $filesystem, KernelInterface $kernel)
     {
         $this->themeManager = $themeManager;
         $this->filesystem = $filesystem;
+        $this->kernel = $kernel;
     }
 
     private function getThemesFromDirectory(string $directory): array
     {
         $themes = [];
         $finder = new Finder();
-        $finder->directories()->in($this->projectDir . '/' . $directory)->depth(1);
+        $finder->directories()->in($this->kernel->getProjectDir() . '/' . $directory)->depth(1);
 
         foreach ($finder as $dir) {
             $composerJsonPath = $dir->getRealPath() . '/composer.json';
