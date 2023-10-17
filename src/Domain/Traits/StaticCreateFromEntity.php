@@ -7,20 +7,24 @@ use App\Entity\Theme;
 
 trait StaticCreateFromEntity
 {
-    public static function createFromEntity(Theme $entity): ThemeData
+    public static function createFromEntity(object $entity): object
     {
-        $themeData = new ThemeData(
-            $entity->name,
-            $entity->title,
-            $entity->description,
-            $entity->license,
-            $entity->authors,
-            $entity->version,
-            $entity->homepage,
-            $entity->isActive,
-            $entity->parentTheme
-        );
+        $dataClass = get_called_class();
+        $dataObject = new $dataClass();
 
-        return $themeData;
+        $reflectionEntity = new \ReflectionClass($entity);
+        $reflectionDataObject = new \ReflectionClass($dataObject);
+
+        foreach ($reflectionEntity->getProperties() as $property) {
+            $property->setAccessible(true);
+            $propertyName = $property->getName();
+            $propertyValue = $property->getValue($entity);
+
+            if ($reflectionDataObject->hasProperty($propertyName)) {
+                $reflectionDataObject->getProperty($propertyName)->setValue($dataObject, $propertyValue);
+            }
+        }
+
+        return $dataObject;
     }
 }
