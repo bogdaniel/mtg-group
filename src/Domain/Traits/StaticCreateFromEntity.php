@@ -6,11 +6,9 @@ trait StaticCreateFromEntity
 {
     public static function createFromEntity(object $entity): object
     {
-        $dataClass = static::class;
-        $dataObject = new $dataClass();
-
         $reflectionEntity = new \ReflectionClass($entity);
-        $reflectionDataObject = new \ReflectionClass($dataObject);
+        $reflectionDataObject = new \ReflectionClass(static::class);
+        $dataObject = $reflectionDataObject->newInstanceWithoutConstructor();
 
         foreach ($reflectionEntity->getProperties() as $property) {
             $property->setAccessible(true);
