@@ -1,6 +1,6 @@
 {
-    "name": "zenchron/nexus-theme",
-    "title": "Nexus Theme",
+    "name": "zenchron/default-theme",
+    "title": "Default CMS Theme",
     "description": "A theme for testing",
     "license": "MIT",
     "version": "1.0.0",

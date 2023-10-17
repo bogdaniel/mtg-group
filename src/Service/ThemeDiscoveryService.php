@@ -54,7 +54,7 @@ class ThemeDiscoveryService
             $composerJsonPath = $dir->getRealPath() . '/composer.json';
             if ($this->filesystem->exists($composerJsonPath)) {
                 $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
-                if (isset($composerJson['type']) && $composerJson['type'] === 'ai-cms-theme') {
+                if (isset($composerJson['type']) && (string)$composerJson['type'] === 'ai-cms-theme') {
                     $themeData = ThemeData::create($composerJson);
                     $themes[] = $themeData;
                 }
