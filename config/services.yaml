@@ -31,8 +31,14 @@ services:
         tags:
             - { name: kernel.event_subscriber }
             
+    App\Service\ThemeFilesystemService:
+        arguments:
+            $filesystem: '@Symfony\Component\Filesystem\Filesystem'
+            $projectDir: '%kernel.project_dir%'
+
     App\Service\ThemeRuntimeConfigurator:
         arguments:
             $twig: '@twig.loader.native_filesystem'
             $themeManager: '@App\Service\ThemeManager'
             $projectDir: '%kernel.project_dir%'
+            $themeFilesystemService: '@App\Service\ThemeFilesystemService'
