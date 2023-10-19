@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Service;
 
@@ -21,9 +22,11 @@ class ThemeManager
     public function createTheme(ThemeDataContract $themeData): Theme
     {
         $parentTheme = null;
-        if ($themeData->getParentTheme()) {
-            $parentTheme = $this->findThemeByName($themeData->getParentTheme()->name);
+        dd($themeData->parentTheme);
+        if (null !== $themeData->parentTheme) {
+            $parentTheme = $this->findThemeByName($themeData->parentTheme->name);
         }
+
         $theme = new Theme(
             $themeData->name,
             $themeData->title,

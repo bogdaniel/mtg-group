@@ -41,4 +41,3 @@ services:
             $twig: '@twig.loader.native_filesystem'
             $themeManager: '@App\Service\ThemeManager'
             $projectDir: '%kernel.project_dir%'
-            $themeFilesystemService: '@App\Service\ThemeFilesystemService'
