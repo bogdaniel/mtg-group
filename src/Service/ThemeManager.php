@@ -143,7 +143,6 @@ class ThemeManager
         }
 
         $parentTheme = ThemeData::createFromEntity($parentThemeEntity);
-dd($parentTheme);
         $childThemeData = new ThemeData(
             $parentThemeEntity->name . '-child',
             $parentThemeEntity->title . ' Child',
@@ -155,7 +154,7 @@ dd($parentTheme);
             false,
             $parentTheme
         );
-        dd($childThemeData);
+
         $this->themeFilesystemService->createChildThemeDirectoriesAndFiles($parentTheme->name, $childThemeData);
         $this->createTheme($childThemeData);
     }
