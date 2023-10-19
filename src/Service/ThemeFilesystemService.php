@@ -34,10 +34,18 @@ class ThemeFilesystemService
         );
     }
 
+    private string $projectDir;
+
+    public function __construct(Filesystem $filesystem, string $projectDir)
+    {
+        $this->filesystem = $filesystem;
+        $this->projectDir = $projectDir;
+    }
+
     public function createChildThemeDirectoriesAndFiles(string $parentThemeName, ThemeDataContract $childThemeData): void
     {
-        $childThemeDir = 'themes/' . $childThemeData->name;
-        $this->filesystem->mirror('themes/' . $parentThemeName, $childThemeDir);
+        $childThemeDir = $this->projectDir . '/themes/' . $childThemeData->name;
+        $this->filesystem->mirror($this->projectDir . '/themes/' . $parentThemeName, $childThemeDir);
         $composerJson = [
             "name" => $childThemeData->name,
             "title" => $childThemeData->title,
