@@ -32,13 +32,6 @@ class ThemeController extends AbstractController
         return $this->redirectToRoute('themes');
     }
 
-    #[Route("/theme/create-child/{themeId}", name: "theme_create_child")]
-    public function createChildTheme(int $themeId): Response
-    {
-        $this->themeManager->createChildTheme($themeId);
-
-        return $this->redirectToRoute('themes');
-    }
 
     #[Route("/theme/install/{themeId}", name: "theme_install")]
     public function installAssets(int $themeId): Response
