@@ -17,7 +17,7 @@ class SwitchThemeController extends AbstractController
     }
 
     #[Route("/theme/switch/{themeId}", name: "theme_switch")]
-    public function switchTheme(int $themeId): Response
+    public function __invoke(int $themeId): Response
     {
         $this->themeManager->setActiveTheme($themeId);
 

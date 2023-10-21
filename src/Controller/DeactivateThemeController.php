@@ -17,7 +17,7 @@ class DeactivateThemeController extends AbstractController
     }
 
     #[Route("/theme/deactivate/{themeId}", name: "theme_deactivate")]
-    public function deactivateTheme(int $themeId): Response
+    public function __invoke(int $themeId): Response
     {
         $this->themeManager->deactivateTheme($themeId);
 

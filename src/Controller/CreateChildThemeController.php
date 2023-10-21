@@ -17,7 +17,7 @@ class CreateChildThemeController extends AbstractController
     }
 
     #[Route("/theme/create-child/{themeId}", name: "theme_create_child")]
-    public function createChildTheme(int $themeId): Response
+    public function __invoke(int $themeId): Response
     {
         $this->themeManager->createChildTheme($themeId);
 

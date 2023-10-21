@@ -15,6 +15,4 @@ class InstallAssetsController extends AbstractController
     {
         $this->themeManager = $themeManager;
     }
-
-    // The installAssets method has been removed
 }

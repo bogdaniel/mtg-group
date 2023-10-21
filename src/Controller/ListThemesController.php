@@ -17,7 +17,7 @@ class ListThemesController extends AbstractController
     }
 
     #[Route("/themes", name: "themes")]
-    public function listThemes(): Response
+    public function __invoke(): Response
     {
         $themes = $this->themeManager->findAllThemes();
         $activeTheme = $this->themeManager->findThemeById($this->themeManager->getActiveThemeId());
