@@ -30,6 +30,14 @@ class ThemeRuntimeConfigurator
     {
         $activeThemeName = $this->themeManager->getActiveThemeName();
         if ($activeThemeName !== null) {
+            $activeTheme = $this->themeManager->findThemeByName($activeThemeName);
+            $parentThemeName = $activeTheme->getParentTheme() ? $activeTheme->getParentTheme()->getName() : null;
+
+            if ($parentThemeName !== null) {
+                $parentThemeNamespace = str_replace('/', ':', $parentThemeName);
+                $this->twig->addPath($this->projectDir . '/themes/' . $parentThemeName, $parentThemeNamespace);
+            }
+
             $this->eventDispatcher->dispatch(new BeforeThemeNamespaceEvent($activeThemeName));
             $themeNamespace = str_replace('/', ':', $activeThemeName);
             $this->eventDispatcher->dispatch(new AfterThemeNamespaceEvent($themeNamespace));
