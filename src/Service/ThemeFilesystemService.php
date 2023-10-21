@@ -40,7 +40,7 @@ class ThemeFilesystemService
     public function createChildThemeDirectoriesAndFiles(string $parentThemeName, ThemeDataContract $childThemeData): void
     {
         $childThemeDir = $this->projectDir . '/themes/' . $childThemeData->name;
-        $this->filesystem->mirror($this->projectDir . '/themes/' . $parentThemeName, $childThemeDir);
+        $this->filesystem->mirror($this->projectDir . '/themes/' . $parentThemeName, $childThemeDir, null, ['copy_on_windows' => true]);
         $composerJson = [
             "name" => $childThemeData->name,
             "title" => $childThemeData->title,
