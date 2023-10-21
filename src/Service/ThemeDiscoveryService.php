@@ -21,9 +21,10 @@ class ThemeDiscoveryService
         $this->kernel = $kernel;
     }
 
-    public function discoverThemes(): void
+    public function discoverThemes(): array
     {
         $themesDirectories = ['themes', 'vendor'];
+        $foundThemes = [];
         foreach ($themesDirectories as $directory) {
             $themes = $this->getThemesFromDirectory($directory);
             foreach ($themes as $themeData) {
@@ -33,6 +34,8 @@ class ThemeDiscoveryService
                 } else {
                     $this->themeManager->updateTheme($theme->id, $themeData);
                 }
+
+                $foundThemes[] = $themeData;
             }
         }
 
@@ -43,6 +46,8 @@ class ThemeDiscoveryService
                 $this->themeManager->setActiveTheme($themes[0]->id);
             }
         }
+
+        return $foundThemes;
     }
 
     private function getThemesFromDirectory(string $directory): array

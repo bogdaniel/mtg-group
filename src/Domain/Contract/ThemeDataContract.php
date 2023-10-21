@@ -5,14 +5,15 @@ namespace App\Domain\Contract;
 interface ThemeDataContract
 {
     public function __construct(
+        bool $isActive,
+        ?ThemeDataContract $parentTheme,
+        array $authors,
         ?string $name,
         ?string $title,
         ?string $description,
         ?string $license,
-        array $authors,
         ?string $version,
         ?string $homepage,
-        bool $isActive,
-        ?ThemeDataContract $parentTheme
+        ?int $id = null
     );
 }

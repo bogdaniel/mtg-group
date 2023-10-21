@@ -17,15 +17,16 @@ class ThemeData implements ThemeDataContract
     use StaticCreateFromEntity;
 
     public function __construct(
+        public bool $isActive = false,
+        public ?ThemeDataContract $parentTheme = null,
+        public array $authors = [],
         public ?string $name = null,
         public ?string $title = null,
         public ?string $description = null,
         public ?string $license = null,
-        public array $authors = [],
         public ?string $version = null,
         public ?string $homepage = null,
-        public bool $isActive = false,
-        public ?ThemeDataContract $parentTheme = null
+        public ?int $id = null
     ) {
     }
 }

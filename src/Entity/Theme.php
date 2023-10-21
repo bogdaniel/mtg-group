@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Entity;
@@ -24,142 +25,12 @@ class Theme
         #[ORM\Column(type: "datetime")] public \DateTime $createdAt,
         #[ORM\Column(type: "datetime")] public \DateTime $updatedAt,
         #[ORM\Column(type: "boolean")] public bool $isActive = false,
-        #[ORM\Id, ORM\GeneratedValue, ORM\Column(type: "integer")] public ?int $id = null,
         #[ORM\OneToOne(inversedBy: 'theme', targetEntity: self::class, cascade: [
             'persist',
             'remove'
-        ])] public ?Theme $parentTheme = null
+        ])] public ?Theme $parentTheme = null,
+        #[ORM\Id, ORM\GeneratedValue, ORM\Column(type: "integer")] public ?int $id = null
     ) {
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): static
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): static
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getAuthors(): array
-    {
-        return $this->authors;
-    }
-
-    public function setAuthors(array $authors): static
-    {
-        $this->authors = $authors;
-
-        return $this;
-    }
-
-    public function getVersion(): ?string
-    {
-        return $this->version;
-    }
-
-    public function setVersion(string $version): static
-    {
-        $this->version = $version;
-
-        return $this;
-    }
-
-    public function getLicense(): ?string
-    {
-        return $this->license;
-    }
-
-    public function setLicense(string $license): static
-    {
-        $this->license = $license;
-
-        return $this;
-    }
-
-    public function getHomepage(): ?string
-    {
-        return $this->homepage;
-    }
-
-    public function setHomepage(string $homepage): static
-    {
-        $this->homepage = $homepage;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): static
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): static
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function isIsActive(): ?bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(bool $isActive): static
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getTheme(): ?self
-    {
-        return $this->theme;
     }
 
     public function setTheme(?self $theme): static

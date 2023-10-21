@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Command;
 
 use App\Service\ThemeDiscoveryService;
-use App\Service\ThemeManager;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,12 +14,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 class RegisterThemesCommand extends Command
 {
     private ThemeDiscoveryService $themeDiscoveryService;
-    private ThemeManager $themeManager;
 
-    public function __construct(ThemeDiscoveryService $themeDiscoveryService, ThemeManager $themeManager)
+    public function __construct(ThemeDiscoveryService $themeDiscoveryService)
     {
         $this->themeDiscoveryService = $themeDiscoveryService;
-        $this->themeManager = $themeManager;
 
         parent::__construct();
     }
@@ -31,29 +29,15 @@ class RegisterThemesCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $themes = $this->themeDiscoveryService->discoverThemes();
-        $registeredThemesCount = 0;
+        $registeredThemesCount = $this->themeDiscoveryService->discoverThemes();
 
-        if(null === $themes) {
+        if ([] === $registeredThemesCount) {
             $output->writeln('No new themes found to register.');
 
             return Command::SUCCESS;
-
         }
 
-        foreach ($themes as $theme) {
-            if (!$this->themeManager->findThemeByName($theme->getName())) {
-                $parentTheme = null;
-                if ($theme->getParentTheme()) {
-                    $parentTheme = $this->themeManager->findThemeByName($theme->getParentTheme()->getName());
-                }
-
-                $this->themeManager->createTheme($theme, $parentTheme);
-                $registeredThemesCount++;
-            }
-        }
-
-        $output->writeln($registeredThemesCount . " themes registered successfully.");
+        $output->writeln(count($registeredThemesCount) . " themes registered successfully.");
 
         return Command::SUCCESS;
     }

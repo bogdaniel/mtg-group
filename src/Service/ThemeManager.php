@@ -22,11 +22,9 @@ class ThemeManager
     public function createTheme(ThemeDataContract $themeData): Theme
     {
         $parentTheme = null;
-        dd($themeData->parentTheme);
-        if (null !== $themeData->parentTheme) {
+        if (isset($themeData->parentTheme)) {
             $parentTheme = $this->findThemeByName($themeData->parentTheme->name);
         }
-
         $theme = new Theme(
             $themeData->name,
             $themeData->title,
@@ -37,9 +35,11 @@ class ThemeManager
             $themeData->homepage,
             new \DateTime(),
             new \DateTime(),
-            $themeData->isActive,
+            $themeData->isActive ?? false,
             $parentTheme
         );
+
+        $theme->setParentTheme($parentTheme);
 
         $this->themeRepository->save($theme);
 
@@ -76,11 +76,6 @@ class ThemeManager
         return $this->themeRepository->find($id);
     }
 
-    public function deleteTheme(Theme $theme): void
-    {
-        $this->themeRepository->delete($theme);
-    }
-
     public function findThemeByName(string $name): ?Theme
     {
         return $this->themeRepository->findThemeByName($name);
@@ -97,7 +92,6 @@ class ThemeManager
         if ($activeThemeId !== null && $activeThemeId !== $id) {
             $this->deactivateTheme($activeThemeId);
         }
-
         $theme = $this->findThemeById($id);
         if ($theme) {
             $theme->isActive = true;
@@ -146,16 +140,17 @@ class ThemeManager
         }
 
         $parentTheme = ThemeData::createFromEntity($parentThemeEntity);
+
         $childThemeData = new ThemeData(
+            true,
+            $parentTheme,
+            $parentThemeEntity->authors,
             $parentThemeEntity->name . '-child',
             $parentThemeEntity->title . ' Child',
             $parentThemeEntity->description,
             $parentThemeEntity->license,
-            $parentThemeEntity->authors,
             $parentThemeEntity->version,
             $parentThemeEntity->homepage,
-            false,
-            $parentTheme
         );
 
         $this->themeFilesystemService->createChildThemeDirectoriesAndFiles($parentTheme->name, $childThemeData);

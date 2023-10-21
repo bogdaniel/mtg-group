@@ -17,7 +17,7 @@ class ThemeController extends AbstractController
     }
 
     #[Route("/theme/switch/{themeId}", name: "theme_switch")]
-    public function switchTheme($themeId): Response
+    public function switchTheme(int $themeId): Response
     {
         $this->themeManager->setActiveTheme($themeId);
 
@@ -25,7 +25,7 @@ class ThemeController extends AbstractController
     }
 
     #[Route("/theme/deactivate/{themeId}", name: "theme_deactivate")]
-    public function deactivateTheme($themeId): Response
+    public function deactivateTheme(int $themeId): Response
     {
         $this->themeManager->deactivateTheme($themeId);
 
@@ -33,7 +33,7 @@ class ThemeController extends AbstractController
     }
 
     #[Route("/theme/create-child/{themeId}", name: "theme_create_child")]
-    public function createChildTheme($themeId): Response
+    public function createChildTheme(int $themeId): Response
     {
         $this->themeManager->createChildTheme($themeId);
 
@@ -41,7 +41,7 @@ class ThemeController extends AbstractController
     }
 
     #[Route("/theme/install/{themeId}", name: "theme_install")]
-    public function installAssets($themeId): Response
+    public function installAssets(int $themeId): Response
     {
         $theme = $this->themeManager->findThemeById($themeId);
         if ($theme) {
