@@ -34,15 +34,5 @@ class ThemeController extends AbstractController
 
 
 
-    #[Route("/themes", name: "themes")]
-    public function listThemes(): Response
-    {
-        $themes = $this->themeManager->findAllThemes();
-        $activeTheme = $this->themeManager->findThemeById($this->themeManager->getActiveThemeId());
-        $activeThemeName = $this->themeManager->getActiveThemeName();
-
-        return $this->render('@zenchron:default-theme/templates/admin/theme_manager/themes.html.twig',
-            ['themes' => $themes, 'activeTheme' => $activeTheme, 'activeThemeName' => $activeThemeName]
-        );
-    }
+    // The listThemes method has been moved to the ListThemesController
 }
