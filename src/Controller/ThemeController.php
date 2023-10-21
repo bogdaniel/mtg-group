@@ -33,16 +33,6 @@ class ThemeController extends AbstractController
     }
 
 
-    #[Route("/theme/install/{themeId}", name: "theme_install")]
-    public function installAssets(int $themeId): Response
-    {
-        $theme = $this->themeManager->findThemeById($themeId);
-        if ($theme) {
-            // logic to install theme assets...
-        }
-
-        return $this->redirectToRoute('themes');
-    }
 
     #[Route("/themes", name: "themes")]
     public function listThemes(): Response
