@@ -15,4 +15,15 @@ class InstallAssetsController extends AbstractController
     {
         $this->themeManager = $themeManager;
     }
+
+    #[Route("/theme/install/{themeId}", name: "theme_install")]
+    public function __invoke(int $themeId): Response
+    {
+        $theme = $this->themeManager->findThemeById($themeId);
+        if ($theme) {
+            // logic to install theme assets...
+        }
+
+        return $this->redirectToRoute('themes');
+    }
 }

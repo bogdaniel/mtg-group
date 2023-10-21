@@ -31,7 +31,7 @@ class ThemeRuntimeConfigurator
         $activeThemeName = $this->themeManager->getActiveThemeName();
         if ($activeThemeName !== null) {
             $activeTheme = $this->themeManager->findThemeByName($activeThemeName);
-            $parentThemeName = $activeTheme->getParentTheme() ? $activeTheme->getParentTheme()->getName() : null;
+            $parentThemeName = $activeTheme->getParentTheme()?->name;
 
             if ($parentThemeName !== null) {
                 $parentThemeNamespace = str_replace('/', ':', $parentThemeName);
