@@ -22,10 +22,15 @@ class ThemeFilesystemService
         if (!$this->filesystem->exists($themeDir)) {
             $this->filesystem->mkdir([
                 $themeDir,
-                "$themeDir/public",
                 "$themeDir/templates",
                 "$themeDir/templates/bundles",
                 "$themeDir/translations",
+                "$themeDir/assets",
+                "$themeDir/assets/css",
+                "$themeDir/assets/scss",
+                "$themeDir/assets/javascript",
+                "$themeDir/assets/images",
+                "$themeDir/assets/fonts",
             ]);
         }
     }
