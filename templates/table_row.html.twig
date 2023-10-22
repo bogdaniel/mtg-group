@@ -4,13 +4,11 @@
         {% if value is iterable %}
             <ul>
                 {% for subKey, subValue in value %}
-                {% include 'table_row.html.twig' with {'key': subKey, 'value': subValue} %}
+                {% include 'table_row.html.twig' with {'key': subKey, 'value': subValue, 'installedPackages': installedPackages} %}
                 {% endfor %}
             </ul>
-        {% elseif key in ['Require', 'Require Dev'] %}
-            {{ value }} ({{ value in installedPackages ? 'Installed' : 'Not Installed' }})
         {% else %}
-            {{ value }}
+            {{ value }} ({{ key in installedPackages ? 'Installed' : 'Not Installed' }})
         {% endif %}
     </td>
 </tr>
