@@ -32,6 +32,7 @@ services:
             - { name: kernel.event_subscriber }
             
     App\Service\ThemeFilesystemService:
+        public: true
         arguments:
             $filesystem: '@Symfony\Component\Filesystem\Filesystem'
             $projectDir: '%kernel.project_dir%'
@@ -40,4 +41,8 @@ services:
         arguments:
             $twig: '@twig.loader.native_filesystem'
             $themeManager: '@App\Service\ThemeManager'
+            $projectDir: '%kernel.project_dir%'
+    App\Service\ComposerJsonVisualizer:
+        public: true
+        arguments:
             $projectDir: '%kernel.project_dir%'
