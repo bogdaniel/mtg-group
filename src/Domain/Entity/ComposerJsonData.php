@@ -16,6 +16,7 @@ class ComposerJsonData
     public array $scripts;
     public array $replace;
     public array $extra;
+    public array $installedPackages;
 
     public function __construct(
         ?string $name,
@@ -28,7 +29,8 @@ class ComposerJsonData
         array $requireDev,
         array $scripts,
         array $replace,
-        array $extra
+        array $extra,
+        array $installedPackages
     ) {
         $this->name = $name;
         $this->type = $type;
@@ -41,5 +43,6 @@ class ComposerJsonData
         $this->scripts = $scripts;
         $this->replace = $replace;
         $this->extra = $extra;
+        $this->installedPackages = $installedPackages;
     }
 }

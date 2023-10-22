@@ -19,8 +19,8 @@
             {% include 'table_row.html.twig' with {'key': 'Description', 'value': composerJsonData.description} %}
             {% include 'table_row.html.twig' with {'key': 'Minimum Stability', 'value': composerJsonData.minimumStability} %}
             {% include 'table_row.html.twig' with {'key': 'Prefer Stable', 'value': composerJsonData.preferStable} %}
-            {% include 'table_row.html.twig' with {'key': 'Require', 'value': composerJsonData.require} %}
-            {% include 'table_row.html.twig' with {'key': 'Require Dev', 'value': composerJsonData.requireDev} %}
+            {% include 'table_row.html.twig' with {'key': 'Require', 'value': composerJsonData.require, 'installedPackages': composerJsonData.installedPackages} %}
+            {% include 'table_row.html.twig' with {'key': 'Require Dev', 'value': composerJsonData.requireDev, 'installedPackages': composerJsonData.installedPackages} %}
             {% include 'table_row.html.twig' with {'key': 'Scripts', 'value': composerJsonData.scripts} %}
             {% include 'table_row.html.twig' with {'key': 'Replace', 'value': composerJsonData.replace} %}
             {% include 'table_row.html.twig' with {'key': 'Extra', 'value': composerJsonData.extra} %}

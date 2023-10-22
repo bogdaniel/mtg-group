@@ -19,6 +19,10 @@ class ComposerJsonVisualizer
         $composerJsonPath = $this->projectDir . '/composer.json';
         $composerJson = json_decode(file_get_contents($composerJsonPath), true);
 
+        $installedJsonPath = $this->projectDir . '/vendor/composer/installed.json';
+        $installedJson = json_decode(file_get_contents($installedJsonPath), true);
+        $installedPackages = array_column($installedJson['packages'], 'name');
+
         return new ComposerJsonData(
             $composerJson['name'] ?? null,
             $composerJson['type'] ?? null,
@@ -30,7 +34,8 @@ class ComposerJsonVisualizer
             $composerJson['require-dev'] ?? [],
             $composerJson['scripts'] ?? [],
             $composerJson['replace'] ?? [],
-            $composerJson['extra'] ?? []
+            $composerJson['extra'] ?? [],
+            $installedPackages
         );
     }
 }

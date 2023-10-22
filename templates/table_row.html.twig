@@ -7,6 +7,8 @@
                 {% include 'table_row.html.twig' with {'key': subKey, 'value': subValue} %}
                 {% endfor %}
             </ul>
+        {% elseif key in ['Require', 'Require Dev'] %}
+            {{ value }} ({{ value in installedPackages ? 'Installed' : 'Not Installed' }})
         {% else %}
             {{ value }}
         {% endif %}
