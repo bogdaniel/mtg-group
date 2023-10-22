@@ -1,0 +1,14 @@
+<tr>
+    <td>{{ key }}</td>
+    <td>
+        {% if value is iterable %}
+            <ul>
+                {% for subKey, subValue in value %}
+                {% include 'table_row.html.twig' with {'key': subKey, 'value': subValue} %}
+                {% endfor %}
+            </ul>
+        {% else %}
+            {{ value }}
+        {% endif %}
+    </td>
+</tr>
