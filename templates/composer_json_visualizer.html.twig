@@ -40,11 +40,15 @@
             <tr>
                 <td>Require</td>
                 <td>
-                    <ul>
-                        {% for key, value in composerJsonData.require %}
-                            <li><strong>{{ key }}:</strong> {{ value }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% if composerJsonData.require is iterable %}
+                        <ul>
+                            {% for key, value in composerJsonData.require %}
+                                <li><strong>{{ key }}:</strong> {{ value }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        {{ composerJsonData.require }}
+                    {% endif %}
                 </td>
             </tr>
             <tr>
