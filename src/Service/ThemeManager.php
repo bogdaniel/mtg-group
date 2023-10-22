@@ -103,6 +103,16 @@ class ThemeManager
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
+            $themes = $this->findAllThemes();
+            $activeThemes = array_filter($themes, function($theme) {
+                return $theme->isActive;
+            });
+            if (count($activeThemes) <= 1) {
+                throw new \Exception('Cannot deactivate the last active theme');
+            }
+            if ($theme->parentTheme) {
+                $theme->parentTheme->isActive = true;
+            }
             $theme->isActive = false;
             $this->themeRepository->save($theme);
         }
