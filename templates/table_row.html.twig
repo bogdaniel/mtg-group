@@ -8,7 +8,7 @@
                 {% endfor %}
             </ul>
         {% else %}
-            {{ value }} ({{ key in installedPackages ? 'Installed' : 'Not Installed' }})
+            {{ value }} {% if key == 'Require' or key == 'Require Dev' %} ({{ key in installedPackages ? 'Installed' : 'Not Installed' }}) {% endif %}
         {% endif %}
     </td>
 </tr>
