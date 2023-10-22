@@ -96,7 +96,17 @@
                 <td>
                     <ul>
                         {% for key, value in composerJsonData.extra %}
-                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                            <li><strong>{{ key }}:</strong> 
+                                {% if value is iterable %}
+                                    <ul>
+                                        {% for subKey, subValue in value %}
+                                            <li><strong>{{ subKey }}:</strong> {{ subValue }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    {{ value }}
+                                {% endif %}
+                            </li>
                         {% endfor %}
                     </ul>
                 </td>
