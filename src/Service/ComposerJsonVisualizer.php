@@ -38,4 +38,21 @@ class ComposerJsonVisualizer
             $installedPackages
         );
     }
+
+    public function isPackageInstalled(string $packageName): bool
+    {
+        $installedJsonPath = $this->projectDir . '/vendor/composer/installed.json';
+        $installedJson = json_decode(file_get_contents($installedJsonPath), true);
+        $installedPackages = array_column($installedJson['packages'], 'name');
+
+        return in_array($packageName, $installedPackages);
+    }
+
+    public function isPackageInRequireOrRequireDev(string $packageName): bool
+    {
+        $composerJsonPath = $this->projectDir . '/composer.json';
+        $composerJson = json_decode(file_get_contents($composerJsonPath), true);
+
+        return array_key_exists($packageName, $composerJson['require'] ?? []) || array_key_exists($packageName, $composerJson['require-dev'] ?? []);
+    }
 }
