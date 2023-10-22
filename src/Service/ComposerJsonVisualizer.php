@@ -12,23 +12,23 @@ class ComposerJsonVisualizer
         $this->projectDir = $projectDir;
     }
 
-    public function visualize(): array
+    public function visualize(): ComposerJsonData
     {
         $composerJsonPath = $this->projectDir . '/composer.json';
         $composerJson = json_decode(file_get_contents($composerJsonPath), true);
 
-        return [
-            'name' => $composerJson['name'] ?? null,
-            'type' => $composerJson['type'] ?? null,
-            'license' => $composerJson['license'] ?? null,
-            'description' => $composerJson['description'] ?? null,
-            'minimum-stability' => $composerJson['minimum-stability'] ?? null,
-            'prefer-stable' => $composerJson['prefer-stable'] ?? null,
-            'require' => $composerJson['require'] ?? [],
-            'require-dev' => $composerJson['require-dev'] ?? [],
-            'scripts' => $composerJson['scripts'] ?? [],
-            'replace' => $composerJson['replace'] ?? [],
-            'extra' => $composerJson['extra'] ?? [],
-        ];
+        return new ComposerJsonData(
+            $composerJson['name'] ?? null,
+            $composerJson['type'] ?? null,
+            $composerJson['license'] ?? null,
+            $composerJson['description'] ?? null,
+            $composerJson['minimum-stability'] ?? null,
+            $composerJson['prefer-stable'] ?? null,
+            $composerJson['require'] ?? [],
+            $composerJson['require-dev'] ?? [],
+            $composerJson['scripts'] ?? [],
+            $composerJson['replace'] ?? [],
+            $composerJson['extra'] ?? []
+        );
     }
 }
