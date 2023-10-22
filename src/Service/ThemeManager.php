@@ -89,33 +89,39 @@ class ThemeManager
     public function setActiveTheme(int $id): void
     {
         $activeThemeId = $this->getActiveThemeId();
-        if ($activeThemeId !== null && $activeThemeId !== $id) {
-            $this->deactivateTheme($activeThemeId);
-        }
         $theme = $this->findThemeById($id);
         if ($theme) {
             $theme->isActive = true;
             $this->themeRepository->save($theme);
         }
+
+        if ($activeThemeId !== null && $activeThemeId !== $id) {
+            $this->deactivateTheme($activeThemeId);
+        }
     }
 
-    public function deactivateTheme(int $id): void
+    public function deactivateTheme(int $id): bool
     {
         $theme = $this->findThemeById($id);
         if ($theme) {
             $themes = $this->findAllThemes();
-            $activeThemes = array_filter($themes, function($theme) {
+            $activeThemes = array_filter($themes, static function($theme) {
                 return $theme->isActive;
             });
-            if (count($activeThemes) <= 1) {
-                throw new \Exception('Cannot deactivate the last active theme');
-            }
             if ($theme->parentTheme) {
                 $theme->parentTheme->isActive = true;
+                $theme->isActive = false;
+                $this->themeRepository->save($theme);
+                return true;
+            }
+            if (count($activeThemes) <= 1) {
+                throw new \RuntimeException('Cannot deactivate the last active theme');
             }
             $theme->isActive = false;
             $this->themeRepository->save($theme);
+            return true;
         }
+        return false;
     }
 
     public function getActiveThemeId(): ?int
@@ -146,7 +152,7 @@ class ThemeManager
     {
         $parentThemeEntity = $this->findThemeById($id);
         if(null === $parentThemeEntity) {
-            throw new \Exception('Parent theme not found as registered');
+            throw new \RuntimeException('Parent theme not found as registered');
         }
 
         $parentTheme = ThemeData::createFromEntity($parentThemeEntity);
