@@ -5,8 +5,31 @@
 </head>
 <body>
     <h1>Composer.json Data</h1>
-    <pre>
-        {{ composerJsonData|json_encode(constant('JSON_PRETTY_PRINT')) }}
-    </pre>
+    <table>
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in composerJsonData %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>
+                        {% if value is iterable %}
+                            <ul>
+                                {% for subKey, subValue in value %}
+                                    <li><strong>{{ subKey }}:</strong> {{ subValue }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{ value }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
