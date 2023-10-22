@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Service\ComposerJsonVisualizer;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
 class ComposerJsonVisualizerController
@@ -18,6 +19,9 @@ class ComposerJsonVisualizerController
         $this->twig = $twig;
     }
 
+    /**
+     * @Route("/visualize", name="composer_json_visualize")
+     */
     public function visualize(): Response
     {
         $composerJsonData = $this->composerJsonVisualizer->visualize();
