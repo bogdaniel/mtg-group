@@ -22,6 +22,9 @@ class ComposerJsonVisualizerController extends AbstractController
     {
         $composerJsonData = $this->composerJsonVisualizer->visualize();
 
-        return $this->render('composer_json_visualizer.html.twig', ['composerJsonData' => $composerJsonData]);
+        return $this->render('composer_json_visualizer.html.twig', [
+            'composerJsonData' => $composerJsonData,
+            'installedPackages' => $composerJsonData->installedPackages
+        ]);
     }
 }
