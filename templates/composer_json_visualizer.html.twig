@@ -13,22 +13,80 @@
             </tr>
         </thead>
         <tbody>
-            {% for key, value in composerJsonData %}
-                <tr>
-                    <td>{{ key }}</td>
-                    <td>
-                        {% if value is iterable %}
-                            <ul>
-                                {% for subKey, subValue in value %}
-                                    <li><strong>{{ subKey }}:</strong> {{ subValue }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            {{ value }}
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
+            <tr>
+                <td>Name</td>
+                <td>{{ composerJsonData.name }}</td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>{{ composerJsonData.type }}</td>
+            </tr>
+            <tr>
+                <td>License</td>
+                <td>{{ composerJsonData.license }}</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>{{ composerJsonData.description }}</td>
+            </tr>
+            <tr>
+                <td>Minimum Stability</td>
+                <td>{{ composerJsonData.minimumStability }}</td>
+            </tr>
+            <tr>
+                <td>Prefer Stable</td>
+                <td>{{ composerJsonData.preferStable }}</td>
+            </tr>
+            <tr>
+                <td>Require</td>
+                <td>
+                    <ul>
+                        {% for key, value in composerJsonData.require %}
+                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Require Dev</td>
+                <td>
+                    <ul>
+                        {% for key, value in composerJsonData.requireDev %}
+                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Scripts</td>
+                <td>
+                    <ul>
+                        {% for key, value in composerJsonData.scripts %}
+                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Replace</td>
+                <td>
+                    <ul>
+                        {% for key, value in composerJsonData.replace %}
+                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Extra</td>
+                <td>
+                    <ul>
+                        {% for key, value in composerJsonData.extra %}
+                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
 </body>
