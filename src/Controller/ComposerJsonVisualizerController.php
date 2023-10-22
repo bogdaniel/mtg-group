@@ -4,27 +4,24 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\ComposerJsonVisualizer;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Attribute\Route as RouteAttribute;
-use Twig\Environment;
 
-class ComposerJsonVisualizerController
+class ComposerJsonVisualizerController extends AbstractController
 {
     private ComposerJsonVisualizer $composerJsonVisualizer;
-    private Environment $twig;
 
-    public function __construct(ComposerJsonVisualizer $composerJsonVisualizer, Environment $twig)
+    public function __construct(ComposerJsonVisualizer $composerJsonVisualizer)
     {
         $this->composerJsonVisualizer = $composerJsonVisualizer;
-        $this->twig = $twig;
     }
 
-    #[RouteAttribute("/visualize", name: "composer_json_visualize")]
-    public function visualize(): Response
+    #[Route("/visualize", name: "composer_json_visualize")]
+    public function __invoke(): Response
     {
         $composerJsonData = $this->composerJsonVisualizer->visualize();
 
-        return new Response($this->twig->render('composer_json_visualizer.html.twig', ['composerJsonData' => $composerJsonData]));
+        return $this->render('composer_json_visualizer.html.twig', ['composerJsonData' => $composerJsonData]);
     }
 }
