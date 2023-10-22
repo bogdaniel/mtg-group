@@ -21,9 +21,9 @@
             {% include 'table_row.html.twig' with {'key': 'Prefer Stable', 'value': composerJsonData.preferStable} %}
             {% include 'table_row.html.twig' with {'key': 'Require', 'value': composerJsonData.require, 'installedPackages': composerJsonData.installedPackages} %}
             {% include 'table_row.html.twig' with {'key': 'Require Dev', 'value': composerJsonData.requireDev, 'installedPackages': composerJsonData.installedPackages} %}
-            {% include 'table_row.html.twig' with {'key': 'Scripts', 'value': composerJsonData.scripts} %}
-            {% include 'table_row.html.twig' with {'key': 'Replace', 'value': composerJsonData.replace} %}
-            {% include 'table_row.html.twig' with {'key': 'Extra', 'value': composerJsonData.extra} %}
+            {% include 'table_row.html.twig' with {'key': 'Scripts', 'value': composerJsonData.scripts, 'installedPackages': []} %}
+            {% include 'table_row.html.twig' with {'key': 'Replace', 'value': composerJsonData.replace, 'installedPackages': []} %}
+            {% include 'table_row.html.twig' with {'key': 'Extra', 'value': composerJsonData.extra, 'installedPackages': []} %}
         </tbody>
     </table>
 </body>
