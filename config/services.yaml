@@ -61,3 +61,7 @@ services:
     App\Service\AssetManager:
         arguments:
             $projectDir: '%kernel.project_dir%'
+            
+    App\Repository\ThemeRepository:
+        arguments:
+            $registry: '@Doctrine\Persistence\ManagerRegistry'
