@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Domain\Contract\ThemeDataContract;
 use App\Domain\Entity\Theme;
 
 class AssetManager
@@ -14,13 +15,14 @@ class AssetManager
         $this->projectDir = $projectDir;
     }
 
-    public function copyThemeAssetsToProjectRoot(Theme $theme): void
+    public function copyThemeAssetsToProjectRoot(ThemeDataContract $theme): void
     {
-        $themeDir = $this->projectDir . '/themes/' . $theme->getId();
+        $themeDir = $this->projectDir . '/themes/' . $theme->name;
         $filesToCopy = ['package.json', 'webpack.config.js'];
 
         foreach ($filesToCopy as $file) {
             if (file_exists($themeDir . '/' . $file)) {
+                dump('x');
                 copy($themeDir . '/' . $file, $this->projectDir . '/' . $file);
             }
         }

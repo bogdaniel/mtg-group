@@ -20,18 +20,8 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    const fs = require('fs');
-    const path = require('path');
-
-    const assetsDir = './assets';
-    const assetTypes = ['javascript', 'css'];
-
-    assetTypes.forEach((type) => {
-        const dir = path.join(assetsDir, type);
-        fs.readdirSync(dir).forEach((file) => {
-            Encore.addEntry(`app_${type}_${file.split('.')[0]}`, path.join(dir, file));
-        });
-    });
+    .addEntry('app_js', './assets/javascript/app.js')
+    .addEntry('app_css', './assets/css/app.css')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
