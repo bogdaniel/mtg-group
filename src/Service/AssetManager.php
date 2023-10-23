@@ -4,8 +4,6 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Domain\Contract\ThemeDataContract;
-use App\Domain\Entity\Theme;
-
 use Symfony\Component\Filesystem\Filesystem;
 
 class AssetManager
