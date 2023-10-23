@@ -57,3 +57,7 @@ services:
         arguments:
             $themeRepository: '@App\Repository\ThemeRepository'
             $themeFilesystemService: '@App\Service\ThemeFilesystemService'
+            
+    App\Service\AssetManager:
+        arguments:
+            $projectDir: '%kernel.project_dir%'
