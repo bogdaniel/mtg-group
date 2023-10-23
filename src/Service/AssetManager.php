@@ -33,6 +33,24 @@ class AssetManager
         }
     }
 
+    public function copyAssetsToActiveTheme(string $activeThemeName): void
+    {
+        $rootDir = $this->projectDir;
+        $themeDir = $this->projectDir . '/themes/' . $activeThemeName;
+
+        $filesToCopy = ['package.json', 'webpack.config.js', 'assets'];
+
+        foreach ($filesToCopy as $file) {
+            if ($this->filesystem->exists($rootDir . '/' . $file)) {
+                if (is_dir($rootDir . '/' . $file)) {
+                    $this->recursiveCopy($rootDir . '/' . $file, $themeDir . '/' . $file);
+                } else {
+                    $this->filesystem->copy($rootDir . '/' . $file, $themeDir . '/' . $file);
+                }
+            }
+        }
+    }
+
     private function recursiveCopy(string $src, string $dst): void
     {
         $dir = opendir($src);
