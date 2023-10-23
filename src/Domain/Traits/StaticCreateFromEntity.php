@@ -25,8 +25,8 @@ trait StaticCreateFromEntity
 
                     if (interface_exists($propertyType)) {
 
-                        // If the property value is an object that implements the same interface or is an instance of the same class, recursively call createFromEntity
-                        if (is_object($propertyValue) && (in_array($propertyType, class_implements($propertyValue)) || get_class($propertyValue) === get_class($entity))) {
+                        // If the property value is an object that is an instance of the same class or implements the same interface, recursively call createFromEntity
+                        if (is_object($propertyValue) && (is_a($propertyValue, $propertyType) || in_array($propertyType, class_implements($propertyValue)))) {
                             $propertyValue = static::createFromEntity($propertyValue);
                         }
                     }
