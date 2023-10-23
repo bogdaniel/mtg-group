@@ -18,6 +18,11 @@ trait StaticCreateFromEntity
             if ($property->isInitialized($entity)) {
                 $propertyValue = $property->getValue($entity);
 
+                // If the property value is an object that implements the same interface, recursively call createFromEntity
+                if (is_object($propertyValue) && $propertyValue instanceof SomeInterface) {
+                    $propertyValue = static::createFromEntity($propertyValue);
+                }
+
                 if ($reflectionDataObject->hasProperty($propertyName)) {
                     $reflectionDataObject->getProperty($propertyName)->setValue($dataObject, $propertyValue);
                 }
