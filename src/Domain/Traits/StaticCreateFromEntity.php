@@ -18,32 +18,8 @@ trait StaticCreateFromEntity
             if ($property->isInitialized($entity)) {
                 $propertyValue = $property->getValue($entity);
 
-                // Get the type of the property from the entity
-                $propertyType = $property->getType();
-                if ($propertyType) {
-                    $propertyType = $propertyType->getName();
-
-                    if (interface_exists($propertyType) || class_exists($propertyType)) {
-
-                        // If the property value is an object that is an instance of the same class or implements the same interface, recursively call createFromEntity
-                        // But if the property value is an instance of the same class as the entity, do not recursively call createFromEntity
-                        if (is_object($propertyValue) && (is_a($propertyValue, $propertyType) || in_array($propertyType, class_implements($propertyValue)))) {
-                            if (get_class($propertyValue) === get_class($entity)) {
-                                $propertyValue = $propertyValue;
-                            } else {
-                                $propertyValue = static::createFromEntity($propertyValue);
-                            }
-                        }
-                    }
-                }
-
-                // Check if the property in the data object has a type hint of an interface
                 if ($reflectionDataObject->hasProperty($propertyName)) {
-                    $reflectionProperty = $reflectionDataObject->getProperty($propertyName);
-                    $reflectionType = $reflectionProperty->getType();
-                    if ($reflectionType && $reflectionType->isBuiltin()) {
-                        $reflectionProperty->setValue($dataObject, $propertyValue);
-                    }
+                    $reflectionDataObject->getProperty($propertyName)->setValue($dataObject, $propertyValue);
                 }
             }
         }
