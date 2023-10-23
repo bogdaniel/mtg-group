@@ -22,7 +22,6 @@ class AssetManager
 
         foreach ($filesToCopy as $file) {
             if (file_exists($themeDir . '/' . $file)) {
-                dump('x');
                 copy($themeDir . '/' . $file, $this->projectDir . '/' . $file);
             }
         }
