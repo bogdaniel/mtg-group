@@ -11,12 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class InstallAssetsController extends AbstractController
 {
     private ThemeManager $themeManager;
-    private string $projectDir;
+    private AssetManager $assetManager;
 
-    public function __construct(ThemeManager $themeManager, string $projectDir)
+    public function __construct(ThemeManager $themeManager, AssetManager $assetManager)
     {
         $this->themeManager = $themeManager;
-        $this->projectDir = $projectDir;
+        $this->assetManager = $assetManager;
     }
 
     #[Route("/theme/install/{themeId}", name: "theme_install")]
@@ -25,21 +25,9 @@ class InstallAssetsController extends AbstractController
         $theme = $this->themeManager->findThemeById($themeId);
         if ($theme) {
             // logic to install theme assets...
-            $this->copyThemeAssetsToProjectRoot($theme);
+            $this->assetManager->copyThemeAssetsToProjectRoot($theme);
         }
 
         return $this->redirectToRoute('themes');
-    }
-
-    private function copyThemeAssetsToProjectRoot(Theme $theme): void
-    {
-        $themeDir = $this->projectDir . '/themes/' . $theme->getId();
-        $filesToCopy = ['package.json', 'webpack.config.js'];
-
-        foreach ($filesToCopy as $file) {
-            if (file_exists($themeDir . '/' . $file)) {
-                copy($themeDir . '/' . $file, $this->projectDir . '/' . $file);
-            }
-        }
     }
 }
