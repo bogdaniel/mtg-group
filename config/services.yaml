@@ -63,7 +63,7 @@ services:
             $projectDir: '%kernel.project_dir%'
             $filesystem: '@Symfony\Component\Filesystem\Filesystem'
 
-    App\Command\CopyAssetsCommand:
+    App\Command\ExportAssetsToThemeCommand:
         arguments:
             $assetManager: '@App\Service\AssetManager'
             $themeManager: '@App\Service\ThemeManager'
