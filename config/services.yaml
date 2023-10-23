@@ -52,3 +52,8 @@ services:
         arguments:
             $themeManager: '@App\Service\ThemeManager'
             $assetManager: '@App\Service\AssetManager'
+            
+    App\Service\ThemeManager:
+        arguments:
+            $themeRepository: '@App\Repository\ThemeRepository'
+            $themeFilesystemService: '@App\Service\ThemeFilesystemService'
