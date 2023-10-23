@@ -23,7 +23,7 @@ trait StaticCreateFromEntity
                 if ($propertyType) {
                     $propertyType = $propertyType->getName();
 
-                    if (interface_exists($propertyType)) {
+                    if (interface_exists($propertyType) || class_exists($propertyType)) {
 
                         // If the property value is an object that is an instance of the same class or implements the same interface, recursively call createFromEntity
                         // But if the property value is an instance of the same class as the entity, do not recursively call createFromEntity
