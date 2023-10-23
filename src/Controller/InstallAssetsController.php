@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Domain\Entity\ThemeData;
 use App\Service\AssetManager;
 use App\Service\ThemeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,9 +25,10 @@ class InstallAssetsController extends AbstractController
     public function __invoke(int $themeId): Response
     {
         $theme = $this->themeManager->findThemeById($themeId);
+        $themeData = ThemeData::createFromEntity($theme);
         if ($theme) {
             // logic to install theme assets...
-            $this->assetManager->copyThemeAssetsToProjectRoot($theme);
+            $this->assetManager->copyThemeAssetsToProjectRoot($themeData);
         }
 
         return $this->redirectToRoute('themes');
