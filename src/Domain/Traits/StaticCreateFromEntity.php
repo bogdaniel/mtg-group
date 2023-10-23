@@ -23,8 +23,13 @@ trait StaticCreateFromEntity
                     $propertyValue = static::createFromEntity($propertyValue);
                 }
 
+                // Check if the property in the data object has a type hint of an interface
                 if ($reflectionDataObject->hasProperty($propertyName)) {
-                    $reflectionDataObject->getProperty($propertyName)->setValue($dataObject, $propertyValue);
+                    $reflectionProperty = $reflectionDataObject->getProperty($propertyName);
+                    $reflectionType = $reflectionProperty->getType();
+                    if ($reflectionType && $reflectionType->isBuiltin()) {
+                        $reflectionProperty->setValue($dataObject, $propertyValue);
+                    }
                 }
             }
         }
