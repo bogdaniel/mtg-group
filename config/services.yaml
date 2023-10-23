@@ -61,6 +61,7 @@ services:
     App\Service\AssetManager:
         arguments:
             $projectDir: '%kernel.project_dir%'
+            $filesystem: '@Symfony\Component\Filesystem\Filesystem'
             
     App\Repository\ThemeRepository:
         arguments:

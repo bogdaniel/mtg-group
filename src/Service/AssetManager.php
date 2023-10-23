@@ -6,13 +6,17 @@ namespace App\Service;
 use App\Domain\Contract\ThemeDataContract;
 use App\Domain\Entity\Theme;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 class AssetManager
 {
     private string $projectDir;
+    private Filesystem $filesystem;
 
-    public function __construct(string $projectDir)
+    public function __construct(string $projectDir, Filesystem $filesystem)
     {
         $this->projectDir = $projectDir;
+        $this->filesystem = $filesystem;
     }
 
     public function copyThemeAssetsToProjectRoot(ThemeDataContract $theme): void
@@ -21,11 +25,11 @@ class AssetManager
         $filesToCopy = ['package.json', 'webpack.config.js', 'assets'];
 
         foreach ($filesToCopy as $file) {
-            if (file_exists($themeDir . '/' . $file)) {
+            if ($this->filesystem->exists($themeDir . '/' . $file)) {
                 if (is_dir($themeDir . '/' . $file)) {
                     $this->recursiveCopy($themeDir . '/' . $file, $this->projectDir . '/' . $file);
                 } else {
-                    copy($themeDir . '/' . $file, $this->projectDir . '/' . $file);
+                    $this->filesystem->copy($themeDir . '/' . $file, $this->projectDir . '/' . $file);
                 }
             }
         }
@@ -34,13 +38,13 @@ class AssetManager
     private function recursiveCopy(string $src, string $dst): void
     {
         $dir = opendir($src);
-        @mkdir($dst);
+        $this->filesystem->mkdir($dst);
         while (false !== ($file = readdir($dir))) {
             if (($file != '.') && ($file != '..')) {
                 if (is_dir($src . '/' . $file)) {
                     $this->recursiveCopy($src . '/' . $file, $dst . '/' . $file);
                 } else {
-                    copy($src . '/' . $file, $dst . '/' . $file);
+                    $this->filesystem->copy($src . '/' . $file, $dst . '/' . $file);
                 }
             }
         }
