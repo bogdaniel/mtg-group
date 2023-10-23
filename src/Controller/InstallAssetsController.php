@@ -26,6 +26,7 @@ class InstallAssetsController extends AbstractController
     {
         $theme = $this->themeManager->findThemeById($themeId);
         $themeData = ThemeData::createFromEntity($theme);
+        dd($themeData);
         if ($theme) {
             // logic to install theme assets...
             $this->assetManager->copyThemeAssetsToProjectRoot($themeData);
