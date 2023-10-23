@@ -19,7 +19,7 @@ trait StaticCreateFromEntity
                 $propertyValue = $property->getValue($entity);
 
                 if ($reflectionDataObject->hasProperty($propertyName)) {
-                    if (is_object($propertyValue) && get_class($propertyValue) === get_class($entity)) {
+                    if ($propertyValue instanceof $entity) {
                         $propertyValue = static::createFromEntity($propertyValue);
                     }
                     $reflectionDataObject->getProperty($propertyName)->setValue($dataObject, $propertyValue);
