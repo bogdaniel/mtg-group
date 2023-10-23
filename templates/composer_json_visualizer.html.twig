@@ -13,17 +13,17 @@
             </tr>
         </thead>
         <tbody>
-            {% include 'table_row.html.twig' with {'key': 'Name', 'value': composerJsonData.name} %}
-            {% include 'table_row.html.twig' with {'key': 'Type', 'value': composerJsonData.type} %}
-            {% include 'table_row.html.twig' with {'key': 'License', 'value': composerJsonData.license} %}
-            {% include 'table_row.html.twig' with {'key': 'Description', 'value': composerJsonData.description} %}
-            {% include 'table_row.html.twig' with {'key': 'Minimum Stability', 'value': composerJsonData.minimumStability} %}
-            {% include 'table_row.html.twig' with {'key': 'Prefer Stable', 'value': composerJsonData.preferStable} %}
-            {% include 'table_row.html.twig' with {'key': 'Require', 'value': composerJsonData.require, 'installedPackages': composerJsonData.installedPackages} %}
-            {% include 'table_row.html.twig' with {'key': 'Require Dev', 'value': composerJsonData.requireDev, 'installedPackages': composerJsonData.installedPackages} %}
-            {% include 'table_row.html.twig' with {'key': 'Scripts', 'value': composerJsonData.scripts, 'installedPackages': []} %}
-            {% include 'table_row.html.twig' with {'key': 'Replace', 'value': composerJsonData.replace, 'installedPackages': []} %}
-            {% include 'table_row.html.twig' with {'key': 'Extra', 'value': composerJsonData.extra, 'installedPackages': []} %}
+            {% include 'table_row.html.twig' with {'section': 'Name', 'value': composerJsonData.name} %}
+            {% include 'table_row.html.twig' with {'section': 'Type', 'value': composerJsonData.type} %}
+            {% include 'table_row.html.twig' with {'section': 'License', 'value': composerJsonData.license} %}
+            {% include 'table_row.html.twig' with {'section': 'Description', 'value': composerJsonData.description} %}
+            {% include 'table_row.html.twig' with {'section': 'Minimum Stability', 'value': composerJsonData.minimumStability} %}
+            {% include 'table_row.html.twig' with {'section': 'Prefer Stable', 'value': composerJsonData.preferStable} %}
+            {% include 'table_row.html.twig' with {'section': 'Require', 'value': composerJsonData.require, 'installedPackages': composerJsonData.installedPackages} %}
+            {% include 'table_row.html.twig' with {'section': 'Require Dev', 'value': composerJsonData.requireDev, 'installedPackages': composerJsonData.installedPackages} %}
+            {% include 'table_row.html.twig' with {'section': 'Scripts', 'value': composerJsonData.scripts, 'installedPackages': []} %}
+            {% include 'table_row.html.twig' with {'section': 'Replace', 'value': composerJsonData.replace, 'installedPackages': []} %}
+            {% include 'table_row.html.twig' with {'section': 'Extra', 'value': composerJsonData.extra, 'installedPackages': []} %}
         </tbody>
     </table>
 </body>
