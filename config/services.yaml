@@ -46,3 +46,8 @@ services:
         public: true
         arguments:
             $projectDir: '%kernel.project_dir%'
+            
+    App\Controller\InstallAssetsController:
+        arguments:
+            $themeManager: '@App\Service\ThemeManager'
+            $assetManager: '@App\Service\AssetManager'
