@@ -35,9 +35,20 @@ class DiskController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        // TODO: Add logic to handle the request and create a new Disk
+        $disk = new Disk();
+        $form = $this->createForm(DiskType::class, $disk);
+        $form->handleRequest($request);
 
-        return $this->redirectToRoute('disk_index');
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->diskManager->createDisk($disk);
+
+            return $this->redirectToRoute('disk_index');
+        }
+
+        return $this->render('disk/new.html.twig', [
+            'disk' => $disk,
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
@@ -47,7 +58,9 @@ class DiskController extends AbstractController
     {
         $disk = $this->diskManager->getDisk($id);
 
-        // TODO: Add logic to handle the request and show a Disk
+        if (!$disk) {
+            throw $this->createNotFoundException('The disk does not exist');
+        }
 
         return $this->render('disk/show.html.twig', [
             'disk' => $disk,
@@ -61,18 +74,39 @@ class DiskController extends AbstractController
     {
         $disk = $this->diskManager->getDisk($id);
 
-        // TODO: Add logic to handle the request and edit a Disk
+        if (!$disk) {
+            throw $this->createNotFoundException('The disk does not exist');
+        }
 
-        return $this->redirectToRoute('disk_index');
+        $form = $this->createForm(DiskType::class, $disk);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->diskManager->updateDisk($disk);
+
+            return $this->redirectToRoute('disk_index');
+        }
+
+        return $this->render('disk/edit.html.twig', [
+            'disk' => $disk,
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
      * @Route("/disk/{id}", name="disk_delete", methods={"DELETE"})
      */
-    public function delete(int $id): Response
+    public function delete(Request $request, int $id): Response
     {
         $disk = $this->diskManager->getDisk($id);
-        $this->diskManager->deleteDisk($disk);
+
+        if (!$disk) {
+            throw $this->createNotFoundException('The disk does not exist');
+        }
+
+        if ($this->isCsrfTokenValid('delete'.$disk->getId(), $request->request->get('_token'))) {
+            $this->diskManager->deleteDisk($disk);
+        }
 
         return $this->redirectToRoute('disk_index');
     }
