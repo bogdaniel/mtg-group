@@ -1,0 +1,192 @@
+file_manager:
+    form_fields:
+        # https://flysystem.thephpleague.com/docs/adapter/local/
+        local_filesystem_adapter:
+            adapter:
+                type: LocalFilesystemAdapter
+                config:
+                    directory: '%kernel.project_dir%/var'
+                    visibility_converter:
+                        file:
+                            public: 640
+                            private: 604
+                        dir:
+                            public: 740
+                            private: 7604
+                    write_flags: 'LOCK_EX'
+                    link_handling: ['DISALLOW_LINKS', 'SKIP_LINKS']
+                    filesystem:
+                        type: Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/ftp/
+        ftp_adapter:
+            adapter:
+                type: League\Flysystem\Ftp\FtpAdapter
+                config:
+                    connection_options:
+                        host: hostname
+                        root: /root/path/
+                        username: username
+                        password: password
+                        port: 21
+                        ssl: false
+                        timeout: 90
+                        utf8: false
+                        passive: true
+                        transferMode: FTP_BINARY
+                        systemType: null
+                        ignorePassiveAddress: null
+                        timestampsOnUnixListingsEnabled: false
+                        recurseManually: true
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/in-memory/
+        in_memory_filesystem_adapter:
+            adapter:
+                type: League\Flysystem\InMemory\InMemoryFilesystemAdapter
+                config:
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        read_only_adapter_decorator:
+            adapter:
+                type: League\Flysystem\ReadOnly\ReadOnlyFilesystemAdapter
+                config:
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        path_prefixing_adapter_decorator:
+            adapter:
+                type: League\Flysystem\PathPrefixing\PathPrefixedAdapter
+                config:
+                    adapter:
+                        type: League\Flysystem\InMemory\InMemoryFilesystemAdapter
+                    prefix: 'a/path/prefix'
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/aws-s3-v3/
+        aws_s3_adapter:
+            adapter:
+                type: League\Flysystem\AwsS3V3\AwsS3V3Adapter
+                config:
+                    s3_client: '@Aws\S3\S3ClientInterface $client'
+                    bucket: 'bucket-name'
+                    prefix: 'path/prefix'
+                    visibility_converter:
+                        type: League\Flysystem\AwsS3V3\PortableVisibilityConverter
+                        default_for_directories: 'public'
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/async-aws-s3/
+        async_aws_s3_adapter:
+            adapter:
+                type: League\Flysystem\AsyncAwsS3\AsyncAwsS3Adapter
+                config:
+                    s3_client: '@AsyncAws\S3\S3Client'
+                    bucket: 'bucket-name'
+                    prefix: 'path/prefix'
+                    visibility_converter:
+                        type: League\Flysystem\AsyncAwsS3\PortableVisibilityConverter
+                        default_for_directories: 'public'
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/azure-blob-storage/
+        azure_blob_storage:
+            adapter:
+                type: League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter
+                config:
+                    azure_client: '@MicrosoftAzure\Storage\Blob\BlobRestProxy'
+                    container: 'container-name'
+                    prefix: 'optional/prefix'
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/google-cloud-storage/
+        google_cloud_storage:
+            adapter:
+                type: League\Flysystem\GoogleCloudStorage\GoogleCloudStorageAdapter
+                config:
+                    bucket: 'your-bucket-name'
+                    prefix: 'optional-prefix'
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/sftp-v2/
+        sftp_v2_adapter:
+            adapter:
+                type: League\Flysystem\PhpseclibV2\SftpAdapter
+                config:
+                    connection_provider:
+                        type: League\Flysystem\PhpseclibV2\SftpConnectionProvider
+                        host: 'localhost'
+                        username: 'foo'
+                        password: 'pass'
+                        private_key: '/path/to/my/private_key'
+                        passphrase: 'my-super-secret-passphrase-for-the-private-key'
+                        port: 2222
+                        use_agent: true
+                        timeout: 30
+                        max_tries: 10
+                        host_fingerprint: 'fingerprint-string'
+                        connectivity_checker: null
+                    root: '/upload'
+                    visibility_converter:
+                        type: League\Flysystem\UnixVisibility\PortableVisibilityConverter
+                        options:
+                            file:
+                                public: 0640
+                                private: 0604
+                            dir:
+                                public: 0740
+                                private: 7604
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/sftp-v3/
+        sftp_v3_adapter:
+            adapter:
+                type: League\Flysystem\PhpseclibV3\SftpAdapter
+                config:
+                    connection_provider:
+                        type: League\Flysystem\PhpseclibV3\SftpConnectionProvider
+                        host: localhost
+                        username: foo
+                        password: pass
+                        private_key: /path/to/my/private_key
+                        passphrase: my-super-secret-passphrase-for-the-private-key
+                        port: 2222
+                        use_agent: true
+                        timeout: 30
+                        max_tries: 10
+                        host_fingerprint: fingerprint-string
+                        connectivity_checker: null
+                    root: /upload
+                    visibility_converter:
+                        type: League\Flysystem\UnixVisibility\PortableVisibilityConverter
+                        options:
+                            file:
+                                public: 0640
+                                private: 0604
+                            dir:
+                                public: 0740
+                                private: 7604
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        # https://flysystem.thephpleague.com/docs/adapter/webdav/
+        webdav_adapter:
+            adapter:
+                type: League\Flysystem\WebDAV\WebDAVAdapter
+                config:
+                    client:
+                        baseUri: 'http://your-webdav-server.org/'
+                        userName: 'your_user'
+                        password: 'superSecret1234'
+                    filesystem:
+                        type: League\Flysystem\Filesystem
+                        adapter: __ADAPTER__
+        zip_archive_adapter: ~
