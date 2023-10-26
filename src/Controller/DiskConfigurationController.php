@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Entity\DiskConfiguration;
 use App\Form\DiskConfigurationType;
-use App\Repository\DiskConfigurationRepository;
+use App\Service\DiskConfigurationManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,11 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route("/disk/configuration")]
 class DiskConfigurationController extends AbstractController
 {
+    private DiskConfigurationManager $diskConfigurationManager;
+
+    public function __construct(DiskConfigurationManager $diskConfigurationManager)
+    {
+        $this->diskConfigurationManager = $diskConfigurationManager;
+    }
+
     #[Route("/", name: "disk_configuration_index", methods: ["GET"])]
-    public function index(DiskConfigurationRepository $diskConfigurationRepository): Response
+    public function index(): Response
     {
         return $this->render('disk_configuration/index.html.twig', [
-            'disk_configurations' => $diskConfigurationRepository->findAll(),
+            'disk_configurations' => $this->diskConfigurationManager->getAllDiskConfigurations(),
         ]);
     }
 
@@ -28,9 +35,7 @@ class DiskConfigurationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($diskConfiguration);
-            $entityManager->flush();
+            $this->diskConfigurationManager->create($diskConfiguration);
 
             return $this->redirectToRoute('disk_configuration_index');
         }
@@ -56,7 +61,7 @@ class DiskConfigurationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $this->diskConfigurationManager->update($diskConfiguration);
 
             return $this->redirectToRoute('disk_configuration_index');
         }
@@ -71,9 +76,7 @@ class DiskConfigurationController extends AbstractController
     public function delete(Request $request, DiskConfiguration $diskConfiguration): Response
     {
         if ($this->isCsrfTokenValid('delete'.$diskConfiguration->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($diskConfiguration);
-            $entityManager->flush();
+            $this->diskConfigurationManager->delete($diskConfiguration);
         }
 
         return $this->redirectToRoute('disk_configuration_index');
