@@ -18,5 +18,23 @@ class VolumeManager
         return $this->volumeRepository->findAll();
     }
 
-    // TODO: Add methods for create, read, update, and delete operations
+    public function createVolume(Volume $volume): void
+    {
+        $this->volumeRepository->create($volume);
+    }
+
+    public function getVolume(int $id): ?Volume
+    {
+        return $this->volumeRepository->read($id);
+    }
+
+    public function updateVolume(Volume $volume): void
+    {
+        $this->volumeRepository->update($volume);
+    }
+
+    public function deleteVolume(Volume $volume): void
+    {
+        $this->volumeRepository->delete($volume);
+    }
 }
