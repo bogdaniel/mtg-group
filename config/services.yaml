@@ -37,6 +37,9 @@ services:
             $filesystem: '@Symfony\Component\Filesystem\Filesystem'
             $projectDir: '%kernel.project_dir%'
 
+    App\DependencyInjection\Configuration:
+        public: true
+
     App\Service\ThemeRuntimeConfigurator:
         arguments:
             $twig: '@twig.loader.native_filesystem'
