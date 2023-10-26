@@ -13,10 +13,12 @@ use App\Domain\Contract\DiskConfigurationDataContract;
 class DiskConfigurationController extends AbstractController
 {
     private DiskConfigurationManager $diskConfigurationManager;
+    private FormBuilderService $formBuilderService;
 
-    public function __construct(DiskConfigurationManager $diskConfigurationManager)
+    public function __construct(DiskConfigurationManager $diskConfigurationManager, FormBuilderService $formBuilderService)
     {
         $this->diskConfigurationManager = $diskConfigurationManager;
+        $this->formBuilderService = $formBuilderService;
     }
 
     #[Route("/", name: "disk_configuration_index", methods: ["GET"])]
@@ -28,9 +30,14 @@ class DiskConfigurationController extends AbstractController
     }
 
     #[Route("/new", name: "disk_configuration_new", methods: ["GET","POST"])]
-    public function new(Request $request, DiskConfigurationDataContract $diskConfiguration): Response
+    public function new(Request $request): Response
     {
-        $form = $this->createForm(DiskConfigurationType::class, $diskConfiguration);
+        $forms = $this->formBuilderService->buildForms();
+        $form = $forms['disk_configuration'] ?? null;
+
+        if (!$form) {
+            throw new \RuntimeException('Form "disk_configuration" not found.');
+        }
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
