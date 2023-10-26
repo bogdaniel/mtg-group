@@ -13,7 +13,27 @@ class DiskRepository extends ServiceEntityRepository
         parent::__construct($registry, Disk::class);
     }
 
-    // Add methods for creating, reading, updating, and deleting Disk records
+    public function create(Disk $disk): void
+    {
+        $this->_em->persist($disk);
+        $this->_em->flush();
+    }
+
+    public function read(int $id): ?Disk
+    {
+        return $this->find($id);
+    }
+
+    public function update(Disk $disk): void
+    {
+        $this->_em->flush();
+    }
+
+    public function delete(Disk $disk): void
+    {
+        $this->_em->remove($disk);
+        $this->_em->flush();
+    }
 }
 <?php
 
