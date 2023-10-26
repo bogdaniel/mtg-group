@@ -8,14 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/disk/configuration")
- */
+#[Route("/disk/configuration")]
 class DiskConfigurationController extends AbstractController
 {
-    /**
-     * @Route("/", name="disk_configuration_index", methods={"GET"})
-     */
+    #[Route("/", name: "disk_configuration_index", methods: ["GET"])]
     public function index(DiskConfigurationRepository $diskConfigurationRepository): Response
     {
         return $this->render('disk_configuration/index.html.twig', [
@@ -23,9 +19,7 @@ class DiskConfigurationController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="disk_configuration_new", methods={"GET","POST"})
-     */
+    #[Route("/new", name: "disk_configuration_new", methods: ["GET","POST"])]
     public function new(Request $request): Response
     {
         $diskConfiguration = new DiskConfiguration();
@@ -46,9 +40,7 @@ class DiskConfigurationController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="disk_configuration_show", methods={"GET"})
-     */
+    #[Route("/{id}", name: "disk_configuration_show", methods: ["GET"])]
     public function show(DiskConfiguration $diskConfiguration): Response
     {
         return $this->render('disk_configuration/show.html.twig', [
@@ -56,9 +48,7 @@ class DiskConfigurationController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="disk_configuration_edit", methods={"GET","POST"})
-     */
+    #[Route("/{id}/edit", name: "disk_configuration_edit", methods: ["GET","POST"])]
     public function edit(Request $request, DiskConfiguration $diskConfiguration): Response
     {
         $form = $this->createForm(DiskConfigurationType::class, $diskConfiguration);
@@ -76,9 +66,7 @@ class DiskConfigurationController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="disk_configuration_delete", methods={"DELETE"})
-     */
+    #[Route("/{id}", name: "disk_configuration_delete", methods: ["DELETE"])]
     public function delete(Request $request, DiskConfiguration $diskConfiguration): Response
     {
         if ($this->isCsrfTokenValid('delete'.$diskConfiguration->getId(), $request->request->get('_token'))) {
