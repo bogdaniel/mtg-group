@@ -18,7 +18,11 @@ class FileData
         private DiskData $disk,
         private string $filename,
         private bool $convertToMp4,
-        private bool $encrypt
+        private bool $encrypt,
+        private int $readCount,
+        private int $downloadCount,
+        private int $editCount,
+        private UserContract $lastEditedBy
     ) {}
 
     // getters and setters
