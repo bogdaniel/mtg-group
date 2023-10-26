@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disk{% endblock %}
+
+{% block body %}
+    <h1>Disk</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ disk.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ disk.name }}</td>
+            </tr>
+            <!-- Add more fields as necessary -->
+        </tbody>
+    </table>
+
+    <a href="{{ path('disk_index') }}">back to list</a>
+
+    <a href="{{ path('disk_edit', {'id': disk.id}) }}">edit</a>
+
+    {{ include('disk/_delete_form.html.twig') }}
+{% endblock %}
