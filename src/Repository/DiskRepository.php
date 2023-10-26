@@ -2,11 +2,17 @@
 
 namespace App\Repository;
 
-use App\Domain\Contract\DiskConfigurationDataContract;
+use App\Entity\Contract\DiskConfigurationEntityContract;
 use App\Entity\Disk;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * @method DiskConfigurationEntityContract|null find($id, $lockMode = null, $lockVersion = null)
+ * @method DiskConfigurationEntityContract|null findOneBy(array $criteria, array $orderBy = null)
+ * @method DiskConfigurationEntityContract[]    findAll()
+ * @method DiskConfigurationEntityContract[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
 class DiskRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
@@ -14,7 +20,7 @@ class DiskRepository extends ServiceEntityRepository
         parent::__construct($registry, Disk::class);
     }
 
-    public function create(DiskConfigurationDataContract $disk): void
+    public function create(DiskConfigurationEntityContract $disk): void
     {
         $this->_em->persist($disk);
         $this->_em->flush();
@@ -25,12 +31,12 @@ class DiskRepository extends ServiceEntityRepository
         return $this->find($id);
     }
 
-    public function update(DiskConfigurationDataContract $disk): void
+    public function update(DiskConfigurationEntityContract $disk): void
     {
         $this->_em->flush();
     }
 
-    public function delete(DiskConfigurationDataContract $disk): void
+    public function delete(DiskConfigurationEntityContract $disk): void
     {
         $this->_em->remove($disk);
         $this->_em->flush();
