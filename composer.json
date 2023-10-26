@@ -13,6 +13,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.16",
         "egulias/email-validator": "^4.0",
+        "league/flysystem-bundle": "^3.2",
         "runtime/frankenphp-symfony": "^0.1.1",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
