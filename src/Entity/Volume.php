@@ -2,28 +2,18 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+use App\Domain\Entity\VolumeData;
+use App\Repository\VolumeRepository;
 
-#[ORM\Entity(repositoryClass: "App\Repository\VolumeRepository")]
 class Volume
 {
-    #[ORM\Id, ORM\GeneratedValue, ORM\Column(type: "integer")]
-    private $id;
+    private VolumeData $volumeData;
+    private VolumeRepository $volumeRepository;
 
-    #[ORM\Column(type: "string", length: 255)]
-    private $name;
-
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="File", mappedBy="volume")
-     */
-    private $files;
-
-    public function __construct()
+    public function __construct(VolumeData $volumeData, VolumeRepository $volumeRepository)
     {
-        $this->files = new ArrayCollection();
+        $this->volumeData = $volumeData;
+        $this->volumeRepository = $volumeRepository;
     }
 
     // getters and setters
