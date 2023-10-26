@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Domain\Contract\DiskConfigurationDataContract;
 use App\Entity\Disk;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -13,7 +14,7 @@ class DiskRepository extends ServiceEntityRepository
         parent::__construct($registry, Disk::class);
     }
 
-    public function create(Disk $disk): void
+    public function create(DiskConfigurationDataContract $disk): void
     {
         $this->_em->persist($disk);
         $this->_em->flush();
@@ -24,12 +25,12 @@ class DiskRepository extends ServiceEntityRepository
         return $this->find($id);
     }
 
-    public function update(Disk $disk): void
+    public function update(DiskConfigurationDataContract $disk): void
     {
         $this->_em->flush();
     }
 
-    public function delete(Disk $disk): void
+    public function delete(DiskConfigurationDataContract $disk): void
     {
         $this->_em->remove($disk);
         $this->_em->flush();

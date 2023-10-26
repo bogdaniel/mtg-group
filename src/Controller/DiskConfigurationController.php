@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Entity\DiskConfiguration;
 use App\Form\DiskConfigurationType;
 use App\Service\DiskConfigurationManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

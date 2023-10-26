@@ -1,21 +1,10 @@
-class DiskConfigurationData implements DiskConfigurationContract
+<?php
+
+namespace App\Domain\Entity;
+
+use App\Domain\Contract\DiskConfigurationDataContract;
+
+class DiskConfigurationData implements DiskConfigurationDataContract
 {
-    private ?int $id;
-    private array $configuration;
-
-    public function __construct(?int $id, array $configuration)
-    {
-        $this->id = $id;
-        $this->configuration = $configuration;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getConfiguration(): array
-    {
-        return $this->configuration;
-    }
+    public function __construct(public ?int $id, public array $configuration) {}
 }
