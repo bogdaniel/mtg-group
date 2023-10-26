@@ -38,15 +38,24 @@ class File
 
     // Add the necessary relationships and properties
 
-    public function __construct(string $name, int $size, string $mimeType, string $checksum, array $metadata)
-    {
+    public function __construct(
+        string $name,
+        int $size,
+        string $mimeType,
+        string $checksum,
+        array $metadata,
+        \DateTimeInterface $createDate = null,
+        \DateTimeInterface $updateDate = null,
+        \DateTimeInterface $deleteDate = null
+    ) {
         $this->name = $name;
         $this->size = $size;
         $this->mimeType = $mimeType;
         $this->checksum = $checksum;
         $this->metadata = $metadata;
-        $this->createDate = new \DateTimeImmutable();
-        $this->updateDate = new \DateTimeImmutable();
+        $this->createDate = $createDate ?: new \DateTimeImmutable();
+        $this->updateDate = $updateDate ?: new \DateTimeImmutable();
+        $this->deleteDate = $deleteDate;
     }
 
     public function getId(): ?int
