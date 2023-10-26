@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Domain\Contract\DiskConfigurationDataContract;
 
 #[Route("/disk/configuration")]
 class DiskConfigurationController extends AbstractController
@@ -27,9 +28,8 @@ class DiskConfigurationController extends AbstractController
     }
 
     #[Route("/new", name: "disk_configuration_new", methods: ["GET","POST"])]
-    public function new(Request $request): Response
+    public function new(Request $request, DiskConfigurationDataContract $diskConfiguration): Response
     {
-        $diskConfiguration = new DiskConfiguration();
         $form = $this->createForm(DiskConfigurationType::class, $diskConfiguration);
         $form->handleRequest($request);
 
@@ -46,7 +46,7 @@ class DiskConfigurationController extends AbstractController
     }
 
     #[Route("/{id}", name: "disk_configuration_show", methods: ["GET"])]
-    public function show(DiskConfiguration $diskConfiguration): Response
+    public function show(DiskConfigurationDataContract $diskConfiguration): Response
     {
         return $this->render('disk_configuration/show.html.twig', [
             'disk_configuration' => $diskConfiguration,
@@ -54,7 +54,7 @@ class DiskConfigurationController extends AbstractController
     }
 
     #[Route("/{id}/edit", name: "disk_configuration_edit", methods: ["GET","POST"])]
-    public function edit(Request $request, DiskConfiguration $diskConfiguration): Response
+    public function edit(Request $request, DiskConfigurationDataContract $diskConfiguration): Response
     {
         $form = $this->createForm(DiskConfigurationType::class, $diskConfiguration);
         $form->handleRequest($request);
@@ -72,7 +72,7 @@ class DiskConfigurationController extends AbstractController
     }
 
     #[Route("/{id}", name: "disk_configuration_delete", methods: ["DELETE"])]
-    public function delete(Request $request, DiskConfiguration $diskConfiguration): Response
+    public function delete(Request $request, DiskConfigurationDataContract $diskConfiguration): Response
     {
         if ($this->isCsrfTokenValid('delete'.$diskConfiguration->getId(), $request->request->get('_token'))) {
             $this->diskConfigurationManager->delete($diskConfiguration);
