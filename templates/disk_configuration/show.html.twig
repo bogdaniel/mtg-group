@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disk Configuration{% endblock %}
+
+{% block body %}
+<h1>Disk Configuration</h1>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ disk_configuration.id }}</td>
+        </tr>
+        <tr>
+            <th>Configuration</th>
+            <td>{{ disk_configuration.configuration|join(', ') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="{{ path('disk_configuration_index') }}">back to list</a>
+{% endblock %}
