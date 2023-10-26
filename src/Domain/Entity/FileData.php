@@ -22,7 +22,8 @@ class FileData
         private int $readCount,
         private int $downloadCount,
         private int $editCount,
-        private UserContract $lastEditedBy
+        private UserContract $lastEditedBy,
+        private array $stats
     ) {}
 
     // getters and setters
