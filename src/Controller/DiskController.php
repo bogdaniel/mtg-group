@@ -30,5 +30,50 @@ class DiskController extends AbstractController
         ]);
     }
 
-    // TODO: Add methods for create, read, update, and delete operations
+    /**
+     * @Route("/disk/create", name="disk_create", methods={"POST"})
+     */
+    public function create(Request $request): Response
+    {
+        // TODO: Add logic to handle the request and create a new Disk
+
+        return $this->redirectToRoute('disk_index');
+    }
+
+    /**
+     * @Route("/disk/{id}", name="disk_show", methods={"GET"})
+     */
+    public function show(int $id): Response
+    {
+        $disk = $this->diskManager->getDisk($id);
+
+        // TODO: Add logic to handle the request and show a Disk
+
+        return $this->render('disk/show.html.twig', [
+            'disk' => $disk,
+        ]);
+    }
+
+    /**
+     * @Route("/disk/{id}/edit", name="disk_edit", methods={"GET", "POST"})
+     */
+    public function edit(Request $request, int $id): Response
+    {
+        $disk = $this->diskManager->getDisk($id);
+
+        // TODO: Add logic to handle the request and edit a Disk
+
+        return $this->redirectToRoute('disk_index');
+    }
+
+    /**
+     * @Route("/disk/{id}", name="disk_delete", methods={"DELETE"})
+     */
+    public function delete(int $id): Response
+    {
+        $disk = $this->diskManager->getDisk($id);
+        $this->diskManager->deleteDisk($disk);
+
+        return $this->redirectToRoute('disk_index');
+    }
 }
