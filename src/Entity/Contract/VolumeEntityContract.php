@@ -2,5 +2,5 @@
 
 namespace App\Entity\Contract;
 
-interface UserContract
+interface VolumeEntityContract
 {}

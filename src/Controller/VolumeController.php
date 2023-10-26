@@ -33,7 +33,7 @@ class VolumeController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        // TODO: Add logic to handle the request and create a new Volume
+        // TODO: Add logic to handle the request and create a new VolumeEntity
 
         return $this->redirectToRoute('volume_index');
     }
@@ -45,7 +45,7 @@ class VolumeController extends AbstractController
     {
         $volume = $this->volumeManager->getVolume($id);
 
-        // TODO: Add logic to handle the request and show a Volume
+        // TODO: Add logic to handle the request and show a VolumeEntity
 
         return $this->render('volume/show.html.twig', [
             'volume' => $volume,
@@ -59,7 +59,7 @@ class VolumeController extends AbstractController
     {
         $volume = $this->volumeManager->getVolume($id);
 
-        // TODO: Add logic to handle the request and edit a Volume
+        // TODO: Add logic to handle the request and edit a VolumeEntity
 
         return $this->redirectToRoute('volume_index');
     }

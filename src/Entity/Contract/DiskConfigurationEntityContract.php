@@ -2,6 +2,6 @@
 
 namespace App\Entity\Contract;
 
-interface DiskConfigurationContract
+interface DiskConfigurationEntityContract
 {
 }

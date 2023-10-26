@@ -2,5 +2,5 @@
 
 namespace App\Entity\Contract;
 
-interface OperatorContract
+interface OperatorEntityContract
 {}

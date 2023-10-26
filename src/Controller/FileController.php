@@ -22,7 +22,7 @@ class FileController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        // TODO: Add logic to handle the request and create a new File
+        // TODO: Add logic to handle the request and create a new FileEntity
 
         return $this->redirectToRoute('file_index');
     }
@@ -34,7 +34,7 @@ class FileController extends AbstractController
     {
         $file = $this->fileManager->getFile($id);
 
-        // TODO: Add logic to handle the request and show a File
+        // TODO: Add logic to handle the request and show a FileEntity
 
         return $this->render('file/show.html.twig', [
             'file' => $file,
@@ -48,7 +48,7 @@ class FileController extends AbstractController
     {
         $file = $this->fileManager->getFile($id);
 
-        // TODO: Add logic to handle the request and edit a File
+        // TODO: Add logic to handle the request and edit a FileEntity
 
         return $this->redirectToRoute('file_index');
     }
