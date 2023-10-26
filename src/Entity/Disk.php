@@ -2,31 +2,18 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+use App\Domain\Entity\DiskData;
+use App\Repository\DiskRepository;
 
-#[ORM\Entity(repositoryClass: "App\Repository\DiskRepository")]
 class Disk
 {
-    #[ORM\Id, ORM\GeneratedValue, ORM\Column(type: "integer")]
-    private $id;
+    private DiskData $diskData;
+    private DiskRepository $diskRepository;
 
-    #[ORM\Column(type: "string", length: 255)]
-    private $name;
-
-    #[ORM\Column(type: "string", length: 255)]
-    private $path;
-
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="File", mappedBy="disk")
-     */
-    private $files;
-
-    public function __construct()
+    public function __construct(DiskData $diskData, DiskRepository $diskRepository)
     {
-        $this->files = new ArrayCollection();
+        $this->diskData = $diskData;
+        $this->diskRepository = $diskRepository;
     }
 
     // getters and setters
