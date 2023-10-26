@@ -13,7 +13,7 @@ class FileManagerExtension extends Extension
     {
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__.'/../../config/packages')
+            new FileLocator('/app/config/packages')
         );
         $loader->load('file_manager.yaml');
     }
