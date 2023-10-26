@@ -19,5 +19,22 @@ class DiskManager
         return $this->diskRepository->findAll();
     }
 
-    // TODO: Add methods for create, read, update, and delete operations
-}
+    public function create(Disk $disk): void
+    {
+        $this->diskRepository->create($disk);
+    }
+
+    public function read(int $id): ?Disk
+    {
+        return $this->diskRepository->read($id);
+    }
+
+    public function update(Disk $disk): void
+    {
+        $this->diskRepository->update($disk);
+    }
+
+    public function delete(Disk $disk): void
+    {
+        $this->diskRepository->delete($disk);
+    }}
