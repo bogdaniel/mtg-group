@@ -20,11 +20,18 @@ class ListThemesController extends AbstractController
     public function __invoke(): Response
     {
         $themes = $this->themeManager->findAllThemes();
-        $activeTheme = $this->themeManager->findThemeById($this->themeManager->getActiveThemeId());
-        $activeThemeName = $this->themeManager->getActiveThemeName();
+        if([] !== $themes) {
+            $activeTheme = $this->themeManager->findThemeById($this->themeManager->getActiveThemeId());
+            $activeThemeName = $this->themeManager->getActiveThemeName();
+
+            return $this->render('templates/admin/theme_manager/themes.html.twig',
+                ['themes' => $themes, 'activeTheme' => $activeTheme, 'activeThemeName' => $activeThemeName]
+            );
+        }
 
         return $this->render('templates/admin/theme_manager/themes.html.twig',
-            ['themes' => $themes, 'activeTheme' => $activeTheme, 'activeThemeName' => $activeThemeName]
+            ['themes' => $themes]
         );
+
     }
 }
