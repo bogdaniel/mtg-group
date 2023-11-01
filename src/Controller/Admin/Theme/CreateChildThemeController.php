@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Admin\Theme;
 
 use App\Service\ThemeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

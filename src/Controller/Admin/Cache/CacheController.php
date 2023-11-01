@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Cache;
 
 use App\Form\CacheClearFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

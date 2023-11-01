@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Admin\Theme;
 
 use App\Service\ThemeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SwitchThemeController extends AbstractController
+class DeactivateThemeController extends AbstractController
 {
     private ThemeManager $themeManager;
     public function __construct(ThemeManager $themeManager)
@@ -16,10 +16,10 @@ class SwitchThemeController extends AbstractController
         $this->themeManager = $themeManager;
     }
 
-    #[Route("/theme/switch/{themeId}", name: "theme_switch")]
+    #[Route("/theme/deactivate/{themeId}", name: "theme_deactivate")]
     public function __invoke(int $themeId): Response
     {
-        $this->themeManager->setActiveTheme($themeId);
+        $this->themeManager->deactivateTheme($themeId);
 
         return $this->redirectToRoute('themes');
     }
