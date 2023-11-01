@@ -21,6 +21,16 @@ class CacheController extends AbstractController
         $this->kernel = $kernel;
     }
 
+    #[Route('/dashboard/cache/load', name: 'app_cache_load', methods: ['GET'])]
+    public function loadAction(): Response
+    {
+        $form = $this->createForm(CacheClearFormType::class);
+
+        return $this->render('cache/load.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
     public function clearAction(Request $request): Response
     {
         $form = $this->createForm(CacheClearFormType::class);
