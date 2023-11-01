@@ -19,13 +19,19 @@ class DashboardController extends AbstractController
 
     public function __invoke(): Response
     {
-        $routes = $this->router->getRouteCollection()->all();
+        $allRoutes = $this->router->getRouteCollection()->all();
+        $routes = [];
 
         // Filter and group the routes as needed
-        foreach ($routes as $routeName => $route) {
+        foreach ($allRoutes as $routeName => $route) {
             if (str_starts_with($routeName, '_profiler') || str_starts_with($routeName, '_wdt') || str_starts_with($routeName, '_preview_error')) {
-                unset($routes[$routeName]);
+                continue;
             }
+
+            $routes[] = [
+                'name' => $routeName,
+                'path' => $this->router->generate($routeName),
+            ];
         }
 
         return $this->render('templates/admin/dashboard.html.twig', [
