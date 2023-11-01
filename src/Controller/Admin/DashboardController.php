@@ -39,6 +39,7 @@ class DashboardController extends AbstractController
             ];
         }
 
+
         return $this->render('templates/admin/dashboard.html.twig', [
             'routes' => $routes,
         ]);
