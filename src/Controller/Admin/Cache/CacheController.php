@@ -26,7 +26,7 @@ class CacheController extends AbstractController
     {
         $form = $this->createForm(CacheClearFormType::class);
 
-        return $this->render('cache/load.html.twig', [
+        return $this->render('templates/admin/cache/load.html.twig', [
             'form' => $form->createView(),
         ]);
     }
