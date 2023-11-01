@@ -16,21 +16,9 @@ class Page implements PageEntityContract
         #[ORM\Column] public ?int $id = null,
         #[ORM\Column(length: 500)] public ?string $name = null,
         #[ORM\OneToOne(mappedBy: 'page', cascade: ['persist', 'remove'])] public ?PageMeta $pageMeta = null,
-        #[ORM\Column(type: 'PostStatus')] public ?PostStatus $status = null,
+        #[ORM\Column(type: 'PostStatus')] public PostStatus $status = PostStatus::AUTO_DRAFT,
         #[ORM\Column(type: Types::SMALLINT)] public ?int $type = null
     ) {}
-
-    public function getStatus(): ?PostStatus
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?PostStatus $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
     public function setPageMeta(PageMeta $pageMeta): static
     {
         // set the owning side of the relation if necessary
