@@ -6,7 +6,7 @@
     <ul>
         {% for route in routes %}
             <li>
-                <a href="{{ path(route.name) }}">{{ route.name }}</a>
+                <a href="{{ path(route.name) }}">{{ route.name|replace({'_': ' '}) }}</a>
             </li>
         {% endfor %}
     </ul>
