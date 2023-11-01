@@ -34,7 +34,7 @@ class DashboardController extends AbstractController
             }
 
             $routes[] = [
-                'name' => $routeName,
+                'name' => str_replace('_', ' ', $routeName),
                 'path' => $this->router->generate($routeName),
             ];
         }
