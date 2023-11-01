@@ -28,6 +28,11 @@ class DashboardController extends AbstractController
                 continue;
             }
 
+            // Skip routes that require parameters
+            if (count($route->compile()->getPathVariables()) > 0) {
+                continue;
+            }
+
             $routes[] = [
                 'name' => $routeName,
                 'path' => $this->router->generate($routeName),
