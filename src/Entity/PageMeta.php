@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use App\Entity\Contract\PageMetaEntityContract;
 use App\Repository\PageMetaRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PageMetaRepository::class)]
-class PageMeta
+class PageMeta implements PageMetaEntityContract
 {
     public function __construct(
         #[ORM\Id]
