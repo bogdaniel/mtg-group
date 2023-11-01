@@ -28,7 +28,6 @@ yarn-error.log
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 .aider*
-/themes
 /package.json
 /webpack.config.js
 /assets

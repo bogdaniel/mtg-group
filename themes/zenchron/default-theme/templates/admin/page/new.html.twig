@@ -1,0 +1,8 @@
+{% extends '/templates/base.html.twig' %}
+{% block body %}
+    <h1>Create new Page</h1>
+
+    {{ include('templates/admin/page/_form.html.twig') }}
+
+    <a href="{{ path('app_page_index') }}">back to list</a>
+{% endblock %}

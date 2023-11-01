@@ -1,0 +1,20 @@
+{
+    "name": "zenchron/default-theme-child",
+    "title": "Default CMS Theme Child",
+    "description": "A theme for testing",
+    "license": "MIT",
+    "version": "1.0.0",
+    "homepage": "https://example.com",
+    "authors": [
+        {
+            "name": "Bogdan Olteanu",
+            "email": "bogdan@zenchron.com"
+        },
+        {
+            "name": "Luminita Smoleanu",
+            "email": "luminita@zenchron.com"
+        }
+    ],
+    "type": "ai-cms-theme",
+    "tags": []
+}
