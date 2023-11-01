@@ -23,7 +23,7 @@ class DashboardController extends AbstractController
 
         // Filter and group the routes as needed
         foreach ($routes as $routeName => $route) {
-            if (str_starts_with($routeName, '_profiler_') || str_starts_with($routeName, '_wdt') || str_starts_with($routeName, '_preview_error')) {
+            if (str_starts_with($routeName, '_profiler') || str_starts_with($routeName, '_wdt') || str_starts_with($routeName, '_preview_error')) {
                 unset($routes[$routeName]);
             }
         }
