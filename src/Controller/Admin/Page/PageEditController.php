@@ -24,7 +24,7 @@ class PageEditController extends AbstractController
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('page/edit.html.twig', [
+        return $this->render('templates/admin/page/edit.html.twig', [
             'page' => $page,
             'form' => $form,
         ]);

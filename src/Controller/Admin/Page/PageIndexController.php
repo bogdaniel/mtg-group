@@ -12,7 +12,7 @@ class PageIndexController extends AbstractController
 {
     public function __invoke(PageRepository $pageRepository): Response
     {
-        return $this->render('page/index.html.twig', [
+        return $this->render('templates/admin/page/index.html.twig', [
             'pages' => $pageRepository->findAll(),
         ]);
     }
