@@ -4,7 +4,7 @@ namespace App\Controller\Admin\Page;
 
 use App\Entity\Page;
 use App\Form\PageType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\PageManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

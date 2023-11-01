@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin\Page;
 
-use App\Repository\PageRepository;
+use App\Service\PageManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
