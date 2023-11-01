@@ -24,6 +24,7 @@ class DashboardController extends AbstractController
         // Filter and group the routes as needed
         // ...
 
+        dd($routes);
         return $this->render('templates/admin/dashboard.html.twig', [
             'routes' => $routes,
         ]);
