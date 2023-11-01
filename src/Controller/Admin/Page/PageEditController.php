@@ -13,13 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dashboard/page/{id}/edit', name: 'app_page_edit', methods: ['GET', 'POST'])]
 class PageEditController extends AbstractController
 {
-    public function __invoke(Request $request, Page $page, EntityManagerInterface $entityManager): Response
+    public function __invoke(Request $request, Page $page, PageManager $pageManager): Response
     {
         $form = $this->createForm(PageType::class, $page);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+            $pageManager->updatePage();
 
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
         }

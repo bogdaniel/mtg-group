@@ -10,10 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dashboard/page', name: 'app_page_index', methods: ['GET'])]
 class PageIndexController extends AbstractController
 {
-    public function __invoke(PageRepository $pageRepository): Response
+    public function __invoke(PageManager $pageManager): Response
     {
         return $this->render('templates/admin/page/index.html.twig', [
-            'pages' => $pageRepository->findAll(),
+            'pages' => $pageManager->getAllPages(),
         ]);
     }
 }
