@@ -36,13 +36,15 @@ class PageRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Page
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function save(Page $page): void
+    {
+        $this->_em->persist($page);
+        $this->_em->flush();
+    }
+
+    public function delete(Page $page): void
+    {
+        $this->_em->remove($page);
+        $this->_em->flush();
+    }
 }
