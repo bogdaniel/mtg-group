@@ -38,7 +38,7 @@ class PageMetaController extends AbstractController
 
         return $this->render('page_meta/new.html.twig', [
             'page_metum' => $pageMetum,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -64,14 +64,14 @@ class PageMetaController extends AbstractController
 
         return $this->render('page_meta/edit.html.twig', [
             'page_metum' => $pageMetum,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
     #[Route('/{id}', name: 'app_page_meta_delete', methods: ['POST'])]
     public function delete(Request $request, PageMeta $pageMetum, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$pageMetum->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$pageMetum->id, $request->request->get('_token'))) {
             $entityManager->remove($pageMetum);
             $entityManager->flush();
         }

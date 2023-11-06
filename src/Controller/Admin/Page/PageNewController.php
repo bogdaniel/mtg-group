@@ -15,10 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dashboard/page/new', name: 'app_page_new', methods: ['GET', 'POST'])]
 class PageNewController extends AbstractController
 {
-    public function __invoke(Request $request, PageManager $pageManager, PageMetaManager $pageMetaManager): Response
+    public function __invoke(Request $request, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory): Response
     {
         $page = new Page();
-        $pageMeta = new PageMeta();
+        $pageMeta = $pageMetaFactory->create();
         $page->setPageMeta($pageMeta);
         $form = $this->createForm(PageType::class, $page);
         $form->handleRequest($request);

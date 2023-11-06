@@ -15,11 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dashboard/page/{id}/edit', name: 'app_page_edit', methods: ['GET', 'POST'])]
 class PageEditController extends AbstractController
 {
-    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager): Response
+    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory): Response
     {
 
         if ($page->pageMeta === null) {
-            $pageMeta = new PageMeta();
+            $pageMeta = $pageMetaFactory->create();
             $page->setPageMeta($pageMeta);
         }
 
