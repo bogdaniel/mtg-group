@@ -17,11 +17,21 @@ class PageDeleteController extends BaseController
 {
     public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory, PageFactory $pageFactory
     ): Response {
-        if ($this->isCsrfTokenValid('delete' . $page->id, $request->request->get('_token'))) {
-            $pageMeta = $pageMetaFactory->create();
-            $pageMetaManager->deletePageMeta($pageMeta);
-        }
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('app_page_delete', ['id' => $page->getId()]))
+            ->setMethod('DELETE')
+            ->getForm();
 
-        return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
+        $handleFormSubmission = $this->handleFormSubmission($form, function () use ($pageManager, $pageMetaManager, $page) {
+            $pageMetaManager->deletePageMeta($page->getPageMeta());
+            $pageManager->deletePage($page);
+            return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
+        });
+
+        $response = $handleFormSubmission($request);
+        return $response ?? $this->render('templates/admin/page/delete.html.twig', [
+            'page' => $page,
+            'form' => $form->createView(),
+        ]);
     }
 }
