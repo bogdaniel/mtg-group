@@ -4,11 +4,10 @@ namespace App\Service;
 
 use App\Entity\PageMeta;
 use App\Repository\PageMetaRepository;
-use App\Repository\PageMetaRepository;
 
 class PageMetaManager
 {
-    private $pageMetaRepository;
+    private PageMetaRepository $pageMetaRepository;
 
     public function __construct(PageMetaRepository $pageMetaRepository)
     {

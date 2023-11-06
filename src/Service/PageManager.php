@@ -4,11 +4,10 @@ namespace App\Service;
 
 use App\Entity\Page;
 use App\Repository\PageRepository;
-use App\Repository\PageRepository;
 
 class PageManager
 {
-    private $pageRepository;
+    private PageRepository $pageRepository;
 
     public function __construct(PageRepository $pageRepository)
     {

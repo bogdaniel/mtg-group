@@ -18,7 +18,6 @@ class PageEditController extends AbstractController
 {
     public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory, PageFactory $pageFactory): Response
     {
-
         if ($page->pageMeta === null) {
             $pageMeta = $pageMetaFactory->create();
             $page->setPageMeta($pageMeta);
