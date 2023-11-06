@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends AbstractController
 {
@@ -10,7 +12,7 @@ class BaseController extends AbstractController
 
     protected function handleFormSubmission(FormInterface $form, callable $onSuccess): callable
     {
-        return function (Request $request) use ($form, $onSuccess) {
+        return static function (Request $request) use ($form, $onSuccess) {
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {

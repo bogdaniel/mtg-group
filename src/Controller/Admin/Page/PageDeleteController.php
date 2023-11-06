@@ -2,18 +2,18 @@
 
 namespace App\Controller\Admin\Page;
 
+use App\Controller\BaseController;
 use App\Entity\Page;
 use App\Factory\PageFactory;
 use App\Factory\PageMetaFactory;
 use App\Service\PageManager;
 use App\Service\PageMetaManager;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('dashboard/page/delete/{id}', name: 'app_page_delete', methods: ['POST'])]
-class PageDeleteController extends AbstractController
+class PageDeleteController extends BaseController
 {
     public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory, PageFactory $pageFactory
     ): Response {
