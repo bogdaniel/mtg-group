@@ -12,10 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('dashboard/page/delete/{id}', name: 'app_page_delete', methods: ['POST'])]
 class PageDeleteController extends AbstractController
 {
-    public function __invoke(Request $request, Page $page, PageManager $pageManager): Response
+    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager): Response
     {
 
         if ($this->isCsrfTokenValid('delete'.$page->id, $request->request->get('_token'))) {
+            $pageMetaManager->deletePageMeta($page->getPageMeta());
             $pageManager->deletePage($page);
         }
 

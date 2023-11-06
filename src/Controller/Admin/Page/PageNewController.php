@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dashboard/page/new', name: 'app_page_new', methods: ['GET', 'POST'])]
 class PageNewController extends AbstractController
 {
-    public function __invoke(Request $request, PageManager $pageManager): Response
+    public function __invoke(Request $request, PageManager $pageManager, PageMetaManager $pageMetaManager): Response
     {
         $page = new Page();
         $pageMeta = new PageMeta();
@@ -25,6 +25,7 @@ class PageNewController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $pageMetaManager->createPageMeta($pageMeta);
             $pageManager->createPage($page);
 
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);

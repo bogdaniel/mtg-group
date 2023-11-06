@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dashboard/page/{id}/edit', name: 'app_page_edit', methods: ['GET', 'POST'])]
 class PageEditController extends AbstractController
 {
-    public function __invoke(Request $request, Page $page, PageManager $pageManager): Response
+    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager): Response
     {
 
         if ($page->getPageMeta() === null) {
@@ -26,6 +26,7 @@ class PageEditController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $pageMetaManager->updatePageMeta($page->getPageMeta());
             $pageManager->updatePage($page);
 
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
