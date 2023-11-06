@@ -4,37 +4,30 @@ namespace App\Service;
 
 use App\Entity\Page;
 use App\Repository\PageRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\PageRepository;
 
 class PageManager
 {
-    private $entityManager;
     private $pageRepository;
 
-    public function __construct(EntityManagerInterface $entityManager, PageRepository $pageRepository)
+    public function __construct(PageRepository $pageRepository)
     {
-        $this->entityManager = $entityManager;
         $this->pageRepository = $pageRepository;
     }
 
     public function createPage(Page $page): void
     {
-        $this->entityManager->persist($page);
-        $this->entityManager->persist($page->pageMeta);
-        $this->entityManager->flush();
+        $this->pageRepository->save($page);
     }
 
     public function updatePage(Page $page): void
     {
-        $this->entityManager->persist($page);
-        $this->entityManager->persist($page->pageMeta);
-        $this->entityManager->flush();
+        $this->pageRepository->save($page);
     }
 
     public function deletePage(Page $page): void
     {
-        $this->entityManager->remove($page);
-        $this->entityManager->flush();
+        $this->pageRepository->delete($page);
     }
 
     public function getAllPages(): array
