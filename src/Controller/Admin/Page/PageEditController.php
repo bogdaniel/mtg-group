@@ -24,18 +24,17 @@ class PageEditController extends BaseController
         }
 
         $form = $this->createForm(PageType::class, $page);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $handleFormSubmission = $this->handleFormSubmission($form, function () use ($pageManager, $pageMetaManager, $page) {
             $pageMetaManager->updatePageMeta($page->pageMeta);
             $pageManager->updatePage($page);
-
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
-        }
+        });
 
-        return $this->render('templates/admin/page/edit.html.twig', [
+        $response = $handleFormSubmission($request);
+        return $response ?? $this->render('templates/admin/page/edit.html.twig', [
             'page' => $page,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 }
