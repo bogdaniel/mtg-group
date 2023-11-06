@@ -1,16 +1,22 @@
 {
-    "name": "zenchron/mtg-group",
-    "title": "MTG Group",
-    "description": "Some Description",
+    "name": "zenchron/default-theme",
+    "title": "Default CMS Theme",
+    "description": "A theme for testing",
     "license": "MIT",
-    "version": "1.0",
-    "homepage": "www.zenchron.com",
+    "version": "1.0.0",
+    "homepage": "https://example.com",
+    "type": "ai-cms-theme",
     "authors": [
         {
             "name": "Bogdan Olteanu",
             "email": "bogdan@zenchron.com"
+        },
+        {
+            "name": "Luminita Smoleanu",
+            "email": "luminita@zenchron.com"
         }
     ],
-    "type": "ai-cms-theme",
-    "tags": []
+    "tags": [
+        "theme"
+    ]
 }
