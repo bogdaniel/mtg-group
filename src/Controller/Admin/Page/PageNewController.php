@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin\Page;
 
-use App\Entity\Page;
+use App\Factory\PageFactory;
 use App\Factory\PageMetaFactory;
 use App\Form\PageType;
 use App\Service\PageManager;

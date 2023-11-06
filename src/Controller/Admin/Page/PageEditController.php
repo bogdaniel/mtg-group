@@ -3,6 +3,7 @@
 namespace App\Controller\Admin\Page;
 
 use App\Entity\Page;
+use App\Factory\PageFactory;
 use App\Factory\PageMetaFactory;
 use App\Form\PageType;
 use App\Service\PageManager;
@@ -15,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dashboard/page/{id}/edit', name: 'app_page_edit', methods: ['GET', 'POST'])]
 class PageEditController extends AbstractController
 {
-    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory): Response
+    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory, PageFactory $pageFactory): Response
     {
 
         if ($page->pageMeta === null) {

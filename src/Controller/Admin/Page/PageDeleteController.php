@@ -3,6 +3,8 @@
 namespace App\Controller\Admin\Page;
 
 use App\Entity\Page;
+use App\Factory\PageFactory;
+use App\Factory\PageMetaFactory;
 use App\Service\PageManager;
 use App\Service\PageMetaManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,12 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('dashboard/page/delete/{id}', name: 'app_page_delete', methods: ['POST'])]
 class PageDeleteController extends AbstractController
 {
-    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager): Response
-    {
-
-        if ($this->isCsrfTokenValid('delete'.$page->id, $request->request->get('_token'))) {
-            $pageMetaManager->deletePageMeta($page->pageMeta);
-            $pageManager->deletePage($page);
+    public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager, PageMetaFactory $pageMetaFactory, PageFactory $pageFactory
+    ): Response {
+        if ($this->isCsrfTokenValid('delete' . $page->id, $request->request->get('_token'))) {
+            $pageMeta = $pageMetaFactory->create();
+            $pageMetaManager->deletePageMeta($pageMeta);
         }
 
         return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
