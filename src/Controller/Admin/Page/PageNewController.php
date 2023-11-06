@@ -21,11 +21,16 @@ class PageNewController extends BaseController
         $pageMeta = $pageMetaFactory->create();
         $page->setPageMeta($pageMeta);
         $form = $this->createForm(PageType::class, $page);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        $handleFormSubmission = $this->handleFormSubmission($form, function ($data) use ($pageManager, $pageMetaManager, $page, $pageMeta) {
             $pageMetaManager->createPageMeta($pageMeta);
             $pageManager->createPage($page);
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
+        });
+
+        $response = $handleFormSubmission($request);
+        if ($response !== null) {
+            return $response;
         }
 
         return $this->render('templates/admin/page/new.html.twig', [
