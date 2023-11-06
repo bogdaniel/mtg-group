@@ -16,6 +16,8 @@ class PageNewController extends AbstractController
     public function __invoke(Request $request, PageManager $pageManager): Response
     {
         $page = new Page();
+        $pageMeta = new PageMeta();
+        $page->setPageMeta($pageMeta);
         $form = $this->createForm(PageType::class, $page);
         $form->handleRequest($request);
 

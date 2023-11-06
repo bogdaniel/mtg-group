@@ -1,4 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
+    <h3>Page Meta</h3>
+    {{ form_widget(form.pageMeta) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -17,7 +17,7 @@ class PageType extends AbstractType
             ->add('name')
             ->add('status', EnumType::class, ['class' => PageStatusEnum::class])
             ->add('type')
-            ->add('pageMeta')
+            ->add('pageMeta', PageMetaType::class)
         ;
     }
 
