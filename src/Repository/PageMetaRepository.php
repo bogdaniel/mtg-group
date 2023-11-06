@@ -21,6 +21,18 @@ class PageMetaRepository extends ServiceEntityRepository
         parent::__construct($registry, PageMeta::class);
     }
 
+    public function save(PageMeta $pageMeta): void
+    {
+        $this->_em->persist($pageMeta);
+        $this->_em->flush();
+    }
+
+    public function delete(PageMeta $pageMeta): void
+    {
+        $this->_em->remove($pageMeta);
+        $this->_em->flush();
+    }
+
 //    /**
 //     * @return PageMeta[] Returns an array of PageMeta objects
 //     */
