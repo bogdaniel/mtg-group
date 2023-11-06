@@ -19,17 +19,17 @@ class PageDeleteController extends BaseController
     ): Response {
         $form = $this->createFormBuilder()
             ->setAction($this->generateUrl('app_page_delete', ['id' => $page->id]))
-            ->setMethod('DELETE')
+            ->setMethod('POST')
             ->getForm();
 
-        $handleFormSubmission = $this->handleFormSubmission($form, function () use ($pageManager, $pageMetaManager, $page) {
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
             $pageMetaManager->deletePageMeta($page->pageMeta);
             $pageManager->deletePage($page);
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
-        });
+        }
 
-        $response = $handleFormSubmission($request);
-        return $response ?? $this->render('templates/admin/page/delete.html.twig', [
+        return $this->render('templates/admin/page/delete.html.twig', [
             'page' => $page,
             'form' => $form->createView(),
         ]);
