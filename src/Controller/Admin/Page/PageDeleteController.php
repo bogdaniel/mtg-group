@@ -4,6 +4,7 @@ namespace App\Controller\Admin\Page;
 
 use App\Entity\Page;
 use App\Service\PageManager;
+use App\Service\PageMetaManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class PageDeleteController extends AbstractController
     {
 
         if ($this->isCsrfTokenValid('delete'.$page->id, $request->request->get('_token'))) {
-            $pageMetaManager->deletePageMeta($page->getPageMeta());
+            $pageMetaManager->deletePageMeta($page->pageMeta);
             $pageManager->deletePage($page);
         }
 

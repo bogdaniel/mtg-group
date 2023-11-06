@@ -3,7 +3,7 @@
 namespace App\Controller\Admin\Page;
 
 use App\Entity\Page;
-use App\Entity\PageMeta;
+use App\Factory\PageMetaFactory;
 use App\Form\PageType;
 use App\Service\PageManager;
 use App\Service\PageMetaManager;
