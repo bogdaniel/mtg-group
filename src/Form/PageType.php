@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Page;
-use App\Entity\PageStatusEnum;
+use App\Enum\PageStatusEnum;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\FormBuilderInterface;

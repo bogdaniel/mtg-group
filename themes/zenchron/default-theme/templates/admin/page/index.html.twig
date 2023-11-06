@@ -17,7 +17,7 @@
             <tr>
                 <td>{{ page.id }}</td>
                 <td>{{ page.name }}</td>
-                <td>{{ page.status }}</td>
+                <td>{{ page.status.name }}</td>
                 <td>{{ page.type }}</td>
                 <td>
                     <a href="{{ path('app_page_show', {'id': page.id}) }}">show</a>

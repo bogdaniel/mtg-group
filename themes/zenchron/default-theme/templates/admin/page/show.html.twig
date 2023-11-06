@@ -14,7 +14,7 @@
             </tr>
             <tr>
                 <th>Status</th>
-                <td>{{ page.status }}</td>
+                <td>{{ page.status.name }}</td>
             </tr>
             <tr>
                 <th>Type</th>
@@ -27,5 +27,5 @@
 
     <a href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
 
-    {{ include('page/_delete_form.html.twig') }}
+    {{ include('templates/admin/page/_delete_form.html.twig') }}
 {% endblock %}
