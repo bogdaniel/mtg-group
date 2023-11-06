@@ -4,34 +4,29 @@ namespace App\Service;
 
 use App\Entity\PageMeta;
 use App\Repository\PageMetaRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\PageMetaRepository;
 
 class PageMetaManager
 {
-    private $entityManager;
     private $pageMetaRepository;
 
-    public function __construct(EntityManagerInterface $entityManager, PageMetaRepository $pageMetaRepository)
+    public function __construct(PageMetaRepository $pageMetaRepository)
     {
-        $this->entityManager = $entityManager;
         $this->pageMetaRepository = $pageMetaRepository;
     }
 
     public function createPageMeta(PageMeta $pageMeta): void
     {
-        $this->entityManager->persist($pageMeta);
-        $this->entityManager->flush();
+        $this->pageMetaRepository->save($pageMeta);
     }
 
     public function updatePageMeta(PageMeta $pageMeta): void
     {
-        $this->entityManager->persist($pageMeta);
-        $this->entityManager->flush();
+        $this->pageMetaRepository->save($pageMeta);
     }
 
     public function deletePageMeta(PageMeta $pageMeta): void
     {
-        $this->entityManager->remove($pageMeta);
-        $this->entityManager->flush();
+        $this->pageMetaRepository->delete($pageMeta);
     }
 }
