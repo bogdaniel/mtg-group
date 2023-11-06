@@ -20,14 +20,14 @@ class PageManager
     public function createPage(Page $page): void
     {
         $this->entityManager->persist($page);
-        $this->entityManager->persist($page->getPageMeta());
+        $this->entityManager->persist($page->pageMeta);
         $this->entityManager->flush();
     }
 
     public function updatePage(Page $page): void
     {
         $this->entityManager->persist($page);
-        $this->entityManager->persist($page->getPageMeta());
+        $this->entityManager->persist($page->pageMeta);
         $this->entityManager->flush();
     }
 

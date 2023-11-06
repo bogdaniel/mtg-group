@@ -3,6 +3,7 @@
 namespace App\Controller\Admin\Page;
 
 use App\Entity\Page;
+use App\Entity\PageMeta;
 use App\Form\PageType;
 use App\Service\PageManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,7 @@ class PageEditController extends AbstractController
 {
     public function __invoke(Request $request, Page $page, PageManager $pageManager): Response
     {
+
         if ($page->getPageMeta() === null) {
             $pageMeta = new PageMeta();
             $page->setPageMeta($pageMeta);
