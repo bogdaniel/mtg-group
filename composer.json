@@ -9,6 +9,7 @@
         "php": ">=8.2.11",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "composer/semver": "^3.4",
         "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.16",
@@ -32,6 +33,16 @@
         "symfony/web-link": "6.3.*",
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "6.3.*"
+    },
+    "suggest": {
+        "ext-mbstring": "Recommended for better performance",
+        "ext-iconv": "Recommended for better performance",
+        "ext-zend-opcache": "Recommended for better performance",
+        "ext-intl": "Recommended for multi-language sites",
+        "ext-memcache": "Needed to support Memcache servers",
+        "ext-memcached": "Needed to support Memcached servers",
+        "ext-redis": "Needed to support Redis servers",
+        "ext-exif": "Needed to use exif data from images."
     },
     "config": {
         "allow-plugins": {
