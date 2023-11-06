@@ -18,7 +18,7 @@ class PageEditController extends AbstractController
     public function __invoke(Request $request, Page $page, PageManager $pageManager, PageMetaManager $pageMetaManager): Response
     {
 
-        if ($page->getPageMeta() === null) {
+        if ($page->pageMeta === null) {
             $pageMeta = new PageMeta();
             $page->setPageMeta($pageMeta);
         }
@@ -27,7 +27,7 @@ class PageEditController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $pageMetaManager->updatePageMeta($page->getPageMeta());
+            $pageMetaManager->updatePageMeta($page->pageMeta);
             $pageManager->updatePage($page);
 
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);

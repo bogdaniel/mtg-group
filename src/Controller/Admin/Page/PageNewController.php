@@ -21,20 +21,16 @@ class PageNewController extends AbstractController
         $pageMeta = new PageMeta();
         $page->setPageMeta($pageMeta);
         $form = $this->createForm(PageType::class, $page);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-
             $pageMetaManager->createPageMeta($pageMeta);
             $pageManager->createPage($page);
-
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('templates/admin/page/new.html.twig', [
             'page' => $page,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 }
