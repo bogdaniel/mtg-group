@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-enum PostStatus: int
+enum PageStatusEnum: int
 {
     case INHERIT = 0;
     case AUTO_DRAFT = 1;

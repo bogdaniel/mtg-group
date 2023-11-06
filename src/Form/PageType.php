@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Page;
+use App\Entity\PageStatusEnum;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +15,7 @@ class PageType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('status')
+            ->add('status', EnumType::class, ['class' => PageStatusEnum::class])
             ->add('type')
             ->add('pageMeta')
         ;

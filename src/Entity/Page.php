@@ -10,13 +10,15 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: PageRepository::class)]
 class Page implements PageEntityContract
 {
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    public readonly int $id;
+
     public function __construct(
-        #[ORM\Id]
-        #[ORM\GeneratedValue]
-        #[ORM\Column] public ?int $id = null,
         #[ORM\Column(length: 500)] public ?string $name = null,
         #[ORM\OneToOne(mappedBy: 'page', cascade: ['persist', 'remove'])] public ?PageMeta $pageMeta = null,
-        #[ORM\Column(type: 'PostStatus')] public PostStatus $status = PostStatus::AUTO_DRAFT,
+        #[ORM\Column(type:  Types::SMALLINT, enumType: PageStatusEnum::class)] public PageStatusEnum $status = PageStatusEnum::AUTO_DRAFT,
         #[ORM\Column(type: Types::SMALLINT)] public ?int $type = null
     ) {}
     public function setPageMeta(PageMeta $pageMeta): static
