@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit PageMeta</title>
+
+{% block body %}
+    <h1>Edit PageMeta</h1>
+
+    {{ include('page_meta/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_page_meta_index') }}">back to list</a>
+
+    {{ include('page_meta/_delete_form.html.twig') }}
+{% endblock %}

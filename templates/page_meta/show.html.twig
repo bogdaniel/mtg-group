@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>PageMeta</title>
+
+{% block body %}
+    <h1>PageMeta</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ page_metum.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ page_metum.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ page_metum.slug }}</td>
+            </tr>
+            <tr>
+                <th>MetaTitle</th>
+                <td>{{ page_metum.metaTitle }}</td>
+            </tr>
+            <tr>
+                <th>MetaDescription</th>
+                <td>{{ page_metum.metaDescription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_page_meta_index') }}">back to list</a>
+
+    <a href="{{ path('app_page_meta_edit', {'id': page_metum.id}) }}">edit</a>
+
+    {{ include('page_meta/_delete_form.html.twig') }}
+{% endblock %}

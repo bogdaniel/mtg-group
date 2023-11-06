@@ -3,6 +3,7 @@
 namespace App\Controller\Admin\Page;
 
 use App\Entity\Page;
+use App\Entity\PageMeta;
 use App\Form\PageType;
 use App\Service\PageManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,10 +20,10 @@ class PageNewController extends AbstractController
         $pageMeta = new PageMeta();
         $page->setPageMeta($pageMeta);
         $form = $this->createForm(PageType::class, $page);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $pageManager->createPage($page);
 
             return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);

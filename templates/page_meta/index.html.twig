@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<title>PageMeta index</title>
+
+{% block body %}
+    <h1>PageMeta index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>MetaTitle</th>
+                <th>MetaDescription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for page_metum in page_metas %}
+            <tr>
+                <td>{{ page_metum.id }}</td>
+                <td>{{ page_metum.title }}</td>
+                <td>{{ page_metum.slug }}</td>
+                <td>{{ page_metum.metaTitle }}</td>
+                <td>{{ page_metum.metaDescription }}</td>
+                <td>
+                    <a href="{{ path('app_page_meta_show', {'id': page_metum.id}) }}">show</a>
+                    <a href="{{ path('app_page_meta_edit', {'id': page_metum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_page_meta_new') }}">Create new</a>
+{% endblock %}
