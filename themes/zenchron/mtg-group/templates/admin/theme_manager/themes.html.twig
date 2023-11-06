@@ -1,0 +1,49 @@
+{% extends '/templates/base.html.twig' %}
+
+{% block title %}Themes{% endblock %}
+
+{% block body %}
+    <h1>Available Themes (Active: {{ activeTheme.name }})</h1>
+    <h2>Template loaded from parent theme</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Authors</th>
+            <th>Version</th>
+            <th>Homepage</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Active</th>
+            <th>Actions</th>
+        </tr>
+        {% for theme in themes %}
+            <tr>
+                <td>{{ theme.name }}</td>
+                <td>{{ theme.title }}</td>
+                <td>{{ theme.description }}</td>
+                <td>
+                    {% for author in theme.authors %}
+                        {{ author.name }} ({{ author.email }})
+                        {% if not loop.last %}<br>{% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{ theme.version }}</td>
+                <td>{{ theme.homepage }}</td>
+                <td>{{ theme.createdAt|date('Y-m-d H:i') }}</td>
+                <td>{{ theme.updatedAt|date('Y-m-d H:i') }}</td>
+                <td>{{ theme.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    {% if theme.isActive %}
+                        <a href="{{ path('theme_deactivate', {themeId: theme.id}) }}">Deactivate</a>
+                    {% else %}
+                        <a href="{{ path('theme_switch', {themeId: theme.id}) }}">Make Active</a>
+                    {% endif %}
+                    <a href="{{ path('theme_install', {themeId: theme.id}) }}">Install Assets</a>
+                    <a href="{{ path('theme_create_child', {themeId: theme.id}) }}">Create Child Theme</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

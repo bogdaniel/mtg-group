@@ -6,6 +6,7 @@ use App\Entity\Page;
 use App\Entity\PageMeta;
 use App\Form\PageType;
 use App\Service\PageManager;
+use App\Service\PageMetaManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
