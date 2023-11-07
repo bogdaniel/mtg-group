@@ -24,7 +24,7 @@
     <!-- Meta -->
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+{#    <link rel="icon" type="image/png" href="images/favicon.png">#}
     <!-- Favicon icon -->
 
 
@@ -84,6 +84,7 @@
     <div class="page-content bg-white">
         {% block body %}{% endblock %}
     </div>
+    {% include 'templates/pages/_partial/_footer.html.twig' %}
     <button class="scroltop icon-up" type="button"><i class="fas fa-arrow-up"></i></button>
 </div>
 </body>
