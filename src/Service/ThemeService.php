@@ -18,11 +18,11 @@ class ThemeService
         $iterator = new \RecursiveIteratorIterator($directory);
 
         foreach ($iterator as $info) {
-            if ($info->getFilename() === $pageName . '.html') {
+            if ($info->getFilename() === $pageName . '.html.twig') {
                 return file_get_contents($info->getPathname());
             }
         }
 
-        throw new \Exception('Page not found');
+        throw new \RuntimeException('Page not found');
     }
 }
