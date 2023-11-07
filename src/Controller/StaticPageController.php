@@ -18,6 +18,14 @@ class StaticPageController extends AbstractController
     }
 
     /**
+     * @Route("/", name="home")
+     */
+    public function home(): Response
+    {
+        return $this->redirectToRoute('static_page', ['pageName' => 'home']);
+    }
+
+    /**
      * @Route("/page/{pageName}", name="static_page", defaults={"pageName": "home"})
      */
     public function loadPage(string $pageName = 'home'): Response
