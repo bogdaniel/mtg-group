@@ -17,9 +17,9 @@ class StaticPageController extends AbstractController
     }
 
     /**
-     * @Route("/page/{pageName}", name="static_page")
+     * @Route("/page/{pageName}", name="static_page", defaults={"pageName": "home"})
      */
-    public function loadPage(string $pageName): Response
+    public function loadPage(string $pageName = 'home'): Response
     {
         $content = $this->themeService->loadStaticPage($pageName);
 
