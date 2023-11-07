@@ -1,0 +1,39 @@
+.section-head{
+    &.style-6{
+        .sub-title{
+            color: var(--primary);
+            font-size: 1.125rem;
+            display: inline-block;
+            border-bottom: 3px solid var(--primary);
+			
+			@include respond('phone-land'){
+				font-size: 1rem;
+				border-bottom-width: 2px;				
+			}
+        }
+        .title{
+            font-size: 2.813rem;
+			line-height: 1.2;
+			margin-bottom: 12px;
+	
+			@include respond('laptop'){
+                font-size: 2.50rem;
+            }
+            @include respond('tab-port'){
+                font-size: 2.25rem;
+            }
+            @include respond('phone-land'){
+                font-size: 1.875rem;
+			}
+        }
+        p{
+            font-size: 1.125rem;
+            
+			@include respond('tab-land'){
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+

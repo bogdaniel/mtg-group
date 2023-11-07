@@ -1,0 +1,41 @@
+.about-media{
+	&.style-2{
+		margin-bottom: 50px;
+		img{
+			border-radius: var(--border-radius-base);
+		}
+		
+		&:after{
+			content: "";
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: -50px;
+			bottom: -50px;
+			z-index: -1;
+			border-width: 60px;
+			border-style: solid;
+			border-color: #fff #fff var(--primary) var(--primary);
+		}
+		@include respond('laptop'){
+			margin-left: 50px;
+		}
+		@include respond('tab-land'){
+			margin-left: 0;
+		}
+		@include respond('tab-land'){
+			padding-left: 50px;
+			&:after{
+				left: 0;
+			}
+		}
+		@include respond('tab-port'){
+			padding-left: 25px;
+			margin-bottom: 25px;
+			&:after {
+				bottom: -25px;
+				border-width: 30px;
+			}
+		}
+	}
+}

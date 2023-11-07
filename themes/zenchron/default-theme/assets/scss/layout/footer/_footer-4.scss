@@ -1,0 +1,85 @@
+// Site Footer
+.site-footer{
+	&.style-4{
+		color: $body-color;
+		background-color: #f8f8f8;
+		position:relative;
+		z-index:0;
+		padding-top: 30px;
+		.widget_getintuch ul li{
+			i{
+				background-color:transparent;
+				color:var(--primary);
+				font-size: 35px;
+				text-align:left;
+				width: 25px;
+				min-width: 25px;
+			}
+		}
+		.widget_links{
+			ul li{
+				padding: 5px 0;
+				a{
+					color: $body-color;
+				}
+				&:before{
+					position:relative;
+					content:"";
+					display:inline-block;
+					top: -5px;
+					width:0;
+					height:1px;
+					background:var(--primary);
+					@include transitionMedium;
+				}
+				&:hover{
+					&:before{
+						width:20px;
+						margin-right: 8px;
+					}
+					a{
+						color:var(--primary);
+					}
+				}
+			}
+		}
+		.widget.widget_links.p-l50{
+			@include respond ('tab-port'){
+				padding-left: 0;
+			}
+		}
+		.copyright-text{
+			color:inherit;
+		}
+		.footer-top{
+			padding: 100px 0 50px 0px;
+			@include respond ('tab-port'){
+				padding: 100px 0 50px 0px;
+			}
+			@include respond ('phone-land'){
+				padding: 50px 0;
+			}
+		}
+		.footer-bottom{
+			background-color:#ebebeb;
+			z-index: 1;
+			position: relative;
+		}
+		.circle-bg{
+			position: absolute;
+			opacity: 1;
+			top: 80px;
+			left: -7%;
+			z-index:-1;
+			width: 320px;
+		}
+		.circle-bg-2{
+			position: absolute;
+			opacity: 1;
+			bottom: 0;
+			right: -2%;
+			width: 220px;
+			z-index:-1;
+		}
+	}
+}

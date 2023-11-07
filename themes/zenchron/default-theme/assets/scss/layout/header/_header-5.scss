@@ -1,0 +1,14 @@
+/* SideNav ======= */
+.site-header{
+	&.style-5{
+		z-index: 99999;
+		.dz-topbar-right ul li a, .dz-topbar-left ul li a {
+			border: 0 !important;
+		}
+		.top-bar{
+			&::after{
+				display: none;
+			}
+		}
+	}
+}

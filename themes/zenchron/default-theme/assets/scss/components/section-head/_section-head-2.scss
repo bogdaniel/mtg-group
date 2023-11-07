@@ -1,0 +1,55 @@
+// Section Head
+.section-head{
+	&.style-2{
+	
+		h2{
+			font-size: 4rem;
+			line-height: 1.1;
+			
+			span{
+				color:var(--primary);	
+			}
+			@include respond('laptop'){
+				font-size: 2.50rem;
+			}
+			@include respond('tab-port'){
+				font-size: 2.25rem;
+			}
+			@include respond('phone-land'){
+				font-size: 1.875rem;
+			}
+		}
+		h3{
+			font-size: 3rem;
+			line-height: 1.1;
+			
+			span{
+				color:var(--primary);	
+			}
+			@include respond('laptop'){
+				font-size: 2.25rem;
+			}
+			@include respond('phone-land'){
+				font-size: 1.875rem;
+			}
+		}
+		.sub-title{
+			color: #848484;
+		}
+		&.text-white{
+			.title{
+				color:$white;
+			}
+			p{
+				color:#9d9aaa;
+			}
+		}
+		&.text-center .sub-title{
+			justify-content:center;
+			&:after{
+				content: "";
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,97 @@
+.social-list{
+	display:inline-block;
+	li{
+		margin-left: 2px;
+		margin-right: 2px;
+		display:inline-block;
+		a{
+			height: 40px;
+			width: 40px;
+			line-height: 40px;
+			color:#fff;
+			display: block;
+			text-align: center;
+			padding: 0;
+			text-align: center;
+			justify-content: center;
+			border-radius: var(--border-radius-sm);
+			
+			i{
+				font-size: 16px;
+			}
+			&:after{
+				left: -55%;
+			}
+			&:hover{
+				color: #fff;
+				&:after{
+					left: 120%;
+				}
+			}
+		}
+	}
+	&.style-1{
+		li{
+			a{
+				background-color: rgba(255,255,255,0.2);
+				&:hover{
+					background-color: #fff;
+					color: var(--primary);
+				}
+			}
+		}
+	}
+	&.style-2{
+		margin: 0 -5px;
+		display: flex;
+
+		li{
+			display: inline-block;
+			padding: 0 5px;
+			a{
+				height: 40px;
+				width: 40px;
+				background-color: var(--primary);
+				display: block;
+				text-align: center;
+				line-height: 40px;
+				border-radius: var(--border-radius-base);
+				color: #fff;
+				box-shadow: 0 5px 15px -10px var(--primary);
+			}
+		}
+	}
+}
+.facebook{
+	background-color: #3b5999;
+}
+.instagram{
+	background-color: #ff1d7d;
+}
+.twitter{
+	background-color: #55acef;
+}
+.youtube{
+	background-color: #FF0000;
+}
+.behance{
+	background-color: #053eff;
+}
+.telegram{
+	background-color: #0088cc;
+}
+.skype{
+	background-color: #00aff0;
+}
+.pinterest{
+	background-color: #E60023;
+}
+.vimeo{
+	background-color: #86c9ef;
+}
+.tumblr{
+	background-color: #34526f;
+}
+.yahoo{
+	background-color: #720e9e;
+}

@@ -1,0 +1,47 @@
+.about-bx9 {
+	.section-head {
+		margin-bottom: 20px;
+	}
+	.about-year{
+		display: flex;
+		align-items: center;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		margin-bottom: 15px;
+		h6{
+			text-transform: uppercase;
+			font-size: 16px;
+		}
+		span{
+			font-size: 92px;
+			color: var(--title);
+			font-weight: 700;
+			line-height: 85px;
+			position: relative;
+			padding-left: 30px;
+			padding-right: 15px;
+			z-index: 1;
+			
+			&:after {
+				content: "";
+				width: 100px;
+				height: 130px;
+				display: block;
+				position: absolute;
+				border: 5px solid var(--primary);
+				left: 0;
+				top: -25px;
+				z-index: -1;
+			}
+		}
+	}
+	.about-contact-box{
+	    padding-left: 30px;
+	}
+	@include respond('tab-port'){
+		.about-contact-box{
+			padding-left: 0;
+			padding-top: 30px;
+		}
+	}
+}

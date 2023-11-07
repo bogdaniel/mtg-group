@@ -1,0 +1,104 @@
+.overlay{
+	&.style-2{
+		.dz-info{
+			bottom: 20px;
+			left: 20px;
+			background: var(--rgba-primary-9);
+			right: 20px;
+			top: 100%;
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			padding: 30px 100px 20px 30px;
+			@include transitionMedium;
+			overflow: hidden;
+			display: flex;
+			align-items: flex-end;
+			
+			.view-btn{
+				width: 135px;
+				height: 135px;
+				position: absolute;
+				bottom: -40px;
+				right: -40px;
+				z-index: 1;
+				background: rgba(255,255,255,0.7);
+				@include transitionMedium;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition-delay: 0.5s;
+				-moz-transition-delay: 0.5s;
+				-webkit-transition-delay: 0.5s;
+				-ms-transition-delay: 0.5s;
+				-o-transition-delay: 0.5s;
+				border-radius: 50%;
+				&:after{
+					content: "\f113";
+					font-family: flaticon;
+					font-weight: 900;
+					color: var(--primary);
+					font-size: 24px;
+					transform: translateX(-100%);
+					-moz-transform: translateX(-100%);
+					-webkit-transform: translateX(-100%);
+					-ms-transform: translateX(-100%);
+					-o-transform: translateX(-100%);
+					-webkit-transition: all 0.8s;
+					-ms-transition: all 0.8s;
+					transition: all 0.8s;
+					opacity: 0;
+					transition-delay: 0.7s;
+					-moz-transition-delay: 0.7s;
+					-webkit-transition-delay: 0.7s;
+					-ms-transition-delay: 0.7s;
+					-o-transition-delay: 0.7s;
+					margin-top: -20px;
+					margin-right: 30px;
+					color: var(--title);
+				}
+			}
+			
+		}
+		.title{
+			margin: 0;
+			@include transitionMedium;
+			color: #fff;
+			a{
+				color:inherit;
+			}
+			span{
+				display:block;
+			}
+		}
+		&:hover{
+			.dz-info{
+				top:20px;
+			}
+			.view-btn{
+				&:after{
+					opacity:1;
+					transform: translateX(0);
+					-moz-transform: translateX(0);
+					-webkit-transform: translateX(0);
+					-ms-transform: translateX(0);
+					-o-transform: translateX(0);
+				}
+			}
+		}
+		@include respond('phone-land'){
+			.view-btn{
+				width: 100px;
+				height: 100px;
+				bottom: -30px;
+				right: -30px;
+				
+				&:after {
+					font-size: 18px;
+				}
+			}
+			.dz-info {
+				padding: 20px 70px 20px 20px;
+			}
+		}
+	}
+}

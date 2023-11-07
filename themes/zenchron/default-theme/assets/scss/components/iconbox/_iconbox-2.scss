@@ -1,0 +1,34 @@
+.icon-bx-wraper{
+	// Style 2
+	&.style-2{
+		margin-bottom: 30px;
+		padding: 0 30px;
+		@include respond('tab-land'){
+			padding: 0;
+		}
+		.icon-bx{
+			font-size: 30px;
+			border-radius: 8px;
+			width: 60px;
+			height: 60px;
+			min-width: 60px;
+			line-height: 60px;
+			margin-top: 8px;
+			box-shadow: 0 5px 15px 0 var(--rgba-primary-4);
+			
+			i{
+				vertical-align: unset;
+			}
+		}
+		&:hover{
+			.icon-bx{
+				-webkit-animation-name: bounce;
+				animation-name: bounce;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-webkit-animation-duration: 1.2s;		
+				animation-duration: 1.2s;			
+			}
+		}
+	}
+}

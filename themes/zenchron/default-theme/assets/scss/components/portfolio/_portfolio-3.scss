@@ -1,0 +1,132 @@
+.dz-box.style-3{
+	position:relative;
+	overflow:hidden;
+	z-index:1;
+	.dz-info{
+		display:flex;
+		padding:30px 30px;
+		position:absolute;
+		background:#f8f8f8;
+		bottom:0;
+		right:0;
+		-webkit-transform: translateY(100%);
+		transform: translateY(100%);
+		-webkit-transition: .3s ease-in-out .03s;
+		transition: .3s ease-in-out .03s;
+		border-radius: var(--border-radius-base) 0 0 0;
+		
+		.line{
+			display: inline-block;
+			position: relative;
+			top: 15px;
+			margin-right:15px;
+			height:1px;
+			width:50px;
+			background:var(--primary);
+		}
+	}
+	.dz-media{	
+		height:500px;
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		position: relative;
+		z-index: 0;
+		&:after{
+			content:"";
+			height:100%;
+			width:100%;
+			left:0;
+			top:0;
+			position:absolute;
+			background:rgba(20,20,22,0.2);
+			z-index:-1;
+			opacity:0;
+			-webkit-transition: .3s ease-in-out .03s;
+			transition: .3s ease-in-out .03s;
+		}
+	} 
+	.view-btn{
+		width: 75px;
+		height: 75px;
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		z-index: 1;
+		transition: background 0.3s ease;
+		-moz-transition: background 0.3s ease;
+		-webkit-transition: background 0.3s ease;
+		-ms-transition: background 0.3s ease;
+		-o-transition: background 0.3s ease;
+		transition-delay: 0.3s;
+		-moz-transition-delay: 0.3s;
+		-ms-transition-delay: 0.3s;
+		-o-transition-delay: 0.3s;
+		-webkit-transition-delay: 0.3s;
+		border-radius: var(--border-radius-sm);
+		
+		&:after,	
+		&:before{
+			content:"";
+			position:absolute;
+			@include transitionFast;
+			background:#fff;
+			opacity:0;
+		}	
+		&:after{
+			height:4px;
+			width:26px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-500px, 50%);
+			-moz-transform: translate(-500px, 50%);
+			-webkit-transform: translate(-500px, 50%);
+			-ms-transform: translate(-500px, 50%);
+			-o-transform: translate(-500px, 50%);
+		}	
+		&:before{
+			height:26px;
+			width:4px;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -500px);
+			-moz-transform: translate(-50%, -500px);
+			-webkit-transform: translate(-50%, -500px);
+			-ms-transform: translate(-50%, -500px);
+			-o-transform: translate(-50%, -500px);
+		}
+	}
+	.sub-title{
+		margin-bottom:0;
+		font-size:15px;
+		font-family: $font-family-title;
+		text-transform:uppercase;
+		font-weight: 300;
+		letter-spacing: 3px;
+	}
+	&:hover{
+		.dz-info{
+			-webkit-transform: translateY(0);
+			transform: translateY(0);
+		}
+		.dz-media{	
+			&:after{
+				opacity:1;
+			}
+		}
+		.view-btn{
+			background: var(--primary);
+			transition-delay: 0s;
+			&:after,	
+			&:before{
+				@include translateZ;
+				opacity:1;
+			}
+		}
+	}
+	@include respond ('phone-land'){
+		.dz-media{
+			height:360px;
+		}
+	}
+}

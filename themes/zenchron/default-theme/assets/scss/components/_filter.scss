@@ -1,0 +1,95 @@
+// FILTER BUTTONS CSS
+.site-filters {
+    margin-bottom: 30px;
+	ul {
+		margin: 0;
+		list-style: none;
+	}
+	li {
+		display: inline-block;
+		padding: 0;
+		margin-bottom:3px;
+		&.btn {
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			outline: none;
+		}
+		input {
+			display: none;
+		}
+		a {
+			margin: 0 5px 5px 0;
+			display: block;
+		}
+		&.active{
+			[class*="btn"] {
+				color: #fff;
+				background-color: #EFBB20;
+			}
+		}
+		
+	}
+	&.center{
+		text-align: center;
+		ul {
+			display: inline-block;
+			margin: auto;
+		}
+		[class*="btn"] {
+			display: inline-block;
+			margin: 0 5px 10px;
+			text-transform: uppercase;
+			@include respond('phone'){
+				margin: 0 1px 5px;
+				padding: 5px 10px;
+				font-size: 12px;
+			}
+		}
+	}
+	
+	// Style 1
+	&.style-1{
+		margin-bottom: 45px;
+		.filters{
+			li{
+				text-transform: capitalize;
+				margin: 0 20px -1px;
+				border: 0;
+				border-radius: 0;
+				
+				&:after{
+					content:none;	
+				}
+				a{
+					color: inherit;
+					font-size: 15px;
+					margin: 0;
+					border-bottom: 2px solid;
+					border-color: transparent;
+					padding: 0 0px 5px;
+					font-weight: 400;
+				}
+				&.active{
+					a{
+						color: var(--primary);
+						border-color: var(--primary);
+					}
+				}
+				&:first-child{
+					margin-left: 0;
+				}
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+		}
+		@include respond('phone-land'){
+			margin-bottom: 15px;
+			.filters{
+				li{
+					margin: 0 5px 5px;
+				}
+			}
+		}
+	}
+}

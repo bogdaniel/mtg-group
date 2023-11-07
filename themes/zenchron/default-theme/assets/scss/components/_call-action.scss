@@ -1,0 +1,11 @@
+.call-action{
+	padding: 50px;
+	border-radius: var(--border-radius-base);
+	
+	.section-head{
+		margin-bottom: 0;
+	}
+	@include respond('phone-land'){
+		padding: 30px;		
+	}
+}

@@ -1,0 +1,30 @@
+/* Error Page */
+.error-page{
+	.dz_error{
+		font-size: 180px;
+		font-weight: 700;
+		line-height: 150px;
+		margin: auto;
+		color: var(--primary);
+		font-family:var(--font-family-title);
+	}
+	.error-head{
+		max-width: 650px;
+		margin: 30px auto;
+	}
+	@include respond('phone-land'){
+		.dz_error {
+			font-size: 150px;
+			line-height: 120px;
+		}
+	}
+	@include respond('phone'){
+		.error-head{
+			margin: 10px auto 25px;			
+		}
+		.dz_error{
+			font-size: 100px;
+			line-height: 100px;
+		}
+	}
+}

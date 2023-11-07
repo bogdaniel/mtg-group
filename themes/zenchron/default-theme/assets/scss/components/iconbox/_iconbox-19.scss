@@ -1,0 +1,50 @@
+.icon-bx-wraper{
+	// style 19
+	&.style-19{
+		align-items: center;
+		display: flex;
+		position: relative;
+		padding: 10px;
+		
+		&::before{
+			content: ' ';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20%;
+			z-index: 0;
+			height: 100%;
+			background: #070613;
+			border-radius: var(--border-radius-sm);
+
+		}
+		.icon-lg{
+			position: relative;
+			z-index: 2;	
+			border-radius: var(--border-radius-sm);
+			margin-right: 20px;
+
+			.icon-cell{
+				width: 90px;
+				height: 90px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			
+				i{
+					font-size: 40px;
+				}
+			}
+		}
+		p{
+			margin: 0;
+			font-weight: 500;
+		}
+		@include respond('phone-land'){
+			
+			&::before{
+				width: 16%;
+			}
+		}
+	}
+}

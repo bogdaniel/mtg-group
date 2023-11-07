@@ -1,0 +1,75 @@
+/* Silder six */
+.silder-six{
+	position: relative;
+	overflow: hidden;		
+    padding-top: 120px;
+	min-height:100vh;
+	background: #2f2f2f;
+    z-index: 1;
+	position:relative;
+	.container{
+		z-index: 1;
+		position: relative;
+	}
+	.electrician-worker{
+		width: 900px;
+	}
+	.bnr-title{
+		font-size: 60px;
+		color: #fff;
+		margin-bottom: 15px;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	p{
+		color: #fff;
+		font-size: 18px;
+		margin-bottom: 30px;
+		font-weight: 500;
+	}
+	@include respond('tab-land'){
+		min-height: 720px;
+		.electrician-worker{
+			width: 650px;
+			margin-right: -75px;
+		}
+		.bnr-title {
+			font-size: 45px;
+		}
+		p {
+			font-size: 16px;
+		}
+	}
+	@include respond('tab-port'){
+		min-height: 580px;
+		
+		.bnr-title {
+			font-size: 36px;
+		}
+		p {
+			font-size: 15px;
+			margin-bottom: 20px;
+		}
+		.electrician-worker{
+			width: 500px;
+			margin-left: -40px;
+		}
+	}
+	@include respond('phone-land'){
+		.banner-content{
+			margin-bottom: 30px;
+		}
+		.electrician-worker {
+			width: 400px;
+			margin: 0 auto;
+		}
+	}
+	@include respond('phone'){
+		.bnr-title {
+			font-size: 32px;
+		}
+		.electrician-worker {
+			width: 350px;
+		}
+	}
+}

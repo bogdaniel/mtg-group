@@ -1,0 +1,55 @@
+.icon-bx-wraper{
+	// Style 13
+	&.style-13{
+		display: flex;
+		align-items: center;
+	
+		.icon-bx{
+			background-color: #fff;
+			@include transitionSlow;
+			position: relative;
+			overflow: hidden;
+			line-height: 78px;
+			
+			&:after{
+				@include transitionSlow;
+				content: "";
+				height: 100%;
+				left: 0;
+				top: 0;
+				background-color: var(--primary);
+				width: 100%;
+				border-radius: 50%;
+				position: absolute;
+				transform: scale(0);
+			}
+			&.border{
+				border-color: inherit!important;
+			}
+			i{
+				font-size: 35px;
+				position: relative;
+				z-index: 1;
+			}
+			&.shadow{
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)!important;
+			}
+		}
+		.title{
+			font-size: 20px;
+		}
+		p{
+			font-size: 18px;
+		}
+		&:hover{
+			.icon-bx{
+				i{
+					color: #fff;
+				}
+				&:after{
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+}

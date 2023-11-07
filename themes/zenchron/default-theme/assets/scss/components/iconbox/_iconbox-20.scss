@@ -1,0 +1,135 @@
+.icon-bx-wraper{
+	&.style-20{
+		
+		display: flex;
+		align-items: center;
+		padding: 10px 0 10px 10px;
+		
+		&::after,
+		&::before{
+			content: '';
+			position: absolute;
+			@include transitionMedium;
+			z-index: 0;
+		}
+		&::after{
+			top: 0px;
+			left: 0;
+			width: 50%;
+			height: 100%;
+			background-color: var(--primary);
+			border-right: 0;
+			opacity: 1;
+			border-radius: var(--border-radius-sm);
+		}
+		&::before{
+			top: 0;
+			right: 15px;
+			background: var(--primary);
+			height: 60%;
+			padding: 16px;
+			top: 50%;
+			transform: translateY(-50%);
+			border-radius:  0 50px 50px 0; 
+			opacity: 0;
+
+			@include respond('tab-port'){
+				height: 80%;
+			}
+			@include respond('phone'){
+				height: 72%;
+				box-shadow: 0,0,0, 1rem rgba(0, 0, 0, 0.1);
+			}
+		}
+		.icon-content{
+			position: relative;
+			overflow: visible;
+			box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.15);
+			z-index: 2;
+			border-radius: var(--border-radius-sm);
+			padding: 32px;
+			width: 100%;
+	
+			&::before{
+				content: ' ';
+				position: absolute;
+				top: 50%;
+				left: -1px;
+				transform: translateY(-50%);
+				background: var(--primary);
+				width: 0;
+				opacity: 0;
+				height: 35px;
+				z-index: 0;
+				clip-path: polygon(0% 0%, 20% 0, 69% 50%, 19% 100%, 0% 100%);
+				@include transitionMedium;
+			}		
+			.title{
+				margin-bottom: 0;
+			}
+			p{
+				padding-right: 20px;
+			}
+			@include respond('phone'){
+				padding: 20px;
+				
+				&::before{
+					height: 30px;
+				}
+			}
+		}
+		.icon-bx{
+			background: var(--primary);
+			clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+			margin-left: -40px;
+			position: relative;
+			z-index: 4;
+			opacity: 1;
+			min-width: 70px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			@include transitionMedium;
+			
+			.dz-title{
+				color: #fff;
+				font-weight: 700;
+				font-size: 1.5rem;
+				color: #FFFFFF;
+				margin: 0;
+			}
+			p{
+				font-size: 12px;
+				font-weight: 600;
+				text-transform: uppercase;
+				color: #fff;
+				margin-top: -6px;
+			}
+		}
+		&:hover,
+		&.active{
+			&::after{
+				width: 80%;
+				opacity: 1;
+			}
+			&::before{
+				opacity:1;
+			}
+			.icon-content{
+				&::before{
+					width: 40px;
+					opacity: 1;
+					
+					@include respond('phone'){
+						width: 25px;
+					}
+				}
+			}
+			.icon-bx{
+				opacity: 1;
+			}
+		}
+	}
+}

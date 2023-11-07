@@ -1,0 +1,43 @@
+.icon-bx-wraper{
+	// Style 16
+	&.style-16{
+		display: flex;
+		align-items: center;
+		padding: 20px 30px;
+		box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15);
+		overflow:hidden;
+		@include transitionMedium;
+		border-radius: var(--border-radius-base);
+		
+		p{
+			font-size: 18px;
+		}
+		&:after{
+			content: attr(data-name);
+			position: absolute;
+			font-size: 80px;
+			right: 10px;
+			bottom: 5px;
+			line-height: 1;
+			font-weight: 700;
+			color: #000;
+			opacity: .05;
+			@include transitionMedium;
+		}
+		&:hover{
+			box-shadow: 0 5px 60px 0 rgba(0, 0, 0, 0.15);
+			transform:translateY(-10px);
+			-moz-transform:translateY(-10px);
+			-webkit-transform:translateY(-10px);
+			-ms-transform:translateY(-10px);
+			-o-transform:translateY(-10px);
+			&:after{
+				transform:scale(2);
+				-moz-transform:scale(2);
+				-webkit-transform:scale(2);
+				-ms-transform:scale(2);
+				-o-transform:scale(2);
+			}
+		}
+	}
+}

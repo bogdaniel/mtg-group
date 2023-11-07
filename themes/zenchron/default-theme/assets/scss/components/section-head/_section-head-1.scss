@@ -1,0 +1,79 @@
+// Section Head
+.section-head{
+	&.style-1{
+	
+		h2{
+			font-size: 4rem;
+			line-height: 1.1;
+			
+			span{
+				color:var(--primary);	
+			}
+			@include respond('laptop'){
+				font-size: 2.50rem;
+			}
+			@include respond('tab-port'){
+				font-size: 2.25rem;
+			}
+			@include respond('phone-land'){
+				font-size: 2rem;
+			}
+		}
+		h3{
+			font-size: 3rem;
+			line-height: 1.1;
+			
+			span{
+				color:var(--primary);	
+			}
+			@include respond('laptop'){
+				font-size: 2.25rem;
+			}
+			@include respond('phone-land'){
+				font-size: 1.875rem;
+			}
+		}
+		.sub-title{
+			display:inline-flex;
+			align-items:center;
+			position: relative;
+			padding-left: 55px;
+			&:before,
+			&:after{
+				content: "";
+				display: inline-block;
+				height: 3px;
+				background: var(--primary);
+				position: absolute;
+			}
+			&:before{
+				width: 12px;
+				left: 0;
+			}
+			&:after{
+				width: 27px;
+				left: 16px;
+			}
+			&.text-white{
+				&:before,
+				&:after{
+					background: $white;
+				}
+			}
+		}
+		&.text-white{
+			.title{
+				color:$white;
+			}
+			p{
+				color:#9d9aaa;
+			}
+		}
+		&.text-center .sub-title{
+			justify-content:center;
+			&:after{
+				content: "";
+			}
+		}
+	}	
+}

@@ -1,0 +1,38 @@
+[dir='rtl']{
+	.text-start{
+		text-align: right!important;
+	}
+	.text-end{
+		text-align: left!important;
+	}
+	.float-start{
+		float: right !important;
+	}
+	.float-end{
+		float: left !important;
+	}
+	@media (min-width: 992px){
+		.text-lg-start {
+			text-align: right !important;
+		}
+		.text-lg-end{
+			text-align: left !important;
+		}
+	}
+	@media (min-width: 768px){
+		.text-md-start {
+			text-align: right !important;
+		}
+		.text-md-end {
+			text-align: left !important;
+		}
+	}
+	@media (min-width: 576px){
+		.text-sm-end {
+			text-align: left !important;
+		}
+		.text-sm-start{
+			text-align: right !important;
+		}
+	}
+}

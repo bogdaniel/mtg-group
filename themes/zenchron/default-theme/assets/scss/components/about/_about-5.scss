@@ -1,0 +1,109 @@
+.about-bx5{
+	--font-family-title: 'Oswald', sans-serif;
+	.history-row{
+		display:flex;
+		align-items:center;
+		justify-content: space-between;
+		.year,
+		.awards,
+		.sales{
+			font-family:var(--font-family-title);
+			font-size:65px;
+			font-weight:500;
+			min-width: 120px;
+			letter-spacing: 8px;
+			border-bottom:4px solid var(--primary);
+			display: inline-block;
+		}
+		.text{
+			display:block;
+		    font-size: 18px;
+		}
+	}
+	.dz-media{
+		height:100%;
+		overflow:visible;
+		padding-right: 15px;
+		z-index:1;
+		margin-bottom: 80px;
+		
+		img{
+			height:100%;
+		}
+		&:after{
+			position:absolute;
+			content:"";
+			height:100%;
+			width: calc(50vw - 16%);
+			right:80px;
+			z-index:-2;
+			background:var(--primary);
+			bottom:-80px;
+		}
+		&.right{
+			padding-right: 0;
+			padding-left: 15px;
+			&:after{
+				left:80px;
+			}
+			.circle-bg{
+				left: auto;
+				right: -25%;
+			}
+		}
+		.circle-bg{
+			position:absolute;
+			height:400px;
+			z-index:-1;
+			width:400px;
+			bottom:-80px;
+			left: -25%;
+			 -webkit-animation: move01 10s ease-in infinite;
+			animation: move01 10s ease-in infinite;
+			opacity: 0.3;
+		}
+	}
+	@include respond ('tab-port'){
+		.dz-media{
+			padding-right:0;
+			margin-bottom: 30px;
+			
+			&:after{
+				content:none;
+			}
+			.circle-bg{
+				display:none;
+			}
+			&.right{
+				padding-right: 0;
+				padding-left: 0;
+			}
+		}
+		.history-row{
+			.year,
+			.awards,
+			.sales{
+				font-size:55px;
+			}
+		}
+	}
+	@include respond ('phone-land'){
+		.history-row{
+			.year,
+			.awards,
+			.sales{
+				font-size:38px;
+				min-width: 80px;
+			}
+		}
+	}
+}
+@keyframes move01 {
+	0% {
+		transform: rotate(45deg);
+	}
+	  50%	  {transform: rotate(60deg);
+	}
+	  100% {transform: rotate(45deg);
+	  }
+}

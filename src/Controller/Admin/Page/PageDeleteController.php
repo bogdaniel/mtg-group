@@ -23,6 +23,7 @@ class PageDeleteController extends BaseController
             ->getForm();
 
         $form->handleRequest($request);
+        dump($form->getErrors());
         if ($form->isSubmitted() && $form->isValid()) {
             $pageMetaManager->deletePageMeta($page->pageMeta);
             $pageManager->deletePage($page);

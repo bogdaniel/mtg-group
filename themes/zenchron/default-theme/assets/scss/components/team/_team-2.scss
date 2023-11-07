@@ -1,0 +1,77 @@
+.dz-team{
+	// Style 2
+	&.style-2{
+		.dz-content{
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 25px;
+			padding-left: 20px;
+				
+			&:after{
+				content: "";
+				height: calc(100% - 10px);
+				width: 6px;
+				background-color: var(--primary);
+				position: absolute;
+				top: 8px;
+				left: 0;
+			}
+		}
+		.dz-name{
+			margin-bottom: 5px;
+			a{
+				color: inherit;
+			}
+		}
+		.dz-position{
+			font-size: 15px;
+			font-weight: 400;
+		}
+		.dz-media{
+			position:relative;
+			overflow:hidden;
+			border-radius: var(--border-radius-base);
+		}
+		.team-social{
+			@include transitionMedium;
+			display: flex;
+			margin: 0 -5px;
+			padding-left: 10px;
+
+			li{
+				display: inline-block;			
+				@include transitionMedium;
+				padding: 0 5px;
+					
+				a{
+					background: var(--rgba-primary-2);
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					font-size: 18px;
+					@include transitionMedium;
+					display: block;
+					color: var(--primary);
+					border-radius: var(--border-radius-sm);
+					
+					&:hover{
+						background:var(--primary-hover);
+						color: #fff;
+					}
+				}	
+			}	
+		}
+		@include respond('tab-land'){
+			.dz-content{
+				display: block;
+			}
+			.team-social {
+				padding-left: 0;
+				padding-top: 15px;
+			}
+		}
+	}
+}

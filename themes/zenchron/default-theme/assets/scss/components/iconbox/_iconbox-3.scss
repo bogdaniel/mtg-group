@@ -1,0 +1,11 @@
+.icon-bx-wraper{
+	// Style 3
+	&.style-3{
+		align-items: center;
+		display: flex;
+		
+		.icon-lg{
+		    margin-right: 25px;
+		}
+	}
+}
