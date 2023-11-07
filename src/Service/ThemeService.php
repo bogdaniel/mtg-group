@@ -13,12 +13,15 @@ class ThemeService
 
     public function loadStaticPage(string $themeName, string $pageName): string
     {
-        $filePath = $this->themesDir . '/' . $themeName . '/pages/' . $pageName . '.html';
+        $directory = new \RecursiveDirectoryIterator($this->themesDir . '/' . $themeName . '/pages/');
+        $iterator = new \RecursiveIteratorIterator($directory);
 
-        if (!file_exists($filePath)) {
-            throw new \Exception('Page not found');
+        foreach ($iterator as $info) {
+            if ($info->getFilename() === $pageName . '.html') {
+                return file_get_contents($info->getPathname());
+            }
         }
 
-        return file_get_contents($filePath);
+        throw new \Exception('Page not found');
     }
 }
