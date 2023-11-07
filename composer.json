@@ -16,6 +16,7 @@
         "egulias/email-validator": "^4.0",
         "league/flysystem-bundle": "^3.2",
         "runtime/frankenphp-symfony": "^0.1.1",
+        "symfony/apache-pack": "*",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
@@ -88,7 +89,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": true,
             "require": "6.3.*",
             "docker": true
         }

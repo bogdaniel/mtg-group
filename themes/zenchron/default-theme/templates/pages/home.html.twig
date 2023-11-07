@@ -4,59 +4,9 @@
 {% endblock %}
 {% block body %}
     <div class="page-content bg-white">
-
         <!-- Slider -->
-        <div class="swiper-container main-silder-swiper silder-two">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="dz-slide-item overlay-black-light" style="background-image:url(images/main-slider/slide4.jpg);">
-                        <div class="container">
-                            <div class="silder-content" data-swiper-parallax="-40%">
-                                <div class="inner-content">
-                                    <h2 class="title">Your Dream Project <br/> With Our Industry</h2>
-                                    <p class="m-b30">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.</p>
-                                    <a href="about-us.html.twig" class="btn shadow-primary btn-primary">DISCOVER MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-shape-left"></div>
-                        <div class="bg-shape-right"></div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="dz-slide-item overlay-black-light" style="background-image:url(images/main-slider/slide3.jpg);">
-                        <div class="container">
-                            <div class="silder-content" data-swiper-parallax="-40%">
-                                <div class="inner-content">
-                                    <h2 class="title">Industrial Solution <br/>For Local Business</h2>
-                                    <p class="m-b30">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.</p>
-                                    <a href="about-us.html.twig" class="btn shadow-primary btn-primary">DISCOVER MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-shape-left"></div>
-                        <div class="bg-shape-right"></div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="dz-slide-item overlay-black-light" style="background-image:url(images/main-slider/slide2.jpg);">
-                        <div class="container">
-                            <div class="silder-content" data-swiper-parallax="-40%">
-                                <div class="inner-content">
-                                    <h2 class="title">We Work With <br/> You For Solution</h2>
-                                    <p class="m-b30">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.</p>
-                                    <a href="about-us.html.twig" class="btn shadow-primary btn-primary">DISCOVER MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-shape-left"></div>
-                        <div class="bg-shape-right"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-prev swiper-button-prev1"><i class="las la-arrow-left"></i></div>
-            <div class="btn-next swiper-button-next1"><i class="las la-arrow-right"></i></div>
-        </div>
+        {% include 'templates/pages/_partial/_slider.html.twig' %}
+        <!-- Slider -->
 
         <!-- Services -->
         <section class="clearfix">
@@ -107,6 +57,7 @@
                 </div>
             </div>
         </section>
+        <!-- Services -->
 
         <!-- About US -->
         <section class="content-inner">
@@ -194,7 +145,7 @@
             </div>
         </section>
 
-        <!-- How It Work -->
+        <!-- How It Works -->
         <section class="content-inner bg-light hiw-area-2">
             <div class="container">
                 <div class="row align-items-center">
