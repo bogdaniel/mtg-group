@@ -1,0 +1,100 @@
+.site-footer{
+	.recent-posts-entry .widget-post-bx .widget-post{
+		.dz-media{
+			width: 80px;
+			min-width:80px;
+			border-radius: var(--border-radius-sm);
+		}
+		.title{
+			font-family: var(--font-family-base);
+			a{
+				color: #fff;
+			}
+		}
+		.dz-info{
+			padding-left: 15px;
+		}
+	}
+	&.style-1{
+		color: #9d9aaa;
+		background-color: var(--secondary);
+		background-position: center;
+		background-size: cover;
+		
+		.footer-top{
+			padding: 120px 0 80px;
+			.text{
+				margin: 0 50px 45px;
+			}
+			.footer-logo{
+				margin-bottom: 25px;
+				img {
+					height: 60px;
+				}
+			}
+		}
+		.widget-title {
+			margin-bottom: 25px;
+			.title{
+				color: $white;
+			}
+		}
+		.footer-bottom{
+			background-color:rgba(0,0,0,0.3);
+			background-position: center;
+			background-size: cover;
+			padding: 0;
+			.fb-inner{
+				padding-top:20px;
+				padding-bottom:20px;
+			}
+			ul{
+				li{
+					display: inline-block;
+					a{
+						@include transitionMedium;
+						&:hover{
+							color: var(--primary);
+						}
+					}
+					&:before{
+						color: var(--primary);
+					}
+					&:last-child{
+						padding-right: 0;
+					}
+				}
+			}
+		}
+		.footer-title{
+			padding-bottom: 0;
+			margin-bottom: 10px;
+		}
+		@include respond('laptop'){
+			.footer-top{
+				padding: 100px 0 60px;
+			}
+		}
+		@include respond('tab-port'){
+			.footer-top {
+				padding: 70px 0 30px;
+			}
+			.footer-bottom{
+				.text-end{
+					margin-top: 15px;
+				}
+			}
+		}
+		@include respond('phone'){
+			.footer-top{
+				padding: 50px 0 10px;
+				.text {
+					margin: 0 0px 30px;
+				}
+				.footer-logo {
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,195 @@
+/* Silder One */
+.silder-one{
+	&:after{
+		content:"";
+		-webkit-animation: 20s bgMove infinite linear;
+		-moz-animation: 20s bgMove infinite linear;
+		-o-animation: 20s bgMove infinite linear;
+		-ms-animation: 20s bgMove infinite linear;
+		animation: 20s bgMove infinite linear;
+		background-repeat: repeat-y;
+		background-size: 100%;
+		background-image: url(../../1_Factory/images/background/line.png);
+		height:100%;
+		width:100%;
+		z-index:1;
+		left:0;
+		top:0;
+		position: absolute;
+		background-size: 100%;
+		pointer-events: none;
+	}
+	.dz-slide-item{
+		display:flex;
+		align-items:center;
+		min-height:100vh;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		position:relative;
+		overflow:hidden;
+		padding-top: 80px;
+		padding-bottom: 80px;
+		@include respond('tab-port'){
+			min-height:auto;
+		}
+	}
+	.silder-content{
+		width: 70%;
+		
+		.title{
+			font-size: 80px;
+			font-weight: 700;
+			line-height:1.1;
+			margin-bottom: 25px;
+			color:$white;
+			
+			span{
+				text-decoration: 7px underline var(--primary);
+				text-underline-offset: 5px;
+			}
+			@include respond('tab-land'){
+				margin-bottom: 15px;
+				font-size: 60px;
+			}
+		}
+		.sub-title{
+			font-weight: 700;
+			margin-bottom: 10px;
+			color: inherit;
+		}
+		p{
+			font-size:18px;
+			color: #fff;
+			@include respond('tab-land'){
+				font-size:15px;
+			}
+		}
+	}
+	@include respond('laptop'){
+		.silder-content{
+			padding: 35px;
+			.sub-title {
+				margin-bottom: 15px;
+			}
+			.title {
+				font-size: 60px;
+				line-height: 1.2;
+				margin-bottom: 10px;
+				
+				span {
+					text-decoration: 3px underline var(--primary);
+					text-underline-offset: 3px;
+				}
+			}
+		}
+	}
+	@include respond('tab-port'){
+		.dz-slide-item{
+			height:500px;
+		}
+		.silder-content{
+			padding: 30px;
+			.title{
+				font-size: 42px;
+			}
+		}
+	}
+	@include respond('phone-land'){
+		.dz-slide-item{
+			height:400px;
+		}
+		.silder-content{
+			padding: 30px 50px 30px 15px;
+			width: 100%;
+			.title {
+				font-size: 36px;
+			}
+		}
+		.dz-slide-item{
+			padding-top: 50px;
+			padding-bottom: 50px;
+			display:block;
+			min-height: auto;
+			
+			.slider-img{
+				position:unset;
+				width:100%;
+				filter: none;
+				padding: 15px;
+				margin-bottom:15px;
+				img{
+					-webkit-mask-image: unset;
+					mask-image: unset;
+					height:250px;
+					object-fit:cover;
+					object-position:center;
+				}
+			}
+		}
+	}
+	@include respond('phone'){
+		.silder-content {
+			width: auto;
+			left: 15px;
+			right: 15px;
+			bottom: 90px;
+			padding:0;
+			.title{
+				font-size: 30px;
+				margin-bottom: 15px;
+			}
+			.sub-title{
+				font-size:14px;	
+				margin-bottom: 10px;
+			}
+			p {
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+.site-header.style-1 + .page-content .silder-one .dz-slide-item{
+	padding-top: 200px;
+	@include respond('tab-port'){
+		padding-top: 80px;
+	}
+	@include respond('phone-land'){
+		padding-top: 25px;
+	}
+	@include respond('phone'){
+		padding-top: 40px;
+	    height: 400px;
+	}
+}
+
+/* Image Move Css */
+@-webkit-keyframes bgMove{
+	100%{
+		background-position: 0px -3000px ;
+	}
+}
+
+@-moz-keyframes bgMove{
+	100%{
+		background-position: 0px -3000px;
+	}
+}
+
+@-o-keyframes bgMove{
+	100%{
+		background-position: 0px -3000px;
+	}
+}
+
+@-ms-keyframes bgMove{
+	100%{
+		background-position: 0px -3000px;
+	}
+}
+
+@keyframes bgMove{
+	100%{
+		background-position: 0px -3000px;
+	}
+}

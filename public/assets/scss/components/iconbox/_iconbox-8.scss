@@ -1,0 +1,63 @@
+.icon-bx-wraper{
+	// Style 8
+	&.style-8{
+		padding: 40px;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+		border-radius: var(--border-radius-base);	
+		
+		&:after{
+			content: "";
+			height: 100%;
+			width: 0;
+			background-color: var(--primary);
+			@include transitionSlow;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			z-index: -1;
+			transform-origin: left;
+			-moz-transform-origin: left;
+			-ms-transform-origin: left;
+			-webkit-transform-origin: left;
+			-o-transform-origin: left;
+		}
+		.icon-lg{
+			line-height: 1;
+		}
+		.sub-title{
+			font-size: 15px;
+			font-weight: 500;
+		}
+		&:not([class*='bg-white']){
+			.dz-title{
+				color: #fff;
+			}
+			p{
+				color: #fff;
+				opacity: 0.7;
+			}
+			.sub-title{
+				color: #fff;
+				opacity: 0.4;				
+			}
+		}
+		@include respond('phone'){
+			padding: 35px;
+		}
+		&.active,
+		&:hover{
+			&:after{
+				width: 100%;
+				left: 0;
+				right: auto;
+				transform-origin: right;
+				-moz-transform-origin: right;
+				-ms-transform-origin: right;
+				-webkit-transform-origin: right;
+				-o-transform-origin: right;
+			}
+		}
+	}
+}

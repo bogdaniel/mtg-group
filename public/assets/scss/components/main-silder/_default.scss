@@ -1,0 +1,51 @@
+.main-silder-swiper{
+	position: relative;
+	
+	.swiper-pagination-bullets{
+		position:absolute;
+		bottom:20px;
+		left:80px;
+		@include respond('wide-desktop'){
+			left:40px;
+		}
+	}
+	.btn-next,
+	.btn-prev{
+		position:absolute;
+		top:50%;
+		background:rgba(255,255,255,0.3);
+		color:#fff;
+		@include transitionMedium;
+		&:hover{
+			background:var(--primary);
+			color:$white;
+		}
+	}
+	.btn-next{
+		right:50px;
+	}
+	.btn-prev{
+		left:50px;
+	}
+	@include respond('laptop'){
+		.btn-next{
+			right:-10px;
+		}
+		.btn-prev{
+			left:-10px;
+		}
+	}
+	@include respond('phone'){
+		.btn-prev{
+			top: auto;
+			left: auto;
+			bottom: 0;
+			right: 36px;
+		}
+		.btn-next {
+			right: -10px;
+			bottom: 0;
+			top: auto;
+		}
+	}
+}

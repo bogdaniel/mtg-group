@@ -1,0 +1,65 @@
+.icon-bx-wraper{
+	// Style 17
+	&.style-17{
+		padding: 50px 35px;
+		background: #fff;
+		@include transitionSlow;
+		box-shadow:0 10px 60px 0 rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		@include transitionMedium;
+		border-radius: var(--border-radius-base);
+		
+		.icon-xl{
+			position: relative;
+			width: auto;
+			line-height: 1;
+			z-index: 1;
+		}
+		[class*="icon-"] {
+			svg path,
+			svg circle{
+				fill:var(--primary);
+			}
+		}
+		
+		&:after{
+		    content: "";
+			position: absolute;
+			height: 350px;
+			width: 100px;
+			@include transitionMedium;
+			background: var(--rgba-primary-4);
+			right: -100px;
+			bottom: -20px;
+			transform: rotate(15deg);
+			box-shadow: 0 -16px 0 30px var(--rgba-primary-1), 0 -16px 0 60px var(--rgba-primary-1), 0 -16px 0 90px var(--rgba-primary-1);
+		}
+		.title a,
+		p{
+			@include transitionMedium;
+		}
+		&:hover{
+			background:$secondary;
+			transform:translateY(-10px);
+			-moz-transform:translateY(-10px);
+			-webkit-transform:translateY(-10px);
+			-ms-transform:translateY(-10px);
+			-o-transform:translateY(-10px);
+			.title a{
+				color:#fff;
+			}
+			p{
+			    color: #fff;
+			}
+			&:after{
+				background:rgba(255,255,255,0.4);
+				box-shadow: 0 -16px 0 30px rgba(255,255,255,0.1), 0 -16px 0 60px rgba(255,255,255,0.1), 0 -16px 0 90px rgba(255,255,255,0.1);
+				opacity: 0.5;
+				transform: rotate(15deg) scale(1.5);
+			}
+		}
+		@include respond('phone-land'){
+			padding: 20px;
+		}
+	}
+}

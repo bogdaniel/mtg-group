@@ -1,0 +1,146 @@
+// Testimonial 5
+.testimonial-7{
+	position: relative;
+	padding: 20px;
+	border-radius: var(--border-radius-sm);
+	max-width: 800px;
+    margin: auto;
+	
+	&::before{
+		content: ' ';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20%;
+		height: 100%;
+		background-color: var(--primary);
+		border-radius: var(--border-radius-sm);
+	}
+
+	.testimonial-text{
+		padding: 30px;
+		background: #F3F3F3;
+		border-radius: var(--border-radius-sm);
+
+		p{
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 35px;
+			color: #111111;
+		}
+		@include respond('phone-land'){
+			p{
+				font-size: 14px;
+				line-height: 24px;
+			}
+		}
+	}
+	@include respond('phone'){
+		padding: 5px;
+		
+		.testimonial-text{
+			padding: 25px;
+		}
+	}
+}
+.testimonial-area9{
+	max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+	
+	@include respond('tab-land') {
+		max-width: 100%;
+	}
+}
+	
+.testimonial-nav9{
+	.testimonial-next9,
+	.testimonial-prev9{
+		position: absolute;
+		top: 50%;
+		width: 60px;
+		height: 60px;
+		color: #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transform: translateY(-50%);
+		font-size: 32px;
+		color: var(--primary);
+		margin: 0px -100px;
+		background: var(--rgba-primary-2);
+		z-index: 999;
+		border-radius: var(--border-radius-sm);
+
+		@include transitionMedium;
+		@include respond('phone-land'){
+			display: none;
+		}
+		&:hover{
+			background: var(--primary);
+			color: #fff;
+		}
+		&::before,
+		&::after{
+			display: none;
+		}		
+	}
+}
+
+.testimonial-swiper9-thumb{
+	margin-top: 50px;
+	
+	@include respond('phone-land'){
+		margin-top: 30px;
+	}
+	.thumb-bx{
+		text-align: center;
+		padding: 30px 15px;
+		@include transitionMedium;
+		border-radius: var(--border-radius-base);
+		
+		.media{
+			width: 80px;
+			height: 80px;
+			border-radius: 80px;
+			overflow: hidden;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 15px;
+		
+			img{
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.content-info{
+			
+			.title{
+				font-size: 18px;				
+			}
+			p{
+				margin: 0;
+				font-size: 14px;
+			}
+		}
+	}
+	
+	.swiper-slide.swiper-slide-thumb-active{
+		.thumb-bx{
+			background-color: var(--rgba-primary-1);
+		}
+	}
+}
+.testimonial-swiper9{
+	.swiper-slide{
+		opacity: 0;
+		visibility: hidden;
+		
+		&.swiper-slide-active{
+			opacity: 1;
+			visibility: visible;	
+		}
+	}
+}

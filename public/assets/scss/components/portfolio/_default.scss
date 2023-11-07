@@ -1,0 +1,21 @@
+.dz-box{
+	position:relative;
+}
+.overlay{
+	@include transitionMedium;
+	overflow: hidden;
+	
+	.dz-info{
+		position: absolute;
+		border-radius: var(--border-radius-base);
+	}
+	.dz-media{
+		border-radius: var(--border-radius-base);
+		img{
+			@include respond('phone-land'){
+				max-height: 350px;
+				object-fit: cover;
+			}
+		}
+	}
+}

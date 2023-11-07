@@ -1,0 +1,47 @@
+.icon-bx-wraper{
+	// style 10
+	&.style-10{
+		padding: 30px;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.10);
+		display: flex;
+		align-items: center;
+		@include transitionMedium;
+		
+		.icon-bx{
+			border: 1px solid;
+			border-color: var(--primary);
+			margin-right: 25px;
+			@include transitionMedium;
+			border-radius: var(--border-radius-sm);
+		}
+		p{
+			font-size: 18px;
+		}
+		i,
+		p,
+		.dz-title{
+			@include transitionMedium;
+		}
+		&.active,
+		&:hover{
+			background-color: var(--primary);
+			.dz-title,
+			p,
+			i{
+				color: #fff;
+			}
+			.icon-bx{
+				border-color: #fff;
+			}
+		}
+		@include respond('phone'){
+			padding: 20px;
+			.icon-bx {
+				margin-right: 20px;
+			}
+			p{
+				font-size: 16px;
+			}
+		}
+	}
+}

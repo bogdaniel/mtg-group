@@ -1,0 +1,35 @@
+[dir='rtl']{
+	
+	@include respond('tab-port-min'){
+		.boxed{
+			.main-silder-swiper{
+				.btn-prev{
+					left: auto;
+					right: 5px;
+					transform: rotateY(180deg);
+				}
+				.btn-next{
+					right: 70px;
+					left: auto;
+					transform: rotateY(180deg);
+				}
+			}
+		}
+	}
+	@include respond('tab-land-min'){
+		.boxed{
+			.about-media.style-2{
+				padding-left: 0;
+				padding-right: 50px;
+				&:after {
+					left: auto;
+					right: 0;
+				}
+			}
+			.dz-coming-soon .countdown .date {
+				padding-left: 15px;
+				padding-right: 0;
+			}
+		}
+	}
+}

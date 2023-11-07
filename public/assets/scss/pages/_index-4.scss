@@ -1,0 +1,211 @@
+.font-style-1{
+	h1, h2, h3, h4, h5, h6{
+		--font-family-title: 'Oswald', sans-serif;
+	    font-weight: 500;
+		letter-spacing: 3px;
+		
+		@include respond('phone'){
+			letter-spacing: 1px;
+		}
+	}
+}
+.banner-one{
+    min-height: 650px;
+    background-size: cover;
+    height: 100vh;
+	position:relative;
+	z-index:1;
+    background-position: center;
+    display: flex;
+    align-items: center;
+	overflow:hidden;
+	@include respond('tab-port'){
+		height: auto;
+	}
+	&:after{
+		content: attr(data-text);
+		font-family: oswald;
+		font-size: 290px;
+		position: absolute;
+		bottom: 0;
+		z-index:-1;
+		line-height: 1;
+		font-weight: 700;
+		-webkit-text-stroke: 1px;
+		-webkit-text-stroke-color: rgba(255,255,255,0.15);
+		color: transparent;
+	}
+	.mining-worker {
+		width: 40%;
+		left: 50%;
+		position: absolute;
+		bottom: 0;
+		@include respond('tab-land'){
+			width: 50%;
+		}
+		@include respond('tab-port'){
+			width: 80%;
+			position: unset;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	.bnr-title{
+		color:#fff;
+		font-size:80px;
+		font-family: 'Oswald', sans-serif;
+	    margin-bottom: 50px;
+		@include respond('tab-land'){
+			font-size:60px;
+		}
+	}
+	.btn{
+		font-size: 20px;
+		padding: 17px 40px;
+		line-height: 1.2;
+	}
+	.video-btn{
+		color:#fff;
+		font-size:20px;	
+		display: inline-block;
+	    vertical-align: middle;
+			
+		i{
+			margin-right:15px;
+			display: inline-block;
+			width:60px;
+			height:60px;
+			background:#fff;
+			color:var(--primary);
+			text-align:center;
+			line-height:60px;
+			border-radius: var(--border-radius-lg);
+		}
+	}
+	.banner-content{
+		@include respond('tab-port'){
+			padding: 150px 0 40px 0;
+			text-align: center;
+		}
+		@include respond('tab-port'){
+			padding: 80px 0 40px 0;
+			text-align: center;
+		}
+	}
+	@include respond ('tab-land'){
+		&:after{
+			font-size:160px;
+		}
+	}
+	@include respond ('phone-land'){
+		&:after{
+			font-size:130px;
+		}
+		.bnr-title{
+			font-size: 65px;
+		}
+	}
+	@include respond ('phone'){
+		height: auto;
+	
+		&:after{
+			font-size:85px;
+		}
+		.btn{
+			font-size: 16px;
+			padding: 10px 20px;
+		}
+		.video-btn {
+			font-size: 16px;
+			i{
+				width: 45px;
+				height: 45px;
+				line-height: 45px;
+			}		
+		}
+		.bnr-title{
+			font-size: 40px;
+			margin-bottom: 20px;
+		}
+	}
+}
+.client-logo-wrapper{
+	display:flex;
+	flex-flow:wrap;
+	.clients-grid{
+		border-radius:0;
+		border-right:1px solid rgba(255,255,255,0.1);
+		border-bottom:1px solid rgba(255,255,255,0.1);
+		padding: 20px;
+		width:20%;
+		text-align:center;
+		img{
+			opacity:0.5;
+			@include transitionSlow;
+		}
+		&:hover img{
+			opacity:1;
+		}
+		&:nth-child(5),
+		&:nth-child(10){
+			border-right:0;
+		}
+		&:nth-child(n+6){
+			border-bottom:0;
+		}
+	}
+	@include respond ('phone'){
+		.clients-grid{
+			width:50%;
+			&:nth-child(n+6){
+				border-bottom:1px solid rgba(255,255,255,0.1);
+			}
+			&:nth-child(n+9){
+				border-bottom:0;
+			}
+			&:nth-child(5),
+			&:nth-child(10){
+				border-right:1px solid rgba(255,255,255,0.1);
+			}
+			&:nth-child(even){
+				border-right:0;
+			}
+		}
+	}
+}
+
+// port-detail
+.port-detail{
+	.title{
+		line-height: 1.5;
+		font-weight: 800;	
+	}
+	.info-list{
+		li{
+			display: flex;
+			align-items: center;
+			margin-bottom: 15px;
+			h2{
+				margin: 0;
+				width: 130px;
+				letter-spacing: 6px;
+				font-family: var(--font-family-title);
+				font-weight: 400;
+			}
+			span{
+				font-size: 18px;
+				text-transform: uppercase;
+				color: $headings-color;
+				font-family: var(--font-family-title);
+				letter-spacing: 2px;
+				font-weight: 300;
+			}
+			@include respond('phone'){
+				margin-bottom: 20px;
+				h2{
+					width: 100px;
+				}
+			}
+		}
+	}
+}

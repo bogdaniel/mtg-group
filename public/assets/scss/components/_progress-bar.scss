@@ -1,0 +1,70 @@
+// Progress Bar
+.progress-bx{
+	overflow: hidden;
+	
+	// Progress Info
+	.progress-info{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 15px;
+		
+		.title{
+			margin-bottom: 0;
+		}
+		.progress-value{
+			margin-bottom: 0;
+		}
+	}
+	
+	// Progress
+	.progress{
+		overflow: unset;		
+		.progress-bar{
+			position: relative;
+			overflow: unset;
+		}
+	}
+	
+	// Style 1
+	&.style-1{
+		.progress{
+			background-color: #ebebeb;
+			height: 8px;
+			border-radius: var(--border-radius-base);
+			
+			.progress-bar{
+				background-color: var(--primary);
+				border-radius: var(--border-radius-base);
+			}
+		}
+		@include respond('phone-land'){
+			.progress-info{
+				margin-bottom: 10px;
+			}
+		}
+	}
+		// Style 3
+	&.style-3{
+		.progress{
+			height:7px;
+			border-radius: 0;
+			.progress-bar{
+				background-color:var(--primary);
+				.progress-value{
+					position: absolute;
+					right: 0;
+					top: -40px;
+					font-size: 18px;
+					background: var(--primary);
+					color: #fff;
+					letter-spacing: normal;
+					padding: 0px 5px;
+					min-width: 30px;
+					min-height: 30px;
+					line-height: 30px;
+				}
+			}
+		}
+	}
+}

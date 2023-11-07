@@ -1,0 +1,147 @@
+.dz-team{
+	// Style 1
+	&.style-1{
+		.dz-content{
+			padding: 30px;
+		}
+		.dz-name{
+			margin-bottom: 5px;
+			a{
+				color: inherit;
+			}
+		}
+		.dz-position{
+			font-size: 15px;
+			font-weight: 400;
+		}
+		.dz-media{
+			position:relative;
+			overflow:hidden;
+			border-radius: var(--border-radius-base);
+		}
+		.team-social{
+			@include transitionMedium;
+			margin-top: -60px;
+			margin-bottom: 15px;
+			
+			li{
+				display: inline-block;
+				margin-bottom: 10px;				
+				opacity: 0;
+				visibility: hidden;
+				@include transitionMedium;
+					
+				&.add-social{
+					@include transitionMedium;
+					opacity: 1;
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					visibility: unset;
+					
+					span{
+						background: var(--secondary);
+						color:var(--primary);
+					}
+				}
+				span,
+				a{
+					background: var(--primary);
+					width: 60px;
+					height: 60px;
+					line-height: 60px;
+					text-align: center;
+					border-radius: var(--border-radius-sm);
+					font-size: 24px;
+					@include transitionMedium;
+					display: block;
+					color: #fff;
+					
+					&:hover{
+						background:var(--primary-hover);
+					}
+				}	
+			}	
+		}	
+		&:hover{
+			.team-social{
+				li{
+					opacity: 1;
+					visibility: unset;
+					padding-left: 7px;
+					padding-right: 7px;
+				
+					&.add-social{
+						opacity: 0;
+						visibility: hidden;
+					}
+				}	
+			}	
+		}
+		@include respond('phone-land'){
+			.team-social{
+				margin-bottom: 5px;
+				li{
+					padding-left: 2px;
+					padding-right: 2px;
+					span,
+					a{
+						width: 40px;
+						height: 40px;
+						line-height: 40px;
+						font-size: 16px;
+					}	
+				}	
+			}
+		}
+	}
+}
+.swiper-wrapper{
+	@include respond('phone-land'){
+		.dz-team{
+			margin: 0;
+		}
+	}
+}
+.team-swiper-area{
+	position: relative;
+	.btn-prev,
+	.btn-next{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: var(--primary);
+		border-radius: var(--border-radius-sm);
+		color: #fff;
+	}
+	.btn-prev{
+		left: -150px;
+	}
+	.btn-next{
+		right: -150px;
+	}
+	@include respond('wide-desktop'){
+		.btn-prev{
+			left: -50px;
+		}
+		.btn-next{
+			right: -50px;
+		}
+	}
+	@include respond('laptop'){
+		.btn-prev{
+			left: -25px;
+		}
+		.btn-next{
+			right: -25px;
+		}
+	}
+	@include respond('tab-land'){
+		.btn-prev{
+			left: 0;
+		}
+		.btn-next{
+			right: 0;
+		}
+	}
+}

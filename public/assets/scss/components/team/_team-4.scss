@@ -1,0 +1,66 @@
+.dz-team{
+	// Style 4
+	&.style-4{
+		.dz-position{
+			font-family: $font-family-title;
+			font-weight:300;
+			text-transform:uppercase;
+			letter-spacing:3px;
+			font-size: 15px;
+			
+			&.line{
+				&:before{
+					content:"";
+					position:relative;
+					height:1px;
+					top: -5px;
+					margin-right: 10px;
+					display:inline-block;
+					width:40px;
+					background:var(--primary);
+				}
+			}
+		}
+		.dz-media{
+			position:relative;
+			overflow:hidden;
+			border-radius: var(--border-radius-base);
+
+			.team-social{
+				position:absolute;
+				left: 50%;
+				bottom:-50px;
+				display:flex;
+				transform: translateX(-50%);
+				@include transitionMedium;
+				
+				li{
+					display:block;
+					margin: 0 5px;
+					
+					a{
+						background:var(--primary);
+						width:45px;	
+						height:45px;	
+						line-height:45px;
+						text-align:center;
+						@include transitionMedium;
+						display: block;
+						color: #fff;
+						border-radius: var(--border-radius-sm);
+						
+						&:hover{
+								background:var(--primary);
+						}
+					}	
+				}	
+			}	
+			
+		}
+		&:hover .dz-media{
+			.team-social{
+				bottom:20px;
+			}
+		}
+	}
+}

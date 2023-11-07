@@ -1,19 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Title -->
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    {% block stylesheets %}
-        {{ encore_entry_link_tags('app_js') }}
-    {% endblock %}
+    <!-- Title -->
 
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app_css') }}
-    {% endblock %}
+    <!-- Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Mobile Specific -->
+
+    <!-- Meta -->
+    <meta name="keywords"
+          content="chemical, company, construction, corporate business, energy industry, engineering, factory, industrial, industry, manufacturing, mechanical, mining, oil gas petroleum plant, pharmaceutical, refinery"/>
+    <meta name="author" content="DexignZone"/>
+    <meta name="robots" content=""/>
+    <meta name="description" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/>
+    <meta property="og:title" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/>
+    <meta property="og:description" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/>
+    <meta property="og:image" content="https://mazo.dexignzone.com/xhtml/social-image.png"/>
+    <meta name="format-detection" content="telephone=no">
+    <!-- Meta -->
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Favicon icon -->
+
+
+    <!-- Stylesheet -->
+    <link href="../assets/vendor/magnific-popup/magnific-popup.min.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="../assets/vendor/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../assets/vendor/lightgallery/css/lightgallery.min.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" class="skin" href="../assets/css/skin/skin-4.css">
+
+{#    {% block stylesheets %}#}
+{#        {{ encore_entry_link_tags('app_js') }}#}
+{#    {% endblock %}#}
+
+{#    {% block javascripts %}#}
+{#        {{ encore_entry_script_tags('app_css') }}#}
+{#    {% endblock %}#}
+    <!-- JAVASCRIPT FILES ========================================= -->
+    <script src="../assets/javascript/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+    <script src="../assets/vendor/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+    <script src="../assets/vendor/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+    <script src="../assets/vendor/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+    <script src="../assets/vendor/masonry/isotope.pkgd.min.js"></script><!-- ISOTOPE -->
+    <script src="../assets/vendor/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+    <script src="../assets/vendor/masonry/masonry-4.2.2.js"></script><!-- MASONRY -->
+    <script src="../assets/vendor/lightgallery/js/lightgallery-all.min.js"></script><!-- LIGHTGALLERY -->
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script><!-- OWL-CAROUSEL -->
+    <script src="../assets/vendor/perfect-scrollbar/js/perfect-scrollbar.min.js"></script><!-- Perfect Scrollbar -->
+    <script src="../assets/vendor/aos/aos.js"></script><!-- AOS -->
+    <script src="../assets/javascript/dz.carousel.js"></script><!-- OWL-CAROUSEL -->
+    <script src="../assets/javascript/dz.ajax.js"></script><!-- AJAX -->
+    <script src="../assets/javascript/custom.js"></script><!-- CUSTOM JS -->
+
 </head>
-<body>
-    {% block body %}{% endblock %}
+<body id="bg" class="theme-rounded">
+<div id="loading-area">
+    <div class="loading-inner style-1">
+        <div class="wrapper">
+            {% block loading_wrapper %}{% endblock %}
+        </div>
+        <div class="load-text">
+            {% block load_text %}{% endblock %}
+        </div>
+    </div>
+</div>
+<div class="page-wraper">
+    <div class="page-content bg-white">
+        {% block body %}{% endblock %}
+    </div>
+    <button class="scroltop icon-up" type="button"><i class="fas fa-arrow-up"></i></button>
+</div>
 </body>
 </html>

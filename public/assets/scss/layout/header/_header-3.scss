@@ -1,0 +1,47 @@
+// site-header
+.site-header{
+	&.style-3{
+		.top-bar{
+			border-bottom: 1px solid #eee;
+			.dz-topbar-center,
+			.dz-topbar-left,
+			.dz-topbar-right {
+				ul{
+					i{
+						color:var(--primary);
+					}
+				}
+			}
+		}
+		.header-nav{
+			.nav{
+				&>li{
+					&:after{
+						content:"";
+						height: 20px;
+						width:1px;
+						background-color:#eee;
+						position: absolute;
+						left: 100%;
+						top: 50%;
+						-webkit-transform: translate(-100%, -50%);
+						-ms-transform: translate(-100%, -50%);
+						transform: translate(-100%, -50%);
+					}
+					&:hover >  a,
+					&.active > a{
+						color:var(--primary);
+					}
+				}
+			}
+		} 
+		.extra-nav{
+			.btn-appointment{
+				i{
+					font-size: 20px;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}
