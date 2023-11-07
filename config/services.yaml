@@ -37,16 +37,6 @@ services:
             $filesystem: '@Symfony\Component\Filesystem\Filesystem'
             $projectDir: '%kernel.project_dir%'
             
-    App\Service\ThemeService:
-        public: true
-        arguments:
-            $themesDir: '%kernel.project_dir%/themes'
-            
-    App\Controller\StaticPageController:
-        public: true
-        arguments:
-            $themeService: '@App\Service\ThemeService'
-
     App\Service\ThemeRuntimeConfigurator:
         arguments:
             $twig: '@twig.loader.native_filesystem'
