@@ -17,7 +17,7 @@ class PageMetaController extends AbstractController
     #[Route('/', name: 'app_page_meta_index', methods: ['GET'])]
     public function index(PageMetaRepository $pageMetaRepository): Response
     {
-        return $this->render('page_meta/index.html.twig', [
+        return $this->render('page_meta/home.html.twig.twig', [
             'page_metas' => $pageMetaRepository->findAll(),
         ]);
     }

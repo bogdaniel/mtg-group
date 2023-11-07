@@ -12,7 +12,7 @@ class PageIndexController extends BaseController
 {
     public function __invoke(PageManager $pageManager): Response
     {
-        return $this->render('templates/admin/page/index.html.twig', [
+        return $this->render('templates/admin/page/home.html.twig.twig', [
             'pages' => $pageManager->getAllPages(),
         ]);
     }
