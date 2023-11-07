@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StaticPageController extends AbstractController
 {
-    private $themeService;
+    private ThemeService $themeService;
 
     public function __construct(ThemeService $themeService)
     {
