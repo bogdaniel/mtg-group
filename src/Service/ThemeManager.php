@@ -58,7 +58,7 @@ class ThemeManager
             $theme->license = $themeData->license;
             $theme->homepage = $themeData->homepage;
             new \DateTime();
-            $theme->isActive = $themeData->isActive;
+//            $theme->isActive = $themeData->isActive;
             if ($themeData->parentTheme) {
                 $theme->parentTheme = $this->findThemeByName($themeData->parentTheme->name);
             }
