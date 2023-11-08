@@ -1,18 +1,26 @@
 <!-- Footer -->
-<footer class="site-footer style-2" id="footer" style="background-image: url(images/background/map-bg.png); background-size: contain; background-repeat: no-repeat;">
+<footer class="site-footer style-2" id="footer"
+        style="background-image: url('{{ asset('assets/images/background/map-bg.png') }}'); background-size: contain; background-repeat: no-repeat;">
     <div class="footer-info">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-6 m-b30 m-sm-0">
                     <div class="footer-logo logo-white">
-                        <img src="images/logo-white.png" alt="">
+                        <img src="{{ asset('assets/images/logo/logo-multigama-group.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col-sm-6 text-start text-sm-end">
                     <ul class="social-list">
-                        <li><a target="_blank" href="https://www.facebook.com/" class="btn facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a target="_blank" href="https://www.instagram.com/" class="btn instagram"><i class="fab fa-instagram"></i></a></li>
-                        <li><a target="_blank" href="https://twitter.com/" class="btn twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li>
+                            <a class="btn facebook" href="https://www.facebook.com/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn instagram" href="https://www.instagram.com/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -21,23 +29,28 @@
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="col-xl-5 col-lg-5 col-sm-8 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="400">
                     <div class="widget widget_about">
                         <div class="widget-title">
-                            <h4 class="title">About Us</h4>
+                            <h4 class="title">Despre Noi</h4>
                         </div>
-                        <p>Cras faucibus ornare ipsum, non luctus leo imperdiet sit amet. Praesent egestas orci eu risus iaculis luctus. Phasellus maximus orci metus. Nullam enim ex, facilisis at lacinia sed, luctus vitae dolor.</p>
+                        <p>Cu o activitate de peste 32 de ani, Multigama Grup, alcătuită din firmele SC Multigama Tech SRL, SC
+                            Multigama Service SRL și EQ Fire SRL asigură clienților săi atât pe piața internă cât și pe cea
+                            internațională echipamente noi performante, piese de schimb și mentenanță la cele mai înalte standarde
+                            pentru pompe, grupuril de pompare, stații de pompare și echipamentele de stingere a incendiilor.</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                <div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="800">
                     <div class="widget widget_getintuch">
                         <div class="widget-title">
-                            <h4 class="title">Contact Us</h4>
+                            <h4 class="title">Contactaţi-ne</h4>
                         </div>
                         <ul>
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Marmora Road City, Demo Address #8901, Vietnam</span>
+                                <span>Str. 7 Drumuri, Nr. 9C, Sector 3, București</span>
                             </li>
                             <li>
                                 <i class="fas fa-phone-alt"></i>
@@ -46,56 +59,60 @@
                             </li>
                             <li>
                                 <i class="fas fa-envelope"></i>
-                                <span>info@example.com</span><br>
-                                <span>info@supports.com</span>
+                                <span>office@multigama.ro</span><br>
+                                <span>office@multigama.ro</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                <div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="600">
                     <div class="widget widget_categories">
                         <div class="widget-title">
-                            <h4 class="title">Our Services</h4>
+                            <h4 class="title">Grupul Multigama</h4>
                         </div>
                         <ul class="list-1">
-                            <li class="cat-item"><a href="services.html.twig">Maintenance</a></li>
-                            <li class="cat-item"><a href="services.html.twig">Petroleum</a></li>
-                            <li class="cat-item"><a href="services.html.twig">Agricultural</a></li>
-                            <li class="cat-item"><a href="services.html.twig">Material</a></li>
-                            <li class="cat-item"><a href="services.html.twig">Building</a></li>
-                            <li class="cat-item"><a href="services.html.twig">24x7 Support</a></li>
+                            <li class="cat-item"><a href="multigama-tech.html">Multigama Tech</a></li>
+                            <li class="cat-item"><a href="multigama-service.html">Multigama Service</a></li>
+                            <li class="cat-item"><a href="eq-fire.html">EQ Fire</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
-                    <div class="widget widget_gallery gallery-grid-2">
-                        <div class="widget-title">
-                            <h4 class="title">Gallery</h4>
-                        </div>
-                        <ul class="lightgallery">
-                            <li>
-									<span data-exthumbimage="images/gallery/small/pic1.jpg" data-src="images/gallery/large/pic1.jpg" class="lightimg" title="Maintenance">
-										<img src="images/gallery/small/pic1.jpg" alt="">
-									</span>
-                            </li>
-                            <li>
-									<span data-exthumbimage="images/gallery/small/pic2.jpg" data-src="images/gallery/large/pic2.jpg" class="lightimg" title="Petroleum">
-										<img src="images/gallery/small/pic2.jpg" alt="">
-									</span>
-                            </li>
-                            <li>
-									<span data-exthumbimage="images/gallery/small/pic3.jpg" data-src="images/gallery/large/pic3.jpg" class="lightimg" title="Agricultural">
-										<img src="images/gallery/small/pic3.jpg" alt="">
-									</span>
-                            </li>
-                            <li>
-									<span data-exthumbimage="images/gallery/small/pic4.jpg" data-src="images/gallery/large/pic4.jpg" class="lightimg" title="Material">
-										<img src="images/gallery/small/pic4.jpg" alt="">
-									</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+{#                <div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000"#}
+{#                     data-aos-delay="1000">#}
+{#                    <div class="widget widget_gallery gallery-grid-2">#}
+{#                        <div class="widget-title">#}
+{#                            <h4 class="title">Gallery</h4>#}
+{#                        </div>#}
+{#                        <ul class="lightgallery">#}
+{#                            <li>#}
+{#									<span data-exthumbimage="images/gallery/small/pic1.jpg"#}
+{#                                          data-src="images/gallery/large/pic1.jpg" class="lightimg" title="Maintenance">#}
+{#										<img src="images/gallery/small/pic1.jpg" alt="">#}
+{#									</span>#}
+{#                            </li>#}
+{#                            <li>#}
+{#									<span data-exthumbimage="images/gallery/small/pic2.jpg"#}
+{#                                          data-src="images/gallery/large/pic2.jpg" class="lightimg" title="Petroleum">#}
+{#										<img src="images/gallery/small/pic2.jpg" alt="">#}
+{#									</span>#}
+{#                            </li>#}
+{#                            <li>#}
+{#									<span data-exthumbimage="images/gallery/small/pic3.jpg"#}
+{#                                          data-src="images/gallery/large/pic3.jpg" class="lightimg"#}
+{#                                          title="Agricultural">#}
+{#										<img src="images/gallery/small/pic3.jpg" alt="">#}
+{#									</span>#}
+{#                            </li>#}
+{#                            <li>#}
+{#									<span data-exthumbimage="images/gallery/small/pic4.jpg"#}
+{#                                          data-src="images/gallery/large/pic4.jpg" class="lightimg" title="Material">#}
+{#										<img src="images/gallery/small/pic4.jpg" alt="">#}
+{#									</span>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
             </div>
         </div>
     </div>
@@ -104,12 +121,14 @@
         <div class="container">
             <div class="row fb-inner">
                 <div class="col-lg-6 text-center text-lg-start">
-                    <span class="copyright-text">Copyright © 2023 <span class="heart"></span> <a href="https://dexignzone.com/" class="text-primary" target="_blank">DexignZone</a> All rights reserved.</span>
+                    <span class="copyright-text">Copyright © 2023 <span class="heart"></span>
+                        <a class="text-primary" href="https://master.ro/" target="_blank">Master</a> All rights reserved.
+                    </span>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end mt-lg-0 mt-2">
                     <ul class="footer-link d-inline-block">
-                        <li><a href="javascript:void(0);">Privacy Policy</a></li>
-                        <li><a href="javascript:void(0);">Team &amp; Condition</a></li>
+                        <li><a href="javascript:void(0);">Politica de confidențialitate</a></li>
+                        <li><a href="javascript:void(0);">Termeni si conditii</a></li>
                     </ul>
                 </div>
             </div>

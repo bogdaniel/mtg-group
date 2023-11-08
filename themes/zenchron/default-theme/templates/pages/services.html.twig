@@ -1,734 +1,188 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-group/_partial/_loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/multigama-group/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url(images/banner/bnr1.jpg);">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Servicii</h1>
+                <p>Aliquam sollicitudin dignissim nibh ac vestibulum. Mauris imperdiet sem sed quam placerat, nec
+                    euismod magna hendrerit.</p>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html.twig">Acasa</a></li>
+                        <li class="breadcrumb-item">Servicii</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
 
-	<!-- Meta -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="chemical, company, construction, corporate business, energy industry, engineering, factory, industrial, industry, manufacturing, mechanical, mining, oil gas petroleum plant, pharmaceutical, refinery"/>
-	<meta name="author" content="DexignZone"/>
-	<meta name="robots" content=""/>
-	<meta name="description" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/>
-	<meta property="og:title" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/>
-	<meta property="og:description" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/>
-	<meta property="og:image" content="https://mazo.dexignzone.com/xhtml/social-image.png"/>
-	<meta name="format-detection" content="telephone=no">
-
-	<!-- Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Title -->
-	<title>Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL</title>
-
-	<!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
-	<!-- Stylesheet -->
-	<link href="../assets/vendor/magnific-popup/magnific-popup.min.css" rel="stylesheet">
-	<link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	<link href="../assets/vendor/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
-	<link href="../assets/vendor/lightgallery/css/lightgallery.min.css" rel="stylesheet">
-	<link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-	<!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-	<link rel="stylesheet" class="skin" href="../assets/css/skin/skin-4.css">
-
-
-
-</head>
-<body id="bg" class="theme-rounded">
-<div id="loading-area">
-	<div class="loading-inner style-1">
-		<div class="wrapper">
-			<svg class="img1"  xmlns="http://www.w3.org/2000/svg" width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000" preserveAspectRatio="xMidYMid meet">
-				<g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)" fill="var(--primary)" stroke="none">
-					<path d="M402 988 c-41 -8 -52 -13 -48 -25 21 -53 19 -62 -16 -76 -32 -13 -33
-					-13 -52 17 -10 17 -20 33 -21 34 -2 2 -23 -10 -47 -26 -48 -34 -103 -90 -138
-					-141 -25 -36 -25 -36 26 -66 14 -9 15 -16 7 -40 -10 -31 -26 -36 -70 -21 -19
-					6 -23 2 -30 -31 -10 -47 -10 -165 0 -216 8 -36 9 -37 49 -35 37 3 42 0 51 -27
-					8 -24 7 -31 -7 -40 -51 -30 -51 -29 -18 -77 34 -50 111 -122 153 -144 25 -13
-					27 -12 45 21 10 19 20 35 22 35 11 0 62 -32 62 -40 0 -5 -5 -21 -10 -36 -6
-					-15 -9 -28 -7 -30 2 -2 36 -8 76 -14 66 -9 195 0 210 16 2 2 -1 20 -6 39 -11
-					35 -11 36 24 50 20 9 37 14 38 13 1 -2 10 -18 19 -36 l17 -33 31 18 c41 23
-					138 120 161 161 l18 31 -33 17 c-18 9 -34 18 -36 19 -2 2 4 17 13 35 17 32 27
-					34 78 14 20 -7 33 63 30 161 -3 84 -15 131 -34 127 -58 -14 -66 -13 -71 5 -3
-					10 -9 25 -12 34 -5 11 4 20 29 32 l36 17 -18 32 c-24 42 -120 139 -160 161
-					l-32 18 -17 -33 c-9 -18 -18 -34 -19 -36 -1 -2 -18 5 -37 14 -34 16 -35 18
-					-25 50 6 19 8 36 5 39 -8 9 -109 25 -147 24 -20 -1 -60 -6 -89 -11z m233 -130
-					c111 -41 209 -149 235 -259 20 -80 9 -196 -24 -263 -36 -73 -109 -146 -183
-					-183 -53 -25 -68 -28 -163 -28 -92 0 -112 3 -160 26 -119 57 -199 163 -222
-					296 -48 281 245 514 517 411z"/>
-				</g>
-			</svg>
-			<svg class="img2"  xmlns="http://www.w3.org/2000/svg" width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000" preserveAspectRatio="xMidYMid meet">
-				<g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)" fill="var(--primary)" stroke="none">
-					<path d="M294 728 c-4 -7 -7 -76 -6 -154 3 -141 3 -141 -22 -158 -14 -9 -28
-					-16 -30 -16 -3 0 -7 53 -9 118 l-3 117 -2 -117 -2 -118 -30 0 c-16 0 -30 -2
-					-30 -5 0 -3 11 -28 25 -56 34 -67 95 -125 164 -158 48 -22 69 -26 151 -26 84
-					0 102 3 152 28 66 33 146 115 170 176 l16 41 -29 0 -29 0 0 100 0 100 -50 0
-					-50 0 0 40 c0 39 -1 40 -34 40 -31 0 -34 -3 -40 -40 -5 -32 -10 -40 -28 -40
-					-11 0 -27 8 -34 18 -16 21 -47 6 -52 -27 -2 -12 -11 -21 -22 -21 -10 0 -20 -7
-					-24 -15 -3 -8 -15 -15 -26 -15 -18 0 -21 5 -19 38 1 20 2 65 1 100 -2 55 -4
-					63 -19 60 -16 -3 -19 -21 -23 -158 -7 -204 -23 -205 -30 -1 -3 104 -9 156 -17
-					158 -6 2 -15 -2 -19 -9z m306 -168 c0 -13 -7 -20 -20 -20 -13 0 -20 7 -20 20
-					0 13 7 20 20 20 13 0 20 -7 20 -20z m160 -1 c0 -17 -5 -20 -37 -17 -27 2 -39
-					8 -41 21 -3 14 4 17 37 17 35 0 41 -3 41 -21z m-320 -90 c0 -43 -3 -50 -17
-					-47 -14 2 -19 15 -21 51 -3 42 -1 47 17 47 18 0 21 -6 21 -51z m145 14 c-12
-					-66 -24 -73 -25 -15 0 41 3 52 16 52 13 0 15 -7 9 -37z m175 -23 c0 -33 -4
-					-60 -10 -60 -5 0 -10 5 -10 10 0 6 -6 10 -14 10 -8 0 -17 14 -21 33 -4 17 -9
-					40 -11 50 -4 14 1 17 30 17 l36 0 0 -60z"/>
-				</g>
-			</svg>
-		</div>
-		<div class="load-text">
-			<span data-text="M" class="text-load">M</span>
-			<span data-text="A" class="text-load">A</span>
-			<span data-text="Z" class="text-load">Z</span>
-			<span data-text="O" class="text-load">O</span>
-		</div>
-	</div>
-</div>
-<div class="page-wraper">
-	<!-- Header -->
-	<header class="site-header mo-left header style-1">
-		<!-- Header Top Bar -->
-		<div class="top-bar bg-secondary text-white">
-			<div class="container">
-				<div class="dz-topbar-inner d-flex justify-content-between align-items-center">
-					<div class="dz-topbar-left">
-						<ul>
-							<li><i class="fas fa-map-marker-alt"></i> 15/B Miranda House, New York, US</li>
-							<li><i class="far fa-envelope"></i> info@supports.com</li>
-						</ul>
-					</div>
-					<div class="dz-topbar-right">
-						<ul class="dz-social">
-							<li><a target="_blank" class="fab fa-facebook-f" href="https://www.facebook.com/"></a></li>
-							<li><a target="_blank" class="fab fa-instagram" href="https://www.instagram.com/"></a></li>
-							<li><a target="_blank" class="fab fa-twitter" href="https://twitter.com/"></a></li>
-							<li><a target="_blank" class="fab fa-youtube" href="https://www.youtube.com/"></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Main Header -->
-		<div class="sticky-header main-bar-wraper navbar-expand-lg text-black">
-			<div class="main-bar clearfix">
-				<div class="container clearfix bg-white">
-					<!-- Website Logo -->
-					<div class="logo-header mostion logo-dark">
-						<a href="home.html.twig"><img src="images/logo.png" alt=""></a>
-					</div>
-					<!-- Nav Toggle Button -->
-					<button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
-					<!-- Extra Nav -->
-					<div class="extra-nav">
-						<div class="extra-cell">
-							<a href="contact-us.html.twig" class="btn shadow-primary btn-secondary btn-quote">
-								<span>GET A QUOTE</span>
-							</a>
-						</div>
-					</div>
-					<!-- Extra Nav -->
-					<!-- Quik Search -->
-					<div class="dz-quik-search">
-						<form action="#">
-							<input name="search" value="" type="text" class="form-control" placeholder="Enter Your Keyword ...">
-							<span  id="quik-search-remove"><i class="ti-close"></i></span>
-						</form>
-					</div>
-					<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
-						<div class="logo-header logo-dark">
-							<a href="home.html.twig"><img src="images/logo.png" alt=""></a>
-						</div>
-						<ul class="nav navbar-nav">
-							<li class="active sub-menu-down"> <a href="javascript:;">Home</a>
-								<ul class="sub-menu">
-									<li class="new-page"><a href="../onepage/index-5.html">Home - Industry</a></li>
-									<li><a href="../1_Factory/index.html">Home - Default</a></li>
-									<li><a href="../2_LeatherIndustry/index.html">Home - Leather Industry</a></li>
-									<li><a href="../3_MiningIndustry/index-2.html">Home - Mining Industry 1</a></li>
-									<li><a href="../4_Solor/index.html">Home - Solar Plant</a></li>
-									<li><a href="../3_MiningIndustry/index.html">Home - Mining Industry 2</a></li>
-									<li><a href="../5_Industry/index.html">Home - Factory</a></li>
-									<li><a href="../onepage/index.html">Home - Construction</a></li>
-									<li><a href="../onepage/index-2.html">Home - Agriculture</a></li>
-									<li><a href="../onepage/index-3.html">Home - Food Industry</a></li>
-									<li><a href="../onepage/index-4.html">Home - Electrician</a></li>
-								</ul>
-							</li>
-							<li class="sub-menu-down"><a href="javascript:void(0);">Pages</a>
-								<ul class="sub-menu">
-									<li><a href="about-us.html.twig">About Us</a></li>
-									<li><a href="team.html.twig">Team</a></li>
-									<li><a href="coming-soon.html.twig">Coming Soon</a></li>
-									<li><a href="under-construct.html.twig">Under Construct</a></li>
-									<li><a href="error-404.html.twig">Error 404</a></li>
-								</ul>
-							</li>
-							<li class="sub-menu-down"><a href="javascript:void(0);">Portfolio</a>
-								<ul class="sub-menu">
-									<li><a href="portfolio.html.twig">Portfolio </a></li>
-									<li><a href="portfolio-details.html.twig">Portfolio Details</a></li>
-								</ul>
-							</li>
-							<li class="sub-menu-down"><a href="javascript:void(0);">Services</a>
-								<ul class="sub-menu">
-									<li><a href="services.html">Services</a></li>
-									<li><a href="services-details.html.twig">Services Details</a></li>
-								</ul>
-							</li>
-							<li class="sub-menu-down"><a href="javascript:void(0);">Blog</a>
-								<ul class="sub-menu">
-									<li><a href="blog-grid.html.twig">Blog Grid</a></li>
-									<li><a href="blog-details.html.twig">Blog Details</a></li>
-								</ul>
-							</li>
-							<li><a href="contact-us.html.twig">Contact Us</a></li>
-						</ul>
-						<div class="dz-social-icon">
-							<ul>
-								<li><a target="_blank" class="fab fa-facebook-f" href="https://www.facebook.com/"></a></li>
-								<li><a target="_blank" class="fab fa-instagram" href="https://www.instagram.com/"></a></li>
-								<li><a target="_blank" class="fab fa-twitter" href="https://twitter.com/"></a></li>
-								<li><a target="_blank" class="fab fa-youtube" href="https://www.youtube.com/"></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Main Header End -->
-
-	</header>
-	<!-- Header End -->
-
-	<div class="page-content bg-white">
-		<!-- Banner  -->
-		<div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle" style="background-image: url(images/banner/bnr1.jpg);">
-			<div class="container">
-				<div class="dz-bnr-inr-entry">
-					<h1>Services</h1>
-					<p>Aliquam sollicitudin dignissim nibh ac vestibulum. Mauris imperdiet sem sed quam placerat, nec euismod magna hendrerit.</p>
-					<!-- Breadcrumb Row -->
-					<nav aria-label="breadcrumb" class="breadcrumb-row">
-						<ul class="breadcrumb">
-							<li class="breadcrumb-item"><a href="home.html.twig">Home</a></li>
-							<li class="breadcrumb-item">Services</li>
-						</ul>
-					</nav>
-					<!-- Breadcrumb Row End -->
-				</div>
-			</div>
-			<div class="shap-bx">
-				<div class="bg-shape-left"></div>
-				<div class="bg-shape-right"></div>
-			</div>
-		</div>
-		<!-- Banner End -->
-
-		<!-- Services -->
-		<section class="content-inner">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-						<div class="icon-bx-wraper bg-secondary style-8 box-hover">
-							<div class="icon-lg m-b30">
+    <!-- Services -->
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="200">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
 								<span class="icon-cell">
 									<i class="flaticon-oil-pump"></i>
 								</span>
-							</div>
-							<div class="icon-content">
-								<h4 class="dz-title m-b10">Maintenance Service</h4>
-								<p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-						<div class="icon-bx-wraper bg-secondary style-8 box-hover active">
-							<div class="icon-lg m-b30">
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Mașini de intervenție</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="400">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover active">
+                        <div class="icon-lg m-b30">
 								<span class="icon-cell">
 									<i class="flaticon-agronomy"></i>
 								</span>
-							</div>
-							<div class="icon-content">
-								<h4 class="dz-title m-b10">Agricultural Process</h4>
-								<p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-						<div class="icon-bx-wraper bg-secondary style-8 box-hover">
-							<div class="icon-lg m-b30">
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Furnizare echipamente noi</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="600">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
 								<span class="icon-cell">
 									<i class="flaticon-crane"></i>
 								</span>
-							</div>
-							<div class="icon-content">
-								<h4 class="dz-title m-b10">Material Engineering</h4>
-								<p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-						<div class="icon-bx-wraper bg-secondary style-8 box-hover">
-							<div class="icon-lg m-b30">
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Suport Tehnic</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="800">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
 								<span class="icon-cell">
 									<i class="flaticon-control-system"></i>
 								</span>
-							</div>
-							<div class="icon-content">
-								<h4 class="dz-title m-b10">Petroleum Service</h4>
-								<p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
-						<div class="icon-bx-wraper bg-secondary style-8 box-hover">
-							<div class="icon-lg m-b30">
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Curatare instalatie</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="1000">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
 								<span class="icon-cell">
 									<i class="flaticon-nuclear-power"></i>
 								</span>
-							</div>
-							<div class="icon-content">
-								<h4 class="dz-title m-b10">Nuclear Plant</h4>
-								<p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
-						<div class="icon-bx-wraper bg-secondary style-8 box-hover">
-							<div class="icon-lg m-b30">
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Sisteme anti incendiu</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="1200">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
 								<span class="icon-cell">
 									<i class="flaticon-automobile"></i>
 								</span>
-							</div>
-							<div class="icon-content">
-								<h4 class="dz-title m-b10">Automobil Service</h4>
-								<p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Our Portfolio -->
-		<section class="content-inner-2 portfolio-area1 bg-secondary" style="background-image: url(images/pattern/pattern1.png);">
-			<div class="container">
-				<div class="section-head style-2 text-white text-center">
-					<h5 class="sub-title text-primary">OUR WORK</h5>
-					<h2 class="title">Explore Our Projects</h2>
-				</div>
-			</div>
-			<div class="swiper-container swiper-portfolio1">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="dz-box overlay style-2 overlay-shine" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-							<div class="dz-media">
-								<img src="images/work/work1/pic1.jpg" alt="">
-							</div>
-							<div class="dz-info">
-								<a href="portfolio-details.html.twig" class="view-btn" title="Florida Chemical Factory"></a>
-								<h4 class="title m-b15"><a href="portfolio-details.html.twig">Florida Chemical Factory</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="dz-box overlay style-2 overlay-shine" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-							<div class="dz-media">
-								<img src="images/work/work1/pic2.jpg" alt="">
-							</div>
-							<div class="dz-info">
-								<a href="portfolio-details.html.twig" class="view-btn" title="Chemical Research"></a>
-								<h4 class="title m-b15"><a href="portfolio-details.html.twig">Chemical Research</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="dz-box overlay style-2 overlay-shine" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-							<div class="dz-media">
-								<img src="images/work/work1/pic3.jpg" alt="">
-							</div>
-							<div class="dz-info">
-								<a href="portfolio-details.html.twig" class="view-btn" title="Oil & Gas Industry"></a>
-								<h4 class="title m-b15"><a href="portfolio-details.html.twig">Oil & Gas Industry</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="dz-box overlay style-2 overlay-shine" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
-							<div class="dz-media">
-								<img src="images/work/work1/pic4.jpg" alt="">
-							</div>
-							<div class="dz-info">
-								<a href="portfolio-details.html.twig" class="view-btn" title="Automative Manufacturing"></a>
-								<h4 class="title m-b15"><a href="portfolio-details.html.twig">Automative Manufacturing</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="dz-box overlay style-2 overlay-shine" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1000">
-							<div class="dz-media">
-								<img src="images/work/work1/pic5.jpg" alt="">
-							</div>
-							<div class="dz-info">
-								<a href="portfolio-details.html.twig" class="view-btn" title="Metal Sheet Cutting"></a>
-								<h4 class="title m-b15"><a href="portfolio-details.html.twig">Metal Sheet Cutting</a></h4>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- How It Work -->
-		<section class="content-inner bg-white hiw-area-2">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 align-self-center aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-						<div class="inner-content">
-							<div class="section-head style-2">
-								<h6 class="sub-title">WORKING PROCESS</h6>
-								<h2 class="title">How Do We Work</h2>
-							</div>
-							<div class="icon-bx-wraper left m-b30 style-9 box-hover">
-								<div class="icon-bx-sm icon-bx text-primary radius">
-									<span class="icon-cell">
-										<i class="flaticon-analytics"></i>
-									</span>
-									<div class="list-num">01</div>
-								</div>
-								<div class="icon-content">
-									<h4 class="dz-title">Business Analytics</h4>
-									<p>Morbi efficitur pharetra velit, a fermentum augue finibus non. Integer aliquet nunc a augue accumsan, quis vulputate erat blandit.</p>
-								</div>
-							</div>
-							<div class="icon-bx-wraper left m-b30 style-9 box-hover active">
-								<div class="icon-bx-sm icon-bx text-primary radius">
-									<span class="icon-cell">
-										<i class="flaticon-box"></i>
-									</span>
-									<div class="list-num">02</div>
-								</div>
-								<div class="icon-content">
-									<h4 class="dz-title">Production</h4>
-									<p>Morbi efficitur pharetra velit, a fermentum augue finibus non. Integer aliquet nunc a augue accumsan, quis vulputate erat blandit.</p>
-								</div>
-							</div>
-							<div class="icon-bx-wraper left m-b30 style-9 box-hover">
-								<div class="icon-bx-sm icon-bx text-primary radius">
-									<span class="icon-cell">
-										<i class="flaticon-gift"></i>
-									</span>
-									<div class="list-num">03</div>
-								</div>
-								<div class="icon-content">
-									<h4 class="dz-title">Product Sell</h4>
-									<p>Morbi efficitur pharetra velit, a fermentum augue finibus non. Integer aliquet nunc a augue accumsan, quis vulputate erat blandit.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 m-b30 aos-item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="800">
-						<div class="about-media style-3">
-							<div class="video-bx style-1">
-								<img src="images/about/pic9.jpg" alt=""/>
-								<div class="video-btn">
-									<a href="https://www.youtube.com/watch?v=UpolBSznWp0" class="popup-youtube"><i class="flaticon-play"></i></a>
-								</div>
-							</div>
-							<img src="images/about/pic8.jpg" class="img-cover" alt=""/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Clients Logo -->
-		<div class="clients-section-1 bg-light">
-			<div class="container">
-				<div class="swiper-container clients-swiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
-								<img class="logo-main" src="images/logo/logo-gray1.png" alt="">
-								<img class="logo-hover" src="images/logo/logo-brown1.png" alt="">
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
-								<img class="logo-main" src="images/logo/logo-gray2.png" alt="">
-								<img class="logo-hover" src="images/logo/logo-brown2.png" alt="">
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-								<img class="logo-main" src="images/logo/logo-gray3.png" alt="">
-								<img class="logo-hover" src="images/logo/logo-brown3.png" alt="">
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
-								<img class="logo-main" src="images/logo/logo-gray4.png" alt="">
-								<img class="logo-hover" src="images/logo/logo-brown4.png" alt="">
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="500">
-								<img class="logo-main" src="images/logo/logo-gray5.png" alt="">
-								<img class="logo-hover" src="images/logo/logo-brown5.png" alt="">
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="600">
-								<img class="logo-main" src="images/logo/logo-gray6.png" alt="">
-								<img class="logo-hover" src="images/logo/logo-brown6.png" alt="">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Skills and Contact -->
-		<section class="content-inner overflow-hidden">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
-						<div class="section-head style-2">
-							<h6 class="sub-title">EXPERT SKILLS</h6>
-							<h2 class="title">Our Best Skills</h2>
-						</div>
-						<div class="progress-bx style-1 m-b50 m-sm-b30">
-							<div class="progress-info">
-								<h4 class="title">Construction</h4>
-								<h4 class="progress-value">90%</h4>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" style="width: 90%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="progress-bx style-1 m-b50 m-sm-b30">
-							<div class="progress-info">
-								<h4 class="title">Development</h4>
-								<h4 class="progress-value">70%</h4>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" style="width: 70%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="progress-bx style-1 m-b50 m-sm-b30">
-							<div class="progress-info">
-								<h4 class="title">Building</h4>
-								<h4 class="progress-value">60%</h4>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" style="width: 60%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="progress-bx style-1 m-b50">
-							<div class="progress-info">
-								<h4 class="title">Designing</h4>
-								<h4 class="progress-value">80%</h4>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" style="width: 80%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 m-b30" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
-						<div class="dz-form style-1 bg-secondary">
-							<div class="section-head style-2 text-white">
-								<h6 class="text-primary sub-title">CONTACT US</h6>
-								<h2 class="title">Get In Touch</h2>
-							</div>
-							<form class="dzForm" method="POST" action="../assets/script/contact_smtp.php">
-								<div class="dzFormMsg"></div>
-								<input type="hidden" class="form-control" name="dzToDo" value="Contact">
-								<input type="hidden" class="form-control" name="reCaptchaEnable" value="0">
-								<div class="row sp10">
-									<div class="col-12 m-b20">
-										<div class="input-group">
-											<input type="text" class="form-control" name="dzName" placeholder="Full Name">
-										</div>
-									</div>
-									<div class="col-12 m-b20">
-										<div class="input-group">
-											<input type="text" class="form-control" name="dzEmail" placeholder="Email Address">
-										</div>
-									</div>
-									<div class="col-12 m-b20">
-										<div class="input-group">
-											<input type="text" class="form-control" name="dzPhoneNumber" placeholder="Phone No.">
-										</div>
-									</div>
-									<div class="col-12 m-b20">
-										<div class="input-group">
-											<textarea name="dzMessage" class="form-control">Message</textarea>
-										</div>
-									</div>
-									<div class="col-12">
-										<button name="submit" type="submit" value="submit" class="btn btn-primary">SUBSCRIBE NOW </button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	</div>
-
-	<!-- Footer -->
-    <footer class="site-footer style-2" id="footer" style="background-image: url(images/background/map-bg.png); background-size: contain; background-repeat: no-repeat;">
-		<div class="footer-info">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-sm-6 m-b30 m-sm-0">
-						<div class="footer-logo logo-white">
-							<img src="images/logo-white.png" alt="">
-						</div>
-					</div>
-					<div class="col-sm-6 text-start text-sm-end">
-						<ul class="social-list">
-							<li><a target="_blank" href="https://www.facebook.com/" class="btn facebook"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a target="_blank" href="https://www.instagram.com/" class="btn instagram"><i class="fab fa-instagram"></i></a></li>
-							<li><a target="_blank" href="https://twitter.com/" class="btn twitter"><i class="fab fa-twitter"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-top">
-            <div class="container">
-				<div class="row">
-					<div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-						<div class="widget widget_about">
-							<div class="widget-title">
-								<h4 class="title">About Us</h4>
-							</div>
-							<p>Cras faucibus ornare ipsum, non luctus leo imperdiet sit amet. Praesent egestas orci eu risus iaculis luctus. Phasellus maximus orci metus. Nullam enim ex, facilisis at lacinia sed, luctus vitae dolor.</p>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-						<div class="widget widget_getintuch">
-							<div class="widget-title">
-								<h4 class="title">Contact Us</h4>
-							</div>
-							<ul>
-								<li>
-									<i class="fas fa-map-marker-alt"></i>
-									<span>Marmora Road City, Demo Address #8901, Vietnam</span>
-								</li>
-								<li>
-									<i class="fas fa-phone-alt"></i>
-									<span>+91 987 654 3210</span><br>
-									<span>+91 123 456 7890</span>
-								</li>
-								<li>
-									<i class="fas fa-envelope"></i>
-									<span>info@example.com</span><br>
-									<span>info@supports.com</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-						<div class="widget widget_categories">
-							<div class="widget-title">
-								<h4 class="title">Our Services</h4>
-							</div>
-							<ul class="list-1">
-								<li class="cat-item"><a href="services.html">Maintenance</a></li>
-								<li class="cat-item"><a href="services.html">Petroleum</a></li>
-								<li class="cat-item"><a href="services.html">Agricultural</a></li>
-								<li class="cat-item"><a href="services.html">Material</a></li>
-								<li class="cat-item"><a href="services.html">Building</a></li>
-								<li class="cat-item"><a href="services.html">24x7 Support</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
-						<div class="widget widget_gallery gallery-grid-2">
-							<div class="widget-title">
-								<h4 class="title">Gallery</h4>
-							</div>
-							<ul class="lightgallery">
-								<li>
-									<span data-exthumbimage="images/gallery/small/pic1.jpg" data-src="images/gallery/large/pic1.jpg" class="lightimg" title="Maintenance">
-										<img src="images/gallery/small/pic1.jpg" alt="">
-									</span>
-								</li>
-								<li>
-									<span data-exthumbimage="images/gallery/small/pic2.jpg" data-src="images/gallery/large/pic2.jpg" class="lightimg" title="Petroleum">
-										<img src="images/gallery/small/pic2.jpg" alt="">
-									</span>
-								</li>
-								<li>
-									<span data-exthumbimage="images/gallery/small/pic3.jpg" data-src="images/gallery/large/pic3.jpg" class="lightimg" title="Agricultural">
-										<img src="images/gallery/small/pic3.jpg" alt="">
-									</span>
-								</li>
-								<li>
-									<span data-exthumbimage="images/gallery/small/pic4.jpg" data-src="images/gallery/large/pic4.jpg" class="lightimg" title="Material">
-										<img src="images/gallery/small/pic4.jpg" alt="">
-									</span>
-								</li>
-							</ul>
                         </div>
-					</div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Alt Serviciu</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row fb-inner">
-					<div class="col-lg-6 text-center text-lg-start">
-						<span class="copyright-text">Copyright © 2023 <span class="heart"></span> <a href="https://dexignzone.com/" class="text-primary" target="_blank">DexignZone</a> All rights reserved.</span>
-					</div>
-					<div class="col-lg-6 text-center text-lg-end mt-lg-0 mt-2">
-						<ul class="footer-link d-inline-block">
-							<li><a href="javascript:void(0);">Privacy Policy</a></li>
-							<li><a href="javascript:void(0);">Team &amp; Condition</a></li>
-						</ul>
-					</div>
+    </section>
+
+    <!-- Our Portfolio -->
+    {% include 'templates/pages/_partial/_portfolio.html.twig' %}
+
+    <!-- How It Works -->
+    {% include 'templates/pages/multigama-group/_partial/_how-it-works.html.twig' %}
+    <!-- How It Works -->
+
+    <!-- Clients Logo -->
+    <div class="clients-section-1 bg-light">
+        <div class="container">
+            <div class="swiper-container clients-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="100">
+                            <img class="logo-main" src="images/logo/logo-gray1.png" alt="">
+                            <img class="logo-hover" src="images/logo/logo-brown1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="200">
+                            <img class="logo-main" src="images/logo/logo-gray2.png" alt="">
+                            <img class="logo-hover" src="images/logo/logo-brown2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="300">
+                            <img class="logo-main" src="images/logo/logo-gray3.png" alt="">
+                            <img class="logo-hover" src="images/logo/logo-brown3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="400">
+                            <img class="logo-main" src="images/logo/logo-gray4.png" alt="">
+                            <img class="logo-hover" src="images/logo/logo-brown4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="500">
+                            <img class="logo-main" src="images/logo/logo-gray5.png" alt="">
+                            <img class="logo-hover" src="images/logo/logo-brown5.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="600">
+                            <img class="logo-main" src="images/logo/logo-gray6.png" alt="">
+                            <img class="logo-hover" src="images/logo/logo-brown6.png" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- Footer End -->
-	<button class="scroltop icon-up" type="button"><i class="fas fa-arrow-up"></i></button>
-</div>
-<!-- JAVASCRIPT FILES ========================================= -->
-<script src="../assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP.MIN JS -->
-<script src="../assets/vendor/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
-<script src="../assets/vendor/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
-<script src="../assets/vendor/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
-<script src="../assets/vendor/masonry/isotope.pkgd.min.js"></script><!-- ISOTOPE -->
-<script src="../assets/vendor/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
-<script src="../assets/vendor/masonry/masonry-4.2.2.js"></script><!-- MASONRY -->
-<script src="../assets/vendor/lightgallery/js/lightgallery-all.min.js"></script><!-- LIGHTGALLERY -->
-<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script><!-- OWL-CAROUSEL -->
-<script src="../assets/vendor/aos/aos.js"></script><!-- AOS -->
-<script src="../assets/vendor/perfect-scrollbar/js/perfect-scrollbar.min.js"></script><!-- Perfect Scrollbar -->
-<script src="../assets/js/dz.carousel.js"></script><!-- OWL-CAROUSEL -->
-<script src="../assets/js/dz.ajax.js"></script><!-- AJAX -->
-<script src="../assets/js/custom.js"></script><!-- CUSTOM JS -->
+    </div>
 
+    <!-- Skills and Contact -->
+    {% include 'templates/pages/_partial/_quick-contact.html.twig' %}
 
-</body>
-</html>
+{% endblock %}

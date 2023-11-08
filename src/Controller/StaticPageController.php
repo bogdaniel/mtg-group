@@ -24,31 +24,40 @@ class StaticPageController extends AbstractController
             ],
             [
                 'name' => 'Despre Noi',
-                'path' => 'pages/about-us'
+                'path' => '/page/about-us'
             ],
             [
                 'name' => 'Produse',
-                'path' => '/pages/products'
+                'path' => '/page/products'
             ],
             [
                 'name' => 'Servicii',
-                'path' => '/pages/services/'
-            ],
-            [
-                'name' => '',
-                'path' => '/'
+                'path' => '/page/services/',
+                'sub_menu' => [
+                    [
+                        'name' => 'Servicii',
+                        'path' => '/page/services/',
+                    ],
+                    [
+                        'name' => 'Detalii Serviciu',
+                        'path' => '/page/services-details/',
+                    ]
+                ]
             ],
             [
                 'name' => 'Proiecte',
-                'path' => '/pages/projects'
+                'path' => '/page/portfolio'
             ],
             [
                 'name' => 'Contact',
-                'path' => '/pages/contact'
+                'path' => '/page/contact-us'
             ],
         ];
+
+        $skinVersion = 'skin-3.css';
         return $this->render("templates/pages/{$pageName}.html.twig", [
-            'multiGamaGroupMenu' => $multiGamaGroupMenu
+            'multiGamaGroupMenu' => $multiGamaGroupMenu,
+            'skinVersion' => $skinVersion
         ]);
     }
 }
