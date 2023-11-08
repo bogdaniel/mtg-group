@@ -1,0 +1,83 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-group/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+		<!-- Banner  -->
+		<div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle" style="background-image: url('{{ asset('/assets/images/banner/bnr1.jpg') }}');">
+			<div class="container">
+				<div class="dz-bnr-inr-entry">
+					<h1>Detalii Serviciu</h1>
+					<p>Aliquam sollicitudin dignissim nibh ac vestibulum. Mauris imperdiet sem sed quam placerat, nec euismod magna hendrerit.</p>
+					<!-- Breadcrumb Row -->
+					<nav aria-label="breadcrumb" class="breadcrumb-row">
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">Acasa</a></li>
+							<li class="breadcrumb-item">Servicii</li>
+							<li class="breadcrumb-item">Nume Serviciu</li>
+						</ul>
+					</nav>
+					<!-- Breadcrumb Row End -->
+				</div>
+			</div>
+			<div class="shap-bx">
+				<div class="bg-shape-left"></div>
+				<div class="bg-shape-right"></div>
+			</div>
+		</div>
+		<!-- Banner End -->
+
+		<!-- Service Details -->
+		<section class="content-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 m-b30 aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+						<div class="sticky-top">
+							<div class="widget ext-sidebar-menu">
+								<ul class="menu">
+									<li><a href="/page/services-details">Mentenanta</a></li>
+									<li class="active"><a href="services-details.html">Curatare Industriala</a></li>
+									<li><a href="/page/services-details">Instalare Pompe</a></li>
+									<li><a href="/page/services-details">Instalatie anti incendiu</a></li>
+									<li><a href="/page/services-details">Furnizare echipamente noi</a></li>
+									<li><a href="/page/services-details">Alt Serviciu</a></li>
+								</ul>
+							</div>
+							<div class="widget">
+								<div class="quote-bx overlay-black-dark" style="background-image:url({{ asset('/assets/images/services/service-detail/pic4.jpg') }});">
+									<h4 class="text-white m-b15">Ai o intrebare ?</h4>
+									<p class="m-b20">Donec vel odio varius, ultricies dolor ac, efficitur ante. Nunc id lorem eu neque sodales pharetra.</p>
+									<a href="/page/contact-us" class="btn btn-primary">CERE OFERTA</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-12 m-b30">
+						<div class="service-detail">
+							<div class="dz-media">
+								<img src="{{ asset('/assets/images/services/service-detail/pic5.jpg') }}" alt="">
+							</div>
+							<div class="dz-content m-b40">
+								<h2 class="title m-b15">Masini de interventie</h2>
+								<p>Pellentesque vitae tellus augue. Quisque rhoncus, mauris eget fermentum ornare, orci eros condimentum leo, vitae dictum ipsum leo ut nulla. Mauris at ligula ut urna hendrerit consectetur. In in turpis ultrices, pellentesque tellus eget, pulvinar massa. Nulla porttitor luctus tortor, nec dapibus neque pellentesque ornare. Morbi non lacus turpis. Aliquam laoreet metus fringilla, condimentum lacus eget, dignissim libero.</p>
+							</div>
+							<div class="dz-content m-b30">
+								<h2 class="title m-b15">De ce sa alegi serviciile noastre ?</h2>
+								<p class="m-b30">Nullam enim nisi, pulvinar nec diam in, facilisis consequat nunc. Mauris elementum metus eu sapien interdum venenatis. Nunc scelerisque pharetra eros, eget porttitor turpis porta id. Nullam sollicitudin neque in quam congue, vitae rhoncus leo ultricies. Phasellus a felis non augue iaculis elementum.</p>
+							</div>
+							<div class="dz-media">
+								<img src="{{ asset('/assets/images/services/service-detail/pic3.jpg') }}" alt="">
+							</div>
+							<div class="dz-content">
+								<h2 class="title m-b15">Beneficii</h2>
+								<p>Nullam enim nisi, pulvinar nec diam in, facilisis consequat nunc. Mauris elementum metus eu sapien interdum venenatis. Nunc scelerisque pharetra eros, eget porttitor turpis porta id. Nullam sollicitudin neque in quam congue, vitae rhoncus leo ultricies. Phasellus a felis non augue iaculis elementum.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}

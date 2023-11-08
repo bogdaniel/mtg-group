@@ -1,6 +1,6 @@
 {% extends '/templates/base.html.twig' %}
 {% block load_text %}
-    {% include 'templates/pages/multigama-group/_partial/_loader.html.twig' %}
+    {% include 'templates/pages/multigama-group/_partial/_multigama-tech-loader.html.twig' %}
 {% endblock %}
 {% block header %}
     {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
@@ -11,14 +11,14 @@
          style="background-image: url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
         <div class="container">
             <div class="dz-bnr-inr-entry">
-                <h1>Servicii</h1>
+                <h1>Contacteaza-ne</h1>
                 <p>Aliquam sollicitudin dignissim nibh ac vestibulum. Mauris imperdiet sem sed quam placerat, nec
                     euismod magna hendrerit.</p>
                 <!-- Breadcrumb Row -->
                 <nav aria-label="breadcrumb" class="breadcrumb-row">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="home.html.twig">Acasa</a></li>
-                        <li class="breadcrumb-item">Servicii</li>
+                        <li class="breadcrumb-item"><a href="#">Acasa</a></li>
+                        <li class="breadcrumb-item">Contact</li>
                     </ul>
                 </nav>
                 <!-- Breadcrumb Row End -->
@@ -31,104 +31,97 @@
     </div>
     <!-- Banner End -->
 
-    <!-- Services -->
     <section class="content-inner">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
-                     data-aos-delay="200">
-                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
-                        <div class="icon-lg m-b30">
-								<span class="icon-cell">
-									<i class="flaticon-oil-pump"></i>
+            <div class="row align-items-center m-b50">
+                <div class="col-lg-6">
+                    <div class="section-head style-2">
+                        <h6 class="sub-title text-primary">CONTACT INFO</h6>
+                        <h2 class="title">Hai sa ne <br/>cunoastem</h2>
+                    </div>
+                    <div class="icon-bx-wraper m-b30 style-10 box-hover">
+                        <div class="icon-bx-sm icon-bx">
+								<span class="icon-cell text-primary">
+									<i class="flaticon-phone-call"></i>
 								</span>
                         </div>
                         <div class="icon-content">
-                            <h4 class="dz-title m-b10">Mașini de intervenție</h4>
-                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                            <h4 class="dz-title">Telefon</h4>
+                            <p>+91 987 654 3210, +91 123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="icon-bx-wraper m-b30 style-10 box-hover active">
+                        <div class="icon-bx-sm icon-bx">
+								<span class="icon-cell text-primary">
+									<i class="flaticon-placeholder"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title">Adresa</h4>
+                            <p>Str. 7 Drumuri, Nr. 9C, Sector 3, București</p>
+                        </div>
+                    </div>
+                    <div class="icon-bx-wraper m-b30 style-10 box-hover">
+                        <div class="icon-bx-sm icon-bx">
+								<span class="icon-cell text-primary">
+									<i class="flaticon-mail"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title">Email Address</h4>
+                            <p>office@multigama.ro</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
-                     data-aos-delay="400">
-                    <div class="icon-bx-wraper bg-secondary style-8 box-hover active">
-                        <div class="icon-lg m-b30">
-								<span class="icon-cell">
-									<i class="flaticon-agronomy"></i>
-								</span>
+                <div class="col-lg-6 m-b30">
+                    <div class="dz-form style-1 bg-secondary">
+                        <div class="section-head style-2 text-white">
+                            <h6 class="text-primary sub-title">CONTACT US</h6>
+                            <h2 class="title">Get In Touch</h2>
                         </div>
-                        <div class="icon-content">
-                            <h4 class="dz-title m-b10">Furnizare echipamente noi</h4>
-                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
-                     data-aos-delay="600">
-                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
-                        <div class="icon-lg m-b30">
-								<span class="icon-cell">
-									<i class="flaticon-crane"></i>
-								</span>
-                        </div>
-                        <div class="icon-content">
-                            <h4 class="dz-title m-b10">Suport Tehnic</h4>
-                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
-                     data-aos-delay="800">
-                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
-                        <div class="icon-lg m-b30">
-								<span class="icon-cell">
-									<i class="flaticon-control-system"></i>
-								</span>
-                        </div>
-                        <div class="icon-content">
-                            <h4 class="dz-title m-b10">Curatare instalatie</h4>
-                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
-                     data-aos-delay="1000">
-                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
-                        <div class="icon-lg m-b30">
-								<span class="icon-cell">
-									<i class="flaticon-nuclear-power"></i>
-								</span>
-                        </div>
-                        <div class="icon-content">
-                            <h4 class="dz-title m-b10">Sisteme anti incendiu</h4>
-                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
-                     data-aos-delay="1200">
-                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
-                        <div class="icon-lg m-b30">
-								<span class="icon-cell">
-									<i class="flaticon-automobile"></i>
-								</span>
-                        </div>
-                        <div class="icon-content">
-                            <h4 class="dz-title m-b10">Alt Serviciu</h4>
-                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
-                        </div>
+                        <form class="dzForm" method="GET" action="#">
+                            <div class="dzFormMsg"></div>
+                            <input type="hidden" class="form-control" name="dzToDo" value="Contact">
+                            <input type="hidden" class="form-control" name="reCaptchaEnable" value="0">
+                            <div class="row sp10">
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="dzName" placeholder="Nume">
+                                    </div>
+                                </div>
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="dzEmail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="dzPhoneNumber"
+                                               placeholder="Telefon">
+                                    </div>
+                                </div>
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <textarea name="dzMessage" class="form-control">Message</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button name="submit" type="submit" value="submit" class="btn btn-primary">Trimite
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+            <div class="map-iframe m-b30 style-1">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?q=Strada+Șapte+Drumuri+9c,+București,+Romania&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                    allowfullscreen></iframe>
+            </div>
         </div>
     </section>
-
-    <!-- Our Portfolio -->
-    {% include 'templates/pages/_partial/_portfolio.html.twig' %}
-
-    <!-- How It Works -->
-    {% include 'templates/pages/multigama-group/_partial/_how-it-works.html.twig' %}
-    <!-- How It Works -->
+    <!-- Contact Form -->
 
     <!-- Clients Logo -->
     <div class="clients-section-1 bg-light">
@@ -181,8 +174,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Skills and Contact -->
-    {% include 'templates/pages/_partial/_quick-contact.html.twig' %}
-
 {% endblock %}

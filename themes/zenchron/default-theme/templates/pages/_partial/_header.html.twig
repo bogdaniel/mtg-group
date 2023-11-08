@@ -22,12 +22,40 @@
 
     <!-- Main Header -->
     <div class="sticky-header main-bar-wraper navbar-expand-lg text-black">
+        <div class="main-bar clearfix d-none d-sm-block">
+            <div class="container clearfix bg-white">
+                <div class="row">
+                    <div class="col-8 offset-2">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="container-fluid">
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                                    <!-- Added 'justify-content-between' class -->
+                                    <ul class="navbar-nav w-100 d-flex justify-content-between">
+                                        <!-- Added 'w-100', 'd-flex' and 'justify-content-between' classes -->
+                                        <li class="nav-item">
+                                            <a aria-current="page" class="nav-link active" href="{{ path('static_page',{'pageName': 'multigama-tech-home'}) }}
+">MULTIGAMA TECH</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">MULTIGAMA SERVICE</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">EQ FIRE</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="main-bar clearfix">
             <div class="container clearfix bg-white">
                 <!-- Website Logo -->
                 <div class="logo-header mostion logo-dark">
-                    <a href="#">
-                        <img src="{{ asset('assets/images/logo/logo-multigama-group.png') }}" alt="">
+                    <a href="/">
+                        <img src="{{ asset('assets/images/logo/' ~ logo) }}" alt="">
                     </a>
                 </div>
                 <!-- Nav Toggle Button -->
@@ -57,7 +85,9 @@
                 <!-- Quik Search -->
                 <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
                     <div class="logo-header logo-dark">
-                        <a href="index.html"><img src="images/logo.png" alt=""></a>
+                        <a href="/">
+                            <img src="{{ asset('assets/images/logo/' ~ logo) }}" alt="">
+                        </a>
                     </div>
                     <ul class="nav navbar-nav">
                         {% for item in multiGamaGroupMenu %}
