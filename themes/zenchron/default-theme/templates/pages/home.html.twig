@@ -3,7 +3,7 @@
     {% include 'templates/pages/multigama-group/_partial/_loader.html.twig' %}
 {% endblock %}
 {% block header %}
-    {% include 'templates/pages/multigama-group/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
 {% endblock %}
 {% block body %}
     <div class="page-content bg-white">
@@ -24,7 +24,7 @@
         <!-- Counter -->
 
         <!-- How It Works -->
-        {% include 'templates/pages/multigama-group/_partial/how-it-works.html.twig' %}
+        {% include 'templates/pages/multigama-group/_partial/_how-it-works.html.twig' %}
 
         <!-- Testimonials -->
         {% include 'templates/pages/_partial/_testimonial.html.twig' %}
