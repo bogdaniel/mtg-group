@@ -22,7 +22,7 @@ build: ## Builds the Docker images
 	@$(DOCKER_COMP) build --pull --no-cache
 
 up: ## Start the docker hub in detached mode (no logs)
-	@$(DOCKER_COMP) up --detach
+	@$(DOCKER_COMP) up --pull -d --wait
 
 start: build up ## Build and start the containers
 
@@ -48,6 +48,31 @@ vendor: composer
 sf: ## List all Symfony commands or pass the parameter "c=" to run a given command, example: make sf c=about
 	@$(eval c ?=)
 	@$(SYMFONY) $(c)
+
+default: test
+
+init: get-phpcpd
+
+test: rector phpcpd phpmd phpstan psalm
+
+rector:
+	./vendor/bin/rector -n
+
+phpcpd:
+	./phpcpd.phar src
+
+phpmd:
+	vendor/bin/phpmd src text cleancode,codesize,controversial,design,unusedcode
+
+phpstan:
+	php vendor/bin/phpstan
+
+psalm:
+	./vendor/bin/psalm
+
+get-phpcpd:
+	wget https://phar.phpunit.de/phpcpd.phar
+	chmod +x ./phpcpd.phar
 
 cc: c=c:c ## Clear the cache
 cc: sf
