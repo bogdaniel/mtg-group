@@ -12,6 +12,21 @@ FROM node:18-alpine AS symfony_upstream
 
 # node "stage"
 FROM symfony_upstream AS symfony_node
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache
+RUN apk add \
+    wget \
+    gcc \
+    make \
+    zlib-dev \
+    libffi-dev \
+    openssl-dev \
+    python3 \
+    musl-dev
+RUN ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
+RUN pip3 install --no-cache --upgrade awscli
 WORKDIR /srv/app
 COPY package*.json ./
 RUN yarn install
