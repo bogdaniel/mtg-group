@@ -6,7 +6,20 @@
  */
 
 // vendor
+import 'jquery';
+import 'bootstrap';
+import 'bootstrap-select';
+import 'magnific-popup';
 import 'animate.css';
+import 'aos';
+import 'swiper';
+import '@popperjs/core';
+import 'isotope-layout';
+import 'lightgallery';
+import 'masonry-layout';
+import 'perfect-scrollbar';
+
+
 
 // any CSS you import will output into a single css file (app.css in this case)
 // import '../icons/dz-icons/icons.css';

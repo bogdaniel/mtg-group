@@ -28,7 +28,7 @@ RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 RUN pip3 install --no-cache --upgrade awscli
 RUN apk add --no-cache --virtual .gyp python3 make g++ \
-    && yarn global add node-sass \
+    && yarn install \
     && apk del .gyp
 WORKDIR /srv/app
 COPY package*.json ./
