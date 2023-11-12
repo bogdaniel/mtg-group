@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Tamil [ta]
 //! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 

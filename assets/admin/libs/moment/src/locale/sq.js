@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Albanian [sq]
 //! author : Flakërim Ismani : https://github.com/flakerimi
 //! author : Menelion Elensúle : https://github.com/Oire

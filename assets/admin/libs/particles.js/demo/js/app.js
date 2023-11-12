@@ -5,7 +5,7 @@
 /* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
 /*
 particlesJS.load('particles-javascript', 'particles.json', function() {
-  console.log('particles.javascript loaded - callback');
+  console.log('particles.js loaded - callback');
 });
 */
 

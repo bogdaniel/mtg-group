@@ -1,4 +1,4 @@
-import Fuse from 'fuse.javascript';
+import Fuse from 'fuse.js';
 import { Choices } from './choices';
 import { Choice } from './choice';
 import { ClassNames } from './class-names';

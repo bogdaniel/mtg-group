@@ -1,6 +1,6 @@
 
 /* **********************************************
-     Begin prism-core.javascript
+     Begin prism-core.js
 ********************************************** */
 
 /// <reference lib="WebWorker"/>
@@ -556,7 +556,7 @@ var Prism = (function (_self) {
 		 * to improve performance and avoid blocking the UI when highlighting very large chunks of code. This option is
 		 * [disabled by default](https://prismjs.com/faq.html#why-is-asynchronous-highlighting-disabled-by-default).
 		 *
-		 * Note: All language definitions required to highlight the code must be included in the main `prism.javascript` file for
+		 * Note: All language definitions required to highlight the code must be included in the main `prism.js` file for
 		 * asynchronous highlighting to work. You can build your own bundle on the
 		 * [Download page](https://prismjs.com/download.html).
 		 * @param {HighlightCallback} [callback] An optional callback to be invoked after the highlighting is done.
@@ -655,7 +655,7 @@ var Prism = (function (_self) {
 		 * @memberof Prism
 		 * @public
 		 * @example
-		 * Prism.highlight('var foo = true;', Prism.languages.javascript, 'javascript');
+		 * Prism.highlight('var foo = true;', Prism.languages.js, 'javascript');
 		 */
 		highlight: function (text, grammar, language) {
 			var env = {
@@ -689,7 +689,7 @@ var Prism = (function (_self) {
 		 * @public
 		 * @example
 		 * let code = `var foo = 0;`;
-		 * let tokens = Prism.tokenize(code, Prism.languages.javascript);
+		 * let tokens = Prism.tokenize(code, Prism.languages.js);
 		 * tokens.forEach(token => {
 		 *     if (token instanceof Prism.Token && token.type === 'number') {
 		 *         console.log(`Found numeric literal: ${token.content}`);
@@ -1147,7 +1147,7 @@ var Prism = (function (_self) {
 
 	if (!_self.document) {
 		if (!_self.addEventListener) {
-			// in Node.javascript
+			// in Node.js
 			return _;
 		}
 
@@ -1188,7 +1188,7 @@ var Prism = (function (_self) {
 
 	if (!_.manual) {
 		// If the document state is "loading", then we'll use DOMContentLoaded.
-		// If the document state is "interactive" and the prism.javascript script is deferred, then we'll also use the
+		// If the document state is "interactive" and the prism.js script is deferred, then we'll also use the
 		// DOMContentLoaded event because there might be some plugins or languages which have also been deferred and they
 		// might take longer one animation frame to execute which can create a race condition where only some plugins have
 		// been loaded when Prism.highlightAll() is executed, depending on how fast resources are loaded.
@@ -1213,7 +1213,7 @@ if (typeof module !== 'undefined' && module.exports) {
 	module.exports = Prism;
 }
 
-// hack for components to work correctly in node.javascript
+// hack for components to work correctly in node.js
 if (typeof global !== 'undefined') {
 	global.Prism = Prism;
 }
@@ -1269,7 +1269,7 @@ if (typeof global !== 'undefined') {
 
 
 /* **********************************************
-     Begin prism-markup.javascript
+     Begin prism-markup.js
 ********************************************** */
 
 Prism.languages.markup = {
@@ -1461,7 +1461,7 @@ Prism.languages.rss = Prism.languages.xml;
 
 
 /* **********************************************
-     Begin prism-css.javascript
+     Begin prism-css.js
 ********************************************** */
 
 (function (Prism) {
@@ -1531,7 +1531,7 @@ Prism.languages.rss = Prism.languages.xml;
 
 
 /* **********************************************
-     Begin prism-clike.javascript
+     Begin prism-clike.js
 ********************************************** */
 
 Prism.languages.clike = {
@@ -1568,10 +1568,10 @@ Prism.languages.clike = {
 
 
 /* **********************************************
-     Begin prism-javascript.javascript
+     Begin prism-javascript.js
 ********************************************** */
 
-Prism.languages.javascript = Prism.languages.extend('clike', {
+Prism.languages.js = Prism.languages.extend('clike', {
 	'class-name': [
 		Prism.languages.clike['class-name'],
 		{
@@ -1622,7 +1622,7 @@ Prism.languages.javascript = Prism.languages.extend('clike', {
 	'operator': /--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/
 });
 
-Prism.languages.javascript['class-name'][0].pattern = /(\b(?:class|extends|implements|instanceof|interface|new)\s+)[\w.\\]+/;
+Prism.languages.js['class-name'][0].pattern = /(\b(?:class|extends|implements|instanceof|interface|new)\s+)[\w.\\]+/;
 
 Prism.languages.insertBefore('javascript', 'keyword', {
 	'regex': {
@@ -1666,22 +1666,22 @@ Prism.languages.insertBefore('javascript', 'keyword', {
 		{
 			pattern: /(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,
 			lookbehind: true,
-			inside: Prism.languages.javascript
+			inside: Prism.languages.js
 		},
 		{
 			pattern: /(^|[^$\w\xA0-\uFFFF])(?!\s)[_$a-z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,
 			lookbehind: true,
-			inside: Prism.languages.javascript
+			inside: Prism.languages.js
 		},
 		{
 			pattern: /(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,
 			lookbehind: true,
-			inside: Prism.languages.javascript
+			inside: Prism.languages.js
 		},
 		{
 			pattern: /((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,
 			lookbehind: true,
-			inside: Prism.languages.javascript
+			inside: Prism.languages.js
 		}
 	],
 	'constant': /\b[A-Z](?:[A-Z_]|\dx?)*\b/
@@ -1709,7 +1709,7 @@ Prism.languages.insertBefore('javascript', 'string', {
 						pattern: /^\$\{|\}$/,
 						alias: 'punctuation'
 					},
-					rest: Prism.languages.javascript
+					rest: Prism.languages.js
 				}
 			},
 			'string': /[\s\S]+/
@@ -1742,11 +1742,11 @@ if (Prism.languages.markup) {
 	);
 }
 
-Prism.languages.js = Prism.languages.javascript;
+Prism.languages.js = Prism.languages.js;
 
 
 /* **********************************************
-     Begin prism-file-highlight.javascript
+     Begin prism-file-highlight.js
 ********************************************** */
 
 (function () {

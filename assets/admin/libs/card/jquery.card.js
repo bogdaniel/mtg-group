@@ -6,7 +6,7 @@ var card=function(r){var e={};function t(a){if(e[a])return e[a].exports;var n=e[
  * http://jquery.org/license
  *
  * @fileoverview
- * Port of jQuery.extend that actually works on node.javascript
+ * Port of jQuery.extend that actually works on node.js
  */var a=t(13),n=t(14),o=Object.defineProperty,i=Object.getOwnPropertyDescriptor,d=function(r,e,t){o&&"__proto__"===e?o(r,e,{enumerable:!0,configurable:!0,value:t,writable:!0}):r[e]=t},c=function(r,e){if("__proto__"===e){if(!n(r,e))return;if(i)return i(r,e).value}return r[e]};r.exports=function r(){var e,t,n,o,i,p,l=arguments[0]||{},s=1,f=arguments.length,g=!1;for("boolean"==typeof l&&(g=l,l=arguments[1]||{},s=2),"object"==typeof l||a.fn(l)||(l={});s<f;s++)if(null!=(e=arguments[s]))for(t in"string"==typeof e&&(e=e.split("")),e)n=c(l,t),l!==(o=c(e,t))&&(g&&o&&(a.hash(o)||(i=a.array(o)))?(i?(i=!1,p=n&&a.array(n)?n:[]):p=n&&a.hash(n)?n:{},d(l,t,r(g,p,o))):void 0!==o&&d(l,t,o));return l}},function(r,e,t){"use strict";
 /**!
  * is

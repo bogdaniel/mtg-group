@@ -58,7 +58,7 @@ export interface ParsingOptions {
   | false;
 
   /**
-   * Chart.javascript is fastest if you provide data with indices that are unique, sorted, and consistent across datasets and provide the normalized: true option to let Chart.javascript know that you have done so.
+   * Chart.js is fastest if you provide data with indices that are unique, sorted, and consistent across datasets and provide the normalized: true option to let Chart.js know that you have done so.
    */
   normalized: boolean;
 }

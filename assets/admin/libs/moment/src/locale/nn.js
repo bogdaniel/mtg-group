@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Nynorsk [nn]
 //! author : https://github.com/mechuwind
 

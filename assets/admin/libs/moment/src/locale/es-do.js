@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Spanish (Dominican Republic) [es-do]
 
 import moment from '../moment';

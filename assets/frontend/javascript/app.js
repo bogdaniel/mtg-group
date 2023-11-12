@@ -11,11 +11,23 @@ import 'bootstrap';
 import 'bootstrap-select';
 import 'magnific-popup';
 import 'animate.css';
-import 'aos';
-import 'swiper';
+
+import AOS from 'aos';
+// and to access this aos package you use
+import 'aos/dist/aos.css';
+
+// import Swiper JS
+import Swiper from 'swiper';
+// import Swiper styles
+import 'swiper/css';
+
+import lightGallery from 'lightgallery';
+import 'lightgallery/scss/lightgallery-bundle.scss'
+
 import '@popperjs/core';
+
+
 import 'isotope-layout';
-import 'lightgallery';
 import 'masonry-layout';
 import 'perfect-scrollbar';
 
@@ -297,7 +309,7 @@ const Mazo = (() => {
 
   /* Masonry Box ============ */
   const masonryBox = () => {
-    /* masonry by  = bootstrap-select.min.javascript */
+    /* masonry by  = bootstrap-select.min.js */
     if (jQuery('#masonry, .masonry').length > 0) {
       var self = jQuery("#masonry, .masonry");
 
@@ -337,7 +349,7 @@ const Mazo = (() => {
         self.isotope({filter: filterValue});
       });
     }
-    /* masonry by  = bootstrap-select.min.javascript end */
+    /* masonry by  = bootstrap-select.min.js end */
   };
 
   /* Counter Number ============ */
@@ -360,7 +372,7 @@ const Mazo = (() => {
 
   /* Gallery Filter ============ */
   const handleFilterMasonary = () => {
-    /* gallery filter activation = jquery.mixitup.min.javascript */
+    /* gallery filter activation = jquery.mixitup.min.js */
     if (jQuery('#image-gallery-mix').length) {
       jQuery('.gallery-filter').find('li').each(function () {
         $(this).addClass('filter');
@@ -377,7 +389,7 @@ const Mazo = (() => {
         return false;
       });
     }
-    /* gallery filter activation = jquery.mixitup.min.javascript */
+    /* gallery filter activation = jquery.mixitup.min.js */
   };
 
   /* Resizebanner ============ */

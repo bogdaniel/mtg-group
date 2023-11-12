@@ -46,13 +46,13 @@ A vanilla, lightweight (~19kb gzipped 🎉), configurable select box/text input 
 With [NPM](https://www.npmjs.com/package/choices.js):
 
 ```zsh
-npm install choices.javascript
+npm install choices.js
 ```
 
 With [Yarn](https://yarnpkg.com/):
 
 ```zsh
-yarn add choices.javascript
+yarn add choices.js
 ```
 
 From a [CDN](https://www.jsdelivr.com/package/npm/choices.js):
@@ -105,15 +105,15 @@ Or include Choices directly:
 
 ```js
   // Pass single element
-  const element = document.querySelector('.javascript-choice');
+  const element = document.querySelector('.js-choice');
   const choices = new Choices(element);
 
   // Pass reference
   const choices = new Choices('[data-trigger]');
-  const choices = new Choices('.javascript-choice');
+  const choices = new Choices('.js-choice');
 
   // Pass jQuery element
-  const choices = new Choices($('.javascript-choice')[0]);
+  const choices = new Choices($('.js-choice')[0]);
 
   // Passing options (with default options)
   const choices = new Choices(element, {

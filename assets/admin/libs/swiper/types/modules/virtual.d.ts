@@ -116,7 +116,7 @@ export interface VirtualOptions {
    */
   renderSlide?: (slide: any, index: any) => any | null;
   /**
-   * Function for external rendering (e.g. using some other library to handle DOM manipulations and state like React.javascript or Vue.javascript). As an argument it accepts `data` object with the following properties:
+   * Function for external rendering (e.g. using some other library to handle DOM manipulations and state like React.js or Vue.js). As an argument it accepts `data` object with the following properties:
    *
    * - `offset` - slides left/top offset in px
    * - `from` - index of first slide required to be rendered

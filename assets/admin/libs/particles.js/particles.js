@@ -1,8 +1,8 @@
 /* -----------------------------------------------
 /* Author : Vincent Garreau  - vincentgarreau.com
 /* MIT license: http://opensource.org/licenses/MIT
-/* Demo / Generator : vincentgarreau.com/particles.javascript
-/* GitHub : github.com/VincentGarreau/particles.javascript
+/* Demo / Generator : vincentgarreau.com/particles.js
+/* GitHub : github.com/VincentGarreau/particles.js
 /* How to use? : Check the GitHub README
 /* v2.0.0
 /* ----------------------------------------------- */
@@ -11,7 +11,7 @@ var pJS = function(tag_id, params){
 
   var canvas_el = document.querySelector('#'+tag_id+' > .particles-javascript-canvas-el');
 
-  /* particles.javascript variables with default values */
+  /* particles.js variables with default values */
   this.pJS = {
     canvas: {
       el: canvas_el,
@@ -1470,7 +1470,7 @@ function isInArray(value, array) {
 }
 
 
-/* ---------- particles.javascript functions - start ------------ */
+/* ---------- particles.js functions - start ------------ */
 
 window.pJSDom = [];
 
@@ -1512,7 +1512,7 @@ window.particlesJS = function(tag_id, params){
   /* append canvas */
   var canvas = document.getElementById(tag_id).appendChild(canvas_el);
 
-  /* launch particle.javascript */
+  /* launch particle.js */
   if(canvas != null){
     pJSDom.push(new pJS(tag_id, params));
   }

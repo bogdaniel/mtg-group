@@ -4013,10 +4013,10 @@ function clone(parent, circular, depth, prototype, includeNonEnumerable) {
       child = new Date(parent.getTime());
     } else if (useBuffer && Buffer.isBuffer(parent)) {
       if (Buffer.allocUnsafe) {
-        // Node.javascript >= 4.5.0
+        // Node.js >= 4.5.0
         child = Buffer.allocUnsafe(parent.length);
       } else {
-        // Older Node.javascript versions
+        // Older Node.js versions
         child = new Buffer(parent.length);
       }
       parent.copy(child);
@@ -7838,7 +7838,7 @@ function EE(fn, context, once) {
 }
 
 /**
- * Minimal `EventEmitter` interface that is molded against the Node.javascript
+ * Minimal `EventEmitter` interface that is molded against the Node.js
  * `EventEmitter` interface.
  *
  * @constructor

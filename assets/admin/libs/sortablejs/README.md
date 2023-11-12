@@ -68,10 +68,10 @@ Import into your project:
 import Sortable from 'sortablejs';
 
 // Core SortableJS (without default plugins)
-import Sortable from 'sortablejs/modular/sortable.core.esm.javascript';
+import Sortable from 'sortablejs/modular/sortable.core.esm.js';
 
 // Complete SortableJS (with all plugins)
-import Sortable from 'sortablejs/modular/sortable.complete.esm.javascript';
+import Sortable from 'sortablejs/modular/sortable.complete.esm.js';
 ```
 
 Cherrypick plugins:
@@ -83,7 +83,7 @@ Sortable.mount(new MultiDrag(), new Swap());
 
 
 // Cherrypick default plugins
-import Sortable, { AutoScroll } from 'sortablejs/modular/sortable.core.esm.javascript';
+import Sortable, { AutoScroll } from 'sortablejs/modular/sortable.core.esm.js';
 
 Sortable.mount(new AutoScroll());
 ```
@@ -410,15 +410,15 @@ Sortable.create(el, {
 
 ```js
 Sortable.create(list, {
-	filter: ".javascript-remove, .javascript-edit",
+	filter: ".js-remove, .js-edit",
 	onFilter: function (evt) {
 		var item = evt.item,
 			ctrl = evt.target;
 
-		if (Sortable.utils.is(ctrl, ".javascript-remove")) {  // Click on remove button
+		if (Sortable.utils.is(ctrl, ".js-remove")) {  // Click on remove button
 			item.parentNode.removeChild(item); // remove sortable item
 		}
-		else if (Sortable.utils.is(ctrl, ".javascript-edit")) {  // Click on edit link
+		else if (Sortable.utils.is(ctrl, ".js-edit")) {  // Click on edit link
 			// ...
 		}
 	}

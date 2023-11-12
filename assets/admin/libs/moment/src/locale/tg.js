@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Tajik [tg]
 //! author : Orif N. Jr. : https://github.com/orif-jr
 

@@ -2050,7 +2050,7 @@ class $3ed269f2f0fb224b$var$ExifRestore {
 }
 $3ed269f2f0fb224b$var$ExifRestore.initClass();
 /*
- * contentloaded.javascript
+ * contentloaded.js
  *
  * Author: Diego Perini (diego.perini at gmail.com)
  * Summary: cross-browser wrapper for DOMContentLoaded

@@ -6,11 +6,11 @@ Contact: Themesbrand@gmail.com
 File: select2 init javascript
 */
 
-// In your Javascript (external .javascript resource or <script> tag)
+// In your Javascript (external .js resource or <script> tag)
 $(document).ready(function() {
-    $('.javascript-example-basic-single').select2();
+    $('.js-example-basic-single').select2();
 
-    $('.javascript-example-basic-multiple').select2();
+    $('.js-example-basic-multiple').select2();
 
     var data = [
         {
@@ -35,7 +35,7 @@ $(document).ready(function() {
         }
     ];
 
-    $(".javascript-example-data-array").select2({
+    $(".js-example-data-array").select2({
     data: data
     })
 
@@ -53,7 +53,7 @@ function formatState (state) {
   return $state;
 };
 
-$(".javascript-example-templating").select2({
+$(".js-example-templating").select2({
   templateResult: formatState
 });
 
@@ -79,15 +79,15 @@ $(".select-flag-templating").select2({
 });
 
 
-$(".javascript-example-disabled").select2();
-$(".javascript-example-disabled-multi").select2();
+$(".js-example-disabled").select2();
+$(".js-example-disabled-multi").select2();
 
-$(".javascript-programmatic-enable").on("click", function () {
-  $(".javascript-example-disabled").prop("disabled", false);
-  $(".javascript-example-disabled-multi").prop("disabled", false);
+$(".js-programmatic-enable").on("click", function () {
+  $(".js-example-disabled").prop("disabled", false);
+  $(".js-example-disabled-multi").prop("disabled", false);
 });
 
-$(".javascript-programmatic-disable").on("click", function () {
-  $(".javascript-example-disabled").prop("disabled", true);
-  $(".javascript-example-disabled-multi").prop("disabled", true);
+$(".js-programmatic-disable").on("click", function () {
+  $(".js-example-disabled").prop("disabled", true);
+  $(".js-example-disabled-multi").prop("disabled", true);
 });

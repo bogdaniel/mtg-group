@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Nepalese [ne]
 //! author : suvash : https://github.com/suvash
 

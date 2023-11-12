@@ -344,4 +344,4 @@ git push -u origin master
 */
 
 module.exports = AutoScrollerFactory;
-//# sourceMappingURL=bundle.javascript.map
+//# sourceMappingURL=bundle.js.map

@@ -1,4 +1,4 @@
-//! moment.javascript language configuration
+//! moment.js language configuration
 
 ;(function (global, factory) {
    typeof exports === 'object' && typeof module !== 'undefined'

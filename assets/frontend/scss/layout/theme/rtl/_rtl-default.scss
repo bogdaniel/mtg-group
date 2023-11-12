@@ -1135,7 +1135,7 @@
 			padding: 0;
 		}
 	}
-	.silder-two{
+	.slider-two{
 		.bg-shape-left {
 			left: auto;
 			transform: rotate(140deg);
@@ -1147,7 +1147,7 @@
 			transform: rotate(-40deg);
 		}
 	}
-	.silder-three.main-silder-swiper{
+	.slider-three.main-silder-swiper{
 		@include respond('phone'){
 			.btn-prev {
 				left: auto;
@@ -1159,7 +1159,7 @@
 			}
 		}
 	}
-	.silder-for .slider-content {
+	.slider-for .slider-content {
 		left: auto;
 		right: 10%;
 	}
@@ -1836,7 +1836,7 @@
 		margin-right: 5px;
 	}
 
-	.silder-four{
+	.slider-four{
 		.btn-prev{
 			@include respond('laptop') {
 				left: auto !important;

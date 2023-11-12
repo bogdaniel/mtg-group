@@ -2796,7 +2796,7 @@ function addOne(obj, type, fn, context) {
 	var originalHandler = handler;
 
 	if (!Browser.touchNative && Browser.pointer && type.indexOf('touch') === 0) {
-		// Needs DomEvent.Pointer.javascript
+		// Needs DomEvent.Pointer.js
 		handler = addPointerListener(obj, type, handler);
 
 	} else if (Browser.touch && (type === 'dblclick')) {
@@ -6306,7 +6306,7 @@ var PolyUtil = {
 // Used for a huge performance boost when processing/displaying Leaflet polylines for
 // each zoom level and also reducing visual noise. tolerance affects the amount of
 // simplification (lesser value means higher quality but slower and with more points).
-// Also released as a separated micro-library [Simplify.javascript](https://mourner.github.io/simplify-js/).
+// Also released as a separated micro-library [Simplify.js](https://mourner.github.io/simplify-js/).
 function simplify(points, tolerance) {
 	if (!tolerance || !points.length) {
 		return points.slice();
@@ -14416,4 +14416,4 @@ Map.TapHold = TapHold;
 Map.TouchZoom = TouchZoom;
 
 export { Bounds, Browser, CRS, Canvas, Circle, CircleMarker, Class, Control, DivIcon, DivOverlay, DomEvent, DomUtil, Draggable, Evented, FeatureGroup, GeoJSON, GridLayer, Handler, Icon, ImageOverlay, LatLng, LatLngBounds, Layer, LayerGroup, LineUtil, Map, Marker, Mixin, Path, Point, PolyUtil, Polygon, Polyline, Popup, PosAnimation, index as Projection, Rectangle, Renderer, SVG, SVGOverlay, TileLayer, Tooltip, Transformation, Util, VideoOverlay, bind, toBounds as bounds, canvas, circle, circleMarker, control, divIcon, extend, featureGroup, geoJSON, geoJson, gridLayer, icon, imageOverlay, toLatLng as latLng, toLatLngBounds as latLngBounds, layerGroup, createMap as map, marker, toPoint as point, polygon, polyline, popup, rectangle, setOptions, stamp, svg, svgOverlay, tileLayer, tooltip, toTransformation as transformation, version, videoOverlay };
-//# sourceMappingURL=leaflet-src.esm.javascript.map
+//# sourceMappingURL=leaflet-src.esm.js.map

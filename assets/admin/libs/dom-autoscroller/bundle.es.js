@@ -340,4 +340,4 @@ git push -u origin master
 */
 
 export default AutoScrollerFactory;
-//# sourceMappingURL=bundle.es.javascript.map
+//# sourceMappingURL=bundle.es.js.map

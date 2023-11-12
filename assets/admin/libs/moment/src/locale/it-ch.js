@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Italian (Switzerland) [it-ch]
 //! author : xfh : https://github.com/xfh
 

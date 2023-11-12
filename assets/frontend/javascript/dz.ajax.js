@@ -1,6 +1,6 @@
 /**
 	Abstract : Ajax Page Js File
-	File : dz.ajax.javascript
+	File : dz.ajax.js
 	#CSS attributes:
 		.dzForm : Form class for ajax submission.
 		.dzFormMsg  : Div Class| Show Form validation error/success message on ajax form submission

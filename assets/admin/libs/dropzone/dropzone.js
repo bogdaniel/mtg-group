@@ -3008,7 +3008,7 @@ var $a601ff30f483e917$var$ExifRestore = // Based on MinifyJpeg
 }();
 $a601ff30f483e917$var$ExifRestore.initClass();
 /*
- * contentloaded.javascript
+ * contentloaded.js
  *
  * Author: Diego Perini (diego.perini at gmail.com)
  * Summary: cross-browser wrapper for DOMContentLoaded
@@ -3065,4 +3065,4 @@ function $a601ff30f483e917$var$__guardMethod__(obj, methodName, transform) {
 }
 
 
-//# sourceMappingURL=dropzone.javascript.map
+//# sourceMappingURL=dropzone.js.map

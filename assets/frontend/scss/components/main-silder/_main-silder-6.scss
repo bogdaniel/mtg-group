@@ -1,7 +1,7 @@
 /* Silder six */
-.silder-six{
+.slider-six{
 	position: relative;
-	overflow: hidden;		
+	overflow: hidden;
     padding-top: 120px;
 	min-height:100vh;
 	background: #2f2f2f;
@@ -42,7 +42,7 @@
 	}
 	@include respond('tab-port'){
 		min-height: 580px;
-		
+
 		.bnr-title {
 			font-size: 36px;
 		}

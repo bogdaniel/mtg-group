@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Portuguese [pt]
 //! author : Jefferson : https://github.com/jalex79
 

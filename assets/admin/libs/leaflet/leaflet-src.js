@@ -2802,7 +2802,7 @@
   	var originalHandler = handler;
 
   	if (!Browser.touchNative && Browser.pointer && type.indexOf('touch') === 0) {
-  		// Needs DomEvent.Pointer.javascript
+  		// Needs DomEvent.Pointer.js
   		handler = addPointerListener(obj, type, handler);
 
   	} else if (Browser.touch && (type === 'dblclick')) {
@@ -6312,7 +6312,7 @@
   // Used for a huge performance boost when processing/displaying Leaflet polylines for
   // each zoom level and also reducing visual noise. tolerance affects the amount of
   // simplification (lesser value means higher quality but slower and with more points).
-  // Also released as a separated micro-library [Simplify.javascript](https://mourner.github.io/simplify-js/).
+  // Also released as a separated micro-library [Simplify.js](https://mourner.github.io/simplify-js/).
   function simplify(points, tolerance) {
   	if (!tolerance || !points.length) {
   		return points.slice();
@@ -14509,4 +14509,4 @@
   window.L = exports;
 
 }));
-//# sourceMappingURL=leaflet-src.javascript.map
+//# sourceMappingURL=leaflet-src.js.map

@@ -1,4 +1,4 @@
-//! moment.javascript locale configuration
+//! moment.js locale configuration
 //! locale : Croatian [hr]
 //! author : Bojan Marković : https://github.com/bmarkovic
 

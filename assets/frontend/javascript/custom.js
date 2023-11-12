@@ -272,7 +272,7 @@ var Mazo = function () {
 
   /* Masonry Box ============ */
   var masonryBox = function () {
-    /* masonry by  = bootstrap-select.min.javascript */
+    /* masonry by  = bootstrap-select.min.js */
     if (jQuery('#masonry, .masonry').length > 0) {
       var self = jQuery("#masonry, .masonry");
 
@@ -312,7 +312,7 @@ var Mazo = function () {
         self.isotope({filter: filterValue});
       });
     }
-    /* masonry by  = bootstrap-select.min.javascript end */
+    /* masonry by  = bootstrap-select.min.js end */
   }
 
   /* Counter Number ============ */
@@ -335,7 +335,7 @@ var Mazo = function () {
 
   /* Gallery Filter ============ */
   var handleFilterMasonary = function () {
-    /* gallery filter activation = jquery.mixitup.min.javascript */
+    /* gallery filter activation = jquery.mixitup.min.js */
     if (jQuery('#image-gallery-mix').length) {
       jQuery('.gallery-filter').find('li').each(function () {
         $(this).addClass('filter');
@@ -352,7 +352,7 @@ var Mazo = function () {
         return false;
       });
     }
-    /* gallery filter activation = jquery.mixitup.min.javascript */
+    /* gallery filter activation = jquery.mixitup.min.js */
   }
 
   /* Resizebanner ============ */
