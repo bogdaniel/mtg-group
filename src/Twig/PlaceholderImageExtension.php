@@ -2,18 +2,18 @@
 
 namespace App\Twig;
 
-use Symfony\Bridge\Twig\Extension\AssetExtension;
 use Symfony\Component\Asset\Packages;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class PlaceholderImageExtension extends AssetExtension
+class PlaceholderImageExtension extends AbstractExtension
 {
+    private $packages;
     private $defaultImage;
 
     public function __construct(Packages $packages, string $defaultImage)
     {
-        parent::__construct($packages);
+        $this->packages = $packages;
         $this->defaultImage = $defaultImage;
     }
 
@@ -26,10 +26,10 @@ class PlaceholderImageExtension extends AssetExtension
 
     public function getAssetImage(string $path): string
     {
-        $imagePath = $this->getAssetUrl($path);
+        $imagePath = $this->packages->getUrl($path);
 
         if (!file_exists($imagePath)) {
-            return $this->getAssetUrl($this->defaultImage);
+            return $this->packages->getUrl($this->defaultImage);
         }
 
         return $imagePath;
