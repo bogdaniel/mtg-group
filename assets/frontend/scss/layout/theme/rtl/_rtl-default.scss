@@ -1147,7 +1147,7 @@
 			transform: rotate(-40deg);
 		}
 	}
-	.slider-three.main-silder-swiper{
+	.slider-three.main-slider-swiper{
 		@include respond('phone'){
 			.btn-prev {
 				left: auto;
@@ -1369,7 +1369,7 @@
 			transform: rotateY(180deg);
 		}
 	}
-	.main-silder-swiper{
+	.main-slider-swiper{
 		.btn-prev {
 			left: auto;
 			right: 50px;
