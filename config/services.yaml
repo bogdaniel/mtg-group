@@ -6,9 +6,6 @@
 parameters:
 
 services:
-    App\Twig\PlaceholderImageExtension:
-        arguments:
-            $defaultImage: 'path/to/your/placeholder/image.png'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
@@ -74,9 +71,15 @@ services:
     App\Repository\ThemeRepository:
         arguments:
             $registry: '@Doctrine\Persistence\ManagerRegistry'
+            
     App\EventSubscriber\ThemeConfiguratorSubscriber:
         arguments:
             $themeRuntimeConfigurator: '@App\Service\ThemeRuntimeConfigurator'
+            
     _instanceof:
         App\Doctrine\AbstractEnumType:
             tags: [ 'app.doctrine_enum_type' ]
+            
+    App\Twig\PlaceholderImageExtension:
+        arguments:
+            $defaultImage: 'assets/1920x1080.svg'

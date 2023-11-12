@@ -10,50 +10,31 @@
 import $ from 'jquery';
 import jQuery from 'jquery';
 window.$ = jQuery;
-
 var jQueryBridget = require('jquery-bridget');
 
-import 'bootstrap';
-import 'bootstrap/scss/bootstrap.scss';
-import 'bootstrap-select';
-import 'magnific-popup';
-import 'animate.css';
+import counterUp from 'counterup2'
 
+import 'magnific-popup';
 require('bootstrap-select');
 require('bootstrap-select/dist/css/bootstrap-select.min.css');
-
 import AOS from 'aos';
-// and to access this aos package you use
-import 'aos/dist/aos.css';
-
 var imagesLoaded = require('imagesloaded');
-
-
-
 // import Swiper JS
 import Swiper from 'swiper';
-// import Swiper styles
-import 'swiper/swiper-bundle.css';
-
 import lightGallery from 'lightgallery';
-import 'lightgallery/scss/lightgallery-bundle.scss'
-
-import '@popperjs/core';
-
-
 var Isotope = require('isotope-layout');
 // add cellsByRow layout mode
 require('isotope-cells-by-row')
-
-
 import 'masonry-layout';
 import PerfectScrollbar from 'perfect-scrollbar';
 
-
+import 'bootstrap';
+import 'bootstrap-select';
 // any CSS you import will output into a single css file (app.css in this case)
 // import '../icons/dz-icons/icons.css';
 // import '../css/style.css';
 import '../scss/main.scss';
+
 
 /**
  Core script to handle the entire theme and core functions
@@ -371,12 +352,14 @@ const Mazo = (() => {
 
   /* Counter Number ============ */
   const counter = () => {
+    const el = document.querySelector( '.counter' )
     if (jQuery('.counter').length) {
-      jQuery('.counter').counterUp({
-        delay: 10,
-        time: 3000
-      });
+      counterUp( el, {
+        duration: 3000,
+        delay: 16,
+      } )
     }
+
   };
 
   /* Video Popup ============ */

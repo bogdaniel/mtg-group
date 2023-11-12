@@ -385,26 +385,26 @@
         }
     }
 
-    //&.construct-loading {
-    //    background-size: 280px;
-    //    background-image: url(../../images/construction.gif);
-    //    background-repeat: no-repeat;
-    //    background-position: center;
-    //}
-    //
-    //&.food-loading {
-    //    background-size: 400px;
-    //    background-image: url(../../images/food.gif);
-    //    background-repeat: no-repeat;
-    //    background-position: center;
-    //}
-    //
-    //&.agriculture-loading {
-    //    background-size: 180px;
-    //    background-image: url(../../images/agriculture.gif);
-    //    background-repeat: no-repeat;
-    //    background-position: center;
-    //}
+    &.construct-loading {
+        background-size: 280px;
+        //background-image: url(../../images/construction.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &.food-loading {
+        background-size: 400px;
+        //background-image: url(../../images/food.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &.agriculture-loading {
+        background-size: 180px;
+        //background-image: url(../../images/agriculture.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
 }
 

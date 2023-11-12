@@ -1,21 +1,21 @@
 .page-title {
     padding: 30px 0;
 
-    &.dashboard{
-        background : transparent;
+    &.dashboard {
+        background: transparent;
         margin-left: 75px;
-        padding    : 20px 0 0px;
+        padding: 20px 0 0px;
     }
 
     .page-title-content {
         p {
-            font-size    : 16px;
-            font-weight  : 400;
+            font-size: 16px;
+            font-weight: 400;
             margin-bottom: 0px;
 
             span {
                 font-weight: 500;
-                color      : var(--primary);
+                color: var(--primary);
             }
         }
     }
@@ -24,7 +24,7 @@
 
 
 .breadcrumbs {
-    display        : flex;
+    display: flex;
     justify-content: flex-end;
 
     @include respond('phone') {
@@ -33,10 +33,10 @@
 
     li {
         a {
-            color      : $text-muted;
-            display    : inline-block;
+            color: $text-muted;
+            display: inline-block;
             margin-left: 15px;
-            font-size  : 14px;
+            font-size: 14px;
 
 
         }

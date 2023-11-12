@@ -27,7 +27,7 @@
                 <!-- Website Logo -->
                 <div class="logo-header mostion logo-dark">
                     <a href="#">
-                        <img src="{{ asset('assets/images/logo-multigama-group.png') }}" alt="">
+                        <img src="{{ asset_image('assets/images/logo-multigama-group.png') }}" alt="">
                     </a>
                 </div>
                 <!-- Nav Toggle Button -->

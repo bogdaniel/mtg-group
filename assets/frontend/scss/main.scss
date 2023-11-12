@@ -16,10 +16,13 @@
 */
 @use "sass:math";
 
-//@import url("./../vendor/animate/animate.min.css");
+@import 'lightgallery/scss/lightgallery-bundle.scss';
+@import 'animate.css';
+@import 'aos/dist/aos.css';
+// import Swiper styles
+@import 'swiper/swiper-bundle.css';
 @import "./abstract/abstract";
-//@import "./../vendor/bootstrap/scss/bootstrap.scss";
-@import "bootstrap";
+@import 'bootstrap/scss/bootstrap.scss';
 @import "./base/base";
 @import "./components/components";
 @import "./pages/pages";
