@@ -1,0 +1,117 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-service/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/bnr1.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Detalii Proiect</h1>
+                <p>Aliquam sollicitudin dignissim nibh ac vestibulum. Mauris imperdiet sem sed quam placerat, nec
+                    euismod magna hendrerit.</p>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html.twig">Acasa</a></li>
+                        <li class="breadcrumb-item">Proiecte</li>
+                        <li class="breadcrumb-item">Denumire Proiect</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Portfolio Details -->
+    <section class="section-full content-inner port-detail2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 m-b30">
+                    <div class="dz-media" style="background-image: url('{{ asset('assets/images/565181a1-a068-48e4-ac3c-44a8f6259157.jpg') }}');"></div>
+                </div>
+                <div class="col-lg-4 m-b30">
+                    <div class="dz-port-meta bg-dark" style="background-image: url('{{ asset('assets/images/pattern1.png') }}');">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12 col-sm-6">
+                                <div class="meta-info">
+                                    <h4 class="text-white dz-title m-b5">Categorie Proiect</h4>
+                                    <span class="text-white sub-title">Revizie Instalatie Pompe</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-sm-6">
+                                <div class="meta-info">
+                                    <h4 class="text-white dz-title m-b5">Denumire Client</h4>
+                                    <span class="text-white sub-title">BDerv.Ltd</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-sm-6">
+                                <div class="meta-info">
+                                    <h4 class="text-white dz-title m-b5">Data Proiectului</h4>
+                                    <span class="text-white sub-title">7 Martie, 2023</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-sm-6">
+                                <div class="meta-info">
+                                    <ul class="social-list style-1">
+                                        <li><a target="_blank" class="fab fa-facebook-f"
+                                               href="https://www.facebook.com/"></a></li>
+                                        <li><a target="_blank" class="fab fa-instagram"
+                                               href="https://www.instagram.com/"></a></li>
+                                        <li><a target="_blank" class="fab fa-twitter" href="https://twitter.com/"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="dz-content m-b40">
+                        <h2 class="title m-b15">BDerv.Ltd</h2>
+                        <p>Proin nibh massa, finibus eu lacus sit amet, tristique imperdiet orci. Curabitur dictum mi
+                            vel velit maximus finibus. Donec vel odio varius, ultricies dolor ac, efficitur ante. Nunc
+                            id lorem eu neque sodales pharetra. In imperdiet, arcu at hendrerit luctus, nulla mauris
+                            semper ligula, et facilisis ligula sem sit amet nisl. In varius varius erat, sit amet
+                            feugiat tellus feugiat ac. In et ultricies purus. Praesent rutrum magna id lectus sodales
+                            condimentum.</p>
+                        <p>Fusce et sagittis metus. Nunc vel varius enim. Aliquam finibus lorem quis purus sollicitudin
+                            vehicula. Aenean at mi orci. Vestibulum posuere quam eu ex pharetra fermentum. Sed tempor,
+                            lorem sed viverra congue, leo eros tincidunt arcu, sit amet accumsan mauris tortor vel mi.
+                            Vivamus vitae placerat nisl.</p>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="dz-media m-b30" style="background-image: url('{{ asset('assets/images/565181a1-a068-48e4-ac3c-44a8f6259157.jpg') }}'); background-position: center;"></div>
+                </div>
+                <div class="col-lg-12 m-b30">
+                    <p>Pellentesque vitae tellus augue. Quisque rhoncus, mauris eget fermentum ornare, orci eros
+                        condimentum leo, vitae dictum ipsum leo ut nulla. Mauris at ligula ut urna hendrerit
+                        consectetur. In in turpis ultrices, pellentesque tellus eget, pulvinar massa. Nulla porttitor
+                        luctus tortor, nec dapibus neque pellentesque ornare. Morbi non lacus turpis. Aliquam laoreet
+                        metus fringilla, condimentum lacus eget, dignissim libero. Nulla non leo blandit, fermentum
+                        risus non, tincidunt ligula. Fusce accumsan lorem dictum, ultrices ipsum eget, ornare felis.
+                        Etiam ut posuere odio.</p>
+                    <p class="m-b0">Nullam enim nisi, pulvinar nec diam in, facilisis consequat nunc. Mauris elementum
+                        metus eu sapien interdum venenatis. Nunc scelerisque pharetra eros, eget porttitor turpis porta
+                        id. Nullam sollicitudin neque in quam congue, vitae rhoncus leo ultricies. Phasellus a felis non
+                        augue iaculis elementum. Aliquam erat volutpat. Vestibulum ut mauris nec quam rhoncus venenatis.
+                        Proin justo nunc, gravida vel laoreet quis, efficitur nec nulla. Quisque ornare faucibus libero
+                        at maximus. Pellentesque vulputate mauris urna, facilisis laoreet libero imperdiet sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

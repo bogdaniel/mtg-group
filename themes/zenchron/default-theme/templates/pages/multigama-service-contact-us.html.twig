@@ -1,0 +1,177 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-service/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Contacteaza-ne</h1>
+                <p>Aliquam sollicitudin dignissim nibh ac vestibulum. Mauris imperdiet sem sed quam placerat, nec
+                    euismod magna hendrerit.</p>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Acasa</a></li>
+                        <li class="breadcrumb-item">Contact</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center m-b50">
+                <div class="col-lg-6">
+                    <div class="section-head style-2">
+                        <h6 class="sub-title text-primary">CONTACT INFO</h6>
+                        <h2 class="title">Hai sa ne <br/>cunoastem</h2>
+                    </div>
+                    <div class="icon-bx-wraper m-b30 style-10 box-hover">
+                        <div class="icon-bx-sm icon-bx">
+								<span class="icon-cell text-primary">
+									<i class="flaticon-phone-call"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title">Telefon</h4>
+                            <p>+91 987 654 3210, +91 123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="icon-bx-wraper m-b30 style-10 box-hover active">
+                        <div class="icon-bx-sm icon-bx">
+								<span class="icon-cell text-primary">
+									<i class="flaticon-placeholder"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title">Adresa</h4>
+                            <p>Str. 7 Drumuri, Nr. 9C, Sector 3, București</p>
+                        </div>
+                    </div>
+                    <div class="icon-bx-wraper m-b30 style-10 box-hover">
+                        <div class="icon-bx-sm icon-bx">
+								<span class="icon-cell text-primary">
+									<i class="flaticon-mail"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title">Email Address</h4>
+                            <p>office@multigama.ro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 m-b30">
+                    <div class="dz-form style-1 bg-secondary">
+                        <div class="section-head style-2 text-white">
+                            <h6 class="text-primary sub-title">CONTACT US</h6>
+                            <h2 class="title">Get In Touch</h2>
+                        </div>
+                        <form class="dzForm" method="GET" action="#">
+                            <div class="dzFormMsg"></div>
+                            <input type="hidden" class="form-control" name="dzToDo" value="Contact">
+                            <input type="hidden" class="form-control" name="reCaptchaEnable" value="0">
+                            <div class="row sp10">
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="dzName" placeholder="Nume">
+                                    </div>
+                                </div>
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="dzEmail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="dzPhoneNumber"
+                                               placeholder="Telefon">
+                                    </div>
+                                </div>
+                                <div class="col-12 m-b20">
+                                    <div class="input-group">
+                                        <textarea name="dzMessage" class="form-control">Message</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button name="submit" type="submit" value="submit" class="btn btn-primary">Trimite
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="map-iframe m-b30 style-1">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?q=Strada+Șapte+Drumuri+9c,+București,+Romania&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form -->
+
+    <!-- Clients Logo -->
+    <div class="clients-section-1 bg-light">
+        <div class="container">
+            <div class="swiper-container clients-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="100">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray1.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-gray1.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="200">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray2.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown2.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="300">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray3.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown3.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="400">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray4.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown4.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="500">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray5.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown5.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="600">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray6.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown6.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

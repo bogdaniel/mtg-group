@@ -1,0 +1,188 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/eq-fire/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Servicii</h1>
+                <p>Aliquam sollicitudin dignissim nibh ac vestibulum. Mauris imperdiet sem sed quam placerat, nec
+                    euismod magna hendrerit.</p>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html.twig">Acasa</a></li>
+                        <li class="breadcrumb-item">Servicii</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Services -->
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="200">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
+								<span class="icon-cell">
+									<i class="flaticon-oil-pump"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Mașini de intervenție</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="400">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover active">
+                        <div class="icon-lg m-b30">
+								<span class="icon-cell">
+									<i class="flaticon-agronomy"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Furnizare echipamente noi</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="600">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
+								<span class="icon-cell">
+									<i class="flaticon-crane"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Suport Tehnic</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="800">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
+								<span class="icon-cell">
+									<i class="flaticon-control-system"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Curatare instalatie</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="1000">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
+								<span class="icon-cell">
+									<i class="flaticon-nuclear-power"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Sisteme anti incendiu</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-b30 aos-item" data-aos="fade-up" data-aos-duration="1000"
+                     data-aos-delay="1200">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover">
+                        <div class="icon-lg m-b30">
+								<span class="icon-cell">
+									<i class="flaticon-automobile"></i>
+								</span>
+                        </div>
+                        <div class="icon-content">
+                            <h4 class="dz-title m-b10">Alt Serviciu</h4>
+                            <p>Curabitur eget orci fermentum, accumsan augue nec, tincidunt justo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Portfolio -->
+    {% include 'templates/pages/_partial/_portfolio.html.twig' %}
+
+    <!-- How It Works -->
+    {% include 'templates/pages/eq-fire/_partial/_how-it-works.html.twig' %}
+    <!-- How It Works -->
+
+    <!-- Clients Logo -->
+    <div class="clients-section-1 bg-light">
+        <div class="container">
+            <div class="swiper-container clients-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="100">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray1.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-gray1.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="200">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray2.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown2.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="300">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray3.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown3.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="400">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray4.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown4.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="500">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray5.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown5.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="clients-logo aos-item" data-aos="fade-in" data-aos-duration="1000"
+                             data-aos-delay="600">
+                            <img class="logo-main" src="{{ asset('assets/images/logo-gray6.png') }}" alt="">
+                            <img class="logo-hover" src="{{ asset('assets/images/logo-brown6.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills and Contact -->
+    {% include 'templates/pages/_partial/_quick-contact.html.twig' %}
+
+{% endblock %}
