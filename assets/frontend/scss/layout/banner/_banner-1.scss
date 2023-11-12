@@ -1,0 +1,65 @@
+// dz-bnr-inr styles
+.dz-bnr-inr {
+    // Style 1
+    &.style-1 {
+        position: relative;
+
+        &:after {
+            content: "";
+            animation: 20s bgMove infinite linear;
+            background-repeat: repeat-y;
+            background-size: 100%;
+            background-image: url(../../../images/background/line.png);
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        h1 {
+            margin-bottom: 35px;
+            color: #fff;
+            text-decoration: 7px underline var(--primary);
+            text-underline-offset: 5px;
+            @include respond('tab-land') {
+                margin-bottom: 25px;
+            }
+            @include respond('tab-port') {
+                text-decoration: 3px underline var(--primary);
+                text-underline-offset: 3px;
+                margin-bottom: 15px;
+            }
+            @include respond('phone-land') {
+                letter-spacing: 0;
+            }
+        }
+
+        .dz-bnr-inr-entry {
+            text-align: center;
+        }
+
+        @include respond('tab-port') {
+            .dz-media {
+                display: none;
+            }
+            .dz-bnr-inr-entry {
+                padding-top: 0;
+            }
+        }
+        @include respond('phone-land') {
+            h1 {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.site-header.style-1.header-transparent + .page-content .dz-bnr-inr .dz-bnr-inr-entry {
+    padding-top: 140px;
+    @include respond('tab-port') {
+        padding-top: 0;
+    }
+}

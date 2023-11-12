@@ -1,0 +1,194 @@
+// Slider four
+.slider-4{
+    position: relative;
+
+	.counter-area1{
+		position: absolute;
+		bottom: 0;
+		z-index: 99;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+
+		@include respond('tab-port'){
+			position: static;
+			transform: unset;
+			margin-top: 30px;
+		}
+    }
+}
+
+.silder-four{
+    .swiper-slide{
+        background-size: cover;
+    }
+    .overlay-black-light:before,
+	.overlay-black-dark:before{
+		background: #1e1d23;
+	}
+	.overlay-black-middle:before{
+		opacity:0.4;
+	}
+	.dz-slide-item{
+		display: flex;
+		height: 850px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		overflow: hidden;
+		position: relative;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		padding-left: 100px;
+		padding-right: 100px;
+		padding-top: 100px;
+		padding-bottom: 100px;
+
+		&::before{
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:rgba(0,0,0,0.8);
+            z-index: 0;
+        }
+
+		@include respond('tab-land'){
+			height: 700px;
+        }
+        @include respond('tab-port'){
+           height: 500px;
+		   padding-top: 50px;
+		   padding-bottom: 50px;
+        }
+		@include respond('phone-land'){
+			height: 450px;
+			padding-right: 50px;
+			padding-left: 50px;
+		}
+		@include respond('phone'){
+			height: 400px;
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+	}
+    .slider-content{
+		text-align: center;
+		max-width: 750px;
+		margin-left: auto;
+		margin-right: auto;
+
+		.inner-content{
+            position: relative;
+            z-index: 100;
+            .title{
+                color: #fff;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 3.75rem;
+                line-height: 4.688rem;
+                color: #FFFFFF;
+                text-align: center;
+            }
+            .description{
+                font-style: normal;
+                font-weight: 400;
+                font-size: 1.125rem;
+                color: #DFDFDF;
+                margin-bottom: 2rem;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+
+                @include respond('phone-land'){
+                    font-size: 14px;
+                }
+                @include respond('phone'){
+                    font-size: 13px;
+					margin-bottom: 20px;
+                }
+            }
+            .sub-title{
+                display: inline-block;
+                border-bottom: 2px solid var(--primary);
+
+                @include respond('phone'){
+                    font-size: 0.9rem;
+                }
+            }
+            @include respond('tab-land'){
+                .title{
+                    font-size: 2.75rem;
+                    line-height: normal;
+                }
+                .description{
+                    padding: 0 150px;
+                }
+            }
+            @include respond('tab-port'){
+                .title{
+                    padding: 0 1rem;
+                }
+                .description{
+                    padding: 0;
+                }
+            }
+			@include respond('phone-land'){
+				.title{
+					font-size: 2.2rem;
+				}
+			}
+            @include respond('phone'){
+				.title{
+					font-size: 1.5rem;
+					padding: 0;
+				}
+				.description{
+					font-size: 13px;
+				}
+				.sub-title{
+					font-size: 0.9rem
+				}
+			}
+		}
+
+	}
+    .btn-prev,
+    .btn-next{
+        border-radius: 50%;
+        i{
+            font-size: 1.25rem;
+        }
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .btn-next{
+		@include respond('wide-desktop'){
+			right: 10px;
+		}
+		@include respond('phone'){
+			top: 50%;
+			right: 0;
+		}
+    }
+    .btn-prev{
+		@include respond('wide-desktop'){
+			left: 10px;
+		}
+        @include respond('phone'){
+			top: 50%;
+			left: 0;
+        }
+    }
+}
+.swiper-counter{
+	.dz-slide-item{
+		padding-bottom: 250px;
+
+		@include respond('tab-port'){
+			padding-bottom: 50px;
+		}
+	}
+}
