@@ -30,7 +30,7 @@ yarn-error.log
 .aider*
 /package.json
 /webpack.config.js
-/assets
+#/assets
 
 .env.dev
 
