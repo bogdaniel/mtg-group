@@ -40,22 +40,14 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Custom Stylesheet -->
-{#    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">#}
-    <link rel="stylesheet" class="skin" href="{{ asset('/assets/css/skin/' ~ skinVersion) }}">
-
     {% block stylesheets %}
         {{ encore_entry_link_tags('app_js') }}
+        {{ encore_entry_link_tags(skinVersion) }}
     {% endblock %}
 
     <!-- JAVASCRIPT FILES ========================================= -->
-{#    <script src="{{ asset('/assets/vendor/counter/waypoints-min.js') }}"></script><!-- WAYPOINTS JS -->#}
-{#    <script src="{{ asset('/assets/vendor/counter/counterup.min.js') }}"></script><!-- COUNTERUP JS -->#}
-    {#    <script src="{{ asset('/assets/vendor/masonry/isotope.pkgd.min.js') }}"></script><!-- ISOTOPE -->#}
-
     {% block javascripts %}
         {{ encore_entry_script_tags('app_js') }}
-{#        {{ encore_entry_script_tags('dz_carousel_js') }}#}
     {% endblock %}
 
 </head>

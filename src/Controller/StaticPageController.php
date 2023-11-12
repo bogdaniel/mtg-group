@@ -86,7 +86,7 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
         $quickContactContent = "Povestea grupului Multigama a început cu firma Multigama Industrial, înființată la 4 decembrie 1990 de un grup de ingineri, foști angajați ai companiei AVERSA, specializați în domeniul pompelor. Principalul obiectiv a fost de a vinde și produce pompe pentru uz casnic care nu existau pe piața românească de la acea vreme.
                         Primul proiect realizat de Multigama Industrial a fost reabilitarea echipamentului de pompare de la Casa Enescu, în anul 1991.
 ";
-        $skinVersion = 'skin-3.css';
+        $skinVersion = 'skin_3';
         $logo = 'logo-multigama-group.png';
 
         if (str_contains($pageName, 'multigama-tech-')) {
