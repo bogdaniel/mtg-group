@@ -5,9 +5,17 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class StaticPageController extends AbstractController
 {
+    private \Twig\Loader\LoaderInterface $loader;
+
+    public function __construct(Environment $twig)
+    {
+        $this->loader = $twig->getLoader();
+    }
+
     #[Route("/", name: "home")]
     public function home(): Response
     {
@@ -143,6 +151,7 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
 
             $logo = 'multigama-tech.png';
         }
+
 
         return $this->render("templates/pages/{$pageName}.html.twig", [
             'multiGamaGroupMenu' => $multiGamaGroupMenu,

@@ -35,7 +35,7 @@ services:
         published: 8080
         protocol: tcp
     #    command: 'sh -c "yarn install; yarn watch "'
-    command: 'sh -c "yarn install; yarn dev-server --server-type https --client-web-socket-url https://localhost:8080/ws --host 0.0.0.0 --public https://localhost:8080"'
+    command: 'sh -c "yarn dev-server --server-type https --client-web-socket-url https://localhost:8080/ws --host 0.0.0.0 --public https://localhost:8080"'
 
 
 ###> doctrine/doctrine-bundle ###

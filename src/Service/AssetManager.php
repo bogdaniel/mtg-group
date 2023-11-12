@@ -20,7 +20,7 @@ class AssetManager
     public function copyThemeAssetsToProjectRoot(ThemeDataContract $theme): void
     {
         $themeDir = $this->projectDir . '/themes/' . $theme->name;
-        $filesToCopy = ['package.json', 'webpack.config.js', 'assets'];
+        $filesToCopy = ['package.json', 'webpack.config.javascript', 'assets'];
 
         foreach ($filesToCopy as $file) {
             if ($this->filesystem->exists($themeDir . '/' . $file)) {
@@ -38,7 +38,7 @@ class AssetManager
         $rootDir = $this->projectDir;
         $themeDir = $this->projectDir . '/themes/' . $activeThemeName;
 
-        $filesToCopy = ['package.json', 'webpack.config.js', 'assets'];
+        $filesToCopy = ['package.json', 'webpack.config.javascript', 'assets'];
 
         foreach ($filesToCopy as $file) {
             if ($this->filesystem->exists($rootDir . '/' . $file)) {

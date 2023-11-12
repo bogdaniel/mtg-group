@@ -3,7 +3,7 @@
 # Versions
 FROM dunglas/frankenphp:latest-alpine AS frankenphp_upstream
 FROM composer/composer:2-bin AS composer_upstream
-FROM node:18-alpine AS symfony_upstream
+FROM node:alpine AS node_upstream
 
 # The different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/develop/develop-images/multistage-build/#stop-at-a-specific-build-stage
@@ -11,29 +11,28 @@ FROM node:18-alpine AS symfony_upstream
 
 
 # node "stage"
-FROM symfony_upstream AS symfony_node
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache
-RUN apk add \
+FROM node_upstream as symfony_node
+RUN apk add --update --no-cache \
     wget \
     gcc \
     make \
     zlib-dev \
     libffi-dev \
     openssl-dev \
+    musl-dev \
+    libc6-compat \
     python3 \
     musl-dev
 RUN ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 RUN pip3 install --no-cache --upgrade awscli
+RUN apk add --no-cache --virtual .gyp python3 make g++ \
+    && yarn global add node-sass \
+    && apk del .gyp
 WORKDIR /srv/app
 COPY package*.json ./
-RUN yarn install
-## If you are building your code for production
-# RUN npm ci --only=production
-## You need to copy everything to use PostCSS, Tailwinds, ...
-COPY . .
+
 
 # Base FrankenPHP image
 FROM frankenphp_upstream AS frankenphp_base
@@ -69,7 +68,7 @@ RUN apk add --no-cache --virtual .pgsql-deps postgresql-dev; \
 COPY --link frankenphp/conf.d/app.ini $PHP_INI_DIR/conf.d/
 COPY --link --chmod=755 frankenphp/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 COPY --link frankenphp/Caddyfile /etc/caddy/Caddyfile
-COPY --from=symfony_node /srv/app/public/build public/build
+# COPY --from=symfony_node /srv/app/public/build public/build
 
 ENTRYPOINT ["docker-entrypoint"]
 
