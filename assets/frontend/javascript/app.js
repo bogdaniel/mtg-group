@@ -354,6 +354,7 @@ const Mazo = (() => {
   const counter = () => {
     const el = document.querySelector( '.counter' )
     if (jQuery('.counter').length) {
+      console.log('freeee');
       counterUp( el, {
         duration: 3000,
         delay: 16,

@@ -82,4 +82,6 @@ services:
             
     App\Twig\PlaceholderImageExtension:
         arguments:
-            $defaultImage: 'assets/1920x1080.svg'
+            $defaultImage: '/assets/1920x1080.svg'
+        tags: ['twig.extension']
+

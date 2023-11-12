@@ -8,8 +8,8 @@ use Twig\TwigFunction;
 
 class PlaceholderImageExtension extends AbstractExtension
 {
-    private $packages;
-    private $defaultImage;
+    private Packages $packages;
+    private string $defaultImage;
 
     public function __construct(Packages $packages, string $defaultImage)
     {
@@ -24,12 +24,13 @@ class PlaceholderImageExtension extends AbstractExtension
         ];
     }
 
-    public function getAssetImage(string $path): string
+    public function getAssetImage(string $path, string $packageName = null): string
     {
-        $imagePath = $this->packages->getUrl($path);
-
+        dump(file_exists($this->packages->getUrl($path, $packageName)));
+        $imagePath = $this->packages->getUrl($path, $packageName);
         if (!file_exists($imagePath)) {
-            return $this->packages->getUrl($this->defaultImage);
+
+            return $this->packages->getUrl($this->defaultImage, $packageName);
         }
 
         return $imagePath;
