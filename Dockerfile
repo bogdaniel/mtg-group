@@ -48,6 +48,16 @@ RUN apk add --no-cache \
 		git \
 	;
 
+RUN apk add --no-cache \
+		jpegoptim \
+		optipng \
+		pngquant \
+		gifsicle \
+		ffmpeg \
+		libwebp \
+		libwebp-tools \
+	;
+
 RUN set -eux; \
     install-php-extensions \
 		apcu \
