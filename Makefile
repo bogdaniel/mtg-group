@@ -10,6 +10,12 @@ PHP      = $(PHP_CONT) php
 COMPOSER = $(PHP_CONT) composer
 SYMFONY  = $(PHP_CONT) bin/console
 
+## Configuration ##
+HOST_UID ?= $(shell id -u)
+HOST_GID ?= $(shell id -g)
+HOST_IP = $(shell hostname -I | awk '{print $1}')
+
+
 # Misc
 .DEFAULT_GOAL = help
 .PHONY        : help build up start down logs sh composer vendor sf cc
