@@ -124,5 +124,11 @@
   "assets/images/icon3.svg": "https://localhost:8080/assets/images/icon3.svg",
   "assets/fonts/lg.woff2?io9a6k": "https://localhost:8080/assets/fonts/lg.64b800aa.woff2",
   "assets/images/pattern11.png": "https://localhost:8080/assets/images/pattern11.png",
-  "assets/images/pt5.png": "https://localhost:8080/assets/images/pt5.png"
+  "assets/images/pt5.png": "https://localhost:8080/assets/images/pt5.png",
+  "assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-837dad.min.css": "https://localhost:8080/assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-837dad.min.css",
+  "assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-837dad.js": "https://localhost:8080/assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-837dad.js",
+  "assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-b11886.min.css": "https://localhost:8080/assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-b11886.min.css",
+  "assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-b11886.js": "https://localhost:8080/assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-b11886.js",
+  "assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-75dd5f.min.css": "https://localhost:8080/assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-75dd5f.min.css",
+  "assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-75dd5f.js": "https://localhost:8080/assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-75dd5f.js"
 }

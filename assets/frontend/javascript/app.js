@@ -19,8 +19,16 @@ require('bootstrap-select');
 require('bootstrap-select/dist/css/bootstrap-select.min.css');
 import AOS from 'aos';
 var imagesLoaded = require('imagesloaded');
+
 // import Swiper JS
 import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import lightGallery from 'lightgallery';
 var Isotope = require('isotope-layout');
 // add cellsByRow layout mode
@@ -356,7 +364,7 @@ const Mazo = (() => {
     if (jQuery('.counter').length) {
       console.log('freeee');
       counterUp( el, {
-        duration: 3000,
+        duration: 2500,
         delay: 16,
       } )
     }
@@ -497,7 +505,7 @@ const Mazo = (() => {
         transition: 'kenburns',
         useCSS: true,
         speed: 8000,
-        pause: 3000,
+        pause: 2500,
         auto: true,
         preload: 'visible',
         autoHover: false
@@ -692,11 +700,12 @@ function homeSlider() {
   // main-slider-swiper
   if (jQuery('.main-slider-swiper').length > 0) {
     var swiper = new Swiper('.main-slider-swiper', {
+      modules: [Navigation, Pagination, Autoplay],
       speed: 1500,
       parallax: true,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       navigation: {
         nextEl: '.swiper-button-next1',
@@ -726,7 +735,7 @@ jQuery(document).ready(function () {
       slidesPerView: 1,
       spaceBetween: 30,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
     });
   }
@@ -739,7 +748,7 @@ jQuery(document).ready(function () {
       spaceBetween: 0,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       breakpoints: {
         1024: {
@@ -762,7 +771,7 @@ jQuery(document).ready(function () {
       slidesPerView: 3,
       spaceBetween: 30,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       pagination: {
         el: '.swiper-pagination1',
@@ -856,7 +865,7 @@ jQuery(document).ready(function () {
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       breakpoints: {
         1024: {
@@ -879,7 +888,7 @@ jQuery(document).ready(function () {
       slidesPerView: 3,
       spaceBetween: 30,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       pagination: {
         el: '.swiper-pagination1',
@@ -909,7 +918,7 @@ jQuery(document).ready(function () {
       slidesPerView: 1,
       spaceBetween: 30,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       navigation: {
         nextEl: '.testimonial-prev8',
@@ -933,7 +942,7 @@ jQuery(document).ready(function () {
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       navigation: {
         nextEl: '.swiper-button-next2',
@@ -964,7 +973,7 @@ jQuery(document).ready(function () {
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       pagination: {
         el: '.swiper-pagination-team-2',
@@ -1032,7 +1041,7 @@ jQuery(document).ready(function () {
       loop: true,
       centeredSlides: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       navigation: {
         nextEl: '.team-next',
@@ -1063,7 +1072,7 @@ jQuery(document).ready(function () {
       slidesPerView: 4,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       pagination: {
         el: ".swiper-pagination",
@@ -1166,7 +1175,7 @@ jQuery(document).ready(function () {
       speed: 1500,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       breakpoints: {
         1280: {
@@ -1193,7 +1202,7 @@ jQuery(document).ready(function () {
       speed: 1500,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       breakpoints: {
         1191: {
@@ -1220,7 +1229,7 @@ jQuery(document).ready(function () {
       speed: 1500,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       navigation: {
         nextEl: '.prev-post-swiper-btn',
@@ -1238,7 +1247,7 @@ jQuery(document).ready(function () {
       speed: 1500,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       breakpoints: {
         1600: {
@@ -1265,7 +1274,7 @@ jQuery(document).ready(function () {
       slidesPerView: 4,
       spaceBetween: 30,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       loop: true,
       navigation: {
@@ -1301,7 +1310,7 @@ jQuery(document).ready(function () {
       speed: 1500,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 2500,
       },
       breakpoints: {
         1280: {

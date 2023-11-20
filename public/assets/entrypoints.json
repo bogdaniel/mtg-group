@@ -4,11 +4,11 @@
       "js": [
         "https://localhost:8080/assets/runtime.js",
         "https://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_https_3A_username_password_h-886d53.js",
-        "https://localhost:8080/assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-0808c0.js",
+        "https://localhost:8080/assets/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-75dd5f.js",
         "https://localhost:8080/assets/app_js.js"
       ],
       "css": [
-        "https://localhost:8080/assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-0808c0.min.css",
+        "https://localhost:8080/assets/css/vendors-node_modules_aos_dist_aos_js-node_modules_bootstrap-select_dist_js_bootstrap-select_j-75dd5f.min.css",
         "https://localhost:8080/assets/css/app_js.min.css"
       ]
     },

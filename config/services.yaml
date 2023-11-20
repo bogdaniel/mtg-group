@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    $criteriaValueResolver: 10
 
 services:
     # default configuration for services in *this* file
@@ -20,6 +21,15 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Domain/Entity'
+            - '../src/Shared/{DependencyInjection,DQL,Contract,Common,Helper,Entity,Trait,Traits,Migrations,Tests}'
+            - '../src/Shared/Infrastructure/DependencyInjection'
+            - '../src/Shared/Presentation/Exception/ApiProblemLogErrorListener.php'
+            - '../src/**/*Contract.php'
+            - '../src/Shared/Domain'
+            - '../src/Shared/Application/Contract'
+            - '../src/Shared/Exception/'
+            - '../src/Shared/Common'
+            - '../src/Shared/Filter/Order/OrderBy.php'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
@@ -85,3 +95,15 @@ services:
             $defaultImage: '/assets/1920x1080.svg'
         tags: ['twig.extension']
 
+    # Shared Libraries 
+    App\Shared\Domain\Event\InMemoryDomainEventPublisher: ~
+    App\Shared\Domain\Event\DomainEventPublisherContract:
+        alias: App\Shared\Domain\Event\InMemoryDomainEventPublisher
+        
+    App\Shared\Infrastructure\Site\SymfonySiteUrlResolver: ~
+    App\Shared\Domain\Site\SiteUrlResolverContract:
+        alias: App\Shared\Infrastructure\Site\SymfonySiteUrlResolver
+        
+    App\Shared\Filter\Attributes\CriteriaValueResolver:
+        arguments:
+            $paginationLimit: '$criteriaValueResolver'

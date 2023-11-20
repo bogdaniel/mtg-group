@@ -3,9 +3,8 @@
 namespace App;
 
 use App\Doctrine\AbstractEnumType;
-use App\Infrastructure\DependencyInjection\MediaBundleExtension;
-use App\Infrastructure\DependencyInjection\MediaCompilerPass;
-use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
+use App\Shared\Infrastructure\DependencyInjection\ShareBundleCompilerPass;
+use App\Shared\Infrastructure\DependencyInjection\SharedBundleExtension;
 use JetBrains\PhpStorm\NoReturn;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -17,7 +16,7 @@ class Kernel extends BaseKernel implements CompilerPassInterface
 {
     use MicroKernelTrait;
 
-    private MediaBundleExtension $extension;
+    private SharedBundleExtension $extension;
 
     #[NoReturn]
     public function process(ContainerBuilder $container): void
@@ -35,33 +34,20 @@ class Kernel extends BaseKernel implements CompilerPassInterface
         }
         $container->setParameter('doctrine.dbal.connection_factory.types', $typesDefinition);
     }
+
     public function build(ContainerBuilder $container): void
     {
-        parent::build($container);
-        $container->addCompilerPass(new MediaCompilerPass()); // PassConfig::TYPE_REMOVE
-        if (\class_exists(DoctrineOrmMappingsPass::class))
-        {
-            $container->addCompilerPass(
-                DoctrineOrmMappingsPass::createAttributeMappingDriver(
-                    ['App\Domain'],
-                    [\dirname(__DIR__).'/src/Domain']
-                )
-            );
-        }
+        $container->addCompilerPass(new ShareBundleCompilerPass());
     }
 
-    /**
-     * @return \Symfony\Component\DependencyInjection\Extension\ExtensionInterface|null
-     */
     public function getContainerExtension(): ?ExtensionInterface
     {
         if (null === $this->extension) {
-            $this->extension = new MediaBundleExtension();
+            $this->extension = new SharedBundleExtension();
         }
 
         return $this->extension;
     }
-
 
     public function getPath(): string
     {
