@@ -1,0 +1,58 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-group/_partial/_loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/bnr1.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Viziune</h1>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Acasa</a>
+                        </li>
+                        <li class="breadcrumb-item">Viziune</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- About US -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>
+                    Viziunea noastra
+                </h2>
+
+                <p>
+                    Viziunea Grupului Multigama este de a devein unul din principalii contributori la dezvoltarea infrastructurii municipale de apa si apa uzata din România, menținând în același timp practici corecte în activitatea prestată.
+
+                </p>
+                <h2>
+                    Misiunea noastra
+                </h2>
+
+                <p>
+                    Multigama Group lucrează pentru a furniza produse și servicii de cea mai înaltă calitate, precum și asigurarea satisfacției clienților noștri.
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

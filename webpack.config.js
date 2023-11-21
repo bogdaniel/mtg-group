@@ -27,6 +27,7 @@ Encore
     // .addEntry('custom', './assets/admin/scss/config/creative/custom.scss')
 
     .addEntry('app_js', './assets/frontend/javascript/app.js')
+    // .addEntry('custom_js', './assets/frontend/javascript/custom.js')
     .addEntry('skin_1', './assets/frontend/css/skin/skin-1.css')
     .addEntry('skin_2', './assets/frontend/css/skin/skin-2.css')
     .addEntry('skin_3', './assets/frontend/css/skin/skin-3.css')

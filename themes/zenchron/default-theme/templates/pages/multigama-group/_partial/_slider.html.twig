@@ -1,0 +1,25 @@
+<!-- Slider -->
+<div class="swiper-container main-slider-swiper slider-two">
+    <div class="swiper-wrapper">
+        {% for slide in slideshow %}
+        <div class="swiper-slide">
+            <div class="dz-slide-item overlay-black-light" style="background-image:url('{{ asset('assets/images/' ~ slide.picture) }}');">
+                <div class="container">
+                    <div class="slider-content" data-swiper-parallax="-40%">
+                        <div class="inner-content">
+                            <h2 class="title">{{ slide.header|raw }}</h2>
+                            <p class="m-b30">{{ slide.subheader|raw }}</p>
+                            <a href="/services/p" class="btn shadow-primary btn-primary">DESCOPERA MAI MULT</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-shape-left"></div>
+                <div class="bg-shape-right"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="btn-prev swiper-button-prev1"><i class="las la-arrow-left"></i></div>
+    <div class="btn-next swiper-button-next1"><i class="las la-arrow-right"></i></div>
+</div>
+<!-- Slider -->

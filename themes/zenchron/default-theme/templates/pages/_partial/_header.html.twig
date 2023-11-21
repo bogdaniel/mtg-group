@@ -13,7 +13,8 @@
                 <div class="dz-topbar-right">
                     <ul class="dz-social">
                         <li><a class="fab fa-facebook-f" href="https://www.facebook.com/" target="_blank"></a></li>
-                        <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service" target="_blank"></a>
+                        <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service"
+                               target="_blank"></a>
                     </ul>
                 </div>
             </div>
@@ -30,17 +31,31 @@
                             <div class="container-fluid">
                                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                                     <!-- Added 'justify-content-between' class -->
-                                    <ul class="navbar-nav w-100 d-flex justify-content-between">
+                                    <ul class="navbar-nav w-100 d-flex justify-content-between align-items-center">
                                         <!-- Added 'w-100', 'd-flex' and 'justify-content-between' classes -->
                                         <li class="nav-item">
-                                            <a aria-current="page" class="nav-link active" href="{{ path('static_page',{'pageName': 'multigama-tech-home'}) }}
-">MULTIGAMA TECH</a>
+                                            <a aria-current="page" class="nav-link active"
+                                               href="{{ path('static_page',{'pageName': 'multigama-tech-home'}) }}
+"><img class="img-fluid" src="{{ asset('assets/images/multigama-tech.png') }}" alt=""></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ path('static_page',{'pageName': 'multigama-service-home'}) }}">MULTIGAMA SERVICE</a>
+                                            <a class="nav-link"
+                                               href="{{ path('static_page',{'pageName': 'multigama-service-home'}) }}">
+
+                                                <img class="img-fluid"
+                                                     src="{{ asset('assets/images/multigama-service.png') }}" alt="">
+                                            </a>
+
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ path('static_page',{'pageName': 'multigama-eq-fire-home'}) }}">EQ FIRE</a>
+                                            <a class="nav-link"
+                                               href="{{ path('static_page',{'pageName': 'multigama-eq-fire-home'}) }}">
+                                                <img class="img-fluid" src="{{ asset('assets/images/eq-fire.png') }}"
+                                                     alt="">
+                                            </a>
+
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -59,7 +74,9 @@
                     </a>
                 </div>
                 <!-- Nav Toggle Button -->
-                <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler collapsed navicon justify-content-end" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -93,14 +110,14 @@
                         {% for item in multiGamaGroupMenu %}
                             {% if item.sub_menu is defined %}
                                 <li class="active sub-menu-down">
-                                <a href="javascript:;">{{ item.name }}</a>
+                                <a href="javascript:">{{ item.name }}</a>
                                 <ul class="sub-menu">
-                                        {% for subItem in item.sub_menu %}
-                                                <li class="new-page">
-                                                    <a href="{{ subItem.path }}">{{ subItem.name }}</a>
-                                                </li>
-                                        {% endfor %}
-                                    </ul>
+                                    {% for subItem in item.sub_menu %}
+                                        <li class="new-page">
+                                            <a href="{{ subItem.path }}">{{ subItem.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
                             {% else %}
                                 <li class="active">
                                 <a href="{{ item.path }}">{{ item.name }}</a>
@@ -112,7 +129,8 @@
                     <div class="dz-social-icon">
                         <ul>
                             <li><a class="fab fa-facebook-f" href="https://www.facebook.com/" target="_blank"></a></li>
-                            <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service" target="_blank"></a>
+                            <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service"
+                                   target="_blank"></a>
                         </ul>
                     </div>
                 </div>

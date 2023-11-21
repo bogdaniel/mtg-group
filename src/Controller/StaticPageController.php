@@ -27,55 +27,81 @@ class StaticPageController extends AbstractController
     {
         $multiGamaGroupMenu = [
             [
-                'name' => 'Acasa',
+                'name' => 'Mutligama Group',
                 'path' => '/',
+                'sub_menu' => [
+                    [
+                        'name' => 'MultiGama Tech',
+                        'path' => '/multigama-tech-home/p',
+                    ],
+                    [
+                        'name' => 'Multigama Service',
+                        'path' => '/multigama-service-home/p',
+                    ],
+                    [
+                        'name' => 'EQ Fire',
+                        'path' => '/multigama-eq-fire-home/p',
+                    ],
+
+                ],
             ],
+
             [
-                'name' => 'Despre Noi',
-                'path' => '/about-us/p'
+                'name' => 'Companie',
+                'path' => '/about-us/p',
+                'sub_menu' => [
+                    [
+                        'name' => 'Misiune',
+                        'path' => '/about-us/p',
+                    ],
+                    [
+                        'name' => 'Viziune',
+                        'path' => '/company-vision/p',
+                    ],
+                ],
             ],
-            [
-                'name' => 'Produse',
-                'path' => '/products/p'
-            ],
+//            [
+//                'name' => 'Produse',
+//                'path' => '/products/p'
+//            ],
             [
                 'name' => 'Servicii',
                 'path' => '/services/p',
-                'sub_menu' => [
-                    [
-                        'name' => 'Servicii',
-                        'path' => '/services/p',
-                    ],
-                    [
-                        'name' => 'Detalii Serviciu',
-                        'path' => '/services-details/p',
-                    ]
-                ]
+//                'sub_menu' => [
+//                    [
+//                        'name' => 'Servicii',
+//                        'path' => '/services/p',
+//                    ],
+//                    [
+//                        'name' => 'Detalii Serviciu',
+//                        'path' => '/services-details/p',
+//                    ]
+//                ]
             ],
             [
                 'name' => 'Proiecte',
-                'path' => '/portfolio/p'
+                'path' => '/portfolio/p',
             ],
             [
                 'name' => 'Contact',
-                'path' => '/contact-us/p'
+                'path' => '/contact-us/p',
             ],
         ];
         $slideshow = [
             [
                 'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
-                'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
-                'picture' => 'picture-1.jpg',
+                'subheader' => '',
+                'picture' => 'number-electric-motors-with-reducers-tanks-mixing-liquids-food-industry.jpg',
             ],
             [
                 'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
-                'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
-                'picture' => 'picture-2.jpg',
+                'subheader' => '',
+                'picture' => 'steel-pipelines-cables-plant.jpg',
             ],
             [
                 'header' => 'Servicii de mentenanță',
-                'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
-                'picture' => 'picture-3.jpg',
+                'subheader' => '',
+                'picture' => 'pump-pipe-line-oil-pressure-gauge-valves-plant-pressure-safety-valve-selective.jpg',
             ],
         ];
         $aboutHeader = "Povestea Noastra!";
@@ -92,62 +118,77 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
         if (str_contains($pageName, 'multigama-tech-')) {
             $multiGamaGroupMenu = [
                 [
-                    'name' => 'Acasa',
+                    'name' => 'MultiGama Tech',
                     'path' => '/',
+                    'sub_menu' => [
+                        [
+                            'name' => 'MultiGama Group',
+                            'path' => '/',
+                        ],
+                        [
+                            'name' => 'Multigama Service',
+                            'path' => '/multigama-service-home/p',
+                        ],
+                        [
+                            'name' => 'EQ Fire',
+                            'path' => '/multigama-eq-fire-home/p',
+                        ],
+
+                    ],
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '/multigama-tech-about-us/p'
+                    'path' => '/multigama-tech-about-us/p',
                 ],
-                [
-                    'name' => 'Produse',
-                    'path' => '/multigama-tech-products/p'
-                ],
+//                [
+//                    'name' => 'Produse',
+//                    'path' => '/multigama-tech-products/p'
+//                ],
                 [
                     'name' => 'Servicii',
                     'path' => '/multigama-tech-services/p',
-                    'sub_menu' => [
-                        [
-                            'name' => 'Servicii',
-                            'path' => '/multigama-tech-services/p',
-                        ],
-                        [
-                            'name' => 'Detalii Serviciu',
-                            'path' => '/multigama-tech-services-details/p',
-                        ]
-                    ]
+//                    'sub_menu' => [
+//                        [
+//                            'name' => 'Servicii',
+//                            'path' => '/multigama-tech-services/p',
+//                        ],
+//                        [
+//                            'name' => 'Detalii Serviciu',
+//                            'path' => '/multigama-tech-services-details/p',
+//                        ]
+//                    ]
                 ],
                 [
                     'name' => 'Proiecte',
-                    'path' => '/multigama-tech-portfolio/p'
+                    'path' => '/multigama-tech-portfolio/p',
                 ],
                 [
                     'name' => 'Contact',
-                    'path' => '/multigama-tech-contact-us/p'
+                    'path' => '/multigama-tech-contact-us/p',
                 ],
             ];
 
             $slideshow = [
                 [
                     'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide1.png',
                 ],
                 [
                     'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide2.jpg',
                 ],
                 [
                     'header' => 'Servicii de mentenanță',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide3.jpg',
                 ],
             ];
             $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
-            $about = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            $about = "";
             $quickContactHeader = "MULTIGAMA TECH";
-            $quickContactContent = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            $quickContactContent = "";
 
             $logo = 'multigama-tech.png';
         }
@@ -155,80 +196,100 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
         if (str_contains($pageName, 'multigama-service-')) {
             $multiGamaGroupMenu = [
                 [
-                    'name' => 'Acasa',
+                    'name' => 'Mutligama Service',
                     'path' => '/',
+                    'sub_menu' => [
+                        [
+                            'name' => 'MultiGama Group',
+                            'path' => '/',
+                        ],
+                        [
+                            'name' => 'Multigama Service',
+                            'path' => '/multigama-service-home/p',
+                        ],
+                        [
+                            'name' => 'EQ Fire',
+                            'path' => '/multigama-eq-fire-home/p',
+                        ],
+
+                    ],
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '/multigama-service-about-us/p'
+                    'path' => '/multigama-service-about-us/p',
                 ],
-                [
-                    'name' => 'Produse',
-                    'path' => '/multigama-service-products/p'
-                ],
+//                [
+//                    'name' => 'Produse',
+//                    'path' => '/multigama-service-products/p'
+//                ],
                 [
                     'name' => 'Servicii',
                     'path' => '/multigama-service-services/p',
-                    'sub_menu' => [
-                        [
-                            'name' => 'Servicii',
-                            'path' => '/multigama-service-services/p',
-                        ],
-                        [
-                            'name' => 'Detalii Serviciu',
-                            'path' => '/multigama-service-services-details/p',
-                        ]
-                    ]
                 ],
                 [
                     'name' => 'Proiecte',
-                    'path' => '/multigama-service-portfolio/p'
+                    'path' => '/multigama-service-portfolio/p',
                 ],
                 [
                     'name' => 'Contact',
-                    'path' => '/multigama-service-contact-us/p'
+                    'path' => '/multigama-service-contact-us/p',
                 ],
             ];
 
             $slideshow = [
                 [
                     'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide1.png',
                 ],
                 [
                     'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide2.jpg',
                 ],
                 [
                     'header' => 'Servicii de mentenanță',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide3.jpg',
                 ],
             ];
             $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
-            $about = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            $about = "";
             $quickContactHeader = "MULTIGAMA SERVICE";
-            $quickContactContent = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            $quickContactContent = "";
 
             $logo = 'multigama-service.png';
-                    $skinVersion = 'skin_4';
+            $skinVersion = 'skin_4';
         }
 
         if (str_contains($pageName, 'multigama-eq-fire-')) {
             $multiGamaGroupMenu = [
                 [
-                    'name' => 'Acasa',
+                    'name' => 'EQ Fire',
                     'path' => '/',
+                    'sub_menu' => [
+                        [
+                            'name' => 'MultiGama Group',
+                            'path' => '/',
+                        ],
+                        [
+                            'name' => 'Multigama Service',
+                            'path' => '/multigama-service-home/p',
+                        ],
+                        [
+                            'name' => 'EQ Fire',
+                            'path' => '/multigama-eq-fire-home/p',
+                        ],
+
+                    ],
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '/multigama-eq-fire--about-us/p'
+                    'path' => '/multigama-eq-fire--about-us/p',
                 ],
                 [
                     'name' => 'Produse',
-                    'path' => '/multigama-eq-fire--products/p'
+                    'path' => '/multigama-eq-fire--products/p',
                 ],
                 [
                     'name' => 'Servicii',
@@ -241,44 +302,45 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                         [
                             'name' => 'Detalii Serviciu',
                             'path' => '/multigama-eq-fire--services-details/p',
-                        ]
-                    ]
+                        ],
+                    ],
                 ],
                 [
                     'name' => 'Proiecte',
-                    'path' => '/multigama-eq-fire--portfolio/p'
+                    'path' => '/multigama-eq-fire--portfolio/p',
                 ],
                 [
                     'name' => 'Contact',
-                    'path' => '/multigama-eq-fire--contact-us/p'
+                    'path' => '/multigama-eq-fire--contact-us/p',
                 ],
             ];
 
             $slideshow = [
                 [
                     'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide1.png',
                 ],
                 [
                     'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide2.jpg',
                 ],
                 [
                     'header' => 'Servicii de mentenanță',
-                    'subheader' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi blandit eros euismod, efficitur odio vitae, pharetra sapien.',
+                    'subheader' => '',
                     'picture' => 'slide3.jpg',
                 ],
             ];
             $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
-            $about = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            $about = "";
             $quickContactHeader = "MULTIGAMA SERVICE";
-            $quickContactContent = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            $quickContactContent = "";
 
             $logo = 'eq-fire.png';
             $skinVersion = 'skin_1';
         }
+
         return $this->render("templates/pages/{$pageName}.html.twig", [
             'multiGamaGroupMenu' => $multiGamaGroupMenu,
             'skinVersion' => $skinVersion,
