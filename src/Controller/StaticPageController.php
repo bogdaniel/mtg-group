@@ -186,7 +186,11 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                 ],
             ];
             $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
-            $about = "";
+            $about = "Cu o experiență vastă și o dedicare neclintită față de excelență, Multigama Tech se află în fruntea industriei de vânzare a pompelor industriale. Suntem pasionați de furnizarea soluțiilor ideale pentru nevoile de transport și gestionare a fluidelor în industrie.
+
+Specializați în furnizarea unei game complete de pompe industriale, de la cele de uz general până la cele specializate pentru aplicații specifice, ne străduim să aducem inovație și performanță fiecărui partener industrial.
+
+";
             $quickContactHeader = "MULTIGAMA TECH";
             $quickContactContent = "";
 
@@ -253,8 +257,11 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                     'picture' => 'slide3.jpg',
                 ],
             ];
-            $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
-            $about = "";
+            $aboutHeader = "Expertiza Multigama Service în Soluții Complete pentru Pompe Industriale!";
+            $about = "Multigama Service este un lider de necontestat în domeniul întreținerii, reparației și
+                                oferirii de soluții complete pentru pompele industriale. Cu o echipă experimentată și o
+                                abordare dedicată, ne angajăm să aducem performanță și fiabilitate în universul
+                                transportului și manipulării fluidelor în industrie.";
             $quickContactHeader = "MULTIGAMA SERVICE";
             $quickContactContent = "";
 
@@ -285,33 +292,33 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '/multigama-eq-fire--about-us/p',
+                    'path' => '/multigama-eq-fire-about-us/p',
                 ],
                 [
                     'name' => 'Produse',
-                    'path' => '/multigama-eq-fire--products/p',
+                    'path' => '/multigama-eq-fire-products/p',
                 ],
                 [
                     'name' => 'Servicii',
-                    'path' => '/multigama-eq-fire--services/p',
+                    'path' => '/multigama-eq-fire-services/p',
                     'sub_menu' => [
                         [
                             'name' => 'Servicii',
-                            'path' => '/multigama-eq-fire--services/p',
+                            'path' => '/multigama-eq-fire-services/p',
                         ],
                         [
                             'name' => 'Detalii Serviciu',
-                            'path' => '/multigama-eq-fire--services-details/p',
+                            'path' => '/multigama-eq-fire-services-details/p',
                         ],
                     ],
                 ],
                 [
                     'name' => 'Proiecte',
-                    'path' => '/multigama-eq-fire--portfolio/p',
+                    'path' => '/multigama-eq-fire-portfolio/p',
                 ],
                 [
                     'name' => 'Contact',
-                    'path' => '/multigama-eq-fire--contact-us/p',
+                    'path' => '/multigama-eq-fire-contact-us/p',
                 ],
             ];
 
@@ -332,8 +339,10 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                     'picture' => 'slide3.jpg',
                 ],
             ];
-            $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
-            $about = "";
+            $aboutHeader = "Siguranță de Încredere cu EQ Fire pentru Sisteme de Stingere a Incendiilor";
+            $about = "EQ Fire se remarcă ca lider de încredere în furnizarea și întreținerea sistemelor de stingere a incendiilor pentru mediul industrial. Ne angajăm să asigurăm protecția optimă împotriva incendiilor în facilitățile industriale, oferind soluții inovatoare și servicii de cea mai înaltă calitate.
+
+";
             $quickContactHeader = "MULTIGAMA SERVICE";
             $quickContactContent = "";
 

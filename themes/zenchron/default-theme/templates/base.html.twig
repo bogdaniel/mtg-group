@@ -51,9 +51,11 @@
 <div id="loading-area">
     <div class="loading-inner style-1">
         <div class="wrapper">
+            <img class="img-fluid" src="{{ asset('assets/images/' ~ logo) }}" alt="">
             {% block loading_wrapper %}{% endblock %}
+
         </div>
-        <div class="load-text">
+        <div class="load-text text-center">
             {% block load_text %}{% endblock %}
         </div>
     </div>
