@@ -19,7 +19,19 @@ class GenerateBundleCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // TODO: Implement bundle generation and registration logic here.
+        // Get the name of the bundle from the input (you might want to add an argument to the command for this)
+        $bundleName = $input->getArgument('bundleName');
+
+        // Create the bundle directory
+        mkdir(__DIR__ . "/../Bundle/$bundleName");
+
+        // Generate the required classes (this is just a basic example, you might need to generate more classes or files depending on your needs)
+        file_put_contents(__DIR__ . "/../Bundle/$bundleName/$bundleName.php", "<?php\n\nnamespace App\Bundle\\$bundleName;\n\nuse Symfony\Component\HttpKernel\Bundle\Bundle;\n\nclass $bundleName extends Bundle\n{\n}\n");
+
+        // Register the bundle in config/bundles.php
+        $bundles = require __DIR__ . '/../../config/bundles.php';
+        $bundles["App\\Bundle\\$bundleName\\$bundleName"] = ['all' => true];
+        file_put_contents(__DIR__ . '/../../config/bundles.php', "<?php\n\nreturn " . var_export($bundles, true) . ";\n");
 
         $output->writeln('Bundle generated and registered successfully.');
 
