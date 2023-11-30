@@ -30,8 +30,10 @@ class GenerateBundleCommand extends Command
             "/Repository",
             "/Form",
             "/Tests",
-            "/Resources",
-            "/Resources/config",
+            "/Resources" => [
+                "",
+                "/config"
+            ],
             "/Command",
             "/Service",
             "/Security",
