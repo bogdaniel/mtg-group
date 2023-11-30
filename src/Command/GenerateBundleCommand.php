@@ -23,12 +23,18 @@ class GenerateBundleCommand extends Command
         $bundleName = $input->getArgument('bundleName');
 
         // Create the bundle directory and subdirectories
-        mkdir(__DIR__ . "/../Bundle/$bundleName");
-        mkdir(__DIR__ . "/../Bundle/$bundleName/Controller");
-        mkdir(__DIR__ . "/../Bundle/$bundleName/Entity");
-        mkdir(__DIR__ . "/../Bundle/$bundleName/Repository");
-        mkdir(__DIR__ . "/../Bundle/$bundleName/Form");
-        mkdir(__DIR__ . "/../Bundle/$bundleName/Tests");
+        $directories = [
+            "",
+            "/Controller",
+            "/Entity",
+            "/Repository",
+            "/Form",
+            "/Tests"
+        ];
+
+        foreach ($directories as $directory) {
+            mkdir(__DIR__ . "/../Bundle/$bundleName$directory");
+        }
 
         // Generate the required classes (this is just a basic example, you might need to generate more classes or files depending on your needs)
         file_put_contents(__DIR__ . "/../Bundle/$bundleName/$bundleName.php", "<?php\n\nnamespace App\Bundle\\$bundleName;\n\nuse Symfony\Component\HttpKernel\Bundle\Bundle;\n\nclass $bundleName extends Bundle\n{\n}\n");
