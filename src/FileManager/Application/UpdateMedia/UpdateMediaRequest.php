@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 namespace App\FileManager\Application\UpdateMedia;
 
-use App\Shared\Application\Dto\RequestDtoInterface;
+use App\Shared\Application\Contract\RequestDataTransferObjectContract;
 use App\Shared\Domain\ValueObject\MappingTrait;
 
 /**
  * @phpstan-type UpdateMediaRequestArray array{id: string, name: string, alt: string, title: string}
  */
-class UpdateMediaRequest implements RequestDtoInterface
+class UpdateMediaRequest implements RequestDataTransferObjectContract
 {
     use MappingTrait;
 

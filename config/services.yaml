@@ -5,7 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     $criteriaValueResolver: 10
-
+    api_prefix: '/api'
+    
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -89,7 +90,14 @@ services:
     _instanceof:
         App\Doctrine\AbstractEnumType:
             tags: [ 'app.doctrine_enum_type' ]
-            
+        
+    App\FileManager\Presentation\Api\:
+        resource: '../src/FileManager/Presentation/Api/*'
+        tags: ['controller.service_arguments']
+    App\FileManager\Presentation\BackOffice\:
+        resource: '../src/FileManager/Presentation/BackOffice/*'
+        tags: ['controller.service_arguments']
+
     App\Twig\PlaceholderImageExtension:
         arguments:
             $defaultImage: '/assets/1920x1080.svg'
@@ -107,3 +115,52 @@ services:
     App\Shared\Filter\Attributes\CriteriaValueResolver:
         arguments:
             $paginationLimit: '$criteriaValueResolver'
+
+
+    # File Manager
+    App\FileManager\Infrastructure\Persistence\Orm\Repository\DoctrineOrmAvailableDatesMediaRepository: ~
+    App\FileManager\Domain\Contract\AvailableDatesMediaRepositoryInterface:
+        alias: App\FileManager\Infrastructure\Persistence\Orm\Repository\DoctrineOrmAvailableDatesMediaRepository
+        
+    App\FileManager\Infrastructure\Persistence\Orm\Repository\DoctrineOrmMimeMediaRepository: ~
+    App\FileManager\Domain\Contract\MimeMediaRepositoryInterface:
+        alias: App\FileManager\Infrastructure\Persistence\Orm\Repository\DoctrineOrmMimeMediaRepository
+        
+    App\FileManager\Infrastructure\Validation\UploadedFileValidator: ~
+        
+    App\FileManager\Infrastructure\Filesystem\Local\LocalFileRepository: ~
+    App\FileManager\Domain\Contract\FileRepositoryInterface:
+        alias: App\FileManager\Infrastructure\Filesystem\Local\LocalFileRepository
+        
+    App\FileManager\Domain\Contract\FilePathResolverInterface:
+        alias: App\FileManager\Infrastructure\Filesystem\Local\LocalFilePathResolver
+    
+    App\FileManager\Domain\Contract\FileUrlResolverInterface:
+        alias: App\FileManager\Infrastructure\Filesystem\Local\LocalFileUrlResolver
+    App\FileManager\Infrastructure\Filesystem\Local\LocalFileUrlResolver: ~
+    
+    App\FileManager\Domain\Service\FileResizeHandler:
+        arguments:
+            $mediaResizes: !tagged_iterator media_bundle_extension.tag_media_resize
+    
+    App\FileManager\Infrastructure\FileManipulation\Thumbnails\Resize\ImagickGifFileResize: ~
+    App\FileManager\Infrastructure\FileManipulation\Thumbnails\Resize\FfmpegGifFileResize: ~
+    App\FileManager\Infrastructure\FileManipulation\Thumbnails\Resize\GifsicleGifFileResize: ~
+    App\FileManager\Infrastructure\FileManipulation\Thumbnails\Resize\InterventionFileResize: ~
+    
+    App\FileManager\Domain\Service\GenerateThumbnailsHandler: ~
+    
+    App\FileManager\Application\FileManipulation\Thumbnails\GenerateThumbnails\AbstractGenerateImageThumbnails: ~
+    App\FileManager\Application\FileManipulation\Thumbnails\GenerateThumbnails\GenerateImageThumbnails:
+        parent: App\FileManager\Application\FileManipulation\Thumbnails\GenerateThumbnails\AbstractGenerateImageThumbnails
+    
+    App\FileManager\Application\FileManipulation\Thumbnails\GenerateThumbnails\GenerateGifImageThumbnails:
+        parent: App\FileManager\Application\FileManipulation\Thumbnails\GenerateThumbnails\AbstractGenerateImageThumbnails
+        
+    App\FileManager\Domain\Service\FileCompressHandler:
+        arguments:
+            - !tagged_iterator
+                tag: 'media_bundle_extension.tag_media_compress'
+    
+    App\FileManager\Infrastructure\FileManipulation\Compression\SpatieFileCompression: ~
+    

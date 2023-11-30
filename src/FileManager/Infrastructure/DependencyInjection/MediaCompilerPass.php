@@ -19,8 +19,8 @@ class MediaCompilerPass implements CompilerPassInterface
         $twigGlobal->addMethodCall(
             'addGlobal',
             [
-                'ranky_media_api_prefix',
-                $container->getParameter('ranky_media_api_prefix') ?? '',
+                'api_prefix',
+                $container->getParameter('api_prefix') ?? '',
             ]
         );
 

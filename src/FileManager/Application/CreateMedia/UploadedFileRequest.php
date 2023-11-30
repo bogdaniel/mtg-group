@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 namespace App\FileManager\Application\CreateMedia;
 
-use App\Shared\Application\Dto\RequestDtoInterface;
+use App\Shared\Application\Contract\RequestDataTransferObjectContract;
 use App\Shared\Domain\ValueObject\MappingTrait;
 
 /**
  * @phpstan-type UploadedFileRequestArray array{path: string, name: string, mime: string, extension: string, size: int}
  */
-final class UploadedFileRequest implements RequestDtoInterface
+final class UploadedFileRequest implements RequestDataTransferObjectContract
 {
     use MappingTrait;
 

@@ -5,14 +5,14 @@ namespace App\FileManager\Infrastructure\Filesystem\Local;
 
 use App\FileManager\Domain\Contract\FileUrlResolverInterface;
 use App\FileManager\Domain\Enum\Breakpoint;
-use App\Shared\Domain\Site\SiteUrlResolver;
+use App\Shared\Domain\Site\SiteUrlResolverContract;
 
 
 final class LocalFileUrlResolver implements FileUrlResolverInterface
 {
 
     public function __construct(
-        private readonly SiteUrlResolver $siteUrlResolver,
+        private readonly SiteUrlResolverContract $siteUrlResolver,
         private readonly string $uploadUrl
     ) {
     }
