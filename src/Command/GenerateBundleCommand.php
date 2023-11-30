@@ -31,6 +31,7 @@ class GenerateBundleCommand extends Command
             "/Form",
             "/Tests",
             "/Resources",
+            "/Resources/config",
             "/Command",
             "/Service",
             "/Security",
