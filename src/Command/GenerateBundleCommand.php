@@ -29,7 +29,14 @@ class GenerateBundleCommand extends Command
             "/Entity",
             "/Repository",
             "/Form",
-            "/Tests"
+            "/Tests",
+            "/Resources",
+            "/Command",
+            "/Service",
+            "/Security",
+            "/EventListener",
+            "/EventSubscriber",
+            "/DependencyInjection"
         ];
 
         foreach ($directories as $directory) {
