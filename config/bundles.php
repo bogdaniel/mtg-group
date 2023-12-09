@@ -16,4 +16,6 @@ return [
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
+    Zenchron\SharedBundle\ZenchronSharedBundle::class => ['all' => true],
+    Zenchron\FileManagerBundle\ZenchronFileManagerBundle::class => ['all' => true],
 ];

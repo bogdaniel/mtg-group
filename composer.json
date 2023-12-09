@@ -3,7 +3,7 @@
     "type": "project",
     "license": "MIT",
     "description": "A minimal Symfony project recommended to create bare bones applications",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=8.2.11",
@@ -52,7 +52,9 @@
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "6.3.*",
         "twig/extra-bundle": "*",
-        "twig/twig": "*"
+        "twig/twig": "*",
+        "zenchron/file-manager-bundle": "*",
+        "zenchron/shared-bundle": "*"
     },
     "suggest": {
         "ext-mbstring": "Recommended for better performance",
@@ -141,5 +143,11 @@
         "symfony/stopwatch": "6.3.*",
         "symfony/web-profiler-bundle": "6.3.*",
         "vimeo/psalm": "*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "bundles/*"
+        }
+    ]
 }

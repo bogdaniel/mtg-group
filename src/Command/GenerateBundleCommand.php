@@ -24,14 +24,12 @@ class GenerateBundleCommand extends Command
 
         // Create the bundle directory and subdirectories
         $directories = [
-            "",
             "/Controller",
             "/Entity",
             "/Repository",
             "/Form",
             "/Tests",
             "/Resources" => [
-                "",
                 "/config"
             ],
             "/Command",

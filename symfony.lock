@@ -349,5 +349,11 @@
     },
     "twig/extra-bundle": {
         "version": "v3.7.1"
+    },
+    "zenchron/file-manager-bundle": {
+        "version": "dev-wip__"
+    },
+    "zenchron/shared-bundle": {
+        "version": "dev-wip__"
     }
 }

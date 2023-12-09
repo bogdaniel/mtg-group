@@ -3,3 +3,6 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+#zenchron_file_manager:
+#    resource: "@ZenchronFileManager/config/routes.php"
+#    prefix: /admin # Optional: The same prefix you use when importing the routes must be the "api_prefix" in the bundle options.
