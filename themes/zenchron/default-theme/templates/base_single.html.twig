@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Title -->
+    <title>{% block title %}Multigama Group{% endblock %}</title>
+    <!-- Title -->
+
+    <!-- Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Mobile Specific -->
+
+    <!-- Meta -->
+    <meta name="keywords"
+          content="chemical, company, construction, corporate business, energy industry, engineering, factory, industrial, industry, manufacturing, mechanical, mining, oil gas petroleum plant, pharmaceutical, refinery"/>
+    {#    <meta name="author" content="DexignZone"/> #}
+    {#    <meta name="robots" content=""/> #}
+    {#    <meta name="description" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/> #}
+    {#    <meta property="og:title" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/> #}
+    {#    <meta property="og:description" content="Mazo - Industry & Factory Bootstrap 5 HTML Template + RTL"/> #}
+    {#    <meta property="og:image" content=""/> #}
+    {#    <meta name="format-detection" content="telephone=no"> #}
+    <!-- Meta -->
+
+    <!-- Favicon icon -->
+    {#    <link rel="icon" type="image/png" href="images/favicon.png"> #}
+    <!-- Favicon icon -->
+
+
+    <!-- Stylesheet -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app_js') }}
+        {{ encore_entry_link_tags(skinVersion) }}
+    {% endblock %}
+
+    <!-- JAVASCRIPT FILES ========================================= -->
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app_js') }}
+        {#        {{ encore_entry_script_tags('custom_js') }} #}
+    {% endblock %}
+
+</head>
+<body id="bg" class="theme-sharped font-style-2" data-bs-spy="scroll" data-bs-target="#navbarNavDropdown">
+<div class="page-wraper">
+    <div id="loading-area">
+        <div class="loading-inner style-1">
+            <div class="wrapper">
+                <img class="img-fluid" src="{{ asset('assets/images/' ~ logo) }}" alt="">
+                {% block loading_wrapper %}{% endblock %}
+
+            </div>
+            <div class="load-text text-center">
+                {% block load_text %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% block header %}{% endblock %}
+    <div class="page-content bg-white">
+        {% block body %}{% endblock %}
+    </div>
+    {% include 'templates/pages/_partial/_footer.html.twig' %}
+    <button class="scroltop icon-up" type="button"><i class="fas fa-arrow-up"></i></button>
+</div>
+</body>
+</html>
