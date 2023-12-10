@@ -1,0 +1,73 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-group/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Produse</h1>
+                <p></p>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html.twig">Acasa</a></li>
+                        <li class="breadcrumb-item">Produse</li>
+                        <li class="breadcrumb-item">Produs</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Services -->
+    <section class="content-inner">
+        <div class="container">
+            <div class="row">
+                <!-- Image Slider -->
+                <div class="col-md-6">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="d-block w-100" alt="Product Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('assets/images/https___live-resources-e2e-sales.ksb.com_resource_image_502010_landscape_ratio16x9_3300_1856_53128c9ecd8a09cf73413d618f8cfff_6C79403531ED76FEAB4D37A361869E07_pic-tauchmotorpumpe-amacan-k.jpg') }}" class="d-block w-100" alt="Product Image 2">
+                            </div>
+                            <!-- Add more carousel items -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Inapoi</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Inainte</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="col-md-6">
+                    <h1>asdad</h1>
+                    <p>dsfdsfsdfsdf.</p>
+                    <p>asdasdas</p>
+{#                    <button type="button" class="btn btn-primary">Add to Cart</button>#}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

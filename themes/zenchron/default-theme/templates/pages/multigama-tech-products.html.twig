@@ -1,0 +1,111 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-group/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Produse</h1>
+                <p></p>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html.twig">Acasa</a></li>
+                        <li class="breadcrumb-item">Produse</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Services -->
+    <section class="content-inner">
+        <div class="container-fluid">
+            <div class="row row-cols-equal-height">
+                <!-- Sidebar with categories and filters -->
+                <div class="col-md-2 bg-light sidebar">
+                    <h3>Categorii</h3>
+                    <!-- List of categories -->
+                    <ul class="list-group">
+                        <li class="list-group-item">Categorie 1</li>
+                        <li class="list-group-item">Categorie 2</li>
+                        <li class="list-group-item">Categorie 3</li>
+                        <!-- Add more categories -->
+                    </ul>
+                    <!-- Filters (price, size, etc.) -->
+                    <h3>Filtre</h3>
+                    <!-- Add filter options here -->
+                </div>
+
+                <!-- Main content area with product grid -->
+                <div class="col-md-10">
+                    <h2>Produse</h2>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <!-- Product cards (loop through products) -->
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">AmaCan D</h5>
+                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj
+                                        umed, rotor diagonal, monoetajat, versiune ATEX disponibilă.</p>
+                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amacan K</h5>
+                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj
+                                        umed, rotor multicanal, monoetajată, monoflux, versiune ATEX disponibilă.</p>
+                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amacan P</h5>
+                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj umed,
+                                        elice axială în variantă de execuţie ECB, monoetajată, monoflux, versiune
+                                        ATEX disponibilă.</p>
+                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amacan S</h5>
+                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj umed,
+                                        rotor diagonal, cu o singură treaptă, versiune ATEX disponibilă.</p>
+                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more product cards -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
