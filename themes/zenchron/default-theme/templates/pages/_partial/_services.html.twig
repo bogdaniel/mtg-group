@@ -2,52 +2,23 @@
 <section class="clearfix">
     <div class="container">
         <div class="row service-area-2 flex-wrap align-items-stretch">
-            <div class="col-lg-4 col-md-6 m-md-b30 aos-item d-flex flex-column" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                <div class="icon-bx-wraper bg-secondary style-8 box-hover h-100">
-                    <div class="icon-lg m-b30">
-                        <span class="icon-cell">
-                            <i class="flaticon-oil-pump"></i>
-                        </span>
-                    </div>
-                    <div class="icon-content">
-{#                        <h6 class="sub-title">Rules Of Business</h6>#}
-                        <h4 class="dz-title m-b10">Mentenanță</h4>
-                        <p>Mentenanță preventivă, predictivă și corectivă pentru toate ansamblurile de echipamente pentru
-                            ridicare a presiunii și agitare fluide</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 m-md-b30 aos-item d-flex flex-column" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-                <div class="icon-bx-wraper bg-secondary style-8 box-hover active h-100">
-                    <div class="icon-lg m-b30">
-                        <span class="icon-cell">
-                            <i class="flaticon-agronomy"></i>
-                        </span>
-                    </div>
-                    <div class="icon-content">
-{#                        <h6 class="sub-title">Rules Of Business</h6>#}
-                        <h4 class="dz-title m-b10">Furnizare echipamente noi</h4>
-                        <p>Furnizare echipamente noi, performante si eficiente din punct de vedere hidraulic și
-                            energetic. Furnizare piese de schimb pe toată durata de viață a echipamentelor.</p>
+            {% for item in items %}
+                <div class="col-lg-4 col-md-12 m-md-b30 d-flex flex-column">
+                    <div class="icon-bx-wraper bg-secondary style-8 box-hover h-100">
+                        <a href="{{ item.link }}">
+                            <div class="icon-lg m-b30">
+                    <span class="icon-cell">
+                        <i class="fa-solid fa-{{ item.icon }} fa-4x"></i>
+                    </span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="dz-title m-b10">{{ item.title }}</h4>
+                                <p>{{ item.description }}</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-12 m-md-b30 aos-item d-flex flex-column" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-                <div class="icon-bx-wraper bg-secondary style-8 box-hover h-100">
-                    <div class="icon-lg m-b30">
-                        <span class="icon-cell">
-                            <i class="flaticon-crane"></i>
-                        </span>
-                    </div>
-                    <div class="icon-content">
-{#                        <h6 class="sub-title">Rules Of Business</h6>#}
-                        <h4 class="dz-title m-b10">Suport tehnic</h4>
-                        <p>Suport tehnic în alegerea și dimensionarea echipamentelor pentru diverse tipuri de
-                            aplicații în funcție de necesitatea clientului.
-                            Suport tehnic în vederea înlocuirii echipamentelor vechi și neperformante etc.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

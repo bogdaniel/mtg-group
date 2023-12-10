@@ -6,8 +6,8 @@
             <div class="dz-topbar-inner d-flex justify-content-between align-items-center">
                 <div class="dz-topbar-left">
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Str. 7 Drumuri, Nr. 9C, Sector 3, București</li>
-                        <li><i class="far fa-envelope"></i>office@multigama.ro</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Str. 7 Drumuri, Nr. 9, Sector 3, București</li>
+                        <li><i class="far fa-envelope"></i>{{ contactEmail }}</li>
                     </ul>
                 </div>
                 <div class="dz-topbar-right">
@@ -20,50 +20,32 @@
             </div>
         </div>
     </div>
-
+    <style>
+        /* Custom styles */
+        .image-container img {
+            max-width: 7.725rem; /* Approximately 50 pixels in rem */
+            height: auto;
+            width: 100%;
+        }
+    </style>
     <!-- Main Header -->
     <div class="sticky-header main-bar-wraper navbar-expand-lg text-black">
         <div class="main-bar clearfix d-none d-sm-block">
             <div class="container clearfix bg-white">
-                <div class="row">
-                    <div class="col-8 offset-2">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="container-fluid">
-                                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                                    <!-- Added 'justify-content-between' class -->
-                                    <ul class="navbar-nav w-100 d-flex justify-content-between align-items-center">
-                                        <!-- Added 'w-100', 'd-flex' and 'justify-content-between' classes -->
-                                        <li class="nav-item">
-                                            <a aria-current="page" class="nav-link active"
-                                               href="{{ path('static_page',{'pageName': 'multigama-tech-home'}) }}
-"><img class="img-fluid" src="{{ asset('assets/images/multigama-tech.png') }}" alt=""></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                               href="{{ path('static_page',{'pageName': 'multigama-service-home'}) }}">
-
-                                                <img class="img-fluid"
-                                                     src="{{ asset('assets/images/multigama-service.png') }}" alt="">
-                                            </a>
-
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                               href="{{ path('static_page',{'pageName': 'multigama-eq-fire-home'}) }}">
-                                                <img class="img-fluid" src="{{ asset('assets/images/eq-fire.png') }}"
-                                                     alt="">
-                                            </a>
-
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
+                <div class="row justify-content-center align-items-center d-flex">
+                    <div class="col-8">
+                        <div class="image-container d-flex justify-content-center align-items-center my-4 mb-3">
+                            {% for key, logo in logoList %}
+                                <a href="{{ path('static_page', {'pageName': key ~ '-home'}) }}" class="{{ loop.last ? '' : 'me-5' }}">
+                                    <img src="{{ asset('assets/images/' ~ logo.logo) }}" alt="{{ key|capitalize }}">
+                                </a>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
         <div class="main-bar clearfix">
             <div class="container clearfix bg-white">
@@ -82,13 +64,13 @@
                     <span></span>
                 </button>
                 <!-- Extra Nav -->
-                <div class="extra-nav">
-                    <div class="extra-cell">
-                        <a href="#" class="btn shadow-primary btn-secondary btn-quote">
-                            <span>CERE OFERTA</span>
-                        </a>
-                    </div>
-                </div>
+{#                <div class="extra-nav">#}
+{#                    <div class="extra-cell">#}
+{#                        <a href="#" class="btn shadow-primary btn-secondary btn-quote">#}
+{#                            <span>CERE OFERTA</span>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
                 <!-- Extra Nav -->
                 <!-- Quik Search -->
                 <!--
@@ -109,7 +91,7 @@
                     <ul class="nav navbar-nav">
                         {% for item in multiGamaGroupMenu %}
                             {% if item.sub_menu is defined %}
-                                <li class="active sub-menu-down">
+                                <li class="sub-menu-down">
                                 <a href="javascript:">{{ item.name }}</a>
                                 <ul class="sub-menu">
                                     {% for subItem in item.sub_menu %}
@@ -119,7 +101,7 @@
                                     {% endfor %}
                                 </ul>
                             {% else %}
-                                <li class="active">
+                                <li class="">
                                 <a href="{{ item.path }}">{{ item.name }}</a>
 
                             {% endif %}

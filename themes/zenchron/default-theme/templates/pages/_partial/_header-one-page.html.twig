@@ -1,0 +1,125 @@
+<!-- Header -->
+<header class="site-header mo-left header style-1">
+    <!-- Header Top Bar -->
+    <div class="top-bar bg-secondary text-white">
+        <div class="container">
+            <div class="dz-topbar-inner d-flex justify-content-between align-items-center">
+                <div class="dz-topbar-left">
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Str. 7 Drumuri, Nr. 9, Sector 3, București</li>
+                        <li><i class="far fa-envelope"></i>{{  contactEmail }}</li>
+                    </ul>
+                </div>
+                <div class="dz-topbar-right">
+                    <ul class="dz-social">
+                        <li><a class="fab fa-facebook-f" href="https://www.facebook.com/" target="_blank"></a></li>
+                        <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service"
+                               target="_blank"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* Custom styles */
+        .image-container img {
+            max-width: 7.725rem; /* Approximately 50 pixels in rem */
+            height: auto;
+            width: 100%;
+        }
+    </style>
+    <!-- Main Header -->
+    <div class="sticky-header main-bar-wraper navbar-expand-lg text-black">
+        <div class="main-bar clearfix d-none d-sm-block">
+            <div class="container clearfix bg-white">
+                <div class="row justify-content-center align-items-center d-flex">
+                    <div class="col-8">
+                        <div class="image-container d-flex justify-content-center align-items-center my-4 mb-3">
+                            {% for key, logo in logoList %}
+                                <a href="{{ path('static_page', {'pageName': key ~ '-home'}) }}" class="{{ loop.last ? '' : 'me-5' }}">
+                                    <img src="{{ asset('assets/images/' ~ logo.logo) }}" alt="{{ key|capitalize }}">
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="main-bar clearfix">
+            <div class="container clearfix bg-white">
+                <!-- Website Logo -->
+                <div class="logo-header mostion logo-dark">
+                    <a href="/">
+                        <img src="{{ asset('assets/images/' ~ logo) }}" alt="">
+                    </a>
+                </div>
+                <!-- Nav Toggle Button -->
+                <button class="navbar-toggler collapsed navicon justify-content-end" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- Extra Nav -->
+{#                <div class="extra-nav">#}
+{#                    <div class="extra-cell">#}
+{#                        <a href="#" class="btn shadow-primary btn-secondary btn-quote">#}
+{#                            <span>CERE OFERTA</span>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+                <!-- Extra Nav -->
+                <!-- Quik Search -->
+                <!--
+                <div class="dz-quik-search">
+                    <form action="#">
+                        <input name="search" value="" type="text" class="form-control" placeholder="Enter Your Keyword ...">
+                        <span  id="quik-search-remove"><i class="ti-close"></i></span>
+                    </form>
+                </div>
+                -->
+                <!-- Quik Search -->
+                <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+                    <div class="logo-header logo-dark">
+                        <a href="/">
+                            <img src="{{ asset('assets/images/' ~ logo) }}" alt="">
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        {% for item in multiGamaGroupMenu %}
+                            {% if item.sub_menu is defined %}
+                                <li class="sub-menu-down">
+                                <a href="javascript:">{{ item.name }}</a>
+                                <ul class="sub-menu">
+                                    {% for subItem in item.sub_menu %}
+                                        <li class="new-page">
+                                            <a href="{{ subItem.path }}">{{ subItem.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <li class="">
+                                <a href="{{ item.path }}">{{ item.name }}</a>
+
+                            {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="dz-social-icon">
+                        <ul>
+                            <li><a class="fab fa-facebook-f" href="https://www.facebook.com/" target="_blank"></a></li>
+                            <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service"
+                                   target="_blank"></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Header End -->
+
+</header>
+<!-- Header End -->

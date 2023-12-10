@@ -25,6 +25,48 @@ class StaticPageController extends AbstractController
     #[Route("/{pageName}/p", name: "static_page", defaults: ["pageName" => "home"])]
     public function loadPage(string $pageName = 'home'): Response
     {
+        $logoList = [
+            'multigama-tech' => [
+                'logo' => 'multigama-tech.png',
+                'preloaderLogo' => 'multigama-tech.png',
+                'skinVersion' => 'skin_3',
+            ],
+            'multigama-service' => [
+                'logo' => 'multigama-service.png',
+                'preloaderLogo' => 'multigama-service.png',
+                'skinVersion' => 'skin_4',
+            ],
+            'eq-fire' => [
+                'logo' => 'eq-fire.png',
+                'preloaderLogo' => 'eq-fire.png',
+                'skinVersion' => 'skin_1',
+            ],
+        ];
+
+        $contactEmail = 'office@multigama.ro';
+
+        $items = [
+            [
+                'icon' => 'arrow-up-from-water-pump', // Font Awesome icon class
+                'title' => 'Multigama Tech',
+                'description' => 'Cu o experiență vastă și o dedicare neclintită față de excelență, Multigama Tech se află în fruntea industriei de vânzare a pompelor industriale. Suntem pasionați de furnizarea soluțiilor ideale pentru nevoile de transport și gestionare a fluidelor în industrie.',
+                'link' => '/multigama-tech-home/p',
+            ],
+            [
+                'icon' => 'screwdriver-wrench', // Font Awesome icon class
+                'title' => 'Multigama Service',
+                'description' => 'Multigama Service este un lider de necontestat în domeniul întreținerii, reparației și oferirii de soluții complete pentru pompele industriale. Cu o echipă experimentată și o abordare dedicată, ne angajăm să aducem performanță și fiabilitate în universul transportului și manipulării fluidelor în industrie.',
+                'link' => '/multigama-service-home/p',
+            ],
+            [
+                'icon' => 'fire-extinguisher', // Font Awesome icon class
+                'title' => 'EQ Fire',
+                'description' => 'EQ Fire se remarcă ca lider de încredere în furnizarea și întreținerea sistemelor de stingere a incendiilor pentru mediul industrial. Ne angajăm să asigurăm protecția optimă împotriva incendiilor în facilitățile industriale, oferind soluții inovatoare și servicii de cea mai înaltă calitate.',
+                'link' => '/multigama-eq-fire-home/p',
+            ],
+        ];
+
+
         $multiGamaGroupMenu = [
             [
                 'name' => 'Mutligama Group',
@@ -45,46 +87,21 @@ class StaticPageController extends AbstractController
 
                 ],
             ],
-
             [
-                'name' => 'Companie',
-                'path' => '/about-us/p',
-                'sub_menu' => [
-                    [
-                        'name' => 'Misiune',
-                        'path' => '/about-us/p',
-                    ],
-                    [
-                        'name' => 'Viziune',
-                        'path' => '/company-vision/p',
-                    ],
-                ],
-            ],
-//            [
-//                'name' => 'Produse',
-//                'path' => '/products/p'
-//            ],
-            [
-                'name' => 'Servicii',
-                'path' => '/services/p',
-//                'sub_menu' => [
-//                    [
-//                        'name' => 'Servicii',
-//                        'path' => '/services/p',
-//                    ],
-//                    [
-//                        'name' => 'Detalii Serviciu',
-//                        'path' => '/services-details/p',
-//                    ]
-//                ]
+                'name' => 'Despre Noi',
+                'path' => '#about-us',
             ],
             [
-                'name' => 'Proiecte',
-                'path' => '/portfolio/p',
+                'name' => 'Misiune',
+                'path' => '#mission',
+            ],
+            [
+                'name' => 'Viziune',
+                'path' => '#vision',
             ],
             [
                 'name' => 'Contact',
-                'path' => '/contact-us/p',
+                'path' => '#contact',
             ],
         ];
         $slideshow = [
@@ -114,8 +131,23 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
 ";
         $skinVersion = 'skin_3';
         $logo = 'logo-multigama-group.png';
+        $preloaderLogo = 'logo-multigama-group.png';
 
         if (str_contains($pageName, 'multigama-tech-')) {
+            $contactEmail = 'multigama@multigama.ro';
+
+            $logoList = [
+                'multigama-group' => [
+                    'logo' => 'logo-multigama-group.png',
+                    'preloaderLogo' => 'logo-multigama-group.png',
+                    'skinVersion' => 'skin_3',
+                ],
+                'multigama-tech' => [
+                    'logo' => 'multigama-tech.png',
+                    'preloaderLogo' => 'multigama-tech.png',
+                    'skinVersion' => 'skin_3',
+                ],
+            ];
             $multiGamaGroupMenu = [
                 [
                     'name' => 'MultiGama Tech',
@@ -194,10 +226,45 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $quickContactHeader = "MULTIGAMA TECH";
             $quickContactContent = "";
 
-            $logo = 'multigama-tech.png';
+            $preloaderLogo = 'multigama-tech.png';
+
+            $items = [
+                [
+                    'icon' => 'arrow-up-from-water-pump', // Font Awesome icon class
+                    'title' => 'Statii de Pompare',
+                    'description' => 'Stațiile de pompare a apei joacă un rol crucial în asigurarea distribuției fiabile și eficiente a apei în cadrul comunităților. Aceste stații reprezintă inima sistemelor de alimentare cu apă, folosind pompe puternice pentru a ridica și a propulsa apa prin conducte, asigurându-se că ajunge la destinația sa, fie că este vorba de zone rezidențiale, comerciale sau industriale. De multe ori echipate cu tehnologie avansată și sisteme de monitorizare, aceste stații mențin presiunea apei, reglează fluxul și gestionează rețelele de distribuție.',
+                    'link' => '/multigama-tech-home/p',
+                ],
+                [
+                    'icon' => 'screwdriver-wrench', // Font Awesome icon class
+                    'title' => 'Multigama Service',
+                    'description' => 'Multigama Service este un lider de necontestat în domeniul întreținerii, reparației și oferirii de soluții complete pentru pompele industriale. Cu o echipă experimentată și o abordare dedicată, ne angajăm să aducem performanță și fiabilitate în universul transportului și manipulării fluidelor în industrie.',
+                    'link' => '/multigama-service-home/p',
+                ],
+                [
+                    'icon' => 'fire-extinguisher', // Font Awesome icon class
+                    'title' => 'EQ Fire',
+                    'description' => 'EQ Fire se remarcă ca lider de încredere în furnizarea și întreținerea sistemelor de stingere a incendiilor pentru mediul industrial. Ne angajăm să asigurăm protecția optimă împotriva incendiilor în facilitățile industriale, oferind soluții inovatoare și servicii de cea mai înaltă calitate.',
+                    'link' => '/multigama-eq-fire-home/p',
+                ],
+            ];
         }
 
         if (str_contains($pageName, 'multigama-service-')) {
+            $contactEmail = 'service@multigama.ro';
+
+            $logoList = [
+                'multigama-group' => [
+                    'logo' => 'logo-multigama-group.png',
+                    'preloaderLogo' => 'logo-multigama-group.png',
+                    'skinVersion' => 'skin_3',
+                ],
+                'multigama-service' => [
+                    'logo' => 'multigama-service.png',
+                    'preloaderLogo' => 'multigama-service.png',
+                    'skinVersion' => 'skin_4',
+                ],
+            ];
             $multiGamaGroupMenu = [
                 [
                     'name' => 'Mutligama Service',
@@ -265,11 +332,45 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $quickContactHeader = "MULTIGAMA SERVICE";
             $quickContactContent = "";
 
-            $logo = 'multigama-service.png';
+            $preloaderLogo = 'multigama-service.png';
             $skinVersion = 'skin_4';
+
+            $items = [
+                [
+                    'icon' => 'screwdriver-wrench', // Font Awesome icon class
+                    'title' => 'Mentenanta',
+                    'description' => 'Mentenanța pompelor reprezintă un aspect esențial în menținerea funcționării optime a acestor dispozitive vitale în infrastructura de alimentare cu apă. Această practică implică o serie de activități preventive și corective menite să asigure funcționarea eficientă a pompelor pe termen lung. Serviciile periodice de întreținere includ verificări regulate, lubrifiere, verificarea și înlocuirea componentelor uzate sau deteriorate, precum și ajustarea parametrilor pentru a menține performanța optimă a pompelor. ',
+                    'link' => '/multigama-service-home/p',
+                ],
+                [
+                    'icon' => 'arrow-up-from-water-pump', // Font Awesome icon class
+                    'title' => 'Multigama Tech',
+                    'description' => 'Cu o experiență vastă și o dedicare neclintită față de excelență, Multigama Tech se află în fruntea industriei de vânzare a pompelor industriale. Suntem pasionați de furnizarea soluțiilor ideale pentru nevoile de transport și gestionare a fluidelor în industrie.',
+                    'link' => '/multigama-tech-home/p',
+                ],
+                [
+                    'icon' => 'fire-extinguisher', // Font Awesome icon class
+                    'title' => 'EQ Fire',
+                    'description' => 'EQ Fire se remarcă ca lider de încredere în furnizarea și întreținerea sistemelor de stingere a incendiilor pentru mediul industrial. Ne angajăm să asigurăm protecția optimă împotriva incendiilor în facilitățile industriale, oferind soluții inovatoare și servicii de cea mai înaltă calitate.',
+                    'link' => '/multigama-eq-fire-home/p',
+                ],
+            ];
+
         }
 
         if (str_contains($pageName, 'multigama-eq-fire-')) {
+            $logoList = [
+                'multigama-group' => [
+                    'logo' => 'logo-multigama-group.png',
+                    'preloaderLogo' => 'logo-multigama-group.png',
+                    'skinVersion' => 'skin_3',
+                ],
+                'eq-fire' => [
+                    'logo' => 'eq-fire.png',
+                    'preloaderLogo' => 'eq-fire.png',
+                    'skinVersion' => 'skin_1',
+                ],
+            ];
             $multiGamaGroupMenu = [
                 [
                     'name' => 'EQ Fire',
@@ -346,14 +447,39 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $quickContactHeader = "MULTIGAMA SERVICE";
             $quickContactContent = "";
 
-            $logo = 'eq-fire.png';
+            $preloaderLogo = 'eq-fire.png';
             $skinVersion = 'skin_1';
+            $items = [
+                [
+                    'icon' => 'fire-extinguisher', // Font Awesome icon class
+                    'title' => 'Sisteme antiincendiu',
+                    'description' => '"Sistemele de suprimare a incendiilor reprezintă o parte crucială a eforturilor noastre de protejare împotriva incendiilor în mediile industriale și comerciale. Aceste sisteme sunt proiectate pentru a detecta și a controla incendiile înainte ca acestea să se extindă, protejând viața oamenilor și proprietățile. Ele includ tehnologii avansate de detecție a incendiilor și metode eficiente de stins incendiile',
+                    'link' => '/multigama-eq-fire-home/p',
+                ],
+                [
+                    'icon' => 'arrow-up-from-water-pump', // Font Awesome icon class
+                    'title' => 'Multigama Tech',
+                    'description' => 'Cu o experiență vastă și o dedicare neclintită față de excelență, Multigama Tech se află în fruntea industriei de vânzare a pompelor industriale. Suntem pasionați de furnizarea soluțiilor ideale pentru nevoile de transport și gestionare a fluidelor în industrie.',
+                    'link' => '/multigama-tech-home/p',
+                ],
+                [
+                    'icon' => 'screwdriver-wrench', // Font Awesome icon class
+                    'title' => 'Multigama Service',
+                    'description' => 'Multigama Service este un lider de necontestat în domeniul întreținerii, reparației și oferirii de soluții complete pentru pompele industriale. Cu o echipă experimentată și o abordare dedicată, ne angajăm să aducem performanță și fiabilitate în universul transportului și manipulării fluidelor în industrie.',
+                    'link' => '/multigama-service-home/p',
+                ],
+
+            ];
         }
 
         return $this->render("templates/pages/{$pageName}.html.twig", [
+            'items' => $items,
             'multiGamaGroupMenu' => $multiGamaGroupMenu,
             'skinVersion' => $skinVersion,
+            'contactEmail' => $contactEmail,
             'logo' => $logo,
+            'preloaderLogo' => $preloaderLogo,
+            'logoList' => $logoList,
             'slideshow' => $slideshow,
             'about' => $about,
             'aboutHeader' => $aboutHeader,

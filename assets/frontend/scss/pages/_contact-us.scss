@@ -1,18 +1,32 @@
 .map-iframe{
 	width: 100%;
-    
+
 	iframe{
 		width: 100%;
 		border: 0;
 		height:500px;
 	}
-	
+
 	&.style-1{
 		iframe{
 			height:600px;
 			margin-bottom: -10px;
 		}
 	}
+}
+.map-iframe-home {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    iframe{
+        width: 100%;
+        height: 100%;
+        border: none; /* Optional: removes border from the iframe */
+    }
 }
 
 .content-area{
@@ -22,7 +36,7 @@
 	.dz-form{
 		margin-left: -200px;
 	}
-	.map-iframe{		
+	.map-iframe{
 		width: 43.5vw;
 		height:100%;
 		float: right;
@@ -32,7 +46,7 @@
 		}
 	}
 	@include respond('tab-land'){
-		.map-iframe{		
+		.map-iframe{
 			width: 41vw;
 		}
 	}
@@ -60,7 +74,7 @@
     z-index: 1;
     background: #fff;
 	border-radius: var(--border-radius-base);
-	
+
 	@include respond('laptop'){
 		padding: 50px 40px;
 	}

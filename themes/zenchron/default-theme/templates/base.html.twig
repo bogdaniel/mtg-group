@@ -45,18 +45,17 @@
         {{ encore_entry_script_tags('app_js') }}
 {#        {{ encore_entry_script_tags('custom_js') }}#}
     {% endblock %}
-
+    <!-- JAVASCRIPT FILES ========================================= -->
 </head>
 <body id="bg" class="theme-rounded">
 <div id="loading-area">
-    <div class="loading-inner style-1">
+    <div class="loading-inner style-3">
         <div class="wrapper">
-            <img class="img-fluid" src="{{ asset('assets/images/' ~ logo) }}" alt="">
-            {% block loading_wrapper %}{% endblock %}
-
-        </div>
-        <div class="load-text text-center">
-            {% block load_text %}{% endblock %}
+            <p class="counter-text"><span class="counter">100</span>%</p>
+            <div class="progress"></div>
+            <div class="load-text">
+                <img class="img-fluid" src="{{ asset('assets/images/' ~ preloaderLogo) }}" alt="">
+            </div>
         </div>
     </div>
 </div>

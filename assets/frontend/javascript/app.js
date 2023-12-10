@@ -44,6 +44,8 @@ import 'bootstrap-select';
 import '../scss/main.scss';
 
 
+import '@fortawesome/fontawesome-free/js/all.js';
+
 /**
  Core script to handle the entire theme and core functions
 

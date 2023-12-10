@@ -43,24 +43,42 @@
     <!-- JAVASCRIPT FILES ========================================= -->
     {% block javascripts %}
         {{ encore_entry_script_tags('app_js') }}
-        {#        {{ encore_entry_script_tags('custom_js') }} #}
+{#        {{ encore_entry_script_tags('custom_js') }}#}
     {% endblock %}
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
+            // Add click event listener to each link
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Remove 'active' class from all links
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    // Add 'active' class to the clicked link
+                    e.target.classList.add('active');
+                });
+            });
+        });
+
+    </script>
 </head>
-<body id="bg" class="theme-sharped font-style-2" data-bs-spy="scroll" data-bs-target="#navbarNavDropdown">
-<div class="page-wraper">
-    <div id="loading-area">
-        <div class="loading-inner style-1">
-            <div class="wrapper">
-                <img class="img-fluid" src="{{ asset('assets/images/' ~ logo) }}" alt="">
-                {% block loading_wrapper %}{% endblock %}
-
-            </div>
-            <div class="load-text text-center">
-                {% block load_text %}{% endblock %}
+<body id="bg" class="theme-rounded">
+<div id="loading-area">
+    <div class="loading-inner style-3">
+        <div class="wrapper">
+            <p class="counter-text"><span class="counter">100</span>%</p>
+            <div class="progress"></div>
+            <div class="load-text">
+                <img class="img-fluid" src="{{ asset('assets/images/' ~ preloaderLogo) }}" alt="">
             </div>
         </div>
     </div>
+</div>
+<div class="page-wraper">
     {% block header %}{% endblock %}
     <div class="page-content bg-white">
         {% block body %}{% endblock %}
