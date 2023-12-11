@@ -102,7 +102,10 @@ Encore
     from: './assets/frontend/media',
     to: 'media/[name].[ext]',
   })
-
+  .copyFiles({
+    from: './assets/frontend/pdf',
+    to: 'pdf/[name].[ext]',
+  })
   // .copyFiles({
   //   from: './assets/frontend/icons',
   //   to: 'icons/[name].[ext]',

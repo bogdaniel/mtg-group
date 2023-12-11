@@ -10,6 +10,7 @@
         "css-loader": "^6.8.1",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.5.3",
+        "pdfjs-dist": "^4.0.269",
         "postcss-loader": "^7.3.3",
         "regenerator-runtime": "^0.14.0",
         "rtlcss": "^4.1.1",

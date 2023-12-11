@@ -1,0 +1,54 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/eq-fire/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+{% endblock %}
+{% block body %}
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/pic-7.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Acasa</a>
+                        </li>
+                        <li class="breadcrumb-item">Armstrong</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- About US -->
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800"
+                     data-aos-delay="200">
+                    <div class="about-media style-2 mh-100" style="height: 100%; min-height: 400px;">
+                        <embed style="width:100%;height:100vh;"
+                               src="{{ asset('assets/pdf/ARMSTRONG_HSC FireFighting Sets.pdf') }}#toolbar=0&navpanes=0&scrollbar=0"
+                               type="application/pdf"
+                               frameBorder="0"
+                               scrolling="auto"
+                               height="100%"
+                               width="100%"
+                        ></embed>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About US End -->
+{% endblock %}

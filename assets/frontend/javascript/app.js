@@ -46,6 +46,7 @@ import '../scss/main.scss';
 
 import '@fortawesome/fontawesome-free/js/all.js';
 
+require('pdfjs-dist');
 /**
  Core script to handle the entire theme and core functions
 

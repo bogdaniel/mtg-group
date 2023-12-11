@@ -2,18 +2,18 @@
   "entrypoints": {
     "app_js": {
       "js": [
-        "/assets/runtime.6e249f48.js",
-        "/assets/415.f0427f1b.js",
-        "/assets/app_js.a5372b7f.js"
+        "/assets/runtime.d81c1488.js",
+        "/assets/841.646976ae.js",
+        "/assets/app_js.1cf0b666.js"
       ],
       "css": [
-        "/assets/css/415.min.css",
+        "/assets/css/841.min.css",
         "/assets/css/app_js.min.css"
       ]
     },
     "skin_1": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_1.3ed791c3.js"
       ],
       "css": [
@@ -22,7 +22,7 @@
     },
     "skin_2": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_2.5ff5867e.js"
       ],
       "css": [
@@ -31,7 +31,7 @@
     },
     "skin_3": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_3.94cac97a.js"
       ],
       "css": [
@@ -40,7 +40,7 @@
     },
     "skin_4": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_4.fa5d267c.js"
       ],
       "css": [
@@ -49,7 +49,7 @@
     },
     "skin_5": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_5.fcab9da5.js"
       ],
       "css": [
@@ -58,7 +58,7 @@
     },
     "skin_6": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_6.01a2ca40.js"
       ],
       "css": [
@@ -67,7 +67,7 @@
     },
     "skin_7": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_7.50e207f6.js"
       ],
       "css": [
@@ -76,7 +76,7 @@
     },
     "skin_8": {
       "js": [
-        "/assets/runtime.6e249f48.js",
+        "/assets/runtime.d81c1488.js",
         "/assets/skin_8.5cb95d54.js"
       ],
       "css": [
@@ -85,10 +85,10 @@
     }
   },
   "integrity": {
-    "/assets/runtime.6e249f48.js": "sha384-s5tHvvgJPRlNlDqMddiEFrqZZtQ5DVIWhQc0YnZl61UibuG1oJaOLq5nx/sDpMEF",
-    "/assets/415.f0427f1b.js": "sha384-c772Vgk15jOiybsJ8yHL6aY68uz20WB5lslGjmhpVgsUclhtPgoYzcYAADA48iQQ",
-    "/assets/app_js.a5372b7f.js": "sha384-3f14WsivnhOhiuBucXOHaSgjpyEnk9K9aSl28SwX14Cc+O5seQxCAinZMH4PSHxw",
-    "/assets/css/415.min.css": "sha384-OpkT44kMBs0zBrdlBS9YioH+fNTHvbfuqCgq+dNkHrIB/rLV3umHlisyw2QfBqRk",
+    "/assets/runtime.d81c1488.js": "sha384-d1lNID8SbxaZJx8ilQs6h3BSepghyYhs9ZkiIdfAy5uMtGpc5EaHSb2XGmFDTTLh",
+    "/assets/841.646976ae.js": "sha384-IBKeMlZznOV7HCOSWcdR49U/OuacEPFZk8C+5MHCE1fUd74FF55Fn0O3R+tYtl72",
+    "/assets/app_js.1cf0b666.js": "sha384-KutK2cv9JNoCHjY7IIumOiHVcIQHUezOuh6rHCNyxfj1vhLcxLD1ioC/s81ZS6hx",
+    "/assets/css/841.min.css": "sha384-OpkT44kMBs0zBrdlBS9YioH+fNTHvbfuqCgq+dNkHrIB/rLV3umHlisyw2QfBqRk",
     "/assets/css/app_js.min.css": "sha384-aaO8LIKbcjDoVlYDUG8Ab5lb0FByhojImh65qLYG+heoJ1R065QRL/XZtytttG6x",
     "/assets/skin_1.3ed791c3.js": "sha384-mZquPiALEXKEKyFyKnvTlkAnKHDQTKMvjJ8p+32q2oPBRO9BibOTUcmhU3/UMvhd",
     "/assets/css/skin_1.min.css": "sha384-hf+jJNkJqA79xsb6xKP/6qQ/hdqIxWW7S48zMzAK4q0b4KmbHvxIWkFGWuEtMzuO",

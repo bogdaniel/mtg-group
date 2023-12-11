@@ -382,7 +382,25 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 ],
                 [
                     'name' => 'Produse',
-                    'path' => '/multigama-eq-fire-products/p',
+                    'path' => '#',
+                    'sub_menu' => [
+                        [
+                            'name' => 'Armstrong',
+                            'path' => '#',
+                        ],
+                        [
+                            'name' => 'Armstrong HSC',
+                            'path' => '/multigama-eq-fire-armstrong-hsc/p',
+                        ],
+                        [
+                            'name' => 'Armstrong VIL',
+                            'path' => '/multigama-eq-fire-armstrong-vil/p',
+                        ],
+                        [
+                            'name' => 'Armstrong ES',
+                            'path' => '/multigama-eq-fire-armstrong-es/p',
+                        ],
+                    ],
                 ],
                 [
                     'name' => 'Servicii',
@@ -437,20 +455,20 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $items = [
                 [
                     'icon' => 'fire-extinguisher', // Font Awesome icon class
-                    'title' => 'Sisteme antiincendiu',
-                    'description' => '"Sistemele de suprimare a incendiilor reprezintă o parte crucială a eforturilor noastre de protejare împotriva incendiilor în mediile industriale și comerciale. Aceste sisteme sunt proiectate pentru a detecta și a controla incendiile înainte ca acestea să se extindă, protejând viața oamenilor și proprietățile. Ele includ tehnologii avansate de detecție a incendiilor și metode eficiente de stins incendiile',
+                    'title' => 'Axati pe rezultate',
+                    'description' => 'Scopul nostru este de a ne ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi.',
                     'link' => '/multigama-eq-fire-home/p',
                 ],
                 [
                     'icon' => 'flaticon-agronomy', // Font Awesome icon class
                     'title' => 'Furnizare echipamente noi',
-                    'description' => 'Furnizare echipamente noi, performante si eficiente din punct de vedere hidraulic și energetic. Furnizare piese de schimb pe toată durata de viață a echipamentelor',
+                    'description' => 'Scopul nostru este de a ne ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi.Oferim o gama larga de echipamente pentru stins incendiu NFPA 20 certificate FM/UL, VdS, EN12845',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
                     'icon' => 'flaticon-crane', // Font Awesome icon class
-                    'title' => 'Suport tehnic',
-                    'description' => 'Suport tehnic în alegerea și dimensionarea echipamentelor pentru diverse tipuri de aplicații în funcție de necesitatea clientului. Suport tehnic în vederea înlocuirii echipamentelor vechi și neperformante etc.',
+                    'title' => 'Solutii tehnice personalizate',
+                    'description' => 'Echipa noastra va lucra indeaproape cu dumneavoastră pentru a dezvolta un produs personalizat care sa raspunda solicitarii si cerintelor dumneavoastra.',
                     'link' => '/multigama-eq-fire-home/p',
                 ],
 
