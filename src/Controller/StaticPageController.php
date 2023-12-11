@@ -73,7 +73,7 @@ class StaticPageController extends AbstractController
                 'path' => '/',
                 'sub_menu' => [
                     [
-                        'name' => 'MultiGama Tech',
+                        'name' => 'Multigama Tech',
                         'path' => '/multigama-tech-home/p',
                     ],
                     [
@@ -137,11 +137,6 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
             $contactEmail = 'multigama@multigama.ro';
 
             $logoList = [
-                'multigama-group' => [
-                    'logo' => 'logo-multigama-group.png',
-                    'preloaderLogo' => 'logo-multigama-group.png',
-                    'skinVersion' => 'skin_3',
-                ],
                 'multigama-tech' => [
                     'logo' => 'multigama-tech.png',
                     'preloaderLogo' => 'multigama-tech.png',
@@ -150,11 +145,11 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
             ];
             $multiGamaGroupMenu = [
                 [
-                    'name' => 'MultiGama Tech',
+                    'name' => 'Multigama Tech',
                     'path' => '/',
                     'sub_menu' => [
                         [
-                            'name' => 'MultiGama Group',
+                            'name' => 'Multigama Group',
                             'path' => '/',
                         ],
                         [
@@ -254,11 +249,6 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $contactEmail = 'service@multigama.ro';
 
             $logoList = [
-                'multigama-group' => [
-                    'logo' => 'logo-multigama-group.png',
-                    'preloaderLogo' => 'logo-multigama-group.png',
-                    'skinVersion' => 'skin_3',
-                ],
                 'multigama-service' => [
                     'logo' => 'multigama-service.png',
                     'preloaderLogo' => 'multigama-service.png',
@@ -271,7 +261,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                     'path' => '/',
                     'sub_menu' => [
                         [
-                            'name' => 'MultiGama Group',
+                            'name' => 'Multigama Group',
                             'path' => '/',
                         ],
                         [
@@ -289,10 +279,10 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                     'name' => 'Despre Noi',
                     'path' => '/multigama-service-about-us/p',
                 ],
-//                [
-//                    'name' => 'Produse',
-//                    'path' => '/multigama-service-products/p'
-//                ],
+                [
+                    'name' => 'Produse',
+                    'path' => '/multigama-service-products/p'
+                ],
                 [
                     'name' => 'Servicii',
                     'path' => '/multigama-service-services/p',
@@ -360,11 +350,6 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 
         if (str_contains($pageName, 'multigama-eq-fire-')) {
             $logoList = [
-                'multigama-group' => [
-                    'logo' => 'logo-multigama-group.png',
-                    'preloaderLogo' => 'logo-multigama-group.png',
-                    'skinVersion' => 'skin_3',
-                ],
                 'multigama-eq-fire' => [
                     'logo' => 'eq-fire.png',
                     'preloaderLogo' => 'eq-fire.png',
@@ -377,7 +362,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                     'path' => '/',
                     'sub_menu' => [
                         [
-                            'name' => 'MultiGama Group',
+                            'name' => 'Multigama Group',
                             'path' => '/',
                         ],
                         [
