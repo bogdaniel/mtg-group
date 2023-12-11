@@ -69,7 +69,7 @@ class StaticPageController extends AbstractController
 
         $multiGamaGroupMenu = [
             [
-                'name' => 'Mutligama Group',
+                'name' => 'Multigama Group',
                 'path' => '/',
                 'sub_menu' => [
                     [
@@ -257,7 +257,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             ];
             $multiGamaGroupMenu = [
                 [
-                    'name' => 'Mutligama Service',
+                    'name' => 'Multigama Service',
                     'path' => '/',
                     'sub_menu' => [
                         [
@@ -265,8 +265,8 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                             'path' => '/',
                         ],
                         [
-                            'name' => 'Multigama Service',
-                            'path' => '/multigama-service-home/p',
+                            'name' => 'Multigama Tech',
+                            'path' => '/multigama-tech-home/p',
                         ],
                         [
                             'name' => 'EQ Fire',
