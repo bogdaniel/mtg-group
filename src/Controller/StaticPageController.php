@@ -387,16 +387,16 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'name' => 'Servicii',
                     'path' => '/multigama-eq-fire-services/p',
-                    'sub_menu' => [
-                        [
-                            'name' => 'Servicii',
-                            'path' => '/multigama-eq-fire-services/p',
-                        ],
-                        [
-                            'name' => 'Detalii Serviciu',
-                            'path' => '/multigama-eq-fire-services-details/p',
-                        ],
-                    ],
+//                    'sub_menu' => [
+//                        [
+//                            'name' => 'Servicii',
+//                            'path' => '/multigama-eq-fire-services/p',
+//                        ],
+//                        [
+//                            'name' => 'Detalii Serviciu',
+//                            'path' => '/multigama-eq-fire-services-details/p',
+//                        ],
+//                    ],
                 ],
                 [
                     'name' => 'Proiecte',
