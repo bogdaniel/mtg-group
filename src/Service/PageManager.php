@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Page;
+use App\Enum\PageStatusEnum;
 use App\Repository\PageRepository;
 
 class PageManager
@@ -32,5 +33,10 @@ class PageManager
     public function getAllPages(): array
     {
         return $this->pageRepository->findAll();
+    }
+
+    public function getPublishedPages(): array
+    {
+        return $this->pageRepository->findBy(['status' => PageStatusEnum::PUBLISHED]);
     }
 }

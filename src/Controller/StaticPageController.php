@@ -16,7 +16,7 @@ class StaticPageController extends AbstractController
         $this->loader = $twig->getLoader();
     }
 
-    #[Route("/", name: "home")]
+    #[Route("/asdasd", name: "home")]
     public function home(): Response
     {
         return $this->redirectToRoute('static_page', ['pageName' => 'home']);

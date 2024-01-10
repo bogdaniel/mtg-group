@@ -1,0 +1,66 @@
+{
+  "name": "zenchron/file-bundle",
+  "description": "A complete and friendly media file manager for Symfony",
+  "keywords": [ "media", "image", "thumbnails", "file", "resize", "compress", "bundle", "symfony" ],
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bogdan Olteanu",
+      "homepage": "https://github.com/bogdaniel/file-bundle",
+      "email": "bogdan@zenchron.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Zenchron\\FileBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Zenchron\\FileBundle\\Tests\\": "tests/src/"
+    }
+  },
+  "require": {
+    "ext-xml": "*",
+    "php": ">=8.1",
+    "symfony/framework-bundle": "*",
+    "symfony/translation": "*",
+    "symfony/validator": "*",
+    "symfony/mime": "*",
+    "symfony/form": "*",
+    "symfony/twig-bundle": "*",
+    "symfony/security-bundle": "*",
+    "symfony/webpack-encore-bundle": "*",
+    "symfony/monolog-bundle": "*",
+    "symfony/uid": "*",
+    "doctrine/doctrine-bundle": "*",
+    "doctrine/orm": "*",
+    "spatie/image-optimizer": "*",
+    "intervention/image": "*",
+    "league/flysystem": "*",
+    "league/flysystem-bundle": "*",
+    "zenchron/shared-bundle": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "symfony/phpunit-bridge": "*",
+    "symfony/dotenv": "*",
+    "symfony/http-kernel": "*",
+    "psr/log": "*",
+    "mtdowling/jmespath.php": "*",
+    "dg/bypass-finals": "*",
+    "friends-of-behat/mink-extension": "*",
+    "friends-of-behat/mink-browserkit-driver": "*",
+    "friends-of-behat/symfony-extension": "*",
+    "league/flysystem-aws-s3-v3": "*"
+  },
+  "suggest": {
+    "ext-imagick": "Recommended and required to use the Imagick driver",
+    "ext-gd": "required to use the GD driver",
+    "ext-exif": "required to read EXIF metadata from images and required to use the GD driver"
+  },
+  "scripts": {
+    "php-cs-fixer": "tools/php-cs-fixer/vendor/php-cs-fixer --config=tools/php-cs-fixer/.php-cs-fixer.dist.php"
+  }
+}

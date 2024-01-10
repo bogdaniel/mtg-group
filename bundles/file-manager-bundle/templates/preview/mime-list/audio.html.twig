@@ -1,0 +1,10 @@
+{# @var media \Ranky\FileBundle\Application\DataTransformer\Response\MediaResponse #}
+<a target="_blank" href="{{ media.file.url }}"
+   aria-label="{{ media.description.alt }} (opens in a new window)">
+    <img loading="lazy"
+         aria-hidden="true"
+         src="{{ asset('images/placeholder/audio.jpg','zenchron_file') }}"
+         alt="{{ media.description.alt }}"
+         title="{{ media.description.title }} ({{ media.file.mime }})"
+    />
+</a>
