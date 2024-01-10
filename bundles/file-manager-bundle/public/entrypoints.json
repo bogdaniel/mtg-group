@@ -1,0 +1,15 @@
+{
+  "entrypoints": {
+    "zenchron_file": {
+      "js": [
+        "/bundles/zenchronfile/react.17.0.2.js?v=2c80abdf",
+        "/bundles/zenchronfile/zenchron_file.vendors.js?v=2c80abdf",
+        "/bundles/zenchronfile/zenchron_file.js?v=2c80abdf"
+      ],
+      "css": [
+        "/bundles/zenchronfile/zenchron_file.vendors.css?v=2c80abdf",
+        "/bundles/zenchronfile/zenchron_file.css?v=2c80abdf"
+      ]
+    }
+  }
+}

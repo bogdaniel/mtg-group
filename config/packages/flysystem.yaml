@@ -5,3 +5,7 @@ flysystem:
             adapter: 'local'
             options:
                 directory: '%kernel.project_dir%/var/storage/default'
+        zenchron_file.storage:
+            adapter: 'local'
+            options:
+                directory: '%kernel.project_dir%/public/storage'

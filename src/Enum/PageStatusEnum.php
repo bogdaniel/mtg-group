@@ -13,7 +13,7 @@ enum PageStatusEnum: int
     case PENDING = 4;
     case DRAFT = 5;
     case FUTURE = 6;
-    case PUBLISH = 7;
+    case PUBLISHED = 7;
     case UNLISTED = 8;
 
     public static function getCases(): array

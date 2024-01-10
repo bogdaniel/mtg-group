@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Doctrine\Type\PageStatusType;
 use App\Entity\Contract\PageEntityContract;
 use App\Enum\PageStatusEnum;
 use App\Repository\PageRepository;
@@ -20,9 +19,10 @@ class Page implements PageEntityContract
     public function __construct(
         #[ORM\Column(length: 500)] public ?string $name = null,
         #[ORM\OneToOne(mappedBy: 'page', cascade: ['persist', 'remove'])] public ?PageMeta $pageMeta = null,
-        #[ORM\Column(type:  PageStatusType::NAME)] public PageStatusEnum $status = PageStatusEnum::AUTO_DRAFT,
+        #[ORM\Column(type:  Types::SMALLINT, enumType: PageStatusEnum::class)] public PageStatusEnum $status = PageStatusEnum::AUTO_DRAFT,
         #[ORM\Column(type: Types::SMALLINT)] public ?int $type = null
     ) {}
+
     public function setPageMeta(PageMeta $pageMeta): static
     {
         // set the owning side of the relation if necessary

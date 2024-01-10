@@ -350,6 +350,9 @@
     "twig/extra-bundle": {
         "version": "v3.7.1"
     },
+    "zenchron/file-bundle": {
+        "version": "dev-file-manager"
+    },
     "zenchron/file-manager-bundle": {
         "version": "dev-wip__"
     },

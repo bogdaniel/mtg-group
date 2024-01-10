@@ -1,7 +1,8 @@
 #syntax=docker/dockerfile:1.4
 
 # Versions
-FROM dunglas/frankenphp:latest-alpine AS frankenphp_upstream
+#FROM dunglas/frankenphp:latest-alpine AS frankenphp_upstream
+FROM dunglas/frankenphp:sha-9410418-php8.2.13-alpine AS frankenphp_upstream
 FROM composer/composer:2-bin AS composer_upstream
 FROM node:alpine AS node_upstream
 
@@ -21,15 +22,7 @@ RUN apk add --update --no-cache \
     openssl-dev \
     musl-dev \
     libc6-compat \
-    python3 \
     musl-dev
-RUN ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-RUN pip3 install --no-cache --upgrade awscli
-RUN apk add --no-cache --virtual .gyp python3 make g++ \
-    && yarn install \
-    && apk del .gyp
 WORKDIR /srv/app
 COPY package*.json ./
 
