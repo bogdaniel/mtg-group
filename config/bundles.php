@@ -17,5 +17,5 @@ return [
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
     Zenchron\SharedBundle\ZenchronSharedBundle::class => ['all' => true],
-    Zenchron\FileBundle\ZenchronFileBundle::class => ['all' => true],
+//    Zenchron\FileBundle\ZenchronFileBundle::class => ['all' => true],
 ];
