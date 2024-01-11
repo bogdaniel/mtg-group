@@ -22,8 +22,7 @@ return static function (ContainerConfigurator $configurator) {
     $services
         ->load('Zenchron\\SharedBundle\\', '../src/*')
         ->exclude([
-//            '../src/{DependencyInjection,DQL,Contract,Common,Helper,Entity,Trait,Traits,Migrations,Tests,ZenchronSharedBundle.php}',
-            '../src/{DependencyInjection,DQL,Contract,Common,Helper,Entity,Trait,Traits,Migrations,Tests}',
+            '../src/{DependencyInjection,DQL,Contract,Common,Helper,Entity,Trait,Traits,Migrations,Tests,ZenchronSharedBundle.php}',
             '../src/Infrastructure/DependencyInjection',
             '../src/Presentation/Exception/ApiProblemLogErrorListener.php',
             '../src/**/*Interface.php',

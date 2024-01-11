@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6eac163cd5222b0ccb8c299c1f46a11e",
+    "content-hash": "0d18ea832f66cdc2b6718daeabe6c059",
     "packages": [
         {
             "name": "composer/semver",
@@ -9383,6 +9383,65 @@
                 }
             ],
             "time": "2023-11-21T18:54:41+00:00"
+        },
+        {
+            "name": "zenchron/shared-bundle",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "bundles/shared-bundle",
+                "reference": "dd978e17f2958f0aca1d3f89a7088c1279c9ccd6"
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "*",
+                "doctrine/orm": "*",
+                "php": ">=8.1",
+                "symfony/framework-bundle": "*",
+                "symfony/twig-bundle": "*",
+                "symfony/uid": "*",
+                "symfony/validator": "*"
+            },
+            "require-dev": {
+                "dg/bypass-finals": "*",
+                "doctrine/doctrine-fixtures-bundle": "*",
+                "fakerphp/faker": "*",
+                "friends-of-behat/mink-browserkit-driver": "*",
+                "friends-of-behat/mink-extension": "*",
+                "friends-of-behat/symfony-extension": "*",
+                "mtdowling/jmespath.php": "*",
+                "phpunit/phpunit": "*",
+                "psr/log": "*",
+                "symfony/dotenv": "*",
+                "symfony/http-kernel": "*",
+                "symfony/mime": "*",
+                "symfony/phpunit-bridge": "*",
+                "symfony/security-bundle": "*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Zenchron\\SharedBundle\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Zenchron\\SharedBundle\\Tests\\": "tests/src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bogdan Olteanu",
+                    "homepage": "https://github.com/zenchron/shared-bundle",
+                    "email": "bogdan@zenchron.com"
+                }
+            ],
+            "description": "A reusable Symfony bundle for common functionality",
+            "transport-options": {
+                "relative": true
+            }
         }
     ],
     "packages-dev": [
@@ -11279,12 +11338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "1638419cd6ed8cc2891d22b430c4fc5ee6bb10d5"
+                "reference": "744af22752b3e39ce36e7de92c78863f04a24c5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1638419cd6ed8cc2891d22b430c4fc5ee6bb10d5",
-                "reference": "1638419cd6ed8cc2891d22b430c4fc5ee6bb10d5",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/744af22752b3e39ce36e7de92c78863f04a24c5f",
+                "reference": "744af22752b3e39ce36e7de92c78863f04a24c5f",
                 "shasum": ""
             },
             "conflict": {
@@ -11570,7 +11629,7 @@
                 "lms/routes": "<2.1.1",
                 "localizationteam/l10nmgr": "<7.4|>=8,<8.7|>=9,<9.2",
                 "luyadev/yii-helpers": "<1.2.1",
-                "magento/community-edition": "<2.4.2.0-patch1",
+                "magento/community-edition": "<2.4.3.0-patch3|==2.4.4",
                 "magento/core": "<=1.9.4.5",
                 "magento/magento1ce": "<1.9.4.3-dev",
                 "magento/magento1ee": ">=1,<1.14.4.3-dev",
@@ -11999,7 +12058,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-11T17:04:04+00:00"
+            "time": "2024-01-11T19:04:11+00:00"
         },
         {
             "name": "spatie/array-to-xml",
