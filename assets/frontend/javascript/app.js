@@ -26,6 +26,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 // import Swiper styles
 import 'swiper/css';
+import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
@@ -706,7 +707,9 @@ function homeSlider() {
       modules: [Navigation, Pagination, Autoplay],
       speed: 1500,
       parallax: true,
-      loop: true,
+      slidesPerView: 1,
+      direction: 'horizontal',
+      loop: false,
       autoplay: false,
       navigation: {
         nextEl: '.swiper-button-next1',
