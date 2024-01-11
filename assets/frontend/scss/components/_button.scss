@@ -14,7 +14,7 @@ button:focus {
 	line-height: 1.5;
 	align-items: center;
 	overflow:hidden;
-	
+
 	// btn lg
 	&.btn-lg{
 		padding: 24px 40px;
@@ -43,7 +43,7 @@ button:focus {
 	i{
 		font-size: 18px;
 		line-height: 1;
-		
+
 	}
 	&:after{
 		content:"";
@@ -70,39 +70,39 @@ button:focus {
 	}
 }
 .btn-primary{
-	border-color:var(--primary);	
+	border-color:var(--primary);
 	background-color:var(--primary);
 	&.disabled,
 	&:disabled,
-	&:not(:disabled):not(.disabled).active, 
-	&:not(:disabled):not(.disabled):active, 
+	&:not(:disabled):not(.disabled).active,
+	&:not(:disabled):not(.disabled):active,
 	&:active,
 	&:focus,
 	&:hover{
-		border-color:var(--primary-hover);	
-		background-color:var(--primary-hover);	
+		border-color:var(--primary-hover);
+		background-color:var(--primary-hover);
 	}
 }
 .btn-link{
 	color:var(--primary);
 	text-decoration: none;
-	
+
 	&:hover{
-		color:var(--primary-hover);	
+		color:var(--primary-hover);
 	}
 }
 .btn-outline-primary {
-	color:var(--primary);	
+	color:var(--primary);
 	border-color:var(--primary);
 	&.disabled,
 	&:disabled,
-	&:not(:disabled):not(.disabled).active, 
-	&:not(:disabled):not(.disabled):active, 
+	&:not(:disabled):not(.disabled).active,
+	&:not(:disabled):not(.disabled):active,
 	&:active,
 	&:focus,
 	&:hover{
-		border-color:var(--primary-hover);	
-		background-color:var(--primary-hover);	
+		border-color:var(--primary-hover);
+		background-color:var(--primary-hover);
 		color:$white;
 	}
 }
@@ -132,15 +132,15 @@ button:focus {
 .is-style-squared .wp-block-button__link{
 	border-radius:0;
 }
-.wp-block-button__link{
-	@extend .btn;
-	@extend .btn-primary;
-	border-radius:60px;
-	
-	&:after{
-		content:none;
-	}
-}
+//.wp-block-button__link{
+//	@extend .btn;
+//	@extend .btn-primary;
+//	border-radius:60px;
+//
+//	&:after{
+//		content:none;
+//	}
+//}
 .is-style-outline .wp-block-button__link{
 	@extend .btn-outline-primary;
 }

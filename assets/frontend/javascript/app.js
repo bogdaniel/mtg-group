@@ -707,9 +707,7 @@ function homeSlider() {
       speed: 1500,
       parallax: true,
       loop: true,
-      autoplay: {
-        delay: 2500,
-      },
+      autoplay: false,
       navigation: {
         nextEl: '.swiper-button-next1',
         prevEl: '.swiper-button-prev1',

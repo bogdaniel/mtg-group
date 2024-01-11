@@ -80,9 +80,8 @@
 </div>
 <div class="page-wraper">
     {% block header %}{% endblock %}
-    <div class="page-content bg-white">
-        {% block body %}{% endblock %}
-    </div>
+    {% block body %}{% endblock %}
+
     {% include 'templates/pages/_partial/_footer.html.twig' %}
     <button class="scroltop icon-up" type="button"><i class="fas fa-arrow-up"></i></button>
 </div>

@@ -12,8 +12,8 @@
                 </div>
                 <div class="dz-topbar-right">
                     <ul class="dz-social">
-                        <li><a class="fab fa-facebook-f" href="https://www.facebook.com/" target="_blank"></a></li>
-                        <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service" target="_blank"></a>
+                        <li><a class="fab fa-facebook-f" href="#" target="_blank"></a></li>
+                        <li><a class="fab fa-instagram" href=#multigama.service" target="_blank"></a>
                     </ul>
                 </div>
             </div>
@@ -81,8 +81,8 @@
                     </ul>
                     <div class="dz-social-icon">
                         <ul>
-                            <li><a class="fab fa-facebook-f" href="https://www.facebook.com/" target="_blank"></a></li>
-                            <li><a class="fab fa-instagram" href="https://www.instagram.com/multigama.service" target="_blank"></a>
+                            <li><a class="fab fa-facebook-f" href="#" target="_blank"></a></li>
+                            <li><a class="fab fa-instagram" href=#multigama.service" target="_blank"></a>
                         </ul>
                     </div>
                 </div>

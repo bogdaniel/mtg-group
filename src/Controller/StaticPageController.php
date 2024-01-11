@@ -16,7 +16,7 @@ class StaticPageController extends AbstractController
         $this->loader = $twig->getLoader();
     }
 
-    #[Route("/asdasd", name: "home")]
+    #[Route("/", name: "home")]
     public function home(): Response
     {
         return $this->redirectToRoute('static_page', ['pageName' => 'home']);
@@ -172,20 +172,6 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                     'path' => '/multigama-tech-products/p'
                 ],
                 [
-                    'name' => 'Servicii',
-                    'path' => '/multigama-tech-services/p',
-//                    'sub_menu' => [
-//                        [
-//                            'name' => 'Servicii',
-//                            'path' => '/multigama-tech-services/p',
-//                        ],
-//                        [
-//                            'name' => 'Detalii Serviciu',
-//                            'path' => '/multigama-tech-services-details/p',
-//                        ]
-//                    ]
-                ],
-                [
                     'name' => 'Proiecte',
                     'path' => '/multigama-tech-portfolio/p',
                 ],
@@ -282,10 +268,6 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'name' => 'Produse',
                     'path' => '/multigama-service-products/p'
-                ],
-                [
-                    'name' => 'Servicii',
-                    'path' => '/multigama-service-services/p',
                 ],
                 [
                     'name' => 'Proiecte',

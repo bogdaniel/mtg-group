@@ -15,14 +15,14 @@ class ApplicationController extends BaseController
         $this->pageManager = $pageManager;
     }
 
-    // use attributes to define routes
-    #[Route('/')]
-    public function __invoke()
-    {
-        // let's retrieve all the pages which are published from the database using PageManager service
-        $pages = $this->pageManager->getPublishedPages();
-dd($pages);
-        dump($pages);
-        return new Response('Hello World!');
-    }
+//    // use attributes to define routes
+//    #[Route('/')]
+//    public function __invoke()
+//    {
+//        // let's retrieve all the pages which are published from the database using PageManager service
+//        $pages = $this->pageManager->getPublishedPages();
+//dd($pages);
+//        dump($pages);
+//        return new Response('Hello World!');
+//    }
 }
