@@ -165,7 +165,7 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '/multigama-tech-about-us/p',
+                    'path' => '#multigama-tech-about-us',
                 ],
                 [
                     'name' => 'Produse',
@@ -263,7 +263,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '/multigama-service-about-us/p',
+                    'path' => '#multigama-service-about-us',
                 ],
                 [
                     'name' => 'Produse',
