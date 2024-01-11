@@ -53,9 +53,7 @@
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "6.3.*",
         "twig/extra-bundle": "*",
-        "twig/twig": "*",
-        "zenchron/file-bundle": "*",
-        "zenchron/shared-bundle": "dev-file-manager"
+        "twig/twig": "*"
     },
     "suggest": {
         "ext-mbstring": "Recommended for better performance",
