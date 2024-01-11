@@ -135,12 +135,23 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
 
         if (str_contains($pageName, 'multigama-tech-')) {
             $contactEmail = 'multigama@multigama.ro';
+            $logo = 'multigama-tech.png';
 
             $logoList = [
-                'multigama-tech' => [
-                    'logo' => 'multigama-tech.png',
+                'multigama-group' => [
+                    'logo' => 'logo-multigama-group.png',
                     'preloaderLogo' => 'multigama-tech.png',
                     'skinVersion' => 'skin_3',
+                ],
+                'multigama-service' => [
+                    'logo' => 'multigama-service.png',
+                    'preloaderLogo' => 'multigama-service.png',
+                    'skinVersion' => 'skin_4',
+                ],
+                'multigama-eq-fire' => [
+                    'logo' => 'eq-fire.png',
+                    'preloaderLogo' => 'eq-fire.png',
+                    'skinVersion' => 'skin_1',
                 ],
             ];
             $multiGamaGroupMenu = [
@@ -233,12 +244,23 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 
         if (str_contains($pageName, 'multigama-service-')) {
             $contactEmail = 'service@multigama.ro';
+            $logo = 'multigama-service.png';
 
             $logoList = [
-                'multigama-service' => [
-                    'logo' => 'multigama-service.png',
-                    'preloaderLogo' => 'multigama-service.png',
+                'multigama-group' => [
+                    'logo' => 'logo-multigama-group.png',
+                    'preloaderLogo' => 'multigama-group.png',
+                    'skinVersion' => 'skin_3',
+                ],
+                'multigama-tech' => [
+                    'logo' => 'multigama-tech.png',
+                    'preloaderLogo' => 'multigama-tech.png',
                     'skinVersion' => 'skin_4',
+                ],
+                'multigama-eq-fire' => [
+                    'logo' => 'eq-fire.png',
+                    'preloaderLogo' => 'eq-fire.png',
+                    'skinVersion' => 'skin_1',
                 ],
             ];
             $multiGamaGroupMenu = [
@@ -331,11 +353,23 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
         }
 
         if (str_contains($pageName, 'multigama-eq-fire-')) {
+            $logo = 'eq-fire.png';
+
             $logoList = [
-                'multigama-eq-fire' => [
-                    'logo' => 'eq-fire.png',
-                    'preloaderLogo' => 'eq-fire.png',
-                    'skinVersion' => 'skin_1',
+                'multigama-group' => [
+                    'logo' => 'logo-multigama-group.png',
+                    'preloaderLogo' => 'multigama-group.png',
+                    'skinVersion' => 'skin_3',
+                ],
+                'multigama-tech' => [
+                    'logo' => 'multigama-tech.png',
+                    'preloaderLogo' => 'multigama-tech.png',
+                    'skinVersion' => 'skin_4',
+                ],
+                'multigama-service' => [
+                    'logo' => 'multigama-service.png',
+                    'preloaderLogo' => 'multigama-service.png',
+                    'skinVersion' => 'skin_4',
                 ],
             ];
             $multiGamaGroupMenu = [
