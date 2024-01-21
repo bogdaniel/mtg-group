@@ -49,19 +49,19 @@ class StaticPageController extends AbstractController
             [
                 'icon' => 'fa-arrow-up-from-water-pump', // Font Awesome icon class
                 'title' => 'Multigama Tech',
-                'description' => 'Cu o experiență vastă și o dedicare neclintită față de excelență, Multigama Tech se află în fruntea industriei de vânzare a pompelor industriale. Suntem pasionați de furnizarea soluțiilor ideale pentru nevoile de transport și gestionare a fluidelor în industrie.',
+                'description' => 'Fondata in anul 1999, Multigama Tech ofera produse de cea mai mare calitate in Romania, prin partenerul sau de business KSB SEE, dar si prin alti parteneri de incredere. In acelasi timp, compania se ocupa de proiectarea si de dezvoltarea productiei de statii de pompare.',
                 'link' => '/multigama-tech-home/p',
             ],
             [
                 'icon' => 'fa-screwdriver-wrench', // Font Awesome icon class
                 'title' => 'Multigama Service',
-                'description' => 'Multigama Service este un lider de necontestat în domeniul întreținerii, reparației și oferirii de soluții complete pentru pompele industriale. Cu o echipă experimentată și o abordare dedicată, ne angajăm să aducem performanță și fiabilitate în universul transportului și manipulării fluidelor în industrie.',
+                'description' => 'Multigama Service este un partener exclusiv de service în România al KSB SEE. Serviciile oferite clientilor nostri sunt: Mentenanță preventivă, predictivă și corectivă, asistență tehnică la montarea și punerea în funcțiune a tuturor echipamentelor comercializate, furnizare echipamente noi, furnizare piese de schimb. suport tehnic în alegerea și dimensionarea echipamentelor pentru diverse tipuri de aplicații în funcție de necesitatea clientului, suport tehnic în vederea înlocuirii echipamentelor vechi și neperformante, etc. ',
                 'link' => '/multigama-service-home/p',
             ],
             [
                 'icon' => 'fa-fire-extinguisher', // Font Awesome icon class
                 'title' => 'EQ Fire',
-                'description' => 'EQ Fire se remarcă ca lider de încredere în furnizarea și întreținerea sistemelor de stingere a incendiilor pentru mediul industrial. Ne angajăm să asigurăm protecția optimă împotriva incendiilor în facilitățile industriale, oferind soluții inovatoare și servicii de cea mai înaltă calitate.',
+                'description' => 'Fondata in 2021, EQ Fire este membra a Multigama Group, si are ca obiect de acitivitate furnizarea de echipamente si servicii in domeniul protectiei impotriva incendiilor. Lucram cu mai multi furnizori de top: KSB Italia, SPP, Clarke, Armstrong, EBITT, etc.',
                 'link' => '/multigama-eq-fire-home/p',
             ],
         ];
@@ -106,19 +106,19 @@ class StaticPageController extends AbstractController
         ];
         $slideshow = [
             [
-                'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
+                'header' => 'Productie Statii Pompare <br />& Furnizare echipamente de pompare noi',
                 'subheader' => '',
-                'picture' => 'number-electric-motors-with-reducers-tanks-mixing-liquids-food-industry.jpg',
+                'picture' => 'poza-1-tech.jpg',
             ],
             [
-                'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
+                'header' => 'Reparatii & Mentenanta',
                 'subheader' => '',
-                'picture' => 'steel-pipelines-cables-plant.jpg',
+                'picture' => 'poza-2-service.jpg',
             ],
             [
-                'header' => 'Servicii de mentenanță',
+                'header' => 'Furnizare Echipamente Antiincendiu',
                 'subheader' => '',
-                'picture' => 'pump-pipe-line-oil-pressure-gauge-valves-plant-pressure-safety-valve-selective.jpg',
+                'picture' => 'poza-3-eqfire.jpg',
             ],
         ];
         $aboutHeader = "Povestea Noastra!";
@@ -178,6 +178,10 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                     'name' => 'Despre Noi',
                     'path' => '#multigama-tech-about-us',
                 ],
+	            [
+		            'name' => 'Statii Pompare',
+		            'path' => '/multigama-tech-statii-pompare/p',
+	            ],
                 [
                     'name' => 'Produse',
                     'path' => '/multigama-tech-products/p'
@@ -196,19 +200,40 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                 [
                     'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
                     'subheader' => '',
-                    'picture' => 'slide1.png',
+                    'picture' => 'poza-1.jpg',
                 ],
                 [
                     'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
                     'subheader' => '',
-                    'picture' => 'slide2.jpg',
+                    'picture' => 'poza-2.jpg',
                 ],
                 [
                     'header' => 'Servicii de mentenanță',
                     'subheader' => '',
-                    'picture' => 'slide3.jpg',
+                    'picture' => 'poza-3.jpg',
                 ],
             ];
+
+			if(str_contains($pageName, 'multigama-tech-statii-pompare')) {
+				$slideshow = [
+					[
+						'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
+						'subheader' => '',
+						'picture' => 'slide1.png',
+					],
+					[
+						'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
+						'subheader' => '',
+						'picture' => 'slide2.jpg',
+					],
+					[
+						'header' => 'Servicii de mentenanță',
+						'subheader' => '',
+						'picture' => 'slide3.jpg',
+					],
+				];
+			}
+
             $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
             $about = "Cu o experiență vastă și o dedicare neclintită față de excelență, Multigama Tech se află în fruntea industriei de vânzare a pompelor industriale. Suntem pasionați de furnizarea soluțiilor ideale pentru nevoile de transport și gestionare a fluidelor în industrie.
 
@@ -224,19 +249,19 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'icon' => 'fa-arrow-up-from-water-pump', // Font Awesome icon class
                     'title' => 'Statii de Pompare',
-                    'description' => 'Stațiile de pompare a apei joacă un rol crucial în asigurarea distribuției fiabile și eficiente a apei în cadrul comunităților. Aceste stații reprezintă inima sistemelor de alimentare cu apă, folosind pompe puternice pentru a ridica și a propulsa apa prin conducte, asigurându-se că ajunge la destinația sa, fie că este vorba de zone rezidențiale, comerciale sau industriale. De multe ori echipate cu tehnologie avansată și sisteme de monitorizare, aceste stații mențin presiunea apei, reglează fluxul și gestionează rețelele de distribuție.',
+                    'description' => 'Proiectam si dezvoltam productia de statii de pompare, cautand sa raspundem tuturor cerintelor clientilor nostri.',
                     'link' => '/multigama-tech-home/p',
                 ],
                 [
                     'icon' => 'flaticon-agronomy', // Font Awesome icon class
                     'title' => 'Furnizare echipamente noi',
-                    'description' => 'Furnizare echipamente noi, performante si eficiente din punct de vedere hidraulic și energetic. Furnizare piese de schimb pe toată durata de viață a echipamentelor',
+                    'description' => 'Multigama Tech ofera produse de cea mai buna calitate in Romania, la standarde Europene.',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
                     'icon' => 'flaticon-crane', // Font Awesome icon class
                     'title' => 'Suport tehnic',
-                    'description' => 'Suport tehnic în alegerea și dimensionarea echipamentelor pentru diverse tipuri de aplicații în funcție de necesitatea clientului. Suport tehnic în vederea înlocuirii echipamentelor vechi și neperformante etc.',
+                    'description' => 'Oferim suport tehnic pentru alegerea si dimensionarea corecta a echipamentelor, respectand necesitatile clientilor nostri.',
                     'link' => '/multigama-eq-fire-home/p',
                 ],
             ];
@@ -305,17 +330,17 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
                     'subheader' => '',
-                    'picture' => 'slide1.png',
+                    'picture' => 'service-poza-1.jpg',
                 ],
                 [
                     'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
                     'subheader' => '',
-                    'picture' => 'slide2.jpg',
+                    'picture' => 'service-poza-2.jpg',
                 ],
                 [
                     'header' => 'Servicii de mentenanță',
                     'subheader' => '',
-                    'picture' => 'slide3.jpg',
+                    'picture' => 'service-poza-3.jpg',
                 ],
             ];
             $aboutHeader = "Expertiza Multigama Service în Soluții Complete pentru Pompe Industriale!";
@@ -333,19 +358,19 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'icon' => 'screwdriver-wrench', // Font Awesome icon class
                     'title' => 'Mentenanta',
-                    'description' => 'Mentenanța pompelor reprezintă un aspect esențial în menținerea funcționării optime a acestor dispozitive vitale în infrastructura de alimentare cu apă. Această practică implică o serie de activități preventive și corective menite să asigure funcționarea eficientă a pompelor pe termen lung. Serviciile periodice de întreținere includ verificări regulate, lubrifiere, verificarea și înlocuirea componentelor uzate sau deteriorate, precum și ajustarea parametrilor pentru a menține performanța optimă a pompelor. ',
+                    'description' => 'Mentenanță preventivă, predictivă și corectivă pentru toate ansamblurile de echipamente. ',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
                     'icon' => 'flaticon-agronomy', // Font Awesome icon class
                     'title' => 'Furnizare echipamente noi',
-                    'description' => 'Furnizare echipamente noi, performante si eficiente din punct de vedere hidraulic și energetic. Furnizare piese de schimb pe toată durata de viață a echipamentelor',
+                    'description' => 'Furnizam echipamente noi, performante si eficiente din punct de vedere hidraulic și energetic. Furnizam piese de schimb pe toată durata de viață a echipamentelor',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
                     'icon' => 'flaticon-crane', // Font Awesome icon class
                     'title' => 'Suport tehnic',
-                    'description' => 'Suport tehnic în alegerea și dimensionarea echipamentelor pentru diverse tipuri de aplicații în funcție de necesitatea clientului. Suport tehnic în vederea înlocuirii echipamentelor vechi și neperformante etc.',
+                    'description' => 'Suport tehnic în alegerea și dimensionarea echipamentelor pentru diverse tipuri de aplicații în funcție de necesitatea clientului cat si în vederea înlocuirii echipamentelor vechi și neperformante.',
                     'link' => '/multigama-eq-fire-home/p',
                 ],
             ];
@@ -446,21 +471,24 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
                     'subheader' => '',
-                    'picture' => 'slide1.png',
+                    'picture' => 'eqfire-poza-1.jpg',
                 ],
                 [
                     'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
                     'subheader' => '',
-                    'picture' => 'slide2.jpg',
+                    'picture' => 'eqfire-poza-2.jpg',
                 ],
                 [
                     'header' => 'Servicii de mentenanță',
                     'subheader' => '',
-                    'picture' => 'slide3.jpg',
+                    'picture' => 'eqfire-poza-3.jpg',
                 ],
             ];
             $aboutHeader = "Siguranță de Încredere cu EQ Fire pentru Sisteme de Stingere a Incendiilor";
-            $about = "EQ Fire se remarcă ca lider de încredere în furnizarea și întreținerea sistemelor de stingere a incendiilor pentru mediul industrial. Ne angajăm să asigurăm protecția optimă împotriva incendiilor în facilitățile industriale, oferind soluții inovatoare și servicii de cea mai înaltă calitate.
+            $about = "
+Fondata in 2021, EQ Fire este membra a Multigama Group, si are ca obiect de acitivitate  furnizarea de echipamente si servicii in domeniul protectiei impotriva incendiilor.
+Societatea noastra va ofera produsele si solutiile potrivite pentru fiecare cerinta - de la vane, vase de expansiune,  sisteme de mentinere a presiunii, pana la grupuri de pompare pentru sistemele de stingere cu hidranti, sprinklere sau spuma.
+EQ Fire are implementat un sistem de management al calitatii si este certificata ISO9001:2015, ISO14001:2015 si ISO45001:2018.
 
 ";
             $quickContactHeader = "MULTIGAMA SERVICE";
@@ -472,19 +500,19 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'icon' => 'fire-extinguisher', // Font Awesome icon class
                     'title' => 'Axati pe rezultate',
-                    'description' => 'Scopul nostru este de a ne ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi.',
+                    'description' => 'Scopul nostru este de a ne ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi',
                     'link' => '/multigama-eq-fire-home/p',
                 ],
                 [
                     'icon' => 'flaticon-agronomy', // Font Awesome icon class
                     'title' => 'Furnizare echipamente noi',
-                    'description' => 'Scopul nostru este de a ne ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi.Oferim o gama larga de echipamente pentru stins incendiu NFPA 20 certificate FM/UL, VdS, EN12845',
+                    'description' => 'Suntem angajati sa ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi.Oferim o gama larga de echipamente pentru stins incendiu NFPA 20 certificate FM/UL, VdS, EN12845',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
                     'icon' => 'flaticon-crane', // Font Awesome icon class
                     'title' => 'Solutii tehnice personalizate',
-                    'description' => 'Echipa noastra va lucra indeaproape cu dumneavoastră pentru a dezvolta un produs personalizat care sa raspunda solicitarii si cerintelor dumneavoastra.',
+                    'description' => 'Echipa noastra va lucra indeaproape cu dumneavoastră pentru a dezvolta un produs personalizat care sa raspunda solicitarii si cerintelor dumneavoastra',
                     'link' => '/multigama-eq-fire-home/p',
                 ],
 
