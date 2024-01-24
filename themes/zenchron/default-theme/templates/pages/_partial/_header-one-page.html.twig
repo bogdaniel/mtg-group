@@ -20,14 +20,28 @@
             </div>
         </div>
     </div>
-    <style>
+    <style type="text/css">
         /* Custom styles */
         .image-container img {
             max-width: 7.725rem; /* Approximately 50 pixels in rem */
             height: auto;
             width: 100%;
         }
+
+        /* Add this CSS to your stylesheet or <style> tag */
+        .logo-header {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .small-logo {
+            margin-left: 10px; /* Adjust the spacing between logos as needed */
+            max-height: 40px; /* Set the desired maximum height for the second logo */
+            margin-bottom: 22px;
+        }
+
     </style>
+
     <!-- Main Header -->
     <div class="sticky-header main-bar-wraper navbar-expand-lg text-black">
         <div class="main-bar clearfix d-none d-sm-block">
@@ -50,9 +64,12 @@
         <div class="main-bar clearfix">
             <div class="container clearfix bg-white">
                 <!-- Website Logo -->
-                <div class="logo-header mostion logo-dark">
+                <div class="logo-header mostion logo-dark d-flex align-items-end">
                     <a href="/">
                         <img src="{{ asset('assets/images/' ~ logo) }}" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="{{ asset('assets/images/ksb-business-partner.jpeg' ) }}" alt="" class="small-logo">
                     </a>
                 </div>
                 <!-- Nav Toggle Button -->

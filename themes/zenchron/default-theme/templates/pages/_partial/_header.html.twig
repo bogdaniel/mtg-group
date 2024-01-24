@@ -20,13 +20,26 @@
             </div>
         </div>
     </div>
-    <style>
+    <style type="text/css">
         /* Custom styles */
         .image-container img {
             max-width: 7.725rem; /* Approximately 50 pixels in rem */
             height: auto;
             width: 100%;
         }
+
+        /* Add this CSS to your stylesheet or <style> tag */
+        .logo-header {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .small-logo {
+            margin-left: 10px; /* Adjust the spacing between logos as needed */
+            max-height: 40px; /* Set the desired maximum height for the second logo */
+            margin-bottom: 29px;
+        }
+
     </style>
     <!-- Main Header -->
     <div class="sticky-header main-bar-wraper navbar-expand-lg text-black">
@@ -54,6 +67,11 @@
                     <a href="/">
                         <img src="{{ asset('assets/images/' ~ logo) }}" alt="">
                     </a>
+                    {% if app.request.getPathInfo() == '/multigama-service-home/p' %}
+                        <a href="#">
+                            <img src="{{ asset('assets/images/ksb-exclusive-service-partner.jpeg' ) }}" alt="" class="small-logo">
+                        </a>
+                    {% endif %}
                 </div>
                 <!-- Nav Toggle Button -->
                 <button class="navbar-toggler collapsed navicon justify-content-end" type="button"
