@@ -24,11 +24,14 @@ var imagesLoaded = require('imagesloaded');
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
-// import Swiper styles
+// import Swiper and modules styles
 import 'swiper/css';
-import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/swiper-bundle.css'
+
+import GLightbox from 'glightbox';
+
 
 import lightGallery from 'lightgallery';
 var Isotope = require('isotope-layout');
@@ -39,15 +42,16 @@ import PerfectScrollbar from 'perfect-scrollbar';
 
 import 'bootstrap';
 import 'bootstrap-select';
+import '@fortawesome/fontawesome-free/js/all.js';
+require('pdfjs-dist');
+
+
 // any CSS you import will output into a single css file (app.css in this case)
 // import '../icons/dz-icons/icons.css';
 // import '../css/style.css';
 import '../scss/main.scss';
 
 
-import '@fortawesome/fontawesome-free/js/all.js';
-
-require('pdfjs-dist');
 /**
  Core script to handle the entire theme and core functions
 
@@ -648,6 +652,8 @@ const Mazo = (() => {
       handleheartBlast();
       handlePlaceholderAnimation();
       handleDznavScroll();
+
+
     },
 
     load() {
@@ -1405,3 +1411,77 @@ jQuery(window).on('resize', function () {
   homeSlider();
 });
 /* Document .ready END */
+
+
+const lightbox = GLightbox({
+  selector: '*[data-glightbox]',
+  touchNavigation: true,
+  loop: false,
+  zoomable: false,
+  autoplayVideos: false,
+  moreLength: 0,
+  slideExtraAttributes: {
+    poster: ''
+  },
+});
+
+
+var grids = document.querySelectorAll('.grid');
+if(grids != null) {
+  grids.forEach(g => {
+    var grid = g.querySelector('.isotope');
+    var filtersElem = g.querySelector('.isotope-filter');
+    var buttonGroups = g.querySelectorAll('.isotope-filter');
+    var iso = new Isotope(grid, {
+      itemSelector: '.item',
+      layoutMode: 'masonry',
+      masonry: {
+        columnWidth: grid.offsetWidth / 12
+      },
+      percentPosition: true,
+      transitionDuration: '0.7s'
+    });
+    imagesLoaded(grid).on("progress", function() {
+      iso.layout({
+        masonry: {
+          columnWidth: grid.offsetWidth / 12
+        }
+      })
+    }),
+      window.addEventListener("resize", function() {
+        iso.arrange({
+          masonry: {
+            columnWidth: grid.offsetWidth / 12
+          }
+        });
+      }, true);
+    if(filtersElem != null) {
+      filtersElem.addEventListener('click', function(event) {
+        if(!matchesSelector(event.target, '.filter-item')) {
+          return;
+        }
+        var filterValue = event.target.getAttribute('data-filter');
+        iso.arrange({
+          filter: filterValue
+        });
+      });
+      for(var i = 0, len = buttonGroups.length; i < len; i++) {
+        var buttonGroup = buttonGroups[i];
+        buttonGroup.addEventListener('click', function(event) {
+          if(!matchesSelector(event.target, '.filter-item')) {
+            return;
+          }
+          buttonGroup.querySelector('.active').classList.remove('active');
+          event.target.classList.add('active');
+        });
+      }
+    }
+  });
+}
+
+var overlay = document.querySelectorAll('.overlay > a, .overlay > span');
+for(var i = 0; i < overlay.length; i++) {
+  var overlay_bg = document.createElement('span');
+  overlay_bg.className = "bg";
+  overlay[i].appendChild(overlay_bg);
+}

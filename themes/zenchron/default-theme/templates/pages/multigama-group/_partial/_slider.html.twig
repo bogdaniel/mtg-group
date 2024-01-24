@@ -1,6 +1,6 @@
 <!-- Slider -->
-<div class="swiper-container main-slider-swiper slider-two" style="overflow: hidden">
-    <div class="swiper-wrapper" style="align-items: center">
+<div class="swiper main-slider-swiper slider-two">
+    <div class="swiper-wrapper" >
         {% for slide in slideshow %}
         <div class="swiper-slide">
             <div class="dz-slide-item overlay-black-light" style="background-image:url('{{ asset('assets/images/' ~ slide.picture) }}');">

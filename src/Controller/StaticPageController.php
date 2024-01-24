@@ -253,13 +253,13 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                     'link' => '/multigama-tech-home/p',
                 ],
                 [
-                    'icon' => 'flaticon-agronomy', // Font Awesome icon class
+                    'icon' => 'fa-cogs', // Font Awesome icon class
                     'title' => 'Furnizare echipamente noi',
                     'description' => 'Multigama Tech ofera produse de cea mai buna calitate in Romania, la standarde Europene.',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
-                    'icon' => 'flaticon-crane', // Font Awesome icon class
+                    'icon' => 'fa-user-tie', // Font Awesome icon class
                     'title' => 'Suport tehnic',
                     'description' => 'Oferim suport tehnic pentru alegerea si dimensionarea corecta a echipamentelor, respectand necesitatile clientilor nostri.',
                     'link' => '/multigama-eq-fire-home/p',
@@ -356,19 +356,19 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 
             $items = [
                 [
-                    'icon' => 'screwdriver-wrench', // Font Awesome icon class
+                    'icon' => 'fa-user-tie', // Font Awesome icon class
                     'title' => 'Mentenanta',
                     'description' => 'Mentenanță preventivă, predictivă și corectivă pentru toate ansamblurile de echipamente. ',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
-                    'icon' => 'flaticon-agronomy', // Font Awesome icon class
+                    'icon' => 'fa-cog', // Font Awesome icon class
                     'title' => 'Furnizare echipamente noi',
                     'description' => 'Furnizam echipamente noi, performante si eficiente din punct de vedere hidraulic și energetic. Furnizam piese de schimb pe toată durata de viață a echipamentelor',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
-                    'icon' => 'flaticon-crane', // Font Awesome icon class
+                    'icon' => 'fa-user-tie', // Font Awesome icon class
                     'title' => 'Suport tehnic',
                     'description' => 'Suport tehnic în alegerea și dimensionarea echipamentelor pentru diverse tipuri de aplicații în funcție de necesitatea clientului cat si în vederea înlocuirii echipamentelor vechi și neperformante.',
                     'link' => '/multigama-eq-fire-home/p',
@@ -498,19 +498,19 @@ EQ Fire are implementat un sistem de management al calitatii si este certificata
             $skinVersion = 'skin_1';
             $items = [
                 [
-                    'icon' => 'fire-extinguisher', // Font Awesome icon class
+                    'icon' => 'fa-shield-alt', // Font Awesome icon class
                     'title' => 'Axati pe rezultate',
                     'description' => 'Scopul nostru este de a ne ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi',
                     'link' => '/multigama-eq-fire-home/p',
                 ],
                 [
-                    'icon' => 'flaticon-agronomy', // Font Awesome icon class
+                    'icon' => 'fa-cog', // Font Awesome icon class
                     'title' => 'Furnizare echipamente noi',
                     'description' => 'Suntem angajati sa ajutam clientii sa obtina cea mai buna solutie tehnica. De aceea, ne angajam sa oferim solutii complete care sa va ajute sa reusiti in piata competitiva de astazi.Oferim o gama larga de echipamente pentru stins incendiu NFPA 20 certificate FM/UL, VdS, EN12845',
                     'link' => '/multigama-service-home/p',
                 ],
                 [
-                    'icon' => 'flaticon-crane', // Font Awesome icon class
+                    'icon' => 'fa-puzzle-piece', // Font Awesome icon class
                     'title' => 'Solutii tehnice personalizate',
                     'description' => 'Echipa noastra va lucra indeaproape cu dumneavoastră pentru a dezvolta un produs personalizat care sa raspunda solicitarii si cerintelor dumneavoastra',
                     'link' => '/multigama-eq-fire-home/p',

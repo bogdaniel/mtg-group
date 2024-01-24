@@ -900,7 +900,7 @@
 		.testimonial-1 {
 			padding: 50px 0 50px 50px;
 		}
-		.swiper-container{
+		.swiper{
 			margin-right: 0;
 			margin-left: -145px;
 		}
@@ -911,7 +911,7 @@
 			.testi-inner:after{
 				margin-left: 0;
 			}
-			.swiper-container{
+			.swiper{
 				margin-left: 0;
 			}
 		}
@@ -1102,7 +1102,7 @@
 		}
 	}
 
-	.swiper-container{
+	.swiper{
 		direction: ltr;
 		.swiper-slide{
 			direction: rtl;
@@ -1363,7 +1363,7 @@
 		}
 	}
 
-	.swiper-container-initialized{
+	.swiper-initialized{
 		.btn-next i,
 		.btn-prev i {
 			transform: rotateY(180deg);

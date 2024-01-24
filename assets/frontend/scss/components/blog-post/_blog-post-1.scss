@@ -2,7 +2,7 @@
 	&.style-1{
 		border-radius: var(--border-radius-base);
 		overflow: hidden;
-		
+
 		.dz-info{
 			padding:30px;
 		}
@@ -10,7 +10,7 @@
 			position:relative;
 			display: flex;
 			align-items:center;
-			
+
 			i{
 				margin-left: 10px;
 				font-size: 14px;
@@ -27,7 +27,7 @@
 				margin-bottom: 0;
 				max-width: 220px;
 				min-width: 220px;
-				
+
 				@include respond('tab-land'){
 					max-width: 200px;
 					min-width: 200px;
@@ -39,8 +39,8 @@
 				a{
 					display:block;
 					height:100%;
-					
-					
+
+
 				}
 				img{
 					height:100%;
@@ -56,7 +56,7 @@
 				height: 60px;
 				font-size: 20px;
 			}
-			.swiper-container{
+			.swiper{
 				height: 100%;
 			}
 		}

@@ -13,8 +13,7 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath('/assets')
     // only needed for CDN's or subdirectory deploy
-    //.setManifestKeyPrefix('build/')
-
+    .setManifestKeyPrefix('assets/')
     /*
      * ENTRY CONFIG
      *
@@ -90,10 +89,10 @@ Encore
       css: 'css/[name].min.css',
     })
 
-  .copyFiles({
-    from: './assets/frontend/fonts',
-    to: 'fonts/[name].[ext]',
-  })
+  // .copyFiles({
+  //   from: './assets/frontend/fonts',
+  //   to: 'fonts/[name].[ext]',
+  // })
   .copyFiles({
     from: './assets/frontend/images',
     to: 'images/[name].[ext]',
@@ -142,7 +141,31 @@ Encore
     // .addPlugin(new RtlCssPlugin({
     //   filename: 'css/[name]-rtl.min.css',
     // }))
+  // .addLoader({
+  //   test: /\.(woff|woff2|eot|ttf|otf)$/,
+  //   use: [
+  //     {
+  //       loader: 'file-loader',
+  //       options: {
+  //         outputPath: 'fonts/'
+  //       }
+  //     }
+  //   ]
+  // })
 
+  // .configureFontRule({
+  //   type: 'asset',
+  //   //maxSize: 4 * 1024
+  // })
+  .configureFontRule({
+    type: 'asset',
+    //maxSize: 4 * 1024
+  })
+  .configureImageRule({
+    // tell Webpack it should consider inlining
+    type: 'asset',
+    //maxSize: 4 * 1024, // 4 kb - the default is 8kb
+  })
 ;
 
 module.exports = Encore.getWebpackConfig();

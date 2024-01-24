@@ -17,9 +17,11 @@
 @use "sass:math";
 
 @import 'lightgallery/scss/lightgallery-bundle.scss';
+@import "glightbox/dist/css/glightbox.min.css";
 @import 'animate.css';
 @import 'aos/dist/aos.css';
 // import Swiper styles
+//$fa-font-path: "images/fonts";
 
 @import "./abstract/abstract";
 @import 'bootstrap/scss/bootstrap.scss';
@@ -27,6 +29,12 @@
 @import "./components/components";
 @import "./pages/pages";
 @import "./layout/layout";
+
+//@import "@iconscout/unicons/css/animation.css";
+//@import "@iconscout/unicons/css/before.css";
+@import "@iconscout/unicons/css/line.css";
+@import "@iconscout/unicons/css/solid.css";
+//@import "@iconscout/unicons/css/thinline.css";
 
 .navbar-brand img {
     height: 70px; /* Adjust logo height */
@@ -37,3 +45,253 @@
     /* max-width: 180px; */
 }
 
+//----------------------------------------------------------//
+//	LIGHTBOX
+//----------------------------------------------------------//
+$lightbox-bg: rgba($gray-800, 0.9) !default;
+$lightbox-icon-color: $white !default;
+$lightbox-icon-bg: rgba($dark, 0.6) !default;
+$lightbox-icon-hover-bg: rgba($dark, 0.7) !default;
+$btn-letter-spacing: 0.025rem !default;
+
+$font-family-unicons: "unicons-line" !default;
+//----------------------------------------------------------//
+//	ICONS
+//----------------------------------------------------------//
+$icon-caret-start: "\e92f" !default;
+$icon-caret-end: "\e931" !default;
+$icon-caret-up: "\e932" !default;
+$icon-caret-down: "\e92d" !default;
+$icon-dot: "\2022" !default;
+$icon-close: "\e9b3" !default;
+$icon-prev: "\ebb4" !default;
+$icon-next: "\ebb5" !default;
+//----------------------------------------------------------//
+//	LIGHTBOX
+//----------------------------------------------------------//
+.goverlay {
+    background: $lightbox-bg;
+}
+.glightbox-mobile .goverlay {
+    background: $lightbox-bg;
+}
+.glightbox-clean {
+    .gclose,
+    .gnext,
+    .gprev {
+        border: 0;
+        background: $lightbox-icon-bg;
+        color: $lightbox-icon-color;
+        @include font-size(1.2rem);
+        width: 2.2rem;
+        height: 2.2rem;
+        line-height: 2.2rem;
+        border-radius: 100%;
+        margin-top: 0;
+        padding: 0;
+        box-shadow: none;
+        transition: background 0.2s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gprev,
+    .gnext {
+        &:before {
+            font-family: $font-family-unicons;
+        }
+        &:hover {
+            background: $lightbox-icon-hover-bg;
+        }
+        &:after {
+            display: none;
+        }
+    }
+    .gclose {
+        top: 0.75rem;
+        right: 0.75rem;
+        &:hover {
+            background: $lightbox-icon-hover-bg;
+        }
+        &:after {
+            font-family: $font-family-unicons;
+            content: $icon-close;
+        }
+    }
+    .gprev {
+        left: 0.75rem;
+        &:before {
+            content: $icon-prev;
+        }
+    }
+    .gnext {
+        right: 0.75rem;
+        &:before {
+            content: $icon-next;
+        }
+    }
+    .gprev svg,
+    .gnext svg,
+    .gclose svg {
+        display: none;
+    }
+    .gprev.disabled,
+    .gnext.disabled,
+    .gclose.disabled {
+        display: none;
+    }
+    .gslide-media {
+        box-shadow: none;
+    }
+    .gslide-description {
+        background: none;
+    }
+    .gdesc-inner {
+        padding: 1rem 0 1rem 0;
+        text-align: center;
+        .gslide-title {
+            margin: 0;
+        }
+        .gslide-title + .gslide-desc {
+            margin-top: 0.3rem;
+        }
+        .gslide-title,
+        .gslide-desc {
+            color: $white;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .glightbox-clean {
+        .gprev,
+        .gnext {
+            transform: translateY(-50%);
+            top: 50%;
+        }
+    }
+}
+.gbtn.focused {
+    outline: none;
+}
+.gvideo .plyr {
+    border-radius: 0 !important;
+}
+.gslide-image img {
+    max-height: 100vh;
+}
+
+//----------------------------------------------------------//
+//	OVERLAY
+//----------------------------------------------------------//
+figure.overlay img {
+    opacity: 1;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: top;
+    position: relative;
+}
+.overlay {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    figcaption,
+    .figcaption {
+        padding: 0.5rem;
+        z-index: 5;
+        pointer-events: none;
+    }
+    * {
+        @include transition(all 0.4s ease);
+    }
+    img {
+        @include transition(none);
+    }
+    &:not(.caption-overlay) i {
+        display: block;
+        @include font-size(2rem);
+    }
+    a {
+        position: relative;
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        cursor: pointer !important;
+    }
+    span.bg {
+        position: relative;
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        cursor: pointer !important;
+        opacity: 0;
+        z-index: 4;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba($dark, 0.6);
+    }
+    &.color span.bg {
+        background: rgba($primary, 0.7);
+    }
+    &.light span.bg {
+        background: rgba($white, 0.6);
+    }
+    &:hover span.bg {
+        opacity: 1;
+        @include transition(opacity 0.35s ease-in-out);
+    }
+    * {
+        color: $white !important;
+    }
+    &.light * {
+        color: $dark !important;
+    }
+    img {
+        max-width: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        vertical-align: top;
+    }
+    figcaption {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0.75rem 1rem;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        text-align: center;
+        letter-spacing: $btn-letter-spacing;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .from-top {
+        position: absolute;
+        padding: 0.75rem 1rem;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-80%);
+    }
+    &:hover {
+        figcaption,
+        .figcaption {
+            opacity: 1;
+        }
+        figcaption .from-top,
+        .figcaption .from-top {
+            transform: translateY(-50%);
+        }
+    }
+}
