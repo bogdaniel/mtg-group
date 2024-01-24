@@ -1485,3 +1485,7 @@ for(var i = 0; i < overlay.length; i++) {
   overlay_bg.className = "bg";
   overlay[i].appendChild(overlay_bg);
 }
+
+// main.js (or the file where you want to use the function)
+import { setupScrollModal } from './setupScrollModal'; // Adjust the path as needed
+window.setupScrollModal = setupScrollModal();

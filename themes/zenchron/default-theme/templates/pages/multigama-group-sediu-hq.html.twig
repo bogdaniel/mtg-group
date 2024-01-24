@@ -1,0 +1,182 @@
+{% extends '/templates/base.html.twig' %}
+{% block load_text %}
+    {% include 'templates/pages/multigama-group/_partial/_multigama-tech-loader.html.twig' %}
+{% endblock %}
+{% block header %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+
+{% endblock %}
+{% block body %}
+    <!-- Slider -->
+    {% include 'templates/pages/multigama-group/_partial/_slider-hq.html.twig' %}
+    <!-- Slider -->
+
+    <!-- About US -->
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800">
+                    <div class="section-head style-1 text-center">
+                        <h6 class="sub-title bgl-primary m-b20 text-primary">Sediu HQ</h6>
+                    </div>
+                    <p>
+                        Deschiderea unui nou sediu pentru compania MTG Group reprezintă un moment extrem de important
+                        pentru noi. În calitate de lideri în crearea de proiecte personalizate pentru pompe de apă și
+                        sisteme de suprimare a incendiilor, ne-am angajat să oferim soluții de cea mai înaltă calitate
+                        clienților noștri. Această nouă sediu reprezintă o etapă semnificativă în dezvoltarea noastră și
+                        în îndeplinirea angajamentului nostru de a oferi servicii superioare.
+                    </p>
+                    <p>
+                        Noul nostru sediu va include un spatiu de parcare generos, special conceput pentru confortul
+                        clienților și angajaților noștri. Dorim să creăm o atmosferă primitoare și convenabilă pentru
+                        toți cei care ne vizitează. Parcarea modernă va facilita accesul și va adăuga o notă de eleganță
+                        clădirii noastre.
+                    </p>
+                    <p>
+                        În plus, noul sediu va oferi mai mult spațiu pentru inginerii noștri, care lucrează cu pasiune
+                        la proiectele noastre personalizate. Cu această expansiune, vom avea mai multă libertate pentru
+                        a explora și a dezvolta soluții inovatoare, în beneficiul clienților noștri. Mai mult decât
+                        atât, vom avea o locație ideală pentru întâlniri și discuții cu clienții, unde să putem colabora
+                        la dezvoltarea proiectelor lor.
+                    </p>
+                    <p>
+                        Un alt aspect important al noii noastre sedii este spațiul dedicat depozitării și distribuției
+                        bunurilor. Acesta va contribui la eficiența operațională a companiei noastre, asigurând că
+                        produsele noastre ajung rapid și în siguranță la destinație. Ne dorim să fim un partener de
+                        încredere pentru clienții noștri, iar acest spațiu va facilita acest obiectiv.
+                    </p>
+                    <p>
+                        De asemenea, dorim să subliniem serviciul nostru de mentenanță și reparații a echipamentelor.
+                        Oferim clienților noștri asistență tehnică de înaltă calitate pentru echipamentele noastre,
+                        asigurând funcționarea optimă a acestora. Cu un personal dedicat și calificat, suntem aici
+                        pentru a vă sprijini și a vă asigura că echipamentele dumneavoastră sunt întotdeauna în cea mai
+                        bună formă posibilă.
+                    </p>
+                    <p>
+                        Mtg Group este mândră să anunțe acest pas important în creșterea noastră și în capacitatea
+                        noastră de a oferi servicii de top în domeniul nostru. Suntem dedicați excelenței și suntem
+                        nerăbdători să începem această nouă etapă. Vă mulțumim pentru sprijinul continuu și pentru
+                        încrederea pe care ne-ați acordat-o.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About US End -->
+    <section id="gallery">
+        <div class="container pt-7 pb-15">
+            <div class="card">
+                <div class="card-body">
+                    <div class="grid grid-view">
+                        <div class="row gx-md-6 gy-6 isotope">
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-1.jpg') }}" data-glightbox="title:" data-gallery="">
+                                        <img src="{{ asset('assets/images/render-1.jpg') }}" srcset="{{ asset('assets/images/render-1.jpg') }} 2x" alt="" />
+                                    </a>
+{#                                    <figcaption>#}
+{#                                        <h4 class="from-top h6 mb-0">Statii pompare - Ciolpani</h4>#}
+{#                                    </figcaption>#}
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-2.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-2.jpg') }}" srcset="{{ asset('assets/images/render-2.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-3.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-3.jpg') }}" srcset="{{ asset('assets/images/render-3.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-4.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-4.jpg') }}" srcset="{{ asset('assets/images/render-4.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-4.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-4.jpg') }}" srcset="{{ asset('assets/images/render-4.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-5.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-5.jpg') }}" srcset="{{ asset('assets/images/render-5.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-6.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-6.jpg') }}" srcset="{{ asset('assets/images/render-6.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-7.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-7.jpg') }}" srcset="{{ asset('assets/images/render-7.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6 col-xl-4">
+                                <figure class="overlay rounded">
+                                    <a href="{{ asset('assets/images/render-8.jpg') }}" data-glightbox="title: " data-gallery="">
+                                        <img src="{{ asset('assets/images/render-8.jpg') }}" srcset="{{ asset('assets/images/render-8.jpg') }} 2x" alt="" />
+                                    </a>
+                                    <figcaption>
+                                        <h4 class="from-top h6 mb-0"></h4>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- /.item -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                       <!-- /.grid -->
+                </div>
+                <!--/.card-body -->
+            </div>
+            <!--/.card -->
+        </div>
+    </section>
+
+
+{% endblock %}

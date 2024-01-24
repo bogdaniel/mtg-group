@@ -88,6 +88,10 @@ class StaticPageController extends AbstractController
                 ],
             ],
             [
+                'name' => 'Sediu HQ',
+                'path' => '/multigama-group-sediu-hq/p',
+            ],
+            [
                 'name' => 'Despre Noi',
                 'path' => '#about-us',
             ],
@@ -119,6 +123,23 @@ class StaticPageController extends AbstractController
                 'header' => 'Furnizare Echipamente Antiincendiu',
                 'subheader' => '',
                 'picture' => 'poza-3-eqfire.jpg',
+            ],
+        ];
+        $slideshowHq = [
+            [
+                'header' => '',
+                'subheader' => '',
+                'picture' => 'render-slide-1.jpg',
+            ],
+            [
+                'header' => '',
+                'subheader' => '',
+                'picture' => 'render-slide-2.jpg',
+            ],
+            [
+                'header' => '',
+                'subheader' => '',
+                'picture' => 'render-slide-3.jpg',
             ],
         ];
         $aboutHeader = "Povestea Noastra!";
@@ -532,6 +553,7 @@ EQ Fire are implementat un sistem de management al calitatii si este certificata
             'aboutHeader' => $aboutHeader,
             'quickContactHeader' => $quickContactHeader,
             'quickContactContent' => $quickContactContent,
+            'slideshowHq' => $slideshowHq
         ]);
     }
 }
