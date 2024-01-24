@@ -138,17 +138,17 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
             $logo = 'multigama-tech.png';
 
             $logoList = [
-                'multigama-group' => [
+                'home' => [
                     'logo' => 'logo-multigama-group.png',
                     'preloaderLogo' => 'multigama-tech.png',
                     'skinVersion' => 'skin_3',
                 ],
-                'multigama-service' => [
+                'multigama-service-home' => [
                     'logo' => 'multigama-service.png',
                     'preloaderLogo' => 'multigama-service.png',
                     'skinVersion' => 'skin_4',
                 ],
-                'multigama-eq-fire' => [
+                'multigama-eq-fire-home' => [
                     'logo' => 'eq-fire.png',
                     'preloaderLogo' => 'eq-fire.png',
                     'skinVersion' => 'skin_1',
@@ -272,17 +272,17 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $logo = 'multigama-service.png';
 
             $logoList = [
-                'multigama-group' => [
+                'home' => [
                     'logo' => 'logo-multigama-group.png',
                     'preloaderLogo' => 'multigama-group.png',
                     'skinVersion' => 'skin_3',
                 ],
-                'multigama-tech' => [
+                'multigama-tech-home' => [
                     'logo' => 'multigama-tech.png',
                     'preloaderLogo' => 'multigama-tech.png',
                     'skinVersion' => 'skin_4',
                 ],
-                'multigama-eq-fire' => [
+                'multigama-eq-fire-home' => [
                     'logo' => 'eq-fire.png',
                     'preloaderLogo' => 'eq-fire.png',
                     'skinVersion' => 'skin_1',
@@ -381,17 +381,17 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $logo = 'eq-fire.png';
 
             $logoList = [
-                'multigama-group' => [
+                'home' => [
                     'logo' => 'logo-multigama-group.png',
                     'preloaderLogo' => 'multigama-group.png',
                     'skinVersion' => 'skin_3',
                 ],
-                'multigama-tech' => [
+                'multigama-tech-home' => [
                     'logo' => 'multigama-tech.png',
                     'preloaderLogo' => 'multigama-tech.png',
                     'skinVersion' => 'skin_4',
                 ],
-                'multigama-service' => [
+                'multigama-service-home' => [
                     'logo' => 'multigama-service.png',
                     'preloaderLogo' => 'multigama-service.png',
                     'skinVersion' => 'skin_4',
