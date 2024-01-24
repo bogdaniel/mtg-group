@@ -39,7 +39,11 @@
             max-height: 40px; /* Set the desired maximum height for the second logo */
             margin-bottom: 29px;
         }
-
+        .small-logo-tech {
+            margin-left: 10px; /* Adjust the spacing between logos as needed */
+            max-height: 40px; /* Set the desired maximum height for the second logo */
+            margin-bottom: 25px;
+        }
     </style>
     <!-- Main Header -->
     <div class="sticky-header main-bar-wraper navbar-expand-lg text-black">
@@ -70,6 +74,10 @@
                     {% if app.request.getPathInfo() == '/multigama-service-home/p' %}
                         <a href="#">
                             <img src="{{ asset('assets/images/ksb-exclusive-service-partner.jpeg' ) }}" alt="" class="small-logo">
+                        </a>
+                    {% elseif app.request.getPathInfo() == '/multigama-tech-home/p'  %}
+                        <a href="#">
+                            <img src="{{ asset('assets/images/ksb-business-partner.jpeg' ) }}" alt="" class="small-logo-tech">
                         </a>
                     {% endif %}
                 </div>
