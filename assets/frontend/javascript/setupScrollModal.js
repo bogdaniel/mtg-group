@@ -5,7 +5,7 @@ export function setupScrollModal() {
   window.addEventListener('scroll', function () {
     if (!modalShown) { // Check if the modal has not been shown yet
       var scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      if (scrollPercentage >= 50) {
+      if (scrollPercentage >= 15) {
         // Dynamically import Bootstrap using the import statement
         import('bootstrap').then((bootstrap) => {
           // Bootstrap is loaded and available here
