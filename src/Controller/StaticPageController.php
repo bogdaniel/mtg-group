@@ -423,25 +423,25 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 ],
                 [
                     'name' => 'Produse',
-                    'path' => '#',
-                    'sub_menu' => [
-                        [
-                            'name' => 'Armstrong',
-                            'path' => '#',
-                        ],
-                        [
-                            'name' => 'Armstrong HSC',
-                            'path' => '/multigama-eq-fire-armstrong-hsc/p',
-                        ],
-                        [
-                            'name' => 'Armstrong VIL',
-                            'path' => '/multigama-eq-fire-armstrong-vil/p',
-                        ],
-                        [
-                            'name' => 'Armstrong ES',
-                            'path' => '/multigama-eq-fire-armstrong-es/p',
-                        ],
-                    ],
+                    'path' => '/multigama-eq-fire-products/p',
+//                    'sub_menu' => [
+//                        [
+//                            'name' => 'Armstrong',
+//                            'path' => '#',
+//                        ],
+//                        [
+//                            'name' => 'Armstrong HSC',
+//                            'path' => '/multigama-eq-fire-armstrong-hsc/p',
+//                        ],
+//                        [
+//                            'name' => 'Armstrong VIL',
+//                            'path' => '/multigama-eq-fire-armstrong-vil/p',
+//                        ],
+//                        [
+//                            'name' => 'Armstrong ES',
+//                            'path' => '/multigama-eq-fire-armstrong-es/p',
+//                        ],
+//                    ],
                 ],
                 [
                     'name' => 'Servicii',

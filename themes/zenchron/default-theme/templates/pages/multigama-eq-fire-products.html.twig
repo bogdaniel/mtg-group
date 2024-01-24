@@ -6,104 +6,146 @@
     {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
 {% endblock %}
 {% block body %}
-    <!-- Banner  -->
-    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
-         style="background-image: url('{{ asset('assets/images/pic-8.jpg') }}');">
-        <div class="container">
-            <div class="dz-bnr-inr-entry">
-                <!-- Breadcrumb Row -->
-                <nav aria-label="breadcrumb" class="breadcrumb-row">
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="home.html.twig">Acasa</a></li>
-                        <li class="breadcrumb-item">Produse</li>
-                    </ul>
-                </nav>
-                <!-- Breadcrumb Row End -->
-            </div>
-        </div>
-        <div class="shap-bx">
-            <div class="bg-shape-left"></div>
-            <div class="bg-shape-right"></div>
-        </div>
-    </div>
-    <!-- Banner End -->
+    <!-- Slider -->
+    {% include 'templates/pages/_partial/_slider.html.twig' %}
+    <!-- Slider -->
 
-    <!-- Services -->
+    <!-- About US -->
     <section class="content-inner">
-        <div class="container-fluid">
-            <div class="row row-cols-equal-height">
-                <!-- Sidebar with categories and filters -->
-                <div class="col-md-2 bg-light sidebar">
-                    <h3>Categorii</h3>
-                    <!-- List of categories -->
-                    <ul class="list-group">
-                        <li class="list-group-item">Categorie 1</li>
-                        <li class="list-group-item">Categorie 2</li>
-                        <li class="list-group-item">Categorie 3</li>
-                        <!-- Add more categories -->
-                    </ul>
-                    <!-- Filters (price, size, etc.) -->
-                    <h3>Filtre</h3>
-                    <!-- Add filter options here -->
-                </div>
-
-                <!-- Main content area with product grid -->
-                <div class="col-md-10">
-                    <h2>Produse</h2>
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <!-- Product cards (loop through products) -->
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
-                                <div class="card-body">
-                                    <h5 class="card-title">AmaCan D</h5>
-                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj
-                                        umed, rotor diagonal, monoetajat, versiune ATEX disponibilă.</p>
-                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
-                                <div class="card-body">
-                                    <h5 class="card-title">Amacan K</h5>
-                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj
-                                        umed, rotor multicanal, monoetajată, monoflux, versiune ATEX disponibilă.</p>
-                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
-                                <div class="card-body">
-                                    <h5 class="card-title">Amacan P</h5>
-                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj umed,
-                                        elice axială în variantă de execuţie ECB, monoetajată, monoflux, versiune
-                                        ATEX disponibilă.</p>
-                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{ asset('assets/images/https___live-commerce-proxy-e2e-sales.ksb.com_medias_A05A-Amacan-K.jpeg') }}" class="card-img-top" alt="Product Image">
-                                <div class="card-body">
-                                    <h5 class="card-title">Amacan S</h5>
-                                    <p class="card-text">Pompă pentru puț tubular, cu motor submersibil, în montaj umed,
-                                        rotor diagonal, cu o singură treaptă, versiune ATEX disponibilă.</p>
-                                    <a href="/multigama-tech-product-details/p" class="btn btn-primary">Vizualizeaza</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add more product cards -->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30">
+                    <div class="section-head style-1 text-center">
+                        <p>
+                            Lucram cu mai multi furnizori de top: KSB Italia, SPP (UK), Clarke (UK), Armstrong (Canada),
+                            EBITT (Turcia), KSB Polonia, KAGEMA (Germania). (LINK LA CATALOGUL DE PRODUSE DE LA KSB).
                     </div>
                 </div>
-
+            </div>
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800">
+                    <div class="section-head style-1 text-center">
+                        <h6 class="sub-title bgl-primary m-b20 text-primary">KSB</h6>
+                        <h2 class="title">Pachete pompe de stingere a incendiilor</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800"
+                     data-aos-delay="200">
+                    <div class="about-media style-2 mh-100" style="height: 100%; min-height: 400px;">
+                        <embed style="width:100%;height:100vh;"
+                               src="{{ asset('assets/pdf/KSB_FireFighting_Packages.pdf') }}#toolbar=0&navpanes=0&scrollbar=0"
+                               type="application/pdf"
+                               frameBorder="0"
+                               scrolling="auto"
+                               height="100%"
+                               width="100%"
+                        ></embed>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!-- About US End -->
+    <!-- About US -->
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800">
+                    <div class="section-head style-1 text-center">
+                        <h6 class="sub-title bgl-primary m-b20 text-primary">Armstrong HSC</h6>
+                        <h2 class="title">Seria de pompe de incendiu cu carcasă separată orizontală</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800"
+                     data-aos-delay="200">
+                    <div class="about-media style-2 mh-100" style="height: 100%; min-height: 400px;">
+                        <embed style="width:100%;height:100vh;"
+                               src="{{ asset('assets/pdf/ARMSTRONG_HSC FireFighting Sets.pdf') }}#toolbar=0&navpanes=0&scrollbar=0"
+                               type="application/pdf"
+                               frameBorder="0"
+                               scrolling="auto"
+                               height="100%"
+                               width="100%"
+                        ></embed>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800">
+                    <div class="section-head style-1 text-center">
+                        <h6 class="sub-title bgl-primary m-b20 text-primary">Armstrong VIL</h6>
+                        <h2 class="title">Unitate verticală de pompă în linie</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800"
+                     data-aos-delay="200">
+                    <div class="about-media style-2 mh-100" style="height: 100%; min-height: 400px;">
+                        <embed style="width:100%;height:100vh;"
+                               src="{{ asset('assets/pdf/ARMSTRONG_VIL FireFighting Sets.pdf') }}#toolbar=0&navpanes=0&scrollbar=0"
+                               type="application/pdf"
+                               frameBorder="0"
+                               scrolling="auto"
+                               height="100%"
+                               width="100%"
+                        ></embed>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800">
+                    <div class="section-head style-1 text-center">
+                        <h6 class="sub-title bgl-primary m-b20 text-primary">Armstrong ES</h6>
+                        <h2 class="title">Pompe de incendiu cu aspirație finală și sisteme ambalate</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800"
+                     data-aos-delay="200">
+                    <div class="about-media style-2 mh-100" style="height: 100%; min-height: 400px;">
+                        <embed style="width:100%;height:100vh;"
+                               src="{{ asset('assets/pdf/ARMSTRONG_ES FireFighting Sets.pdf') }}#toolbar=0&navpanes=0&scrollbar=0"
+                               type="application/pdf"
+                               frameBorder="0"
+                               scrolling="auto"
+                               height="100%"
+                               width="100%"
+                        ></embed>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 m-md-b30">
+                    <div class="section-head style-1 text-center">
+                        <p>
+                            Service - Produselor li se asigura garantie conform normelor legale sau contractelor
+                            semnate. Interventiile in cazuri de reclamatii in garantie sunt efectuate de catre firma din
+                            grup specializata, <a href="{{ path('static_page', {pageName: 'multigama-service-home'}) }}">Multigama
+                                Service</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
+    </section>
+    <!-- About US End -->
 {% endblock %}
