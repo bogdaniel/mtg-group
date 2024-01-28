@@ -236,17 +236,17 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
             ];
             $slideshow = [
                 [
-                    'header' => 'Multigama Tech',
+                    'header' => 'Statii de Pompare',
                     'subheader' => '',
                     'picture' => 'poza-1.jpg',
                 ],
                 [
-                    'header' => 'Multigama Service',
+                    'header' => 'Furnizare echipamente noi',
                     'subheader' => '',
                     'picture' => 'poza-2.jpg',
                 ],
                 [
-                    'header' => 'EQ Fire',
+                    'header' => 'Suport tehnic',
                     'subheader' => '',
                     'picture' => 'poza-3.jpg',
                 ],
