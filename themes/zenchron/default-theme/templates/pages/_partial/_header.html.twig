@@ -71,11 +71,11 @@
                     <a href="/">
                         <img src="{{ asset('assets/images/' ~ logo) }}" alt="">
                     </a>
-                    {% if app.request.getPathInfo() == '/multigama-service-home/p' %}
+                    {% if app.request.getPathInfo() matches '/multigama-service-/' %}
                         <a href="#">
                             <img src="{{ asset('assets/images/ksb-exclusive-service-partner.jpeg' ) }}" alt="" class="small-logo">
                         </a>
-                    {% elseif app.request.getPathInfo() == '/multigama-tech-home/p'  %}
+                    {% elseif app.request.getPathInfo() matches '/multigama-tech-/'  %}
                         <a href="#">
                             <img src="{{ asset('assets/images/ksb-business-partner.jpeg' ) }}" alt="" class="small-logo-tech">
                         </a>

@@ -234,28 +234,44 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                     'picture' => 'poza-3.jpg',
                 ],
             ];
-
+            $slideshow = [
+                [
+                    'header' => 'Multigama Tech',
+                    'subheader' => '',
+                    'picture' => 'poza-1.jpg',
+                ],
+                [
+                    'header' => 'Multigama Service',
+                    'subheader' => '',
+                    'picture' => 'poza-2.jpg',
+                ],
+                [
+                    'header' => 'EQ Fire',
+                    'subheader' => '',
+                    'picture' => 'poza-3.jpg',
+                ],
+            ];
 			if(str_contains($pageName, 'multigama-tech-statii-pompare')) {
-				$slideshow = [
-					[
-						'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
-						'subheader' => '',
-						'picture' => 'slide1.png',
-					],
-					[
-						'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
-						'subheader' => '',
-						'picture' => 'slide2.jpg',
-					],
-					[
-						'header' => 'Servicii de mentenanță',
-						'subheader' => '',
-						'picture' => 'slide3.jpg',
-					],
-				];
+                $slideshow = [
+                    [
+                        'header' => 'Multigama Tech',
+                        'subheader' => '',
+                        'picture' => 'poza-1.jpg',
+                    ],
+                    [
+                        'header' => 'Multigama Service',
+                        'subheader' => '',
+                        'picture' => 'poza-2.jpg',
+                    ],
+                    [
+                        'header' => 'EQ Fire',
+                        'subheader' => '',
+                        'picture' => 'poza-3.jpg',
+                    ],
+                ];
 			}
 
-            $aboutHeader = "Lucram cu tine pentru a gasi solutii impreuna!";
+            $aboutHeader = "Despre Noi";
             $about = "Cu o experiență vastă și o dedicare neclintită față de excelență, Multigama Tech se află în fruntea industriei de vânzare a pompelor industriale. Suntem pasionați de furnizarea soluțiilor ideale pentru nevoile de transport și gestionare a fluidelor în industrie.
 
 Specializați în furnizarea unei game complete de pompe industriale, de la cele de uz general până la cele specializate pentru aplicații specifice, ne străduim să aducem inovație și performanță fiecărui partener industrial.
@@ -349,17 +365,17 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 
             $slideshow = [
                 [
-                    'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
+                    'header' => 'Servicii de Mentenanta',
                     'subheader' => '',
                     'picture' => 'service-poza-1.jpg',
                 ],
                 [
-                    'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
+                    'header' => 'Furnizare echipamente noi',
                     'subheader' => '',
                     'picture' => 'service-poza-2.jpg',
                 ],
                 [
-                    'header' => 'Servicii de mentenanță',
+                    'header' => 'Suport tehnic',
                     'subheader' => '',
                     'picture' => 'service-poza-3.jpg',
                 ],
@@ -378,7 +394,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
             $items = [
                 [
                     'icon' => 'fa-user-tie', // Font Awesome icon class
-                    'title' => 'Mentenanta',
+                    'title' => 'Servicii de Mentenanta',
                     'description' => 'Mentenanță preventivă, predictivă și corectivă pentru toate ansamblurile de echipamente. ',
                     'link' => '/multigama-service-home/p',
                 ],
@@ -464,9 +480,9 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 //                        ],
 //                    ],
                 ],
-                [
-                    'name' => 'Servicii',
-                    'path' => '/multigama-eq-fire-services/p',
+//                [
+//                    'name' => 'Servicii',
+//                    'path' => '/multigama-eq-fire-services/p',
 //                    'sub_menu' => [
 //                        [
 //                            'name' => 'Servicii',
@@ -477,7 +493,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 //                            'path' => '/multigama-eq-fire-services-details/p',
 //                        ],
 //                    ],
-                ],
+//                ],
                 [
                     'name' => 'Proiecte',
                     'path' => '/multigama-eq-fire-portfolio/p',
@@ -490,17 +506,17 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 
             $slideshow = [
                 [
-                    'header' => 'Mentenanță preventivă, <br/> predictivă și corectivă',
+                    'header' => 'Furnizare echipamente antiincendiu',
                     'subheader' => '',
                     'picture' => 'eqfire-poza-1.jpg',
                 ],
                 [
-                    'header' => 'Solutii Industriale <br/>Pentru Afacerea Ta',
+                    'header' => 'Solutii tehnice personalizate',
                     'subheader' => '',
                     'picture' => 'eqfire-poza-2.jpg',
                 ],
                 [
-                    'header' => 'Servicii de mentenanță',
+                    'header' => 'Personal specializat',
                     'subheader' => '',
                     'picture' => 'eqfire-poza-3.jpg',
                 ],

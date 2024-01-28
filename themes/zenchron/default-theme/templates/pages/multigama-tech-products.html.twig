@@ -6,9 +6,27 @@
     {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
 {% endblock %}
 {% block body %}
-    <!-- Slider -->
-    {% include 'templates/pages/_partial/_slider.html.twig' %}
-    <!-- Slider -->
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/poza-1.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Acasa</a></li>
+                        <li class="breadcrumb-item">Produse</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
 
     <!-- About US -->
     <section class="content-inner">
@@ -16,10 +34,9 @@
             <div class="row align-items-center">
                 <div class="col-12 m-md-b30">
                     <div class="section-head style-1 text-center">
-                        <p>
-                            Lucram cu mai multi furnizori, KSB SEE – business partner. Pentru
+                        <h5>                            Lucram cu mai multi furnizori, KSB SEE – business partner. Pentru
                             completarea gamei de produse lucram si cu alti producatori de top.
-                        </p>
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -27,7 +44,7 @@
                 <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800">
                     <div class="section-head style-1 text-center">
                         <h6 class="sub-title bgl-primary m-b20 text-primary">KSB</h6>
-                        <h2 class="title">Pompe si Automatizari</h2>
+                        <h2 class="title">Pompe | Automatizari</h2>
                     </div>
                 </div>
             </div>
@@ -56,7 +73,7 @@
                 <div class="col-12 m-md-b30 aos-item" data-aos="fade-up" data-aos-duration="800">
                     <div class="section-head style-1 text-center">
                         <h6 class="sub-title bgl-primary m-b20 text-primary">KSB</h6>
-                        <h2 class="title">Valve, Actuatoare si Automatizari</h2>
+                        <h2 class="title">Valve | Actionare | Automatizari</h2>
                     </div>
                 </div>
             </div>
@@ -79,11 +96,11 @@
         <div class="row align-items-center">
             <div class="col-12 m-md-b30">
                 <div class="section-head style-1 text-center">
-                    <p>
+                    <h6>
                         Service - Produselor li se asigura garantie conform normelor legale sau contractelor
                         semnate. Interventiile in cazuri de reclamatii in garantie sunt efectuate de catre firma din
                         grup specializata, <a href="{{ path('static_page', {pageName: 'multigama-service-home'}) }}">Multigama Service</a>.
-                    </p>
+                    </h6>
                 </div>
             </div>
         </div>
