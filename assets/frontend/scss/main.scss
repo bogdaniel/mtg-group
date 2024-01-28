@@ -297,3 +297,19 @@ figure.overlay img {
 }
 
 
+/* Define a CSS class */
+.bullet-list-custom {
+    list-style-position: outside;
+}
+
+.bullet-list-custom li {
+    position: relative;
+    padding-left: 20px; /* Adjust this value as needed */
+}
+
+.bullet-list-custom li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
