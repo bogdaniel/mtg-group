@@ -303,13 +303,8 @@ figure.overlay img {
 }
 
 .bullet-list-custom li {
-    position: relative;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="4" fill="black"/></svg>'); /* Replace the URL with your SVG code */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: 0 5px; /* Adjust the position to be at the top */
     padding-left: 20px; /* Adjust this value as needed */
-}
-
-.bullet-list-custom li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    top: 0;
 }
