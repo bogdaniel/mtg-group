@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Upload CSV File</h1>
+
+    {# Display success/error messages #}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {# Render the form #}
+    {{ form_start(form) }}
+    {{ form_row(form.file, {
+        'attr': {'class': 'form-control'}
+    }) }}
+    <button type="submit" class="btn btn-primary mt-3">Upload</button>
+    {{ form_end(form) }}
+</div>

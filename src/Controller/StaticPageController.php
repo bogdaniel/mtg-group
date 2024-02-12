@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,10 +11,13 @@ use Twig\Environment;
 class StaticPageController extends AbstractController
 {
     private \Twig\Loader\LoaderInterface $loader;
+    private ProjectRepository $projectRepository;
 
-    public function __construct(Environment $twig)
+    public function __construct(Environment $twig, ProjectRepository $projectRepository)
     {
         $this->loader = $twig->getLoader();
+
+        $this->projectRepository = $projectRepository;
     }
 
     #[Route("/", name: "home")]
@@ -25,6 +29,7 @@ class StaticPageController extends AbstractController
     #[Route("/{pageName}/p", name: "static_page", defaults: ["pageName" => "home"])]
     public function loadPage(string $pageName = 'home'): Response
     {
+        $projects = [];
         $logoList = [
             'multigama-tech' => [
                 'logo' => 'multigama-tech.png',
@@ -416,6 +421,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
 
         if (str_contains($pageName, 'multigama-eq-fire-')) {
             $logo = 'eq-fire.png';
+            $projects = $this->projectRepository->findAll();
 
             $logoList = [
                 'home' => [
@@ -569,7 +575,8 @@ EQ Fire are implementat un sistem de management al calitatii si este certificata
             'aboutHeader' => $aboutHeader,
             'quickContactHeader' => $quickContactHeader,
             'quickContactContent' => $quickContactContent,
-            'slideshowHq' => $slideshowHq
+            'slideshowHq' => $slideshowHq,
+            'projects' => $projects
         ]);
     }
 }

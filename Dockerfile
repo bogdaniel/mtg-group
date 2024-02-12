@@ -58,6 +58,7 @@ RUN set -eux; \
 		opcache \
 		zip \
 		imagick \
+    	gd \
     ;
 
 ###> recipes ###

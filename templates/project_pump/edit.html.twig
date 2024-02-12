@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit ProjectPump</title>
+
+{% block body %}
+    <h1>Edit ProjectPump</h1>
+
+    {{ include('project_pump/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_project_pump_index') }}">back to list</a>
+
+    {{ include('project_pump/_delete_form.html.twig') }}
+{% endblock %}

@@ -29,36 +29,49 @@
     <!-- Banner End -->
 
 {#    <!-- Our Portfolio -->#}
-{#    <section class="content-inner">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-12">#}
-{#                    <h4>Pagina In Constructie</h4>#}
-{#                </div>#}
-{#                <div class="col-lg-4 col-md-6">#}
-{#                    <div class="dz-box overlay style-2 overlay-shine m-b30" data-aos="fade-up" data-aos-duration="800"#}
-{#                         data-aos-delay="200">#}
-{#                        <div class="dz-media">#}
-{#                            <img src="{{ asset('assets/images/8fb41bc8-6bc7-4858-a03c-60a0c3740262.jpg') }}" alt="">#}
-{#                        </div>#}
-{#                        <div class="dz-info">#}
-{#                            <a href="/portfolio-details/p" class="view-btn" title=""></a>#}
-{#                            <h4 class="title m-b15"><a href="/portfolio-details/p"></a>#}
-{#                            </h4>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-    <div class="under-construct" style="background-image: url( {{ asset('assets/images/water-pumps.png') }} ); background-position: center;">
-        <div class="inner-box">
-            <div class="logo-header logo-dark">
-                <a href="index.html"><img src="images/logo.png" alt=""></a>
+    <section class="content-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>Lista Proiecte</h4>
+                </div>
             </div>
-            <div class="dz-content">
-                <h2 class="dz-title">Pagina In <br><span class="text-primary">Constructie</span></h2>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Nume Proiect</th>
+                            <th>Data Proiectului</th>
+                            <th>Descriere Proiect</th>
+                            <th>Tara</th>
+                            <th>Model Pompe</th>
+                            <th>Descriere Pompe</th>
+                            <!-- Add more headers based on the Project entity and relations -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for project in projects %}
+                            <tr>
+                                <td>{{ project.name }}</td>
+                                <td>{{ project.yearStarted }}</td>
+                                <td>{{ project.description }}</td>
+                                <td>{{ project.country.name }}</td>
+                                <td>{{ project.pump.name }}</td>
+                                <td>{{ project.pump.description }}</td>
+                                <!-- Add more columns based on the Project entity and relations -->
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="3">No projects found.</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
 {% endblock %}

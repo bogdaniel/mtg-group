@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CountryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
 
@@ -29,10 +31,14 @@ class Country
     #[ORM\Column(length: 3)]
     private ?string $isoNumeric = null;
 
+    #[ORM\OneToMany(mappedBy: 'country', targetEntity: Project::class)]
+    private Collection $projects;
+
     // Constructor to initialize UUID
     public function __construct()
     {
         $this->uuid = Uuid::v4();
+        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -96,6 +102,36 @@ class Country
     public function setIsoNumeric(string $isoNumeric): static
     {
         $this->isoNumeric = $isoNumeric;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Project>
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): static
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+            $project->setCountry($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): static
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getCountry() === $this) {
+                $project->setCountry(null);
+            }
+        }
 
         return $this;
     }
