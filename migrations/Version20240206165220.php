@@ -21,7 +21,7 @@ final class Version20240206165220 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE country (id INT NOT NULL, uuid UUID NOT NULL, name VARCHAR(255) NOT NULL, iso_alpha_two VARCHAR(2) NOT NULL, iso_alpha_three VARCHAR(3) NOT NULL, iso_numeric VARCHAR(3) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE country (id INT NOT NULL, uuid CHAR(36) NOT NULL, name VARCHAR(255) NOT NULL, iso_alpha_two VARCHAR(2) NOT NULL, iso_alpha_three VARCHAR(3) NOT NULL, iso_numeric VARCHAR(3) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN country.uuid IS \'(DC2Type:uuid)\'');
 
         $countries = [
