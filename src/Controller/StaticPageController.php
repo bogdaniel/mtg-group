@@ -92,10 +92,10 @@ class StaticPageController extends AbstractController
 
                 ],
             ],
-            [
-                'name' => 'Sediu HQ',
-                'path' => '/multigama-group-sediu-hq/p',
-            ],
+//            [
+//                'name' => 'Sediu HQ',
+//                'path' => '/multigama-group-sediu-hq/p',
+//            ],
             [
                 'name' => 'Despre Noi',
                 'path' => '#about-us',
@@ -160,7 +160,7 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
         $preloaderLogo = 'logo-multigama-group.png';
 
         if (str_contains($pageName, 'multigama-tech-')) {
-            $contactEmail = 'multigama@multigama.ro';
+            $contactEmail = 'office@multigama.ro';
             $logo = 'multigama-tech.png';
 
             $logoList = [
@@ -310,7 +310,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
         }
 
         if (str_contains($pageName, 'multigama-service-')) {
-            $contactEmail = 'service@multigama.ro';
+            $contactEmail = 'office@multigama.ro';
             $logo = 'multigama-service.png';
 
             $logoList = [
