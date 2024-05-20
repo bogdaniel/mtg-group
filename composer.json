@@ -144,11 +144,5 @@
         "symfony/stopwatch": "6.3.*",
         "symfony/web-profiler-bundle": "6.3.*",
         "vimeo/psalm": "*"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "bundles/*"
-        }
-    ]
+    }
 }
