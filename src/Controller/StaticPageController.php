@@ -2,9 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Form\ContactType;
 use App\Repository\ProjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
@@ -12,23 +19,37 @@ class StaticPageController extends AbstractController
 {
     private \Twig\Loader\LoaderInterface $loader;
     private ProjectRepository $projectRepository;
+    private MailerInterface $mailer;
 
-    public function __construct(Environment $twig, ProjectRepository $projectRepository)
+    public function __construct(Environment $twig, ProjectRepository $projectRepository, MailerInterface $mailer)
     {
         $this->loader = $twig->getLoader();
 
         $this->projectRepository = $projectRepository;
+        $this->mailer = $mailer;
     }
 
     #[Route("/", name: "home")]
-    public function home(): Response
+    public function home(Request $request, EntityManagerInterface $entityManager): Response
     {
         return $this->redirectToRoute('static_page', ['pageName' => 'home']);
     }
 
     #[Route("/{pageName}/p", name: "static_page", defaults: ["pageName" => "home"])]
-    public function loadPage(string $pageName = 'home'): Response
+    public function loadPage(Request $request, EntityManagerInterface $entityManager, string $pageName = 'home'): Response
     {
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($contact);
+            $entityManager->flush();
+
+            $this->sendEmail($contact);
+            return $this->redirectToRoute('static_page', ['pageName' => $pageName], Response::HTTP_SEE_OTHER);
+        }
+
         $projects = [];
         $logoList = [
             'multigama-tech' => [
@@ -462,7 +483,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '/multigama-eq-fire-about-us/p',
+                    'path' => '#multigama-eq-fire-about-us',
                 ],
                 [
                     'name' => 'Produse',
@@ -576,7 +597,28 @@ EQ Fire are implementat un sistem de management al calitatii si este certificata
             'quickContactHeader' => $quickContactHeader,
             'quickContactContent' => $quickContactContent,
             'slideshowHq' => $slideshowHq,
-            'projects' => $projects
+            'projects' => $projects,
+            'form' => $form,
+            'pageName' => $pageName,
         ]);
     }
+
+    public function sendEmail($params): void
+    {
+        $email = (new Email())
+            ->from('website@multigama.ro')
+            ->addReplyTo($params->getEmail())
+            ->to('website@multigama.ro')
+            ->priority(Email::PRIORITY_HIGH)
+            ->subject('[WEBSITE][Multigama] Contact Form ' . $params->getName() . ' - ' . $params->getEmail())
+            ->text($params->getMessage());
+
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            mail('bogdan@zenchron.com', '[WEBSITE][MULTIGAMA] Error sending email', $e->getMessage());
+        }
+        // ...
+    }
+
 }

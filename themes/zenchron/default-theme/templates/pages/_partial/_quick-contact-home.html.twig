@@ -59,36 +59,47 @@
 {#                        <h6 class="text-primary sub-title">CONTACT</h6>#}
                         <h2 class="title">CONTACT</h2>
                     </div>
-                    <form class="dzForm" method="GET" action="#">
-                        <div class="dzFormMsg"></div>
-                        <input type="hidden" class="form-control" name="dzToDo" value="Contact">
-                        <input type="hidden" class="form-control" name="reCaptchaEnable" value="0">
-                        <div class="row sp10">
-                            <div class="col-12 m-b20">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="dzName" placeholder="Nume">
-                                </div>
-                            </div>
-                            <div class="col-12 m-b20">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="dzEmail" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-12 m-b20">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="dzPhoneNumber" placeholder="Telefon">
-                                </div>
-                            </div>
-                            <div class="col-12 m-b20">
-                                <div class="input-group">
-                                    <textarea name="dzMessage" class="form-control">Message</textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button name="submit" type="submit" value="submit" class="btn btn-primary">Trimite</button>
+                    {# The form_start function initializes the form #}
+                    {{ form_start(form, {'attr': {'class': 'dzForm', 'method': 'GET', 'action': path('static_page', {'pageName': pageName})}}) }}
+
+                    <div class="dzFormMsg"></div>
+
+                    {# Hidden fields for your form #}
+                    {{ form_row(form._token) }} {# This renders the CSRF token field #}
+
+                    <div class="row sp10">
+                        <div class="col-12 m-b20">
+                            <div class="input-group">
+                                {# Render the 'name' field with placeholder #}
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nume'}}) }}
                             </div>
                         </div>
-                    </form>
+                        <div class="col-12 m-b20">
+                            <div class="input-group">
+                                {# Render the 'email' field with placeholder #}
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-12 m-b20">
+                            <div class="input-group">
+                                {# Render the 'phone' field with placeholder #}
+                                {{ form_widget(form.phone, {'attr': {'class': 'form-control', 'placeholder': 'Telefon'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-12 m-b20">
+                            <div class="input-group">
+                                {# Render the 'message' field as a textarea with placeholder #}
+                                {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Message'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Trimite</button>
+                        </div>
+                    </div>
+
+                    {# This function ends the form and renders any remaining fields including hidden ones like the CSRF token #}
+                    {{ form_end(form) }}
+
                 </div>
             </div>
         </div>
