@@ -608,7 +608,7 @@ EQ Fire are implementat un sistem de management al calitatii si este certificata
         $email = (new Email())
             ->from('website@multigama.ro')
             ->addReplyTo($params->getEmail())
-            ->to('website@multigama.ro')
+            ->to('office@multigama.ro')
             ->priority(Email::PRIORITY_HIGH)
             ->subject('[WEBSITE][Multigama] Contact Form ' . $params->getName() . ' - ' . $params->getEmail())
             ->text($params->getMessage());
