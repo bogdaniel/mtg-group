@@ -52,7 +52,8 @@ class StaticPageController extends AbstractController
             $this->addFlash('success', 'Mesajul a fost trimis cu succes!');
 
             return $this->redirectToRoute('static_page', ['pageName' => $pageName], Response::HTTP_SEE_OTHER);
-        } else {
+        }
+        if ($form->isSubmitted() && !$form->isValid()) {
             $this->addFlash('success', 'Mesajul nu s-a putut trimite!');
         }
 
