@@ -1487,5 +1487,29 @@ for(var i = 0; i < overlay.length; i++) {
 }
 
 // main.js (or the file where you want to use the function)
-import { setupScrollModal } from './setupScrollModal'; // Adjust the path as needed
-window.setupScrollModal = setupScrollModal();
+// import { setupScrollModal } from './setupScrollModal'; // Adjust the path as needed
+// window.setupScrollModal = setupScrollModal();
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a.page-scroll[href*="#"]:not([href="#"])').forEach(anchor => {
+    anchor.addEventListener('click', function(event) {
+      console.log('fired');
+      const pathname = location.pathname.replace(/^\//, '');
+      const anchorPathname = this.pathname.replace(/^\//, '');
+
+      if (pathname === anchorPathname && location.hostname === this.hostname) {
+        let target = document.querySelector(this.hash);
+        target = target ? target : document.querySelector(`[name=${this.hash.slice(1)}]`);
+
+        if (target) {
+          event.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 300,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+});
+

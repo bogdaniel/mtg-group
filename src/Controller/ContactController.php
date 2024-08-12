@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +28,7 @@ class ContactController extends AbstractController
     }
 
     #[Route('/new', name: 'app_contact_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, Recaptcha3Validator $recaptcha3Validator): Response
     {
         if (!isset($_COOKIE['dashboard'])) {
             die();
@@ -38,6 +39,8 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $score = $recaptcha3Validator->getLastResponse()->getScore();
+
             $entityManager->persist($contact);
             $entityManager->flush();
 

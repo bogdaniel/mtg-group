@@ -110,13 +110,13 @@
                                 <ul class="sub-menu">
                                     {% for subItem in item.sub_menu %}
                                         <li class="new-page">
-                                            <a href="{{ subItem.path }}">{{ subItem.name }}</a>
+                                            <a class="{{ subItem.class }}" href="{{ subItem.path }}">{{ subItem.name }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>
                             {% else %}
                                 <li class="">
-                                <a href="{{ item.path }}">{{ item.name }}</a>
+                                <a class="{{ item.class }}" href="{{ item.path }}">{{ item.name }}</a>
 
                             {% endif %}
                             </li>

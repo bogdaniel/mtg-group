@@ -3,13 +3,32 @@
     {% include 'templates/pages/multigama-group/_partial/_multigama-tech-loader.html.twig' %}
 {% endblock %}
 {% block header %}
-    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu, 'logoUrl': logoUrl} %}
 {% endblock %}
 {% block body %}
-	<!-- Slider -->
-	{% include 'templates/pages/_partial/_slider.html.twig' %}
-	<!-- Slider -->
-
+    <!-- Banner  -->
+    <div class="dz-bnr-inr style-2 dz-bnr-inr-md overlay-black-middle"
+         style="background-image: url('{{ asset('assets/images/poza-2.jpg') }}');">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Proiecte Statii Pompare</h1>
+                <p></p>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Acasa</a></li>
+                        <li class="breadcrumb-item">Contact</li>
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+        <div class="shap-bx">
+            <div class="bg-shape-left"></div>
+            <div class="bg-shape-right"></div>
+        </div>
+    </div>
+    <!-- Banner End -->
 		<!-- Service Details -->
     <section id="gallery">
         <div class="container pt-7 pb-15">

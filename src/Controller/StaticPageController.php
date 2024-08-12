@@ -47,9 +47,16 @@ class StaticPageController extends AbstractController
             $entityManager->flush();
 
             $this->sendEmail($contact);
+
+            // Add flash message
+            $this->addFlash('success', 'Mesajul a fost trimis cu succes!');
+
             return $this->redirectToRoute('static_page', ['pageName' => $pageName], Response::HTTP_SEE_OTHER);
+        } else {
+            $this->addFlash('success', 'Mesajul nu s-a putut trimite!');
         }
 
+        $logoUrl = $this->generateUrl('static_page', ['pageName' => 'home']);
         $projects = [];
         $logoList = [
             'multigama-tech' => [
@@ -101,14 +108,17 @@ class StaticPageController extends AbstractController
                     [
                         'name' => 'Multigama Tech',
                         'path' => '/multigama-tech-home/p',
+                        'class' => '',
                     ],
                     [
                         'name' => 'Multigama Service',
                         'path' => '/multigama-service-home/p',
+                        'class' => '',
                     ],
                     [
                         'name' => 'EQ Fire',
                         'path' => '/multigama-eq-fire-home/p',
+                        'class' => '',
                     ],
 
                 ],
@@ -120,18 +130,17 @@ class StaticPageController extends AbstractController
             [
                 'name' => 'Despre Noi',
                 'path' => '#about-us',
+                'class' => 'page-scroll',
             ],
             [
-                'name' => 'Misiune',
+                'name' => 'Misiune & Viziune',
                 'path' => '#mission',
-            ],
-            [
-                'name' => 'Viziune',
-                'path' => '#vision',
+                'class' => 'page-scroll',
             ],
             [
                 'name' => 'Contact',
                 'path' => '#contact',
+                'class' => 'page-scroll',
             ],
         ];
         $slideshow = [
@@ -183,6 +192,7 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
         if (str_contains($pageName, 'multigama-tech-')) {
             $contactEmail = 'office@multigama.ro';
             $logo = 'multigama-tech.png';
+            $logoUrl = $this->generateUrl('static_page', ['pageName' => 'multigama-tech-home']);
 
             $logoList = [
                 'home' => [
@@ -209,10 +219,12 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                         [
                             'name' => 'Multigama Group',
                             'path' => '/',
+                            'class' => '',
                         ],
                         [
                             'name' => 'Multigama Service',
                             'path' => '/multigama-service-home/p',
+                            'class' => '',
                         ],
                         [
                             'name' => 'EQ Fire',
@@ -224,22 +236,27 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                 [
                     'name' => 'Despre Noi',
                     'path' => '#multigama-tech-about-us',
+                    'class' => '',
                 ],
 	            [
 		            'name' => 'Statii Pompare',
 		            'path' => '/multigama-tech-statii-pompare/p',
+                    'class' => '',
 	            ],
                 [
                     'name' => 'Produse',
-                    'path' => '/multigama-tech-products/p'
+                    'path' => '/multigama-tech-products/p',
+                    'class' => '',
                 ],
                 [
                     'name' => 'Proiecte',
                     'path' => '/multigama-tech-portfolio/p',
+                    'class' => '',
                 ],
                 [
                     'name' => 'Contact',
                     'path' => '/multigama-tech-contact-us/p',
+                    'class' => '',
                 ],
             ];
 
@@ -333,6 +350,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
         if (str_contains($pageName, 'multigama-service-')) {
             $contactEmail = 'office@multigama.ro';
             $logo = 'multigama-service.png';
+            $logoUrl = $this->generateUrl('static_page', ['pageName' => 'multigama-service-home']);
 
             $logoList = [
                 'home' => [
@@ -359,14 +377,17 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                         [
                             'name' => 'Multigama Group',
                             'path' => '/',
+                            'class' => '',
                         ],
                         [
                             'name' => 'Multigama Tech',
                             'path' => '/multigama-tech-home/p',
+                            'class' => '',
                         ],
                         [
                             'name' => 'EQ Fire',
                             'path' => '/multigama-eq-fire-home/p',
+                            'class' => '',
                         ],
 
                     ],
@@ -374,18 +395,22 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'name' => 'Despre Noi',
                     'path' => '#multigama-service-about-us',
+                    'class' => '',
                 ],
                 [
                     'name' => 'Produse',
-                    'path' => '/multigama-service-products/p'
+                    'path' => '/multigama-service-products/p',
+                    'class' => '',
                 ],
                 [
                     'name' => 'Proiecte',
                     'path' => '/multigama-service-portfolio/p',
+                    'class' => '',
                 ],
                 [
                     'name' => 'Contact',
                     'path' => '/multigama-service-contact-us/p',
+                    'class' => '',
                 ],
             ];
 
@@ -443,6 +468,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
         if (str_contains($pageName, 'multigama-eq-fire-')) {
             $logo = 'eq-fire.png';
             $projects = $this->projectRepository->findAll();
+            $logoUrl = $this->generateUrl('static_page', ['pageName' => 'multigama-eq-fire-home']);
 
             $logoList = [
                 'home' => [
@@ -469,14 +495,17 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                         [
                             'name' => 'Multigama Group',
                             'path' => '/',
+                            'class' => '',
                         ],
                         [
                             'name' => 'Multigama Service',
                             'path' => '/multigama-service-home/p',
+                            'class' => '',
                         ],
                         [
                             'name' => 'EQ Fire',
                             'path' => '/multigama-eq-fire-home/p',
+                            'class' => '',
                         ],
 
                     ],
@@ -484,10 +513,12 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'name' => 'Despre Noi',
                     'path' => '#multigama-eq-fire-about-us',
+                    'class' => '',
                 ],
                 [
                     'name' => 'Produse',
                     'path' => '/multigama-eq-fire-products/p',
+                    'class' => '',
 //                    'sub_menu' => [
 //                        [
 //                            'name' => 'Armstrong',
@@ -524,10 +555,12 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'name' => 'Proiecte',
                     'path' => '/multigama-eq-fire-portfolio/p',
+                    'class' => '',
                 ],
                 [
                     'name' => 'Contact',
                     'path' => '/multigama-eq-fire-contact-us/p',
+                    'class' => '',
                 ],
             ];
 
@@ -600,6 +633,7 @@ EQ Fire are implementat un sistem de management al calitatii si este certificata
             'projects' => $projects,
             'form' => $form,
             'pageName' => $pageName,
+            'logoUrl' => $logoUrl
         ]);
     }
 

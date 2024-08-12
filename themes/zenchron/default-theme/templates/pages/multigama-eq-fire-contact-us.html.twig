@@ -3,7 +3,7 @@
     {% include 'templates/pages/eq-fire/_partial/_multigama-tech-loader.html.twig' %}
 {% endblock %}
 {% block header %}
-    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu} %}
+    {% include 'templates/pages/_partial/_header.html.twig' with {'multiGamaGroupMenu': multiGamaGroupMenu, 'logoUrl': logoUrl} %}
 {% endblock %}
 {% block body %}
     <!-- Banner  -->
@@ -78,6 +78,17 @@
 {#                            <h6 class="text-primary sub-title">CONTACT US</h6>#}
                             <h2 class="title">CONTACT</h2>
                         </div>
+
+                        {# Display Flash Messages #}
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
                         {# The form_start function initializes the form #}
                         {{ form_start(form, {'attr': {'class': 'dzForm', 'method': 'GET', 'action': path('static_page', {'pageName': pageName})}}) }}
 

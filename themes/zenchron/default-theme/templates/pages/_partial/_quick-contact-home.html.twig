@@ -56,39 +56,43 @@
             <div class="col-lg-6 m-b30" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
                 <div class="dz-form style-1 bg-secondary">
                     <div class="section-head style-2 text-white">
-{#                        <h6 class="text-primary sub-title">CONTACT</h6>#}
                         <h2 class="title">CONTACT</h2>
                     </div>
-                    {# The form_start function initializes the form #}
+
+                    {# Display Flash Messages #}
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
                     {{ form_start(form, {'attr': {'class': 'dzForm', 'method': 'GET', 'action': path('static_page', {'pageName': pageName})}}) }}
 
                     <div class="dzFormMsg"></div>
 
-                    {# Hidden fields for your form #}
-                    {{ form_row(form._token) }} {# This renders the CSRF token field #}
+                    {{ form_row(form._token) }}
 
                     <div class="row sp10">
                         <div class="col-12 m-b20">
                             <div class="input-group">
-                                {# Render the 'name' field with placeholder #}
                                 {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nume'}}) }}
                             </div>
                         </div>
                         <div class="col-12 m-b20">
                             <div class="input-group">
-                                {# Render the 'email' field with placeholder #}
                                 {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
                             </div>
                         </div>
                         <div class="col-12 m-b20">
                             <div class="input-group">
-                                {# Render the 'phone' field with placeholder #}
                                 {{ form_widget(form.phone, {'attr': {'class': 'form-control', 'placeholder': 'Telefon'}}) }}
                             </div>
                         </div>
                         <div class="col-12 m-b20">
                             <div class="input-group">
-                                {# Render the 'message' field as a textarea with placeholder #}
                                 {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Message'}}) }}
                             </div>
                         </div>
@@ -97,11 +101,10 @@
                         </div>
                     </div>
 
-                    {# This function ends the form and renders any remaining fields including hidden ones like the CSRF token #}
                     {{ form_end(form) }}
-
                 </div>
             </div>
+
         </div>
     </div>
 </section>

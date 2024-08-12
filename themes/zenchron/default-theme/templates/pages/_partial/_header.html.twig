@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <style type="text/css">
+    <style>
         /* Custom styles */
         .image-container img {
             max-width: 7.725rem; /* Approximately 50 pixels in rem */
@@ -68,7 +68,7 @@
             <div class="container clearfix bg-white">
                 <!-- Website Logo -->
                 <div class="logo-header mostion logo-dark">
-                    <a href="/">
+                    <a href="{{ logoUrl }}">
                         <img src="{{ asset('assets/images/' ~ logo) }}" alt="">
                     </a>
                     {% if app.request.getPathInfo() matches '/multigama-service-/' %}
@@ -110,7 +110,7 @@
                 <!-- Quik Search -->
                 <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
                     <div class="logo-header logo-dark">
-                        <a href="/">
+                        <a href="{{ logoUrl }}">
                             <img src="{{ asset('assets/images/' ~ logo) }}" alt="">
                         </a>
                     </div>
@@ -122,13 +122,13 @@
                                 <ul class="sub-menu">
                                     {% for subItem in item.sub_menu %}
                                         <li class="new-page">
-                                            <a href="{{ subItem.path }}">{{ subItem.name }}</a>
+                                            <a class="{{ subItem.class }}" href="{{ subItem.path }}">{{ subItem.name }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>
                             {% else %}
                                 <li class="">
-                                <a href="{{ item.path }}">{{ item.name }}</a>
+                                <a class="{{ item.class }}" href="{{ item.path }}">{{ item.name }}</a>
 
                             {% endif %}
                             </li>
