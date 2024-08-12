@@ -216,6 +216,7 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                 [
                     'name' => 'Multigama Tech',
                     'path' => '/',
+                    'class' => '',
                     'sub_menu' => [
                         [
                             'name' => 'Multigama Group',
@@ -230,14 +231,15 @@ grupuril de pompare, stații de pompare și echipamentele de stingere a incendii
                         [
                             'name' => 'EQ Fire',
                             'path' => '/multigama-eq-fire-home/p',
+                            'class' => '',
                         ],
 
                     ],
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '#multigama-tech-about-us',
-                    'class' => '',
+                    'path' => '/multigama-tech-home/p#multigama-tech-about-us',
+                    'class' => 'page-scroll',
                 ],
 	            [
 		            'name' => 'Statii Pompare',
@@ -374,6 +376,7 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 [
                     'name' => 'Multigama Service',
                     'path' => '/',
+                    'class' => '',
                     'sub_menu' => [
                         [
                             'name' => 'Multigama Group',
@@ -395,8 +398,8 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '#multigama-service-about-us',
-                    'class' => '',
+                    'path' => '/multigama-service-home/p#multigama-service-about-us',
+                    'class' => 'page-scroll',
                 ],
                 [
                     'name' => 'Produse',
@@ -513,8 +516,8 @@ Specializați în furnizarea unei game complete de pompe industriale, de la cele
                 ],
                 [
                     'name' => 'Despre Noi',
-                    'path' => '#multigama-eq-fire-about-us',
-                    'class' => '',
+                    'path' => '/multigama-eq-fire-home/p#multigama-eq-fire-about-us',
+                    'class' => 'page-scroll',
                 ],
                 [
                     'name' => 'Produse',
