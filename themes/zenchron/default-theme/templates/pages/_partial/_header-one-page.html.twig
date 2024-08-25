@@ -6,8 +6,14 @@
             <div class="dz-topbar-inner d-flex justify-content-between align-items-center">
                 <div class="dz-topbar-left">
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Str. Sapte Drumuri, Nr. 9, Sector 3, București</li>
+                        <li><i class="fas fa-map-marker-alt"></i> {% trans %}Str. Sapte Drumuri, Nr. 9, Sector 3, București{% endtrans %}</li>
                         <li><i class="far fa-envelope"></i> {{  contactEmail }}</li>
+                    </ul>
+                </div>
+                <div class="dz-topbar-right">
+                    <ul class="dz-social">
+                        <li><a class="" style="font-size: 10px;" href="{{ path('change_locale', {locale: "en"}) }}" target="_self"><img class="img-fluid" src="{{ asset('assets/images/uk_flag.svg') }}" style="height: 10px;vertical-align: middle; margin-right: 5px;display: inline-block;"/> {% trans %}EN{% endtrans %}</a></li>
+                        <li><a class="" style="font-size: 10px;" href="{{ path('change_locale', {locale: "ro"}) }}" target="_self"><img class="img-fluid" src="{{ asset('assets/images/romania_flag.svg') }}" style="height: 10px;vertical-align: middle; margin-right: 5px;display: inline-block;"/>{% trans %}RO{% endtrans %}</a>
                     </ul>
                 </div>
                 <div class="dz-topbar-right">
@@ -106,17 +112,17 @@
                         {% for item in multiGamaGroupMenu %}
                             {% if item.sub_menu is defined %}
                                 <li class="sub-menu-down">
-                                <a href="javascript:">{{ item.name }}</a>
+                                <a href="javascript:">{{ item.name|trans }}</a>
                                 <ul class="sub-menu">
                                     {% for subItem in item.sub_menu %}
                                         <li class="new-page">
-                                            <a class="{{ subItem.class }}" href="{{ subItem.path }}">{{ subItem.name }}</a>
+                                            <a class="{{ subItem.class }}" href="{{ subItem.path }}">{{ subItem.name|trans }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>
                             {% else %}
                                 <li class="">
-                                <a class="{{ item.class }}" href="{{ item.path }}">{{ item.name }}</a>
+                                <a class="{{ item.class }}" href="{{ item.path }}">{{ item.name|trans }}</a>
 
                             {% endif %}
                             </li>

@@ -6,7 +6,7 @@
             <div class="dz-topbar-inner d-flex justify-content-between align-items-center">
                 <div class="dz-topbar-left">
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Str. Sapte Drumuri, Nr. 9, Sector 3, București</li>
+                        <li><i class="fas fa-map-marker-alt"></i> {% trans %}Str. Sapte Drumuri, Nr. 9, Sector 3, București{% endtrans %}</li>
                         <li><i class="far fa-envelope"></i>{{ contactEmail }}</li>
                     </ul>
                 </div>
@@ -118,17 +118,17 @@
                         {% for item in multiGamaGroupMenu %}
                             {% if item.sub_menu is defined %}
                                 <li class="sub-menu-down">
-                                <a href="javascript:">{{ item.name }}</a>
+                                <a href="javascript:">{{ item.name|trans }}</a>
                                 <ul class="sub-menu">
                                     {% for subItem in item.sub_menu %}
                                         <li class="new-page">
-                                            <a class="{{ subItem.class }}" href="{{ subItem.path }}">{{ subItem.name }}</a>
+                                            <a class="{{ subItem.class }}" href="{{ subItem.path }}">{{ subItem.name|trans }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>
                             {% else %}
                                 <li class="">
-                                <a class="{{ item.class }}" href="{{ item.path }}">{{ item.name }}</a>
+                                <a class="{{ item.class }}" href="{{ item.path }}">{{ item.name|trans }}</a>
 
                             {% endif %}
                             </li>

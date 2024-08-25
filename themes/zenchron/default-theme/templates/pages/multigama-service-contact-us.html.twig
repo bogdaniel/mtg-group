@@ -16,8 +16,8 @@
                 <!-- Breadcrumb Row -->
                 <nav aria-label="breadcrumb" class="breadcrumb-row">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Acasa</a></li>
-                        <li class="breadcrumb-item">Contact</li>
+                        <li class="breadcrumb-item"><a href="#">{% trans %}Acasa{% endtrans %}</a></li>
+                        <li class="breadcrumb-item">{% trans %}Contact{% endtrans %}</li>
                     </ul>
                 </nav>
                 <!-- Breadcrumb Row End -->
@@ -35,7 +35,7 @@
             <div class="row m-b50">
                 <div class="col-lg-6">
                     <div class="section-head style-2">
-                        <h6 class="sub-title text-primary">CONTACT INFO</h6>
+                        <h6 class="sub-title text-primary">{% trans %}CONTACT INFO{% endtrans %}</h6>
 {#                        <h2 class="title">CONTACT</h2>#}
                     </div>
                     <div class="icon-bx-wraper m-b30 style-10 box-hover">
@@ -45,7 +45,7 @@
 								</span>
                         </div>
                         <div class="icon-content">
-                            <h4 class="dz-title">Telefon</h4>
+                            <h4 class="dz-title">{% trans %}Telefon{% endtrans %}</h4>
                             <p>021 324 80 80</p>
                         </div>
                     </div>
@@ -56,8 +56,8 @@
 								</span>
                         </div>
                         <div class="icon-content">
-                            <h4 class="dz-title">Adresa</h4>
-                            <p>Str. Sapte Drumuri, Nr. 9, Sector 3, București</p>
+                            <h4 class="dz-title">{% trans %}Adresa{% endtrans %}</h4>
+                            <p>{% trans %}Str. Sapte Drumuri, Nr. 9, Sector 3, București{% endtrans %}</p>
                         </div>
                     </div>
                     <div class="icon-bx-wraper m-b30 style-10 box-hover">
@@ -67,7 +67,7 @@
 								</span>
                         </div>
                         <div class="icon-content">
-                            <h4 class="dz-title">Email Address</h4>
+                            <h4 class="dz-title">{% trans %}Email Address{% endtrans %}</h4>
                             <p>office@multigama.ro</p>
                         </div>
                     </div>
@@ -119,11 +119,11 @@
                             <div class="col-12 m-b20">
                                 <div class="input-group">
                                     {# Render the 'message' field as a textarea with placeholder #}
-                                    {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Message'}}) }}
+                                    {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Mesaj'}}) }}
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Trimite</button>
+                                <button type="submit" class="btn btn-primary">{% trans %}Trimite{% endtrans %}</button>
                             </div>
                         </div>
 

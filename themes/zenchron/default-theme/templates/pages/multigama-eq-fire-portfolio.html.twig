@@ -14,8 +14,8 @@
                 <!-- Breadcrumb Row -->
                 <nav aria-label="breadcrumb" class="breadcrumb-row">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Acasa</a></li>
-                        <li class="breadcrumb-item">Proiecte</li>
+                        <li class="breadcrumb-item"><a href="#">{% trans %}Acasa{% endtrans %}</a></li>
+                        <li class="breadcrumb-item">{% trans %}Proiecte{% endtrans %}</li>
                     </ul>
                 </nav>
                 <!-- Breadcrumb Row End -->
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h4>Lista Proiecte</h4>
+                    <h4>{% trans %}Lista Proiecte{% endtrans %}</h4>
                 </div>
             </div>
             <div class="row">
@@ -41,12 +41,12 @@
                     <table class="table table-bordered table-hover">
                         <thead class="table-dark">
                         <tr>
-                            <th>Nume Proiect</th>
-                            <th>Data Proiectului</th>
-                            <th>Descriere Proiect</th>
-                            <th>Tara</th>
-                            <th>Model Pompe</th>
-                            <th>Descriere Pompe</th>
+                            <th>{% trans %}Nume Proiect{% endtrans %}</th>
+                            <th>{% trans %}Data Proiectului{% endtrans %}</th>
+                            <th>{% trans %}Descriere Proiect{% endtrans %}</th>
+                            <th>{% trans %}Tara{% endtrans %}</th>
+                            <th>{% trans %}Model Pompe{% endtrans %}</th>
+                            <th>{% trans %}Descriere Pompe{% endtrans %}</th>
                             <!-- Add more headers based on the Project entity and relations -->
                         </tr>
                         </thead>
@@ -63,7 +63,7 @@
                             </tr>
                         {% else %}
                             <tr>
-                                <td colspan="3">No projects found.</td>
+                                <td colspan="3">{% trans %}Nu au fost gasite proiecte.{% endtrans %}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
